@@ -1,0 +1,6 @@
+framework module CHNavBar {
+  umbrella header "CHNavBar-umbrella.h"
+
+  export *
+  module * { export * }
+}

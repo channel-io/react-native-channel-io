@@ -1,0 +1,137 @@
+[
+  {
+    "name": "United States",
+    "callingCode": "1",
+    "code": "US"
+  },
+  {
+    "name": "Canada",
+    "callingCode": "1",
+    "code": "CA"
+  },
+  {
+    "name": "Russia",
+    "callingCode": "7",
+    "code": "RU"
+  },
+  {
+    "name": "South Africa",
+    "callingCode": "27",
+    "code": "ZA"
+  },
+  {
+    "name": "France",
+    "callingCode": "33",
+    "code": "FR"
+  },
+  {
+    "name": "Italy",
+    "callingCode": "39",
+    "code": "IT"
+  },
+  {
+    "name": "United Kingdom",
+    "callingCode": "44",
+    "code": "GB"
+  },
+  {
+    "name": "Germany",
+    "callingCode": "49",
+    "code": "DE"
+  },
+  {
+    "name": "Mexico",
+    "callingCode": "52",
+    "code": "MX"
+  },
+  {
+    "name": "Argentina",
+    "callingCode": "54",
+    "code": "AR"
+  },
+  {
+    "name": "Brazil",
+    "callingCode": "55",
+    "code": "BR"
+  },
+  {
+    "name": "Malaysia",
+    "callingCode": "60",
+    "code": "MY"
+  },
+  {
+    "name": "Australia",
+    "callingCode": "61",
+    "code": "AU"
+  },
+  {
+    "name": "Indonesia",
+    "callingCode": "62",
+    "code": "ID"
+  },
+  {
+    "name": "Philippines",
+    "callingCode": "63",
+    "code": "PH"
+  },
+  {
+    "name": "Singapore",
+    "callingCode": "65",
+    "code": "SG"
+  },
+  {
+    "name": "Thailand",
+    "callingCode": "66",
+    "code": "TH"
+  },
+  {
+    "name": "Japan",
+    "callingCode": "81",
+    "code": "JP"
+  },
+  {
+    "name": "Korea",
+    "callingCode": "82",
+    "code": "KR"
+  },
+  {
+    "name": "Vietnam",
+    "callingCode": "84",
+    "code": "VN"
+  },
+  {
+    "name": "China",
+    "callingCode": "86",
+    "code": "CN"
+  },
+  {
+    "name": "Turkey",
+    "callingCode": "90",
+    "code": "TR"
+  },
+  {
+    "name": "India",
+    "callingCode": "91",
+    "code": "IN"
+  },
+  {
+    "name": "Hong Kong",
+    "callingCode": "852",
+    "code": "HK"
+  },
+  {
+    "name": "Macau",
+    "callingCode": "853",
+    "code": "MO"
+  },
+  {
+    "name": "Taiwan",
+    "callingCode": "886",
+    "code": "TW"
+  },
+  {
+    "name": "Saudi Arabia",
+    "callingCode": "966",
+    "code": "SA"
+  }
+]

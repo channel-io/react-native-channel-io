@@ -1,0 +1,6 @@
+framework module ChannelIO {
+  umbrella header "ChannelIO-umbrella.h"
+
+  export *
+  module * { export * }
+}

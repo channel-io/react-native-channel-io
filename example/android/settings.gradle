@@ -1,0 +1,5 @@
+rootProject.name = 'example'
+include ':react-native-channel-io'
+project(':react-native-channel-io').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-channel-io/android')
+
+include ':app'
