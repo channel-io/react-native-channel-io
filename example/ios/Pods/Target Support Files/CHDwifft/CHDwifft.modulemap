@@ -1,6 +1,0 @@
-framework module CHDwifft {
-  umbrella header "CHDwifft-umbrella.h"
-
-  export *
-  module * { export * }
-}
