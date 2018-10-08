@@ -74,10 +74,8 @@ struct UpdateVisibilityOfTranslation: Action {
 struct UserChatActions {
   static func openAgreement() {
     let locale = CHUtils.getLocale() ?? .korean
-    let url = "https://channel.io/" +
-      locale.rawValue +
-      "/terms_user?channel=" +
-      (mainStore.state.channel.name.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "")
+    let url = "https://channel.io/" + locale.rawValue +
+      "/terms_user?channel_id=" + mainStore.state.channel.id
     
     guard let link = URL(string: url) else { return }
     link.open()

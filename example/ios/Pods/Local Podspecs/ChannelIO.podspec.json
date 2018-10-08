@@ -1,6 +1,6 @@
 {
   "name": "ChannelIO",
-  "version": "4.1.5",
+  "version": "4.1.7",
   "summary": "Channel plugin for iOS",
   "description": "Channel Plugin for iOS",
   "homepage": "https://www.channel.io",
@@ -13,7 +13,7 @@
   },
   "source": {
     "git": "https://github.com/zoyi/channel-plugin-ios.git",
-    "tag": "4.1.5"
+    "tag": "4.1.7"
   },
   "platforms": {
     "ios": "9.0"
@@ -29,25 +29,25 @@
   ],
   "dependencies": {
     "Reusable": [
-
+      "~> 4.0"
     ],
     "SnapKit": [
-
+      "~> 4.0"
     ],
     "ManualLayout": [
 
     ],
     "HexColors": [
-
+      "~> 6.0"
     ],
     "SwiftyJSON": [
-
+      "~> 4.0"
     ],
     "Then": [
 
     ],
     "ReSwift": [
-
+      "~> 4.0"
     ],
     "RxSwift": [
       "~> 4.0"
@@ -59,7 +59,7 @@
       "~> 3.3"
     ],
     "NVActivityIndicatorView": [
-
+      "~> 4.4.0"
     ],
     "CHDwifft": [
 
@@ -68,7 +68,7 @@
       "~> 3.8.1"
     ],
     "Alamofire": [
-
+      "~> 4.7.1"
     ],
     "CGFloatLiteral": [
 
@@ -86,7 +86,7 @@
 
     ],
     "Lightbox": [
-
+      "2.1.2"
     ],
     "SVProgressHUD": [
 
@@ -95,13 +95,13 @@
 
     ],
     "PhoneNumberKit": [
-
+      "~> 2.5.0"
     ],
     "CHNavBar": [
 
     ],
     "SDWebImage": [
-
+      "~> 4.4.2"
     ],
     "SDWebImage/GIF": [
 

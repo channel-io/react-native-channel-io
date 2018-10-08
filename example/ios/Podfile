@@ -7,14 +7,4 @@ target 'example' do
 
   # Pods for example
   pod 'ChannelIO', :git => 'https://github.com/zoyi/channel-plugin-ios.git', :branch => 'react-native-support'
-  target 'example-tvOSTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'exampleTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
 end

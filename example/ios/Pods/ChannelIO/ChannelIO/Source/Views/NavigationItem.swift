@@ -24,7 +24,7 @@ class CHNavigationBar: UINavigationBar {
       for subview in self.subviews {
         if String(describing: subview.classForCoder).contains("ContentView") {
           //let oldEdges = subview.layoutMargins
-          subview.layoutMargins = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+          subview.layoutMargins = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         }
       }
     }

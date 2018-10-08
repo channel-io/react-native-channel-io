@@ -2,32 +2,32 @@ PODS:
   - Alamofire (4.7.3)
   - Cache (4.2.0)
   - CGFloatLiteral (0.4.0)
-  - ChannelIO (4.1.5):
-    - Alamofire
+  - ChannelIO (4.1.7):
+    - Alamofire (~> 4.7.1)
     - CGFloatLiteral
     - CHDwifft
     - CHNavBar
     - CHSlackTextViewController
     - CRToast
     - DKImagePickerController (~> 3.8.1)
-    - HexColors
-    - Lightbox
+    - HexColors (~> 6.0)
+    - Lightbox (= 2.1.2)
     - M13ProgressSuite
     - ManualLayout
     - MGSwipeTableCell
-    - NVActivityIndicatorView
+    - NVActivityIndicatorView (~> 4.4.0)
     - ObjectMapper (~> 3.3)
-    - PhoneNumberKit
-    - ReSwift
-    - Reusable
+    - PhoneNumberKit (~> 2.5.0)
+    - ReSwift (~> 4.0)
+    - Reusable (~> 4.0)
     - RxCocoa (~> 4.0)
     - RxSwift (~> 4.0)
-    - SDWebImage
+    - SDWebImage (~> 4.4.2)
     - SDWebImage/GIF
-    - SnapKit
+    - SnapKit (~> 4.0)
     - Socket.IO-Client-Swift (~> 13.1.0)
     - SVProgressHUD
-    - SwiftyJSON
+    - SwiftyJSON (~> 4.0)
     - Then
   - CHDwifft (0.7.2)
   - CHNavBar (1.1.12)
@@ -53,11 +53,11 @@ PODS:
     - NVActivityIndicatorView/Presenter (= 4.4.0)
   - NVActivityIndicatorView/Presenter (4.4.0)
   - ObjectMapper (3.3.0)
-  - PhoneNumberKit (2.1.0):
-    - PhoneNumberKit/PhoneNumberKitCore (= 2.1.0)
-    - PhoneNumberKit/UIKit (= 2.1.0)
-  - PhoneNumberKit/PhoneNumberKitCore (2.1.0)
-  - PhoneNumberKit/UIKit (2.1.0):
+  - PhoneNumberKit (2.5.0):
+    - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
+    - PhoneNumberKit/UIKit (= 2.5.0)
+  - PhoneNumberKit/PhoneNumberKitCore (2.5.0)
+  - PhoneNumberKit/UIKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore
   - ReSwift (4.0.1)
   - Reusable (4.0.3):
@@ -65,9 +65,9 @@ PODS:
     - Reusable/View (= 4.0.3)
   - Reusable/Storyboard (4.0.3)
   - Reusable/View (4.0.3)
-  - RxCocoa (4.3.0):
+  - RxCocoa (4.3.1):
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.0)
+  - RxSwift (4.3.1)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -79,8 +79,8 @@ PODS:
     - Starscream (~> 3.0.2)
   - Starscream (3.0.5)
   - SVProgressHUD (2.2.5)
-  - SwiftyJSON (4.1.0)
-  - Then (2.3.0)
+  - SwiftyJSON (4.2.0)
+  - Then (2.4.0)
 
 DEPENDENCIES:
   - ChannelIO (from `https://github.com/zoyi/channel-plugin-ios.git`, branch `react-native-support`)
@@ -125,14 +125,14 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   ChannelIO:
-    :commit: 736f2976b06694118cbe444868a0edf741e7a47f
+    :commit: 524d334288c23aa0f63f5049838846cd1c8ca572
     :git: https://github.com/zoyi/channel-plugin-ios.git
 
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   Cache: f28f8dd64b632155aabf9b3906b036a659048251
   CGFloatLiteral: 2ab558b74124b584dd023a35b7e41795a61d8140
-  ChannelIO: 093eccae6ff9fa35f7bc2d3158bfbb27252709e5
+  ChannelIO: 7a1f6f5e3bdd02a177518d153739d5569797209d
   CHDwifft: a4d6f7afff101fb4947410939123393960d28425
   CHNavBar: 943d366835f4eac3cd4b69165f01f59e11888115
   CHSlackTextViewController: 2ac856e9cb50aa6281e43f5e11c348d9e81d9081
@@ -148,19 +148,19 @@ SPEC CHECKSUMS:
   MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
-  PhoneNumberKit: 62003f40ff75315fd3738286558bc365365ac222
+  PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
-  RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
-  RxSwift: a9717a34df3179fe63563f76e046ad345078dd3a
+  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
+  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: faf918b2f2eff7d5dd21180646bf015a669673bd
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
-  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
-  Then: ee21c97b85ff6062b9b0080c9abb1eea46743345
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
+  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
 
-PODFILE CHECKSUM: 72e8edf342d00b2c7a630fe22ba6863126353389
+PODFILE CHECKSUM: 7a1563e757617a72993e153baeb7431c9f618d5c
 
 COCOAPODS: 1.5.3

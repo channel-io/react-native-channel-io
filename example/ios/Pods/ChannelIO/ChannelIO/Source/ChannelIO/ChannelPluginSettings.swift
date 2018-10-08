@@ -55,14 +55,12 @@ public class ChannelPluginSettings: NSObject, NSCoding {
       }
     }
     set {
-      if newValue == .english {
-        self.appLocale = .english
-      } else if newValue == .korean {
+      if newValue == .korean {
         self.appLocale = .korean
       } else if newValue == .japanese {
         self.appLocale = .japanese
       } else {
-        self.appLocale = nil
+        self.appLocale = .english
       }
     }
   }

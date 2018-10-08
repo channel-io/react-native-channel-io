@@ -1,6 +1,0 @@
-framework module CHSlackTextViewController {
-  umbrella header "CHSlackTextViewController-umbrella.h"
-
-  export *
-  module * { export * }
-}

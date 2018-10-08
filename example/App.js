@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View} from 'react-native';
-
+import {ChannelIO} from 'react-native-channel-io'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -18,6 +18,16 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
+  componentDidMount() {
+    let settings = {
+      "pluginKey": "06ccfc12-a9fd-4c68-b364-5d19f81a60dd"
+    }
+
+    ChannelIO.boot(settings)
+      .then((result) => {
+
+      })
+  }
   render() {
     return (
       <View style={styles.container}>

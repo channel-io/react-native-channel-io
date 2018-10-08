@@ -17,7 +17,7 @@ open class PhoneNumberTextField: UITextField, UITextFieldDelegate {
     /// Override setText so number will be automatically formatted when setting text by code
     override open var text: String? {
         set {
-            if newValue != nil {
+            if isPartialFormatterEnabled && newValue != nil {
                 let formattedNumber = partialFormatter.formatPartial(newValue! as String)
                 super.text = formattedNumber
             }
@@ -202,10 +202,16 @@ open class PhoneNumberTextField: UITextField, UITextFieldDelegate {
     }
     
     open func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+
+        // This allows for the case when a user autocompletes a phone number:
+        if range == NSRange(location: 0, length: 0) && string == " " {
+            return true
+        }
+
         guard let text = text else {
             return false
         }
-        
+
         // allow delegate to intervene
         guard _delegate?.textField?(textField, shouldChangeCharactersIn: range, replacementString: string) ?? true else {
             return false
