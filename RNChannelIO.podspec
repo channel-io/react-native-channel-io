@@ -1,10 +1,10 @@
 
 Pod::Spec.new do |s|
-  s.name         = "RNChannelIo"
+  s.name         = "RNChannelIO"
   s.version      = "0.1.0"
-  s.summary      = "RNChannelIo"
+  s.summary      = "RNChannelIO"
   s.description  = <<-DESC
-                  RNChannelIo
+                  RNChannelIO
                    DESC
   s.homepage     = "https://channel.io"
   s.license      = "MIT"

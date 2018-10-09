@@ -6,5 +6,7 @@ target 'example' do
   use_frameworks!
 
   # Pods for example
-  pod 'ChannelIO', :git => 'https://github.com/zoyi/channel-plugin-ios.git', :branch => 'react-native-support'
+  pod 'yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
+  pod 'React', :path => '../node_modules/react-native'
+  pod 'react-native-channel-io', :path => '../..'
 end
