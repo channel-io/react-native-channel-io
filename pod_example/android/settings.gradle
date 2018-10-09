@@ -1,0 +1,3 @@
+rootProject.name = 'pod_example'
+
+include ':app'
