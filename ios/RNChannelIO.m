@@ -15,7 +15,6 @@
 #import <React/RCTEventDispatcher.h>
 
 @implementation RNChannelIO
-@synthesize bridge = _bridge;
 
 RCT_EXPORT_MODULE()
 
@@ -58,13 +57,12 @@ RCT_EXPORT_MODULE()
 }
 
 RCT_EXPORT_METHOD(boot:(id)settings
-                  profile:(id)profile
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   ChannelPluginSettings * pluginSettings = [RCTConvert settings:settings];
-  Profile *userProfile = [RCTConvert profile:profile];
+  Profile *userProfile = [RCTConvert profile:settings[@"profile"]];
   [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, Guest *guest) {
-    resolve(@{@"status": @(status), @"guest": guest});
+    resolve(@{@"status": @(status), @"guest": guest == nil ? guest : NSNull.null });
   }];
 }
 

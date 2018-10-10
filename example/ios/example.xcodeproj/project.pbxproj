@@ -23,100 +23,8 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
-		229210A9216BB68900CFDD87 /* libRNChannelIo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210A8216BB61B00CFDD87 /* libRNChannelIo.a */; };
-		229210FE216BCB6500CFDD87 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DE216BCB6200CFDD87 /* Starscream.framework */; };
-		229210FF216BCB6500CFDD87 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DF216BCB6200CFDD87 /* SnapKit.framework */; };
-		22921101216BCB6500CFDD87 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E1216BCB6200CFDD87 /* Alamofire.framework */; };
-		22921102216BCB6500CFDD87 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E2216BCB6200CFDD87 /* RxBlocking.framework */; };
-		22921103216BCB6500CFDD87 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E3216BCB6200CFDD87 /* Cache.framework */; };
-		22921105216BCB6500CFDD87 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E5216BCB6300CFDD87 /* Reusable.framework */; };
-		22921106216BCB6500CFDD87 /* CHNavBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E6216BCB6300CFDD87 /* CHNavBar.framework */; };
-		22921107216BCB6500CFDD87 /* HexColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E7216BCB6300CFDD87 /* HexColors.framework */; };
-		22921108216BCB6500CFDD87 /* M13ProgressSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E8216BCB6300CFDD87 /* M13ProgressSuite.framework */; };
-		22921109216BCB6500CFDD87 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E9216BCB6300CFDD87 /* SwiftyJSON.framework */; };
-		2292110A216BCB6500CFDD87 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EA216BCB6300CFDD87 /* NVActivityIndicatorView.framework */; };
-		2292110B216BCB6500CFDD87 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EB216BCB6300CFDD87 /* RxSwift.framework */; };
-		2292110C216BCB6500CFDD87 /* CHSlackTextViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EC216BCB6300CFDD87 /* CHSlackTextViewController.framework */; };
-		2292110D216BCB6500CFDD87 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210ED216BCB6300CFDD87 /* SVProgressHUD.framework */; };
-		2292110E216BCB6500CFDD87 /* DKImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EE216BCB6300CFDD87 /* DKImagePickerController.framework */; };
-		2292110F216BCB6500CFDD87 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EF216BCB6300CFDD87 /* PhoneNumberKit.framework */; };
-		22921110216BCB6500CFDD87 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F0216BCB6300CFDD87 /* SocketIO.framework */; };
-		22921111216BCB6500CFDD87 /* ManualLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F1216BCB6300CFDD87 /* ManualLayout.framework */; };
-		22921112216BCB6500CFDD87 /* Lightbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F2216BCB6400CFDD87 /* Lightbox.framework */; };
-		22921113216BCB6500CFDD87 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F3216BCB6400CFDD87 /* ReSwift.framework */; };
-		22921114216BCB6500CFDD87 /* ChannelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F4216BCB6400CFDD87 /* ChannelIO.framework */; };
-		22921115216BCB6500CFDD87 /* Imaginary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F5216BCB6400CFDD87 /* Imaginary.framework */; };
-		22921116216BCB6500CFDD87 /* CGFloatLiteral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F6216BCB6400CFDD87 /* CGFloatLiteral.framework */; };
-		22921117216BCB6500CFDD87 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F7216BCB6400CFDD87 /* MGSwipeTableCell.framework */; };
-		22921118216BCB6500CFDD87 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F8216BCB6400CFDD87 /* RxCocoa.framework */; };
-		22921119216BCB6500CFDD87 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F9216BCB6400CFDD87 /* ObjectMapper.framework */; };
-		2292111A216BCB6500CFDD87 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FA216BCB6400CFDD87 /* Then.framework */; };
-		2292111B216BCB6500CFDD87 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FB216BCB6400CFDD87 /* SDWebImage.framework */; };
-		2292111C216BCB6500CFDD87 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FC216BCB6400CFDD87 /* CRToast.framework */; };
-		2292111D216BCB6500CFDD87 /* CHDwifft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FD216BCB6500CFDD87 /* CHDwifft.framework */; };
-		2292115C216BD77800CFDD87 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E1216BCB6200CFDD87 /* Alamofire.framework */; };
-		2292115D216BD77800CFDD87 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E1216BCB6200CFDD87 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292115E216BD77800CFDD87 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E3216BCB6200CFDD87 /* Cache.framework */; };
-		2292115F216BD77800CFDD87 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E3216BCB6200CFDD87 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921160216BD77800CFDD87 /* CGFloatLiteral.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F6216BCB6400CFDD87 /* CGFloatLiteral.framework */; };
-		22921161216BD77800CFDD87 /* CGFloatLiteral.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F6216BCB6400CFDD87 /* CGFloatLiteral.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921162216BD77800CFDD87 /* ChannelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F4216BCB6400CFDD87 /* ChannelIO.framework */; };
-		22921163216BD77800CFDD87 /* ChannelIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F4216BCB6400CFDD87 /* ChannelIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921164216BD77800CFDD87 /* CHDwifft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FD216BCB6500CFDD87 /* CHDwifft.framework */; };
-		22921165216BD77800CFDD87 /* CHDwifft.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FD216BCB6500CFDD87 /* CHDwifft.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921166216BD77800CFDD87 /* CHNavBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E6216BCB6300CFDD87 /* CHNavBar.framework */; };
-		22921167216BD77800CFDD87 /* CHNavBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E6216BCB6300CFDD87 /* CHNavBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921168216BD77800CFDD87 /* CHSlackTextViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EC216BCB6300CFDD87 /* CHSlackTextViewController.framework */; };
-		22921169216BD77800CFDD87 /* CHSlackTextViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EC216BCB6300CFDD87 /* CHSlackTextViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292116A216BD77800CFDD87 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FC216BCB6400CFDD87 /* CRToast.framework */; };
-		2292116B216BD77800CFDD87 /* CRToast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FC216BCB6400CFDD87 /* CRToast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292116C216BD77800CFDD87 /* DKImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EE216BCB6300CFDD87 /* DKImagePickerController.framework */; };
-		2292116D216BD77800CFDD87 /* DKImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EE216BCB6300CFDD87 /* DKImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292116E216BD77800CFDD87 /* HexColors.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E7216BCB6300CFDD87 /* HexColors.framework */; };
-		2292116F216BD77800CFDD87 /* HexColors.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E7216BCB6300CFDD87 /* HexColors.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921170216BD77800CFDD87 /* Imaginary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F5216BCB6400CFDD87 /* Imaginary.framework */; };
-		22921171216BD77800CFDD87 /* Imaginary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F5216BCB6400CFDD87 /* Imaginary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921172216BD77800CFDD87 /* Lightbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F2216BCB6400CFDD87 /* Lightbox.framework */; };
-		22921173216BD77800CFDD87 /* Lightbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F2216BCB6400CFDD87 /* Lightbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921174216BD77800CFDD87 /* M13ProgressSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E8216BCB6300CFDD87 /* M13ProgressSuite.framework */; };
-		22921175216BD77800CFDD87 /* M13ProgressSuite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E8216BCB6300CFDD87 /* M13ProgressSuite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921176216BD77800CFDD87 /* ManualLayout.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F1216BCB6300CFDD87 /* ManualLayout.framework */; };
-		22921177216BD77800CFDD87 /* ManualLayout.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F1216BCB6300CFDD87 /* ManualLayout.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921178216BD77800CFDD87 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F7216BCB6400CFDD87 /* MGSwipeTableCell.framework */; };
-		22921179216BD77800CFDD87 /* MGSwipeTableCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F7216BCB6400CFDD87 /* MGSwipeTableCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292117A216BD77800CFDD87 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EA216BCB6300CFDD87 /* NVActivityIndicatorView.framework */; };
-		2292117B216BD77800CFDD87 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EA216BCB6300CFDD87 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292117C216BD77800CFDD87 /* NVActivityIndicatorViewAppExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E0216BCB6200CFDD87 /* NVActivityIndicatorViewAppExtension.framework */; };
-		2292117D216BD77800CFDD87 /* NVActivityIndicatorViewAppExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E0216BCB6200CFDD87 /* NVActivityIndicatorViewAppExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292117E216BD77800CFDD87 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F9216BCB6400CFDD87 /* ObjectMapper.framework */; };
-		2292117F216BD77800CFDD87 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F9216BCB6400CFDD87 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921180216BD77800CFDD87 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EF216BCB6300CFDD87 /* PhoneNumberKit.framework */; };
-		22921181216BD77800CFDD87 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EF216BCB6300CFDD87 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921182216BD77800CFDD87 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F3216BCB6400CFDD87 /* ReSwift.framework */; };
-		22921183216BD77800CFDD87 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F3216BCB6400CFDD87 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921184216BD77800CFDD87 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E5216BCB6300CFDD87 /* Reusable.framework */; };
-		22921185216BD77800CFDD87 /* Reusable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E5216BCB6300CFDD87 /* Reusable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921186216BD77800CFDD87 /* RxBlocking.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E2216BCB6200CFDD87 /* RxBlocking.framework */; };
-		22921187216BD77800CFDD87 /* RxBlocking.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E2216BCB6200CFDD87 /* RxBlocking.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921188216BD77800CFDD87 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F8216BCB6400CFDD87 /* RxCocoa.framework */; };
-		22921189216BD77800CFDD87 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F8216BCB6400CFDD87 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292118A216BD77800CFDD87 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EB216BCB6300CFDD87 /* RxSwift.framework */; };
-		2292118B216BD77800CFDD87 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210EB216BCB6300CFDD87 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292118C216BD77800CFDD87 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FB216BCB6400CFDD87 /* SDWebImage.framework */; };
-		2292118D216BD77800CFDD87 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FB216BCB6400CFDD87 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		2292118E216BD77800CFDD87 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DF216BCB6200CFDD87 /* SnapKit.framework */; };
-		2292118F216BD77800CFDD87 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DF216BCB6200CFDD87 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921190216BD77800CFDD87 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F0216BCB6300CFDD87 /* SocketIO.framework */; };
-		22921191216BD77800CFDD87 /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210F0216BCB6300CFDD87 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921192216BD77800CFDD87 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DE216BCB6200CFDD87 /* Starscream.framework */; };
-		22921193216BD77800CFDD87 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210DE216BCB6200CFDD87 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921194216BD77800CFDD87 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210ED216BCB6300CFDD87 /* SVProgressHUD.framework */; };
-		22921195216BD77800CFDD87 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210ED216BCB6300CFDD87 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921196216BD77800CFDD87 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E9216BCB6300CFDD87 /* SwiftyJSON.framework */; };
-		22921197216BD77800CFDD87 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210E9216BCB6300CFDD87 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		22921198216BD77800CFDD87 /* Then.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FA216BCB6400CFDD87 /* Then.framework */; };
-		22921199216BD77800CFDD87 /* Then.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 229210FA216BCB6400CFDD87 /* Then.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
+		85F434FCFF5CD375FAD1436D /* Pods_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7BEC78FF20741E6729DB3B /* Pods_example.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -183,13 +91,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = 83CBBA2E1A601D0E00E9B192;
 			remoteInfo = React;
-		};
-		229210A7216BB61B00CFDD87 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 229210A3216BB61B00CFDD87 /* RNChannelIO.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 134814201AA4EA6300B7C361;
-			remoteInfo = RNChannelIO;
 		};
 		22DAE039216B9D07000CFBBE /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -403,37 +304,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				2292117F216BD77800CFDD87 /* ObjectMapper.framework in Embed Frameworks */,
-				22921193216BD77800CFDD87 /* Starscream.framework in Embed Frameworks */,
-				22921177216BD77800CFDD87 /* ManualLayout.framework in Embed Frameworks */,
-				22921179216BD77800CFDD87 /* MGSwipeTableCell.framework in Embed Frameworks */,
-				2292117B216BD77800CFDD87 /* NVActivityIndicatorView.framework in Embed Frameworks */,
-				22921189216BD77800CFDD87 /* RxCocoa.framework in Embed Frameworks */,
-				2292118F216BD77800CFDD87 /* SnapKit.framework in Embed Frameworks */,
-				22921165216BD77800CFDD87 /* CHDwifft.framework in Embed Frameworks */,
-				22921167216BD77800CFDD87 /* CHNavBar.framework in Embed Frameworks */,
-				22921163216BD77800CFDD87 /* ChannelIO.framework in Embed Frameworks */,
-				22921187216BD77800CFDD87 /* RxBlocking.framework in Embed Frameworks */,
-				22921173216BD77800CFDD87 /* Lightbox.framework in Embed Frameworks */,
-				2292115D216BD77800CFDD87 /* Alamofire.framework in Embed Frameworks */,
-				22921169216BD77800CFDD87 /* CHSlackTextViewController.framework in Embed Frameworks */,
-				22921199216BD77800CFDD87 /* Then.framework in Embed Frameworks */,
-				22921197216BD77800CFDD87 /* SwiftyJSON.framework in Embed Frameworks */,
-				2292116D216BD77800CFDD87 /* DKImagePickerController.framework in Embed Frameworks */,
-				2292117D216BD77800CFDD87 /* NVActivityIndicatorViewAppExtension.framework in Embed Frameworks */,
-				22921191216BD77800CFDD87 /* SocketIO.framework in Embed Frameworks */,
-				2292116B216BD77800CFDD87 /* CRToast.framework in Embed Frameworks */,
-				22921195216BD77800CFDD87 /* SVProgressHUD.framework in Embed Frameworks */,
-				2292118D216BD77800CFDD87 /* SDWebImage.framework in Embed Frameworks */,
-				22921183216BD77800CFDD87 /* ReSwift.framework in Embed Frameworks */,
-				22921175216BD77800CFDD87 /* M13ProgressSuite.framework in Embed Frameworks */,
-				22921181216BD77800CFDD87 /* PhoneNumberKit.framework in Embed Frameworks */,
-				22921161216BD77800CFDD87 /* CGFloatLiteral.framework in Embed Frameworks */,
-				2292116F216BD77800CFDD87 /* HexColors.framework in Embed Frameworks */,
-				2292118B216BD77800CFDD87 /* RxSwift.framework in Embed Frameworks */,
-				22921171216BD77800CFDD87 /* Imaginary.framework in Embed Frameworks */,
-				2292115F216BD77800CFDD87 /* Cache.framework in Embed Frameworks */,
-				22921185216BD77800CFDD87 /* Reusable.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -460,44 +330,13 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = example/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = example/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		229210A3216BB61B00CFDD87 /* RNChannelIO.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNChannelIO.xcodeproj; path = "../node_modules/react-native-channel-io/ios/RNChannelIO.xcodeproj"; sourceTree = "<group>"; };
-		229210DE216BCB6200CFDD87 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
-		229210DF216BCB6200CFDD87 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
-		229210E0216BCB6200CFDD87 /* NVActivityIndicatorViewAppExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorViewAppExtension.framework; path = Carthage/Build/iOS/NVActivityIndicatorViewAppExtension.framework; sourceTree = "<group>"; };
-		229210E1216BCB6200CFDD87 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
-		229210E2216BCB6200CFDD87 /* RxBlocking.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxBlocking.framework; path = Carthage/Build/iOS/RxBlocking.framework; sourceTree = "<group>"; };
-		229210E3216BCB6200CFDD87 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
-		229210E5216BCB6300CFDD87 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
-		229210E6216BCB6300CFDD87 /* CHNavBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHNavBar.framework; path = Carthage/Build/iOS/CHNavBar.framework; sourceTree = "<group>"; };
-		229210E7216BCB6300CFDD87 /* HexColors.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HexColors.framework; path = Carthage/Build/iOS/HexColors.framework; sourceTree = "<group>"; };
-		229210E8216BCB6300CFDD87 /* M13ProgressSuite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13ProgressSuite.framework; path = Carthage/Build/iOS/M13ProgressSuite.framework; sourceTree = "<group>"; };
-		229210E9216BCB6300CFDD87 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		229210EA216BCB6300CFDD87 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
-		229210EB216BCB6300CFDD87 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
-		229210EC216BCB6300CFDD87 /* CHSlackTextViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHSlackTextViewController.framework; path = Carthage/Build/iOS/CHSlackTextViewController.framework; sourceTree = "<group>"; };
-		229210ED216BCB6300CFDD87 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
-		229210EE216BCB6300CFDD87 /* DKImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DKImagePickerController.framework; path = Carthage/Build/iOS/DKImagePickerController.framework; sourceTree = "<group>"; };
-		229210EF216BCB6300CFDD87 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
-		229210F0216BCB6300CFDD87 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
-		229210F1216BCB6300CFDD87 /* ManualLayout.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ManualLayout.framework; path = Carthage/Build/iOS/ManualLayout.framework; sourceTree = "<group>"; };
-		229210F2216BCB6400CFDD87 /* Lightbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lightbox.framework; path = Carthage/Build/iOS/Lightbox.framework; sourceTree = "<group>"; };
-		229210F3216BCB6400CFDD87 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
-		229210F4216BCB6400CFDD87 /* ChannelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChannelIO.framework; path = Carthage/Build/iOS/ChannelIO.framework; sourceTree = "<group>"; };
-		229210F5216BCB6400CFDD87 /* Imaginary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imaginary.framework; path = Carthage/Build/iOS/Imaginary.framework; sourceTree = "<group>"; };
-		229210F6216BCB6400CFDD87 /* CGFloatLiteral.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CGFloatLiteral.framework; path = Carthage/Build/iOS/CGFloatLiteral.framework; sourceTree = "<group>"; };
-		229210F7216BCB6400CFDD87 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = Carthage/Build/iOS/MGSwipeTableCell.framework; sourceTree = "<group>"; };
-		229210F8216BCB6400CFDD87 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
-		229210F9216BCB6400CFDD87 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
-		229210FA216BCB6400CFDD87 /* Then.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Then.framework; path = Carthage/Build/iOS/Then.framework; sourceTree = "<group>"; };
-		229210FB216BCB6400CFDD87 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
-		229210FC216BCB6400CFDD87 /* CRToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CRToast.framework; path = Carthage/Build/iOS/CRToast.framework; sourceTree = "<group>"; };
-		229210FD216BCB6500CFDD87 /* CHDwifft.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHDwifft.framework; path = Carthage/Build/iOS/CHDwifft.framework; sourceTree = "<group>"; };
-		2D16E6891FA4F8E400B85C8A /* libReact.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libReact.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		2B7BEC78FF20741E6729DB3B /* Pods_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
+		5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.debug.xcconfig"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
-		7DE227AEBDA24EF89AB0BC61 /* libRNChannelIo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNChannelIo.a; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
+		E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -513,80 +352,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22921182216BD77800CFDD87 /* ReSwift.framework in Frameworks */,
-				22921184216BD77800CFDD87 /* Reusable.framework in Frameworks */,
-				2292117C216BD77800CFDD87 /* NVActivityIndicatorViewAppExtension.framework in Frameworks */,
-				22921180216BD77800CFDD87 /* PhoneNumberKit.framework in Frameworks */,
-				2292118C216BD77800CFDD87 /* SDWebImage.framework in Frameworks */,
-				2292110F216BCB6500CFDD87 /* PhoneNumberKit.framework in Frameworks */,
-				22921160216BD77800CFDD87 /* CGFloatLiteral.framework in Frameworks */,
 				ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */,
-				22921112216BCB6500CFDD87 /* Lightbox.framework in Frameworks */,
-				22921117216BCB6500CFDD87 /* MGSwipeTableCell.framework in Frameworks */,
-				2292111C216BCB6500CFDD87 /* CRToast.framework in Frameworks */,
-				22921174216BD77800CFDD87 /* M13ProgressSuite.framework in Frameworks */,
-				2292110B216BCB6500CFDD87 /* RxSwift.framework in Frameworks */,
-				229210FE216BCB6500CFDD87 /* Starscream.framework in Frameworks */,
-				22921162216BD77800CFDD87 /* ChannelIO.framework in Frameworks */,
-				2292118E216BD77800CFDD87 /* SnapKit.framework in Frameworks */,
-				2292115C216BD77800CFDD87 /* Alamofire.framework in Frameworks */,
-				2292110C216BCB6500CFDD87 /* CHSlackTextViewController.framework in Frameworks */,
-				2292110E216BCB6500CFDD87 /* DKImagePickerController.framework in Frameworks */,
-				2292116E216BD77800CFDD87 /* HexColors.framework in Frameworks */,
 				11D1A2F320CAFA9E000508D9 /* libRCTAnimation.a in Frameworks */,
-				2292110A216BCB6500CFDD87 /* NVActivityIndicatorView.framework in Frameworks */,
-				22921101216BCB6500CFDD87 /* Alamofire.framework in Frameworks */,
-				22921190216BD77800CFDD87 /* SocketIO.framework in Frameworks */,
-				2292116A216BD77800CFDD87 /* CRToast.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
-				22921176216BD77800CFDD87 /* ManualLayout.framework in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
-				2292118A216BD77800CFDD87 /* RxSwift.framework in Frameworks */,
-				2292111B216BCB6500CFDD87 /* SDWebImage.framework in Frameworks */,
-				22921106216BCB6500CFDD87 /* CHNavBar.framework in Frameworks */,
-				2292117E216BD77800CFDD87 /* ObjectMapper.framework in Frameworks */,
-				2292111A216BCB6500CFDD87 /* Then.framework in Frameworks */,
-				22921111216BCB6500CFDD87 /* ManualLayout.framework in Frameworks */,
-				22921119216BCB6500CFDD87 /* ObjectMapper.framework in Frameworks */,
-				2292115E216BD77800CFDD87 /* Cache.framework in Frameworks */,
-				22921115216BCB6500CFDD87 /* Imaginary.framework in Frameworks */,
-				22921103216BCB6500CFDD87 /* Cache.framework in Frameworks */,
-				22921192216BD77800CFDD87 /* Starscream.framework in Frameworks */,
-				22921114216BCB6500CFDD87 /* ChannelIO.framework in Frameworks */,
-				2292117A216BD77800CFDD87 /* NVActivityIndicatorView.framework in Frameworks */,
-				22921186216BD77800CFDD87 /* RxBlocking.framework in Frameworks */,
-				22921194216BD77800CFDD87 /* SVProgressHUD.framework in Frameworks */,
-				22921168216BD77800CFDD87 /* CHSlackTextViewController.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
-				22921110216BCB6500CFDD87 /* SocketIO.framework in Frameworks */,
-				22921107216BCB6500CFDD87 /* HexColors.framework in Frameworks */,
-				22921170216BD77800CFDD87 /* Imaginary.framework in Frameworks */,
-				22921188216BD77800CFDD87 /* RxCocoa.framework in Frameworks */,
-				2292116C216BD77800CFDD87 /* DKImagePickerController.framework in Frameworks */,
 				00C302E81ABCBA2D00DB3ED1 /* libRCTImage.a in Frameworks */,
 				133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */,
 				00C302E91ABCBA2D00DB3ED1 /* libRCTNetwork.a in Frameworks */,
-				22921109216BCB6500CFDD87 /* SwiftyJSON.framework in Frameworks */,
-				2292111D216BCB6500CFDD87 /* CHDwifft.framework in Frameworks */,
-				22921196216BD77800CFDD87 /* SwiftyJSON.framework in Frameworks */,
-				2292110D216BCB6500CFDD87 /* SVProgressHUD.framework in Frameworks */,
-				229210FF216BCB6500CFDD87 /* SnapKit.framework in Frameworks */,
-				22921118216BCB6500CFDD87 /* RxCocoa.framework in Frameworks */,
-				22921166216BD77800CFDD87 /* CHNavBar.framework in Frameworks */,
 				139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */,
-				22921178216BD77800CFDD87 /* MGSwipeTableCell.framework in Frameworks */,
 				832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */,
-				22921116216BCB6500CFDD87 /* CGFloatLiteral.framework in Frameworks */,
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
-				22921113216BCB6500CFDD87 /* ReSwift.framework in Frameworks */,
-				22921172216BD77800CFDD87 /* Lightbox.framework in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
-				229210A9216BB68900CFDD87 /* libRNChannelIo.a in Frameworks */,
-				22921198216BD77800CFDD87 /* Then.framework in Frameworks */,
-				22921102216BCB6500CFDD87 /* RxBlocking.framework in Frameworks */,
-				22921164216BD77800CFDD87 /* CHDwifft.framework in Frameworks */,
-				22921108216BCB6500CFDD87 /* M13ProgressSuite.framework in Frameworks */,
-				22921105216BCB6500CFDD87 /* Reusable.framework in Frameworks */,
+				85F434FCFF5CD375FAD1436D /* Pods_example.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -709,49 +487,10 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		229210A4216BB61B00CFDD87 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				229210A8216BB61B00CFDD87 /* libRNChannelIo.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				229210E1216BCB6200CFDD87 /* Alamofire.framework */,
-				229210E3216BCB6200CFDD87 /* Cache.framework */,
-				229210F6216BCB6400CFDD87 /* CGFloatLiteral.framework */,
-				229210F4216BCB6400CFDD87 /* ChannelIO.framework */,
-				229210FD216BCB6500CFDD87 /* CHDwifft.framework */,
-				229210E6216BCB6300CFDD87 /* CHNavBar.framework */,
-				229210EC216BCB6300CFDD87 /* CHSlackTextViewController.framework */,
-				229210FC216BCB6400CFDD87 /* CRToast.framework */,
-				229210EE216BCB6300CFDD87 /* DKImagePickerController.framework */,
-				229210E7216BCB6300CFDD87 /* HexColors.framework */,
-				229210F5216BCB6400CFDD87 /* Imaginary.framework */,
-				229210F2216BCB6400CFDD87 /* Lightbox.framework */,
-				229210E8216BCB6300CFDD87 /* M13ProgressSuite.framework */,
-				229210F1216BCB6300CFDD87 /* ManualLayout.framework */,
-				229210F7216BCB6400CFDD87 /* MGSwipeTableCell.framework */,
-				229210EA216BCB6300CFDD87 /* NVActivityIndicatorView.framework */,
-				229210E0216BCB6200CFDD87 /* NVActivityIndicatorViewAppExtension.framework */,
-				229210F9216BCB6400CFDD87 /* ObjectMapper.framework */,
-				229210EF216BCB6300CFDD87 /* PhoneNumberKit.framework */,
-				229210F3216BCB6400CFDD87 /* ReSwift.framework */,
-				229210E5216BCB6300CFDD87 /* Reusable.framework */,
-				229210E2216BCB6200CFDD87 /* RxBlocking.framework */,
-				229210F8216BCB6400CFDD87 /* RxCocoa.framework */,
-				229210EB216BCB6300CFDD87 /* RxSwift.framework */,
-				229210FB216BCB6400CFDD87 /* SDWebImage.framework */,
-				229210DF216BCB6200CFDD87 /* SnapKit.framework */,
-				229210F0216BCB6300CFDD87 /* SocketIO.framework */,
-				229210DE216BCB6200CFDD87 /* Starscream.framework */,
-				229210ED216BCB6300CFDD87 /* SVProgressHUD.framework */,
-				229210E9216BCB6300CFDD87 /* SwiftyJSON.framework */,
-				229210FA216BCB6400CFDD87 /* Then.framework */,
-				2D16E6891FA4F8E400B85C8A /* libReact.a */,
+				2B7BEC78FF20741E6729DB3B /* Pods_example.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -765,12 +504,13 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		653F6765215E2F8500988B57 /* Recovered References */ = {
+		6E60F32C535C8C8D8B14AE18 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				7DE227AEBDA24EF89AB0BC61 /* libRNChannelIo.a */,
+				5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */,
+				E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */,
 			);
-			name = "Recovered References";
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -785,7 +525,6 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
-				229210A3216BB61B00CFDD87 /* RNChannelIO.xcodeproj */,
 				5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
 				00C302A71ABCB8CE00DB3ED1 /* RCTActionSheet.xcodeproj */,
@@ -819,7 +558,7 @@
 				00E356EF1AD99517003FC87E /* exampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				653F6765215E2F8500988B57 /* Recovered References */,
+				6E60F32C535C8C8D8B14AE18 /* Pods */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -869,11 +608,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "example" */;
 			buildPhases = (
+				E7CD8370D108D210FA7AB276 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				2292119A216BD77800CFDD87 /* Embed Frameworks */,
+				6DC38A49A22456B1F68901A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -963,10 +704,6 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
-				{
-					ProductGroup = 229210A4216BB61B00CFDD87 /* Products */;
-					ProjectRef = 229210A3216BB61B00CFDD87 /* RNChannelIO.xcodeproj */;
-				},
 			);
 			projectRoot = "";
 			targets = (
@@ -1031,13 +768,6 @@
 			fileType = archive.ar;
 			path = libReact.a;
 			remoteRef = 146834031AC3E56700842450 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		229210A8216BB61B00CFDD87 /* libRNChannelIo.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRNChannelIo.a;
-			remoteRef = 229210A7216BB61B00CFDD87 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		22DAE03A216B9D07000CFBBE /* libRCTAnimation.a */ = {
@@ -1279,6 +1009,122 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
+		6DC38A49A22456B1F68901A1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-example/Pods-example-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/CGFloatLiteral/CGFloatLiteral.framework",
+				"${BUILT_PRODUCTS_DIR}/CHDwifft/CHDwifft.framework",
+				"${BUILT_PRODUCTS_DIR}/CHNavBar/CHNavBar.framework",
+				"${BUILT_PRODUCTS_DIR}/CHSlackTextViewController/CHSlackTextViewController.framework",
+				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
+				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
+				"${BUILT_PRODUCTS_DIR}/ChannelIO/ChannelIO.framework",
+				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
+				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
+				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
+				"${BUILT_PRODUCTS_DIR}/HexColors/HexColors.framework",
+				"${BUILT_PRODUCTS_DIR}/Hue/Hue.framework",
+				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
+				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
+				"${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework",
+				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/ManualLayout/ManualLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
+				"${BUILT_PRODUCTS_DIR}/RNChannelIO/RNChannelIO.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/React/React.framework",
+				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
+				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
+				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/Then/Then.framework",
+				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
+				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CGFloatLiteral.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHDwifft.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHNavBar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHSlackTextViewController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChannelIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HexColors.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hue.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13ProgressSuite.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ManualLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNChannelIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Then.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-example/Pods-example-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7CD8370D108D210FA7AB276 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-example-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1379,6 +1225,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1405,13 +1252,13 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = example;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1436,7 +1283,6 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = example;
-				SWIFT_VERSION = 4.2;
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
