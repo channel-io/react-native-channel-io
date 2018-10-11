@@ -70,8 +70,12 @@ RCT_EXPORT_METHOD(shutdown) {
   [ChannelIO shutdown];
 }
 
-RCT_EXPORT_METHOD(initPushToken:(NSData *)tokenData) {
-  [ChannelIO initPushTokenWithDeviceToken:tokenData];
+RCT_EXPORT_METHOD(initPushToken:(NSString *)token) {
+  if (token == nil || [token isEqualToString: @""]) {
+    return;
+  }
+  NSData *data = [token dataUsingEncoding:NSUTF8StringEncoding];
+  [ChannelIO initPushTokenWithDeviceToken:data];
 }
 
 RCT_EXPORT_METHOD(show:(BOOL)animated) {

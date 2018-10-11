@@ -12,9 +12,9 @@
 
 RCT_ENUM_CONVERTER(
   CHLocale,
-  (@{@"korean": @(CHLocaleKorean),
-    @"english": @(CHLocaleEnglish),
-    @"japanese": @(CHLocaleJapanese),
+  (@{@"ko": @(CHLocaleKorean),
+    @"en": @(CHLocaleEnglish),
+    @"ja": @(CHLocaleJapanese),
     @"device": @(CHLocaleDevice)
   }),
   CHLocaleDevice,
@@ -52,10 +52,19 @@ RCT_ENUM_CONVERTER(
   settings.pluginKey = [RCTConvert NSString:json[@"pluginKey"]];
   settings.debugMode = [RCTConvert BOOL:json[@"debugMode"]];
   settings.hideDefaultInAppPush = [RCTConvert BOOL:json[@"hideDefaultInAppPush"]];
-  //settings.locale = [RCTConvert int:json[@"locale"]];
   settings.launcherConfig = [RCTConvert launcherConfig:json[@"launcherConfig"]];
   settings.userId = [RCTConvert NSString:json[@"userId"]];
   
+  NSString *locale = [RCTConvert NSString:json[@"locale"]];
+  if ([locale isEqualToString:@"ko"]) {
+    settings.locale = CHLocaleKorean;
+  } else if ([locale isEqualToString:@"ja"]) {
+    setting.locale = CHLocaleJapanese;
+  } else if ([locale isEqualToString:@"en"]) {
+    settings.locale = CHLocaleEnglish;
+  } else {
+    settings.locale = CHLocaleDevice;
+  }
   return settings;
 }
 
@@ -87,7 +96,12 @@ RCT_ENUM_CONVERTER(
   
   config.xMargin = [RCTConvert float:json[@"xMargin"]];
   config.yMargin = [RCTConvert float:json[@"yMargin"]];
-  config.position = [RCTConvert int:json[@"position"]];
+  NSString *position = [RCTConvert NSString: @"position"];
+  if ([position isEqualToString:@"left"]) {
+    config.position = LauncherPositionLeft;
+  } else {
+    config.position = LauncherPositionRight;
+  }
   return config;
 }
 
