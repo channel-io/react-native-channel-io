@@ -62,7 +62,7 @@ RCT_EXPORT_METHOD(boot:(id)settings
   ChannelPluginSettings * pluginSettings = [RCTConvert settings:settings];
   Profile *userProfile = [RCTConvert profile:settings[@"profile"]];
   [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, Guest *guest) {
-    resolve(@{@"status": @(status), @"guest": guest == nil ? guest : NSNull.null });
+    resolve(@{@"status": @(status), @"guest": guest != nil ? guest.toJson() : NSNull.null });
   }];
 }
 
