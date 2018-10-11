@@ -69,9 +69,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		58B511DA1A9E6C8500147676 /* RNChannelIo */ = {
+		58B511DA1A9E6C8500147676 /* RNChannelIO */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNChannelIo" */;
+			buildConfigurationList = 58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNChannelIO" */;
 			buildPhases = (
 				58B511D71A9E6C8500147676 /* Sources */,
 				58B511D81A9E6C8500147676 /* Frameworks */,
@@ -81,7 +81,7 @@
 			);
 			dependencies = (
 			);
-			name = RNChannelIo;
+			name = RNChannelIO;
 			productName = RCTDataManager;
 			productReference = 134814201AA4EA6300B7C361 /* libRNChannelIo.a */;
 			productType = "com.apple.product-type.library.static";
@@ -112,7 +112,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				58B511DA1A9E6C8500147676 /* RNChannelIo */,
+				58B511DA1A9E6C8500147676 /* RNChannelIO */,
 			);
 		};
 /* End PBXProject section */
@@ -268,7 +268,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNChannelIo" */ = {
+		58B511EF1A9E6C8500147676 /* Build configuration list for PBXNativeTarget "RNChannelIO" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				58B511F01A9E6C8500147676 /* Debug */,

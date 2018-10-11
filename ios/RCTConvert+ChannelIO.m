@@ -68,7 +68,7 @@ RCT_ENUM_CONVERTER(
   return settings;
 }
 
-+ (Profile *)profile:(id)json {
++ (Profile *)profile:(NSDictionary *)json {
   if (json == nil) {
     return nil;
   }
@@ -79,9 +79,13 @@ RCT_ENUM_CONVERTER(
   [profile setWithAvatarUrl:[RCTConvert NSString:json[@"avatarUrl"]]];
   [profile setWithMobileNumber:[RCTConvert NSString:json[@"mobileNumber"]]];
   
-  NSDictionary *otherParams = [RCTConvert NSDictionary:json[@"property"]];
-  [otherParams enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-    [profile setWithPropertyKey:key value:obj];
+  [json enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
+    if (![key isEqual:@"name"] &&
+        ![key isEqual:@"email"] &&
+        ![key isEqual:@"avatarUrl"] &&
+        ![key isEqual:@"mobileNumber"]) {
+      [profile setWithPropertyKey:key value:obj];
+    }
   }];
   
   return profile;
