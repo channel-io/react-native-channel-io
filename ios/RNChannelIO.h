@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RNChannelIO : NSObject <RCTBridgeModule>
+@interface RNChannelIO : RCTEventEmitter <RCTBridgeModule, ChannelPluginDelegate>
 @end
 
 static NSString * const ON_CHANGE_BADGE = @"ChannelIO:Event:OnChangeBadge";
@@ -21,9 +21,6 @@ static NSString * const ON_RECEIVE_PUSH = @"ChannelIO:Event:OnReceivePush";
 static NSString * const WILL_SHOW_MESSENGER = @"ChannelIO:Event:WillShowMessenger";
 static NSString * const WILL_HIDE_MESSENGER = @"ChannelIO:Event:WillHideMessenger";
 static NSString * const ON_CLICK_CHAT_LINK = @"ChannelIO:Event:OnClickChatLink";
-
-//@interface RNChannelEventEmitter: RCTEventEmitter <RCTBridgeModule, ChannelPluginDelegate>
-//@end
 
 NS_ASSUME_NONNULL_END
 

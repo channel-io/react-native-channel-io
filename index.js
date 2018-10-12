@@ -7,7 +7,7 @@ import {
 
 const ChannelModule = NativeModules.RNChannelIO;
 const ChannelEventEmitter = Platform.select({
-  ios: new NativeEventEmitter(NativeModules.RNChannelEventEmitter),
+  ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
 });
 
@@ -26,7 +26,7 @@ export const ChannelIO = {
    */
   shutdonw: () => {
     ChannelModule.shutdown();
-    ChannelEventEmitter.setLinkHandle(false);
+    ChannelModule.setLinkHandle(false);
     ChannelEventEmitter.removeAllListeners();
   },
   

@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		651AA57D215E204700A38D30 /* RCTConvert+ChannelIO.m in Sources */ = {isa = PBXBuildFile; fileRef = 651AA57A215E204600A38D30 /* RCTConvert+ChannelIO.m */; };
-		651AA57E215E204700A38D30 /* RNChannelEventEmitter.m in Sources */ = {isa = PBXBuildFile; fileRef = 651AA57C215E204600A38D30 /* RNChannelEventEmitter.m */; };
 		B3E7B58A1CC2AC0600A0062D /* RNChannelIO.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNChannelIO.m */; };
 /* End PBXBuildFile section */
 
@@ -28,8 +27,6 @@
 		134814201AA4EA6300B7C361 /* libRNChannelIo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libRNChannelIo.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		651AA579215E204600A38D30 /* RCTConvert+ChannelIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RCTConvert+ChannelIO.h"; sourceTree = "<group>"; };
 		651AA57A215E204600A38D30 /* RCTConvert+ChannelIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RCTConvert+ChannelIO.m"; sourceTree = "<group>"; };
-		651AA57B215E204600A38D30 /* RNChannelEventEmitter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNChannelEventEmitter.h; sourceTree = "<group>"; };
-		651AA57C215E204600A38D30 /* RNChannelEventEmitter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNChannelEventEmitter.m; sourceTree = "<group>"; };
 		B3E7B5881CC2AC0600A0062D /* RNChannelIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RNChannelIO.h; sourceTree = "<group>"; };
 		B3E7B5891CC2AC0600A0062D /* RNChannelIO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RNChannelIO.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -58,8 +55,6 @@
 			children = (
 				651AA579215E204600A38D30 /* RCTConvert+ChannelIO.h */,
 				651AA57A215E204600A38D30 /* RCTConvert+ChannelIO.m */,
-				651AA57B215E204600A38D30 /* RNChannelEventEmitter.h */,
-				651AA57C215E204600A38D30 /* RNChannelEventEmitter.m */,
 				B3E7B5881CC2AC0600A0062D /* RNChannelIO.h */,
 				B3E7B5891CC2AC0600A0062D /* RNChannelIO.m */,
 				134814211AA4EA7D00B7C361 /* Products */,
@@ -124,7 +119,6 @@
 			files = (
 				B3E7B58A1CC2AC0600A0062D /* RNChannelIO.m in Sources */,
 				651AA57D215E204700A38D30 /* RCTConvert+ChannelIO.m in Sources */,
-				651AA57E215E204700A38D30 /* RNChannelEventEmitter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

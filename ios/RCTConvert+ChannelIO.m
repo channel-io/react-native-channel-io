@@ -23,12 +23,13 @@ RCT_ENUM_CONVERTER(
 
 RCT_ENUM_CONVERTER(
   ChannelPluginCompletionStatus,
-  (@{@"success": @(ChannelPluginCompletionStatusSuccess),
-    @"unknown": @(ChannelPluginCompletionStatusUnknown),
-    @"accessDenied": @(ChannelPluginCompletionStatusAccessDenied),
-    @"timeout": @(ChannelPluginCompletionStatusNetworkTimeout),
-    @"requirePayment": @(ChannelPluginCompletionStatusRequirePayment),
-    @"notInitialized": @(ChannelPluginCompletionStatusNotInitialized)
+  (@{@"SUCCESS": @(ChannelPluginCompletionStatusSuccess),
+    @"UNKNOWN_ERROR": @(ChannelPluginCompletionStatusUnknown),
+    @"ACCESS_DENIED": @(ChannelPluginCompletionStatusAccessDenied),
+    @"NETWORK_TIMEOUT": @(ChannelPluginCompletionStatusNetworkTimeout),
+    @"REQUIRE_PAYMENT": @(ChannelPluginCompletionStatusRequirePayment),
+    @"NOT_INITIALIZED": @(ChannelPluginCompletionStatusNotInitialized),
+    @"SERVICE_UNDER_CONSTRUCTION": @(ChannelPluginCompletionStatusServiceUnderConstruction)
   }),
   ChannelPluginCompletionStatusNotInitialized,
   integerValue
@@ -100,7 +101,7 @@ RCT_ENUM_CONVERTER(
   
   config.xMargin = [RCTConvert float:json[@"xMargin"]];
   config.yMargin = [RCTConvert float:json[@"yMargin"]];
-  NSString *position = [RCTConvert NSString: @"position"];
+  NSString *position = [RCTConvert NSString:@"position"];
   if ([position isEqualToString:@"left"]) {
     config.position = LauncherPositionLeft;
   } else {
