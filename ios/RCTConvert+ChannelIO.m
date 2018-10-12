@@ -59,7 +59,7 @@ RCT_ENUM_CONVERTER(
   if ([locale isEqualToString:@"ko"]) {
     settings.locale = CHLocaleKorean;
   } else if ([locale isEqualToString:@"ja"]) {
-    setting.locale = CHLocaleJapanese;
+    settings.locale = CHLocaleJapanese;
   } else if ([locale isEqualToString:@"en"]) {
     settings.locale = CHLocaleEnglish;
   } else {

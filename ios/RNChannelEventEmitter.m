@@ -73,7 +73,7 @@ RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
 
 - (void)onReceivePushWithEvent:(PushEvent *)event {
   if (hasListeners) {
-    [self sendEventWithName:ON_RECEIVE_PUSH body:@{@"push": event.toJson()}];
+    [self sendEventWithName:ON_RECEIVE_PUSH body:@{@"push": event.toJson}];
   }
 }
 
@@ -87,13 +87,13 @@ RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
 
 - (void)willOpenMessenger {
   if (hasListeners) {
-    [self sendEventWithName:WILL_OPEN_MESSENGER body:nil];
+    [self sendEventWithName:WILL_SHOW_MESSENGER body:nil];
   }
 }
 
 - (void)willCloseMessenger {
   if (hasListeners) {
-    [self sendEventWithName:WILL_CLOSE_MESSENGER body:nil];
+    [self sendEventWithName:WILL_HIDE_MESSENGER body:nil];
   }
 }
 

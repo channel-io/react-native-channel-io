@@ -31,8 +31,8 @@ RCT_EXPORT_MODULE()
      @"Event": @{
          @"ON_CHANGE_BADGE": ON_CHANGE_BADGE,
          @"ON_RECEIVE_PUSH": ON_RECEIVE_PUSH,
-         @"WILL_OPEN_MESSENGER": WILL_OPEN_MESSENGER,
-         @"WILL_CLOSE_MESSENGER": WILL_CLOSE_MESSENGER,
+         @"WILL_SHOW_MESSENGER": WILL_SHOW_MESSENGER,
+         @"WILL_HIDE_MESSENGER": WILL_HIDE_MESSENGER,
          @"ON_CLICK_CHAT_LINK": ON_CLICK_CHAT_LINK
      },
      @"Locale": @{
@@ -62,7 +62,7 @@ RCT_EXPORT_METHOD(boot:(id)settings
   ChannelPluginSettings * pluginSettings = [RCTConvert settings:settings];
   Profile *userProfile = [RCTConvert profile:settings[@"profile"]];
   [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, Guest *guest) {
-    resolve(@{@"status": @(status), @"guest": guest != nil ? guest.toJson() : NSNull.null });
+    resolve(@{@"status": @(status), @"guest": guest != nil ? guest.toJson : NSNull.null });
   }];
 }
 
