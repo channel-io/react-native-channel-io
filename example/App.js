@@ -32,9 +32,9 @@ export default class App extends Component<Props> {
     ChannelIO.onReceivePush((push) => {
       console.log(push);
     })
-    ChannelIO.onClickChatLink((true, (link) => {
+    ChannelIO.onClickChatLink(true, (link) => {
       console.log(link);
-    }))
+    })
   }
 
   componentWillUnmount() {

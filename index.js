@@ -109,11 +109,12 @@ export const ChannelIO = {
 
   /**
    * Event listener that triggers when a link has been clicked by a user 
+   * @param {Boolean} handle True if you want to handle a link, otherwise false
    * @param {Function} cb a callback function that takes a string link as parameter
    */
   onClickChatLink: async (handle, cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
-      ChannelEventEmitter.setLinkHandle(handle);
+      ChannelModule.setLinkHandle(handle);
       cb(data);
     });
   },

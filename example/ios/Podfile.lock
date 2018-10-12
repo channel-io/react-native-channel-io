@@ -3,7 +3,7 @@ PODS:
   - boost-for-react-native (1.63.0)
   - Cache (4.2.0)
   - CGFloatLiteral (0.4.0)
-  - ChannelIO (4.1.8):
+  - ChannelIO (4.1.9):
     - Alamofire (~> 4.7.1)
     - CGFloatLiteral
     - CHDwifft
@@ -195,7 +195,7 @@ SPEC CHECKSUMS:
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   Cache: f28f8dd64b632155aabf9b3906b036a659048251
   CGFloatLiteral: 2ab558b74124b584dd023a35b7e41795a61d8140
-  ChannelIO: 4597897b4db7cc901ce0769dcaf1f3fac764bf11
+  ChannelIO: 05b9439b213765fa2cdf6e566c959189b22738dd
   CHDwifft: 11871cb81a6a391f844856c074622df07d19d372
   CHNavBar: 943d366835f4eac3cd4b69165f01f59e11888115
   CHSlackTextViewController: 2ac856e9cb50aa6281e43f5e11c348d9e81d9081
