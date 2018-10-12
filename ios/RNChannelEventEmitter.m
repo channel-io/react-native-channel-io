@@ -12,6 +12,7 @@
 @implementation RNChannelEventEmitter
 {
   bool hasListeners;
+  bool handleChatLink;
 }
 
 RCT_EXPORT_MODULE()
@@ -52,10 +53,14 @@ RCT_EXPORT_MODULE()
   return @[
      ON_CHANGE_BADGE,
      ON_RECEIVE_PUSH,
-     WILL_OPEN_MESSENGER,
-     WILL_CLOSE_MESSENGER,
+     WILL_SHOW_MESSENGER,
+     WILL_HIDE_MESSENGER,
      ON_CLICK_CHAT_LINK
   ];
+}
+
+RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
+  handleChatLink = handle;
 }
 
 #pragma mark ChannelPluginDelegate
@@ -68,16 +73,16 @@ RCT_EXPORT_MODULE()
 
 - (void)onReceivePushWithEvent:(PushEvent *)event {
   if (hasListeners) {
-    [self sendEventWithName:ON_RECEIVE_PUSH body:@{@"push": event}];
+    [self sendEventWithName:ON_RECEIVE_PUSH body:@{@"push": event.toJson()}];
   }
 }
 
 - (BOOL)onClickChatLinkWithUrl:(NSURL *)url {
   if (hasListeners) {
-    [self sendEventWithName:ON_CLICK_CHAT_LINK body:@{@"link": url}];
-    return false;
+    [self sendEventWithName:ON_CLICK_CHAT_LINK body:@{@"link": url.absoluteString}];
+    return handleChatLink;
   }
-  return true;
+  return handleChatLink;
 }
 
 - (void)willOpenMessenger {
