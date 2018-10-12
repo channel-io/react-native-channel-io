@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
-import {ChannelIO} from 'react-native-channel-io'
+import { ChannelIO } from 'react-native-channel-io'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -23,11 +23,21 @@ export default class App extends Component<Props> {
       "pluginKey": "06ccfc12-a9fd-4c68-b364-5d19f81a60dd"
     }
 
-    ChannelIO.boot(settings)
-      .then((result) => {
-        ChannelIO.show(false);
-      })
+    ChannelIO.boot(settings).then((result) => {
+      ChannelIO.show(false);
+    });
+    ChannelIO.onChangeBadge((count) => {
+      console.log(count);
+    });
+    ChannelIO.onReceivePush((push) => {
+      console.log(push);
+    })
   }
+
+  componentWillUnmount() {
+    this.emitter.removeAllListeners();
+  }
+
   render() {
     return (
       <View style={styles.container}>
