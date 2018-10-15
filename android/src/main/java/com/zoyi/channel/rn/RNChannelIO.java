@@ -3,6 +3,7 @@ package com.zoyi.channel.rn;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.widget.Toast;
 
 import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.*;
@@ -11,6 +12,11 @@ import com.zoyi.channel.plugin.android.model.entity.*;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.zoyi.channel.plugin.android.model.etc.PushEvent;
+import com.zoyi.channel.react.android.*;
+import com.zoyi.channel.react.android.Const;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPluginListener {
 
@@ -27,6 +33,43 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   @Override
   public String getName() {
     return Const.MODULE_NAME;
+  }
+
+  @Override
+  public Map<String, Object> getConstants() {
+    Map<String, Object> constants = new HashMap<>();
+    Map<String, String> eventMap = new HashMap<>();
+    Map<String, String> localeMap = new HashMap<>();
+    Map<String, String> bootStatusMap = new HashMap<>();
+    Map<String, String> launcherPositionMap = new HashMap<>();
+
+    eventMap.put(Const.KEY_ON_CHANGE_BADGE, Const.EVENT_ON_CHANGE_BADGE);
+    eventMap.put(Const.KEY_ON_RECEIVE_PUSH, Const.EVENT_ON_RECEIVE_PUSH);
+    eventMap.put(Const.KEY_WILL_SHOW_MESSENGER, Const.EVENT_WILL_SHOW_MESSENGER);
+    eventMap.put(Const.KEY_WILL_HIDE_MESSENGER, Const.EVENT_WILL_HIDE_MESSENGER);
+    eventMap.put(Const.KEY_ON_CLICK_CHAT_LINK, Const.EVENT_ON_CLICK_CHAT_LINK);
+
+    localeMap.put(Const.KEY_KOREAN, Const.LOCALE_KOREAN);
+    localeMap.put(Const.KEY_JAPANESE, Const.LOCALE_JAPANESE);
+    localeMap.put(Const.KEY_ENGLISH, Const.LOCALE_ENGLISH);
+    localeMap.put(Const.KEY_DEVICE, Const.LOCALE_DEVICE);
+
+    launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_RIGHT, Const.LAUNCHER_RIGHT);
+    launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_LEFT, Const.LAUNCHER_LEFT);
+
+    bootStatusMap.put(Const.KEY_BOOT_SUCCESS, Const.BOOT_SUCCESS);
+    bootStatusMap.put(Const.KEY_BOOT_TIMEOUT, Const.BOOT_TIMEOUT);
+    bootStatusMap.put(Const.KEY_BOOT_ACCESS_DENIED, Const.BOOT_ACCESS_DENIED);
+    bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
+    bootStatusMap.put(Const.KEY_BOOT_REQUIRE_PAYMENT, Const.BOOT_REQUIRE_PAYMENT);
+    bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
+
+    constants.put(Const.Event, eventMap);
+    constants.put(Const.Locale, localeMap);
+    constants.put(Const.LAUNCHER_POSITION, launcherPositionMap);
+    constants.put(Const.BOOT_STATUS, bootStatusMap);
+
+    return constants;
   }
 
   @ReactMethod
