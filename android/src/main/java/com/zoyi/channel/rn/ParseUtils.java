@@ -193,9 +193,9 @@ public class ParseUtils {
     String userId = Utils.getString(settingsMap, Const.KEY_USER_ID);
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
 
-    Boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE);
-    Boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT);
-    Boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH);
+    boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE);
+    boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT);
+    boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH);
 
     ReadableMap launcherConfig = Utils.getReadableMap(settingsMap, Const.KEY_LAUNCHER_CONFIG);
     ReadableMap profile = Utils.getReadableMap(settingsMap, Const.KEY_PROFILE);

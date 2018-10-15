@@ -28,7 +28,7 @@ import java.util.Map;
 
 public class Utils {
 
-  public static Double getDouble(ReadableMap readableMap, String key) {
+  public static double getDouble(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getDouble(key);
     }
@@ -36,15 +36,15 @@ public class Utils {
     return 0.0;
   }
 
-  public static Float getFloat(ReadableMap readableMap, String key) {
+  public static float getFloat(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
-      return getDouble(readableMap, key).floatValue();
+      return Double.valueOf(getDouble(readableMap, key)).floatValue();
     }
 
     return 0f;
   }
 
-  public static Boolean getBoolean(ReadableMap readableMap, String key) {
+  public static boolean getBoolean(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getBoolean(key);
     }
