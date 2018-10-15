@@ -13,6 +13,7 @@ import com.facebook.react.bridge.WritableMap;
 import com.zoyi.channel.plugin.android.model.entity.Guest;
 import com.zoyi.channel.plugin.android.model.etc.*;
 import com.zoyi.channel.plugin.android.*;
+import com.zoyi.channel.react.android.Const;
 
 import java.util.HashMap;
 import java.util.Iterator;
