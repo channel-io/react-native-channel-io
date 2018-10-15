@@ -13,11 +13,7 @@
   "license": "SDK",
   "homepage": "https://www.channel.io",
   "peerDependencies": {
-    "react-native": "^0.41.2"
-  },
-  "dependencies": {
-    "react": "16.3.1",
-    "react-native": "~0.55.2",
+    "react-native": "^0.41.2",
     "react-native-firebase": "^5.0.0"
   }
 }
