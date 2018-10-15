@@ -43,12 +43,12 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
-  public void show() {
+  public void show(boolean animated) {
     ChannelIO.show();
   }
 
   @ReactMethod
-  public void hide() {
+  public void hide(boolean animated) {
     ChannelIO.hide();
   }
 
