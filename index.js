@@ -24,7 +24,7 @@ export const ChannelIO = {
   /**
    * Shutdown `ChannelIO`
    */
-  shutdonw: () => {
+  shutdown: () => {
     ChannelModule.shutdown();
     ChannelModule.setLinkHandle(false);
     ChannelEventEmitter.removeAllListeners();
@@ -46,7 +46,7 @@ export const ChannelIO = {
    * Hide `ChannelIO` launcher 
    * @param {Boolean} aniamted Animate the launcher if true
    */
-  hide: (animated) => ChannelModule.hide(aniamted),
+  hide: (animated) => ChannelModule.hide(animated),
   
   /**
    * Open `ChannelIO` messenger
@@ -79,7 +79,7 @@ export const ChannelIO = {
    * @param {Object} userInfo userInfo part from push data
    * @returns {Boolean} true if the userInfo indicates `ChannelIO'`s push, otherwise false
    */
-  isChannelPushNotification: (userInfo) => ChannelModule.isChannelPushNotification(userInfo),
+  isChannelPushNotification: async (userInfo) => ChannelModule.isChannelPushNotification(userInfo),
   
   /**
    * Handle `ChannelIO` push notification
@@ -91,7 +91,7 @@ export const ChannelIO = {
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
-  onChangeBadge: async (cb) => {
+  onChangeBadge: (cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_BADGE, (data) => {
       cb(data.count);
     });
@@ -101,7 +101,7 @@ export const ChannelIO = {
    * Event listener that triggers when in-app push has been arrived
    * @param {Function} cb a callback function that takes a object push data as parameter
    */
-  onReceivePush: async (cb) => {
+  onReceivePush: (cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_RECEIVE_PUSH, (data) => {
       cb(data.push);
     });
@@ -112,7 +112,7 @@ export const ChannelIO = {
    * @param {Boolean} handle True if you want to handle a link, otherwise false
    * @param {Function} cb a callback function that takes a string link as parameter
    */
-  onClickChatLink: async (handle, cb) => {
+  onClickChatLink: (handle, cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
       ChannelModule.setLinkHandle(handle);
       cb(data);
@@ -123,7 +123,7 @@ export const ChannelIO = {
    * Event listener that triggers when `ChannelIO` messenger is about to display 
    * @param {Function} cb a callback function
    */
-  willShowMessenger:  async (cb) => {
+  willShowMessenger: (cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.WILL_SHOW_MESSENGER, cb);
   },
 
@@ -131,8 +131,7 @@ export const ChannelIO = {
    * Event listener that triggers when `ChannelIO` messenger is about to dismiss 
    * @param {Function} cb a callback function
    */
-  willHideMessenger: async (cb) => {
+  willHideMessenger: (cb) => {
     ChannelEventEmitter.addListener(ChannelModule.Event.WILL_HIDE_MESSENGER, cb);
   }
 }
-
