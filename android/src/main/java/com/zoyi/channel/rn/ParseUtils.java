@@ -143,7 +143,7 @@ public class ParseUtils {
       Position launcherPosition;
 
       if (positionString != null) {
-        if (Const.KEY_POSITION_RIGHT.equals(positionString)) {
+        if (Const.KEY_LAUNCHER_POSITION_RIGHT.equals(positionString)) {
           launcherPosition = Position.RIGHT;
         } else {
           launcherPosition = Position.LEFT;
