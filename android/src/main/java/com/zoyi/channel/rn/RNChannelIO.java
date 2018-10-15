@@ -1,6 +1,7 @@
 
 package com.zoyi.channel.rn;
 
+import android.content.Context;
 import android.support.annotation.Nullable;
 
 import com.facebook.react.bridge.*;
