@@ -144,7 +144,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
-  public void setHandleChatLink(boolean handleChatLink) {
+  public void setLinkHandle(boolean handleChatLink) {
     this.handleChatLink = handleChatLink;
   }
 
