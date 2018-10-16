@@ -165,11 +165,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @Override
   public void onReceivePush(PushEvent pushEvent) {
-    Utils.sendEvent(
-      reactContext, 
-      Const.EVENT_ON_RECEIVE_PUSH, 
-      ParseUtils.createSingleMap(Const.KEY_EVENT_PUSH, ParseUtils.pushEventToWritableMap(pushEvent))
-      );
+    Utils.sendEvent(reactContext, Const.EVENT_ON_RECEIVE_PUSH, ParseUtils.pushEventToWritableMap(pushEvent));
   }
 
   @Override

@@ -258,13 +258,17 @@ public class ParseUtils {
   }
 
   public static WritableMap pushEventToWritableMap(PushEvent pushEvent) {
-    WritableMap writableMap = Arguments.createMap();
-    writableMap.putString(Const.KEY_CHAT_ID, pushEvent.getChatId());
-    writableMap.putString(Const.KEY_SENDER_AVATAR_URL, pushEvent.getSenderAvatarUrl());
-    writableMap.putString(Const.KEY_SENDER_NAME, pushEvent.getSenderName());
-    writableMap.putString(Const.KEY_MESSAGE, pushEvent.getMessage());
+    WritableMap resultMap = Arguments.createMap();
+    WritableMap pushMap = Arguments.createMap();
 
-    return writableMap;
+    pushMap.putString(Const.KEY_CHAT_ID, pushEvent.getChatId());
+    pushMap.putString(Const.KEY_SENDER_AVATAR_URL, pushEvent.getSenderAvatarUrl());
+    pushMap.putString(Const.KEY_SENDER_NAME, pushEvent.getSenderName());
+    pushMap.putString(Const.KEY_MESSAGE, pushEvent.getMessage());
+
+    resultMap.putMap(Const.KEY_EVENT_PUSH, pushMap);
+
+    return resultMap;
   }
 
   public static WritableMap createSingleMap(String key, Object object) {
