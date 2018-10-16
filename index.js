@@ -163,5 +163,13 @@ export const ChannelIO = {
   willHideMessenger: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.WILL_HIDE_MESSENGER, cb);
     replaceListener(ChannelModule.Event.WILL_HIDE_MESSENGER, subscription);
+  },
+
+  Event: {
+    ON_BADGE_CHANGE: ChannelModule.Event.ON_CHANGE_BADGE,
+    ON_RECEIVE_PUSH: ChannelModule.Event.ON_RECEIVE_PUSH,
+    ON_CLICK_CHAT_LINK: ChannelModule.Event.ON_CLICK_CHAT_LINK,
+    WILL_SHOW_MESSENGER: ChannelModule.Event.WILL_SHOW_MESSENGER,
+    WILL_HIDE_MESSENGER: ChannelModule.Event.WILL_HIDE_MESSENGER
   }
 }
