@@ -19,15 +19,21 @@ export const ChannelIO = {
    * @param settings ChannelPluginSettings object contains information for booting
    * @returns A promise that returns status and guest info
    */
-  boot: async (settings) => ChannelModule.boot(settings),
+  boot: async (settings) => {
+    ChannelModule.setLinkHandle(false);
+    ChannelEventEmitter.removeAllListeners();
+
+    ChannelModule.boot(settings)
+  },
   
   /**
    * Shutdown `ChannelIO`
    */
   shutdown: () => {
-    ChannelModule.shutdown();
     ChannelModule.setLinkHandle(false);
     ChannelEventEmitter.removeAllListeners();
+
+    ChannelModule.shutdown();
   },
   
   /**
@@ -113,8 +119,8 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string link as parameter
    */
   onClickChatLink: (handle, cb) => {
+    ChannelModule.setLinkHandle(handle);
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
-      ChannelModule.setLinkHandle(handle);
       cb(data);
     });
   },
