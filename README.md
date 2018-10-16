@@ -1,6 +1,7 @@
 
 # react-native-channel-plugin
 
+[![NPM](https://nodei.co/npm/react-native-channel-plugin.png?compact=true)](https://nodei.co/npm/react-native-channel-plugin/)
 ## Getting started
 
 `$ react-native install react-native-channel-plugin`
