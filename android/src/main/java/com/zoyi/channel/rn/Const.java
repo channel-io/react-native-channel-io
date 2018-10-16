@@ -77,8 +77,9 @@ public class Const {
   public static final String BOOT_NOT_INITIALIZED = "ChannelPluginCompletionStatusNotInitialized";
 
   // Event
-  public static final String KEY_COUNT = "count";
-  public static final String KEY_URL = "url";
+  public static final String KEY_EVENT_COUNT = "count";
+  public static final String KEY_EVENT_LINK = "link";
+  public static final String KEY_EVENT_PUSH = "push";
 
   public static final String KEY_ON_CHANGE_BADGE = "ON_CHANGE_BADGE";
   public static final String KEY_ON_RECEIVE_PUSH = "ON_RECEIVE_PUSH";

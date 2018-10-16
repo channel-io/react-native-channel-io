@@ -160,17 +160,21 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @Override
   public void onChangeBadge(int count) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_CHANGE_BADGE, ParseUtils.createSingleMap(Const.KEY_COUNT, count));
+    Utils.sendEvent(reactContext, Const.EVENT_ON_CHANGE_BADGE, ParseUtils.createSingleMap(Const.KEY_EVENT_COUNT, count));
   }
 
   @Override
   public void onReceivePush(PushEvent pushEvent) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_RECEIVE_PUSH, ParseUtils.pushEventToWritableMap(pushEvent));
+    Utils.sendEvent(
+      reactContext, 
+      Const.EVENT_ON_RECEIVE_PUSH, 
+      ParseUtils.createSingleMap(Const.KEY_EVENT_PUSH, ParseUtils.pushEventToWritableMap(pushEvent))
+      );
   }
 
   @Override
   public boolean onClickChatLink(String url) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_CHAT_LINK, ParseUtils.createSingleMap(Const.KEY_URL, url));
+    Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_CHAT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
     return handleChatLink;
   }
 }
