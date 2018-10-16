@@ -8,7 +8,7 @@
 
 import React, {Component} from 'react';
 import {Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
-import { ChannelIO } from 'react-native-channel-io'
+import { ChannelIO } from 'react-native-channel-plugin'
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
