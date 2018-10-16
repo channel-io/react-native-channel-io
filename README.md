@@ -1,16 +1,16 @@
 
-# react-native-channel-io
+# react-native-channel-plugin
 
 ## Getting started
 
-`$ npm install react-native-channel-io --save`
+`$ react-native install react-native-channel-plugin`
 
-### Mostly automatic installation
+or 
 
-`$ react-native link react-native-channel-io`
+`$ npm install react-native-channel-plugin --save`
+`$ react-native link react-native-channel-plugin`
 
 ### Manual installation
-
 
 #### iOS
 
@@ -26,8 +26,8 @@
   - Add `new RNChannelIOPackage()` to the list returned by the `getPackages()` method
 2. Append the following lines to `android/settings.gradle`:
   	```
-  	include ':react-native-channel-io'
-  	project(':react-native-channel-io').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-channel-io/android')
+  	include ':react-native-channel-plugin'
+  	project(':react-native-channel-plugin').projectDir = new File(rootProject.projectDir, 	'../node_modules/react-native-channel-plugin/android')
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
@@ -36,7 +36,7 @@
 
 ## Usage
 ```javascript
-import { ChannelIO } from 'react-native-channel-io';
+import { ChannelIO } from 'react-native-channel-plugin';
 ```
 
 For more information, please check our developer site -> [link](https://developers.channel.io). 
