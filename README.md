@@ -8,6 +8,7 @@
 or 
 
 `$ npm install react-native-channel-plugin --save`
+
 `$ react-native link react-native-channel-plugin`
 
 ### Manual installation
@@ -31,7 +32,7 @@ or
   	```
 3. Insert the following lines inside the dependencies block in `android/app/build.gradle`:
   	```
-      compile project(':react-native-channel-io')
+      compile project(':react-native-channel-plugin')
   	```
 
 ## Usage
