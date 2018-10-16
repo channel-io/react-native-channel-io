@@ -12,10 +12,12 @@ export const ChannelEventEmitter = Platform.select({
 });
 
 var listeners = {};
+
 resetListeners = () => {
-  listeners.forEach((subscription) => {
-    subscription.remove();
+  Object.keys(listeners).forEach((key) => {
+    listeners[key].remove();
   });
+
   listeners = {};
 }
 
