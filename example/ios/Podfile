@@ -23,5 +23,5 @@ target 'example' do
   pod 'DoubleConversion', :podspec => '../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec'
   pod 'glog', :podspec => '../node_modules/react-native/third-party-podspecs/glog.podspec'
   pod 'Folly', :podspec => '../node_modules/react-native/third-party-podspecs/Folly.podspec'
-  pod 'RNChannelIO', :path => '../node_modules/react-native-channel-io'
+  pod 'RNChannelIO', :path => '../node_modules/react-native-channel-plugin'
 end

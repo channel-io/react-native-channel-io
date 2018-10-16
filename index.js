@@ -11,6 +11,14 @@ const ChannelEventEmitter = Platform.select({
   android: DeviceEventEmitter,
 });
 
+var listeners = [];
+function resetListeners(){
+  listeners.forEach((subscription) => {
+    subscription.remove();
+  });
+  listeners = [];
+}
+
 export const ChannelIO = {
   
   /**
@@ -21,9 +29,9 @@ export const ChannelIO = {
    */
   boot: async (settings) => {
     ChannelModule.setLinkHandle(false);
-    ChannelEventEmitter.removeAllListeners();
+    resetListeners();
 
-    ChannelModule.boot(settings)
+    return ChannelModule.boot(settings);
   },
   
   /**
@@ -31,7 +39,7 @@ export const ChannelIO = {
    */
   shutdown: () => {
     ChannelModule.setLinkHandle(false);
-    ChannelEventEmitter.removeAllListeners();
+    resetListeners();
 
     ChannelModule.shutdown();
   },
@@ -98,9 +106,10 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
   onChangeBadge: (cb) => {
-    ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_BADGE, (data) => {
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_BADGE, (data) => {
       cb(data.count);
     });
+    listeners.push(subscription);
   },
 
   /**
@@ -108,9 +117,10 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a object push data as parameter
    */
   onReceivePush: (cb) => {
-    ChannelEventEmitter.addListener(ChannelModule.Event.ON_RECEIVE_PUSH, (data) => {
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_RECEIVE_PUSH, (data) => {
       cb(data.push);
     });
+    listeners.push(subscription);
   },
 
   /**
@@ -119,10 +129,11 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string link as parameter
    */
   onClickChatLink: (handle, cb) => {
-    ChannelModule.setLinkHandle(handle);
+    let subscription = ChannelModule.setLinkHandle(handle);
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
-      cb(data);
+      cb(data.link);
     });
+    listeners.push(subscription);
   },
 
   /**
@@ -130,7 +141,8 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   willShowMessenger: (cb) => {
-    ChannelEventEmitter.addListener(ChannelModule.Event.WILL_SHOW_MESSENGER, cb);
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.WILL_SHOW_MESSENGER, cb);
+    listeners.push(subscription);
   },
 
   /**
@@ -138,6 +150,7 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   willHideMessenger: (cb) => {
-    ChannelEventEmitter.addListener(ChannelModule.Event.WILL_HIDE_MESSENGER, cb);
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.WILL_HIDE_MESSENGER, cb);
+    listeners.push(subscription);
   }
 }

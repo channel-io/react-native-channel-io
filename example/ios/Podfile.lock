@@ -138,7 +138,7 @@ DEPENDENCIES:
   - React/RCTNetwork (from `../node_modules/react-native`)
   - React/RCTText (from `../node_modules/react-native`)
   - React/RCTWebSocket (from `../node_modules/react-native`)
-  - RNChannelIO (from `../node_modules/react-native-channel-io`)
+  - RNChannelIO (from `../node_modules/react-native-channel-plugin`)
   - yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
@@ -186,7 +186,7 @@ EXTERNAL SOURCES:
   React:
     :path: "../node_modules/react-native"
   RNChannelIO:
-    :path: "../node_modules/react-native-channel-io"
+    :path: "../node_modules/react-native-channel-plugin"
   yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -230,6 +230,6 @@ SPEC CHECKSUMS:
   Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
-PODFILE CHECKSUM: c93750a2c67c71c73fe9513a62590427777b98b8
+PODFILE CHECKSUM: 2766d7b5f3bb3834dfe315077bd13787afaa4c55
 
 COCOAPODS: 1.5.3
