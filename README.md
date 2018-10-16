@@ -38,4 +38,5 @@
 ```javascript
 import { ChannelIO } from 'react-native-channel-io';
 ```
-  
+
+For more information, please check our developer site -> [link](https://developers.channel.io). 
