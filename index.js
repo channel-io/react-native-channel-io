@@ -6,17 +6,25 @@ import {
 } from 'react-native';
 
 const ChannelModule = NativeModules.RNChannelIO;
-const ChannelEventEmitter = Platform.select({
+export const ChannelEventEmitter = Platform.select({
   ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
 });
 
-var listeners = [];
-function resetListeners(){
+var listeners = {};
+resetListeners = () => {
   listeners.forEach((subscription) => {
     subscription.remove();
   });
-  listeners = [];
+  listeners = {};
+}
+
+replaceListener = (type, newSubscriber) => {
+  let subscriber = listeners[type];
+  if (subscriber != undefined) {
+    subscriber.remove();
+  }
+  listeners[type] = newSubscriber;
 }
 
 export const ChannelIO = {
@@ -109,7 +117,8 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_BADGE, (data) => {
       cb(data.count);
     });
-    listeners.push(subscription);
+    
+    replaceListener(ChannelModule.Event.ON_CHANGE_BADGE, subscription);
   },
 
   /**
@@ -120,7 +129,7 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_RECEIVE_PUSH, (data) => {
       cb(data.push);
     });
-    listeners.push(subscription);
+    replaceListener(ChannelModule.Event.ON_RECEIVE_PUSH, subscription);
   },
 
   /**
@@ -133,7 +142,7 @@ export const ChannelIO = {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
       cb(data.link);
     });
-    listeners.push(subscription);
+    replaceListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, subscription);
   },
 
   /**
@@ -142,7 +151,7 @@ export const ChannelIO = {
    */
   willShowMessenger: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.WILL_SHOW_MESSENGER, cb);
-    listeners.push(subscription);
+    replaceListener(ChannelModule.Event.WILL_SHOW_MESSENGER, subscription);
   },
 
   /**
@@ -151,6 +160,6 @@ export const ChannelIO = {
    */
   willHideMessenger: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.WILL_HIDE_MESSENGER, cb);
-    listeners.push(subscription);
+    replaceListener(ChannelModule.Event.WILL_HIDE_MESSENGER, subscription);
   }
 }

@@ -32,8 +32,17 @@ export default class App extends Component<Props> {
     ChannelIO.onReceivePush((push) => {
       console.log(push);
     })
-    ChannelIO.onClickChatLink(true, (link) => {
+    ChannelIO.onClickChatLink(false, (link) => {
       console.log(link);
+    })
+    ChannelIO.willShowMessenger(() => {
+      console.log("willShow");
+    })
+    ChannelIO.willHideMessenger(() => {
+      console.log("willHide");
+    })
+    ChannelIO.willShowMessenger(() => {
+      console.log("willShow2");
     })
   }
 
