@@ -106,16 +106,10 @@ export const ChannelIO = {
   isChannelPushNotification: async (userInfo) => ChannelModule.isChannelPushNotification(userInfo),
   
   /**
-   * Show `ChannelIO` push notification
+   * Handle `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
   handlePushNotification: (userInfo) => ChannelModule.handlePushNotification(userInfo),
-  
-  /**
-   * Android only
-   * Helping to move to the `ChannelIO` messenger when user click on the push notification
-   */
-  handlePush: () => ChannelModule.handlePush(),
 
   /**
    * Event listener that triggers when badge count has been changed
