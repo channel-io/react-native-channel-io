@@ -112,6 +112,7 @@ export const ChannelIO = {
   handlePushNotification: (userInfo) => ChannelModule.handlePushNotification(userInfo),
   
   /**
+   * Android only
    * Helping to move to the `ChannelIO` messenger when user click on the push notification
    */
   handlePush: () => ChannelModule.handlePush(),
