@@ -7,8 +7,9 @@
  */
 
 import React, {Component} from 'react';
-import {Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
+import {PushNotificationIOS, AppState, Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
 import { ChannelIO } from 'react-native-channel-plugin'
+
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' + 'Cmd+D or shake for dev menu',
   android:
@@ -44,6 +45,24 @@ export default class App extends Component<Props> {
     ChannelIO.willShowMessenger(() => {
       console.log("willShow2");
     })
+
+    PushNotificationIOS.requestPermissions();
+    PushNotificationIOS.addEventListener('register', (token) => {
+      ChannelIO.initPushToken(token);
+    });
+
+    PushNotificationIOS.addEventListener('notification', (notification) => {
+      console.log(AppState.currentState);
+      ChannelIO.isChannelPushNotification(notification.getData()).then((result) => {
+        if (result) {
+          ChannelIO.handlePushNotification(notification.getData());
+          notification.finish(PushNotificationIOS.FetchResult.NoData);
+        } else {
+          //other push logics goes here
+          notification.finish(PushNotificationIOS.FetchResult.NoData); 
+        }
+      })
+    });
   }
 
   componentWillUnmount() {

@@ -143,7 +143,7 @@ RCT_EXPORT_METHOD(track:(NSString *)name eventProperty:(NSDictionary *)propertie
 
 RCT_EXPORT_METHOD(isChannelPushNotification:(NSDictionary *)userInfo
                   resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseResolveBlock)reject) {
+                  rejecter:(RCTPromiseRejectBlock)reject) {
   if ([ChannelIO isChannelPushNotification:userInfo]) {
     resolve(@(YES));
   } else {

@@ -1,3 +1,7 @@
+# 0.1.10
+# Bug fixes
+* Fixed `isChannelPushNotification` callback
+
 # 0.1.8
 ## Updates
 * Exposes event const

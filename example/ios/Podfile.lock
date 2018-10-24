@@ -101,11 +101,11 @@ PODS:
     - React/fishhook
     - React/RCTBlob
   - ReSwift (4.0.1)
-  - Reusable (4.0.3):
-    - Reusable/Storyboard (= 4.0.3)
-    - Reusable/View (= 4.0.3)
-  - Reusable/Storyboard (4.0.3)
-  - Reusable/View (4.0.3)
+  - Reusable (4.0.4):
+    - Reusable/Storyboard (= 4.0.4)
+    - Reusable/View (= 4.0.4)
+  - Reusable/Storyboard (4.0.4)
+  - Reusable/View (4.0.4)
   - RNChannelIO (0.1.0):
     - ChannelIO
     - React
@@ -118,7 +118,7 @@ PODS:
   - SDWebImage/GIF (4.4.2):
     - FLAnimatedImage (~> 1.0)
     - SDWebImage/Core
-  - SnapKit (4.0.1)
+  - SnapKit (4.2.0)
   - Socket.IO-Client-Swift (13.1.3):
     - Starscream (~> 3.0.2)
   - Starscream (3.0.6)
@@ -217,12 +217,12 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
-  Reusable: 12b67a60e1f3e8c523cc910795dab733f58fbc7e
+  Reusable: 7fc772097df3e5fc86f59d8a7af9708e49b5ff55
   RNChannelIO: ef26b2d14f2dd33b8b659313c0e8f6f02885232d
   RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
   RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
-  SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
