@@ -2,16 +2,13 @@ package com.example;
 
 import android.support.multidex.MultiDexApplication;
 
-import io.invertase.firebase.RNFirebasePackage;
-
 import com.facebook.react.ReactApplication;
-import com.reactlibrary.RNChannelIOPackage;
+import com.zoyi.channel.rn.RNChannelIOPackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
 import com.facebook.soloader.SoLoader;
 
-import com.zoyi.channel.react.android.ChannelPackage;
 import com.zoyi.channel.plugin.android.ChannelIO;
 
 import java.util.Arrays;
@@ -29,12 +26,7 @@ public class MainApplication extends MultiDexApplication implements ReactApplica
     protected List<ReactPackage> getPackages() {
       return Arrays.<ReactPackage>asList(
           new MainReactPackage(),
-            new RNChannelIOPackage(),
-          new RNFirebasePackage(),
-          new RNFirebaseMessagingPackage(),
-          new RNFirebaseNotificationsPackage()
-          new ChannelPackage()
-      );
+          new RNChannelIOPackage());
     }
 
     @Override
