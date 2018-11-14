@@ -55,5 +55,5 @@ repositories {
 
 dependencies {
     compile 'com.facebook.react:react-native:0.20.1'
-    compile 'com.zoyi.channel:plugin-android:4.1.4'
+    compile 'com.zoyi.channel:plugin-android:+'
 }
