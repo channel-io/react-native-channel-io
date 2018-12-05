@@ -151,8 +151,12 @@ RCT_EXPORT_METHOD(isChannelPushNotification:(NSDictionary *)userInfo
   }
 }
 
-RCT_EXPORT_METHOD(handlePushNotification:(NSDictionary *)userInfo) {
-  [ChannelIO handlePushNotification:userInfo];
+RCT_EXPORT_METHOD(handlePushNotification:(NSDictionary *)userInfo
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  [ChannelIO handlePushNotification:userInfo completion:^{
+    resolve(@(YES));
+  }];
 }
 
 RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {

@@ -10,6 +10,7 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTPushNotificationManager.h>
+#import <ChannelIO/ChannelIO-Swift.h>
 
 @implementation AppDelegate
 
@@ -32,6 +33,8 @@
   rootViewController.view = rootView;
   self.window.rootViewController = rootViewController;
   [self.window makeKeyAndVisible];
+  
+  [ChannelIO initialize:application];
   return YES;
 }
 

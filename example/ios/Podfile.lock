@@ -1,20 +1,16 @@
 PODS:
-  - Alamofire (4.7.3)
+  - Alamofire (4.8.0)
   - boost-for-react-native (1.63.0)
-  - Cache (4.2.0)
-  - CGFloatLiteral (0.4.0)
-  - ChannelIO (4.1.9):
-    - Alamofire (~> 4.7.1)
-    - CGFloatLiteral
+  - Cache (5.2.0)
+  - ChannelIO (5.1.0):
+    - Alamofire (~> 4.8)
     - CHDwifft
     - CHNavBar
     - CHSlackTextViewController
     - CRToast
-    - DKImagePickerController (~> 3.8.1)
-    - HexColors (~> 6.0)
-    - Lightbox (= 2.1.2)
+    - DKImagePickerController (~> 4.1.0)
+    - Lightbox (~> 2.3)
     - M13ProgressSuite
-    - ManualLayout
     - MGSwipeTableCell
     - NVActivityIndicatorView (~> 4.4.0)
     - ObjectMapper (~> 3.3)
@@ -29,16 +25,54 @@ PODS:
     - Socket.IO-Client-Swift (~> 13.1.0)
     - SVProgressHUD
     - SwiftyJSON (~> 4.0)
-    - Then
   - CHDwifft (0.8.2)
-  - CHNavBar (1.1.12)
+  - CHNavBar (1.2.1)
   - CHSlackTextViewController (1.10.25)
   - CRToast (0.0.9)
-  - DKImagePickerController (3.8.1):
-    - DKImagePickerController/Camera (= 3.8.1)
-    - DKImagePickerController/ImageManager (= 3.8.1)
-  - DKImagePickerController/Camera (3.8.1)
-  - DKImagePickerController/ImageManager (3.8.1)
+  - DKCamera (1.6.4)
+  - DKImagePickerController (4.1.0):
+    - DKImagePickerController/Camera (= 4.1.0)
+    - DKImagePickerController/Core (= 4.1.0)
+    - DKImagePickerController/ImageDataManager (= 4.1.0)
+    - DKImagePickerController/InlineCamera (= 4.1.0)
+    - DKImagePickerController/PhotoEditor (= 4.1.0)
+    - DKImagePickerController/PhotoGallery (= 4.1.0)
+    - DKImagePickerController/Resource (= 4.1.0)
+  - DKImagePickerController/Camera (4.1.0):
+    - DKCamera
+    - DKImagePickerController/Core
+  - DKImagePickerController/Core (4.1.0):
+    - DKImagePickerController/ImageDataManager
+    - DKImagePickerController/Resource
+  - DKImagePickerController/ImageDataManager (4.1.0)
+  - DKImagePickerController/InlineCamera (4.1.0):
+    - DKCamera
+    - DKImagePickerController/Core
+  - DKImagePickerController/PhotoEditor (4.1.0):
+    - DKImagePickerController/Core
+    - TOCropViewController (~> 2.3)
+  - DKImagePickerController/PhotoGallery (4.1.0):
+    - DKImagePickerController/Core
+    - DKPhotoGallery
+  - DKImagePickerController/Resource (4.1.0)
+  - DKPhotoGallery (0.0.11):
+    - DKPhotoGallery/Core (= 0.0.11)
+    - DKPhotoGallery/Model (= 0.0.11)
+    - DKPhotoGallery/Preview (= 0.0.11)
+    - DKPhotoGallery/Resource (= 0.0.11)
+    - SDWebImage/GIF
+  - DKPhotoGallery/Core (0.0.11):
+    - DKPhotoGallery/Model
+    - DKPhotoGallery/Preview
+    - SDWebImage/GIF
+  - DKPhotoGallery/Model (0.0.11):
+    - SDWebImage/GIF
+  - DKPhotoGallery/Preview (0.0.11):
+    - DKPhotoGallery/Model
+    - DKPhotoGallery/Resource
+    - SDWebImage/GIF
+  - DKPhotoGallery/Resource (0.0.11):
+    - SDWebImage/GIF
   - DoubleConversion (1.1.6)
   - FLAnimatedImage (1.0.12)
   - Folly (2016.10.31.00):
@@ -46,20 +80,16 @@ PODS:
     - DoubleConversion
     - glog
   - glog (0.3.5)
-  - HexColors (6.0.0)
-  - Hue (3.0.1)
-  - Imaginary (3.0.3):
-    - Cache (~> 4.0)
-  - Lightbox (2.1.2):
-    - Hue (~> 3.0)
-    - Imaginary (~> 3.0)
+  - Imaginary (4.2.0):
+    - Cache (~> 5.0)
+  - Lightbox (2.3.0):
+    - Imaginary (~> 4.0)
   - M13ProgressSuite (1.2.9)
-  - ManualLayout (1.3.0)
-  - MGSwipeTableCell (1.6.7)
+  - MGSwipeTableCell (1.6.8)
   - NVActivityIndicatorView (4.4.0):
     - NVActivityIndicatorView/Presenter (= 4.4.0)
   - NVActivityIndicatorView/Presenter (4.4.0)
-  - ObjectMapper (3.3.0)
+  - ObjectMapper (3.4.1)
   - PhoneNumberKit (2.5.0):
     - PhoneNumberKit/PhoneNumberKitCore (= 2.5.0)
     - PhoneNumberKit/UIKit (= 2.5.0)
@@ -109,9 +139,11 @@ PODS:
   - RNChannelIO (0.1.0):
     - ChannelIO
     - React
-  - RxCocoa (4.3.1):
+  - RxAtomic (4.4.0)
+  - RxCocoa (4.4.0):
     - RxSwift (~> 4.0)
-  - RxSwift (4.3.1)
+  - RxSwift (4.4.0):
+    - RxAtomic (~> 4.4)
   - SDWebImage (4.4.2):
     - SDWebImage/Core (= 4.4.2)
   - SDWebImage/Core (4.4.2)
@@ -124,7 +156,7 @@ PODS:
   - Starscream (3.0.6)
   - SVProgressHUD (2.2.5)
   - SwiftyJSON (4.2.0)
-  - Then (2.4.0)
+  - TOCropViewController (2.4.0)
   - yoga (0.57.1.React)
 
 DEPENDENCIES:
@@ -146,26 +178,25 @@ SPEC REPOS:
     - Alamofire
     - boost-for-react-native
     - Cache
-    - CGFloatLiteral
     - ChannelIO
     - CHDwifft
     - CHNavBar
     - CHSlackTextViewController
     - CRToast
+    - DKCamera
     - DKImagePickerController
+    - DKPhotoGallery
     - FLAnimatedImage
-    - HexColors
-    - Hue
     - Imaginary
     - Lightbox
     - M13ProgressSuite
-    - ManualLayout
     - MGSwipeTableCell
     - NVActivityIndicatorView
     - ObjectMapper
     - PhoneNumberKit
     - ReSwift
     - Reusable
+    - RxAtomic
     - RxCocoa
     - RxSwift
     - SDWebImage
@@ -174,7 +205,7 @@ SPEC REPOS:
     - Starscream
     - SVProgressHUD
     - SwiftyJSON
-    - Then
+    - TOCropViewController
 
 EXTERNAL SOURCES:
   DoubleConversion:
@@ -191,43 +222,42 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
-  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
+  Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
-  Cache: f28f8dd64b632155aabf9b3906b036a659048251
-  CGFloatLiteral: 2ab558b74124b584dd023a35b7e41795a61d8140
-  ChannelIO: 05b9439b213765fa2cdf6e566c959189b22738dd
+  Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
+  ChannelIO: f75b7518c1b75a9894a166e30cc65deae55de37f
   CHDwifft: 11871cb81a6a391f844856c074622df07d19d372
-  CHNavBar: 943d366835f4eac3cd4b69165f01f59e11888115
+  CHNavBar: 137cfc3ad7bdbbf155125d7b71bea02ddf9294a6
   CHSlackTextViewController: 2ac856e9cb50aa6281e43f5e11c348d9e81d9081
   CRToast: 5a78c22b921c5ed3487488af605bc403a9c92fed
-  DKImagePickerController: 51ad6ee2ba05414bb741db54a72cd7f4fb178e34
+  DKCamera: 61fa47629a39354e5111bca1fe96695de020dcb9
+  DKImagePickerController: ab7185a76b75a6559db73c568c9791c87f915a41
+  DKPhotoGallery: e5fc53899345c26af4374503dd249caabac7d26a
   DoubleConversion: bb338842f62ab1d708ceb63ec3d999f0f3d98ecd
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   Folly: c89ac2d5c6ab169cd7397ef27485c44f35f742c7
   glog: e8acf0ebbf99759d3ff18c86c292a5898282dcde
-  HexColors: f8c66339541a74bb08905bfe7cd4f8cc85e9e173
-  Hue: 93e852fa6211ab35922ad8c293f51c43d6c79eb2
-  Imaginary: 9b45836a5af881f452a86e0a1215772ae4712d00
-  Lightbox: 2dc267df8be2285bc7724cb11cbbf4aaaf59dced
+  Imaginary: dae33d06dbc2ada22f98afef5eb45cc061311a2c
+  Lightbox: d317750e4132bfb871a5307cfe0a2c7d6a583c65
   M13ProgressSuite: ea9f7263e73e9215e6849dfa54e29ee0ad6a145c
-  ManualLayout: 68ac8cfa6b5f656f7a9fadec3730208b95986880
-  MGSwipeTableCell: fb20e983988bde2b8d0df29c2d9e1d8ffd10b74a
+  MGSwipeTableCell: dc4eca3212ed38a563b27d6aa7b3c01ce656c1e2
   NVActivityIndicatorView: ec7440a57af2450319d3a4181cca7da6fc127064
-  ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
+  ObjectMapper: 5311bd50ca732930959e7ca1a2de43ab823a5ced
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
   Reusable: 7fc772097df3e5fc86f59d8a7af9708e49b5ff55
   RNChannelIO: ef26b2d14f2dd33b8b659313c0e8f6f02885232d
-  RxCocoa: 78763c7b07d02455598d9fc3c1ad091a28b73635
-  RxSwift: fe0fd770a43acdb7d0a53da411c9b892e69bb6e4
+  RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
+  RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749
+  RxSwift: 5976ecd04fc2fefd648827c23de5e11157faa973
   SDWebImage: 624d6e296c69b244bcede364c72ae0430ac14681
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Socket.IO-Client-Swift: d30d6fd08a38ad2a182b090936a043bf512ab2de
   Starscream: ef3ece99d765eeccb67de105bfa143f929026cf5
   SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  Then: 71866660c7af35a7343831f7668e7cd2b62ee0f2
+  TOCropViewController: 368d8df3ea43b62c3dc5a61f11b9048274d240bd
   yoga: b1ce48b6cf950b98deae82838f5173ea7cf89e85
 
 PODFILE CHECKSUM: 2766d7b5f3bb3834dfe315077bd13787afaa4c55

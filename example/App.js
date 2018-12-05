@@ -55,8 +55,10 @@ export default class App extends Component<Props> {
       console.log(AppState.currentState);
       ChannelIO.isChannelPushNotification(notification.getData()).then((result) => {
         if (result) {
-          ChannelIO.handlePushNotification(notification.getData());
-          notification.finish(PushNotificationIOS.FetchResult.NoData);
+          ChannelIO.handlePushNotification(notification.getData()).then((_) => {
+            notification.finish(PushNotificationIOS.FetchResult.NoData);
+          })
+          
         } else {
           //other push logics goes here
           notification.finish(PushNotificationIOS.FetchResult.NoData); 

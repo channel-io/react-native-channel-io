@@ -109,7 +109,7 @@ export const ChannelIO = {
    * Handle `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
-  handlePushNotification: (userInfo) => ChannelModule.handlePushNotification(userInfo),
+  handlePushNotification: async (userInfo) => ChannelModule.handlePushNotification(userInfo),
 
   /**
    * Event listener that triggers when badge count has been changed
