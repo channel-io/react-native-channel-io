@@ -86,12 +86,15 @@ public class Const {
   public static final String KEY_WILL_SHOW_MESSENGER = "WILL_SHOW_MESSENGER";
   public static final String KEY_WILL_HIDE_MESSENGER = "WILL_HIDE_MESSENGER";
   public static final String KEY_ON_CLICK_CHAT_LINK = "ON_CLICK_CHAT_LINK";
+  public static final String KEY_ON_CLICK_REDIRECT_LINK = "ON_CLICK_REDIRECT_LINK";
 
   public static final String EVENT_WILL_SHOW_MESSENGER = "ChannelIO:Event:WillShowMessenger";
   public static final String EVENT_WILL_HIDE_MESSENGER = "ChannelIO:Event:WillHideMessenger";
   public static final String EVENT_ON_CHANGE_BADGE = "ChannelIO:Event:OnChangeBadge";
   public static final String EVENT_ON_RECEIVE_PUSH = "ChannelIO:Event:OnReceivePush";
   public static final String EVENT_ON_CLICK_CHAT_LINK = "ChannelIO:Event:OnClickChatLink";
+  public static final String EVENT_ON_CLICK_REDIRECT_LINK = "ChannelIO:Event:OnClickRedirectLink";
+
 
   public static final String Event = "Event";
   public static final String Locale = "Locale";

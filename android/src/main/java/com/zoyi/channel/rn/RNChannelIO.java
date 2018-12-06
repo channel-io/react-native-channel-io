@@ -48,6 +48,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_WILL_SHOW_MESSENGER, Const.EVENT_WILL_SHOW_MESSENGER);
     eventMap.put(Const.KEY_WILL_HIDE_MESSENGER, Const.EVENT_WILL_HIDE_MESSENGER);
     eventMap.put(Const.KEY_ON_CLICK_CHAT_LINK, Const.EVENT_ON_CLICK_CHAT_LINK);
+    eventMap.put(Const.KEY_ON_CLICK_REDIRECT_LINK, Const.EVENT_ON_CLICK_REDIRECT_LINK);
 
     localeMap.put(Const.KEY_KOREAN, Const.LOCALE_KOREAN);
     localeMap.put(Const.KEY_JAPANESE, Const.LOCALE_JAPANESE);
@@ -192,6 +193,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @Override
   public boolean onClickRedirectUrl(String url) {
+    Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_REDIRECT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
     return handleRedirectLink;
   }
 }
