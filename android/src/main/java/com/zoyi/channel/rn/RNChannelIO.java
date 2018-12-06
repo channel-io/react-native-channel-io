@@ -8,7 +8,6 @@ import android.widget.Toast;
 import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.*;
 import com.zoyi.channel.plugin.android.global.*;
-import com.zoyi.channel.plugin.android.model.entity.*;
 
 import com.facebook.react.bridge.ReadableMap;
 import com.zoyi.channel.plugin.android.model.etc.PushEvent;
@@ -22,6 +21,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   private boolean debug = false;
   private boolean handleChatLink = false;
+  private boolean handleRedirectLink = false;
 
   private ReactContext reactContext;
 
@@ -129,7 +129,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     Context context = getCurrentActivity();
 
     if (context != null){
-      ChannelIO.showPushNotification(context, ParseUtils.toPushNotification(userInfo));
+      ChannelIO.showPushNotification(ParseUtils.toPushNotification(userInfo));
     }
 
     promise.resolve(true);
@@ -137,11 +137,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void handlePush() {
-    Context context = getCurrentActivity();
-
-    if (context != null){
-      ChannelIO.handlePushNotification(context);
-    }
+    ChannelIO.handlePushNotification();
   }
 
   @ReactMethod
@@ -155,12 +151,17 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void track(String name, ReadableMap eventProperty) {
-    ChannelIO.track(getCurrentActivity(), Utils.getPluginKey(getCurrentActivity()), name, ParseUtils.toHashMap(eventProperty));
+    ChannelIO.track(name, ParseUtils.toHashMap(eventProperty));
   }
 
   @ReactMethod
   public void setLinkHandle(boolean handleChatLink) {
     this.handleChatLink = handleChatLink;
+  }
+
+  @ReactMethod
+  public void setRedirectLinkHandle(boolean handleRedirectLink) {
+    this.handleRedirectLink = handleRedirectLink;
   }
 
   @Override
@@ -187,5 +188,10 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public boolean onClickChatLink(String url) {
     Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_CHAT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
     return handleChatLink;
+  }
+
+  @Override
+  public boolean onClickRedirectUrl(String url) {
+    return handleRedirectLink;
   }
 }

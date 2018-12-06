@@ -18,10 +18,10 @@ public class Const {
   public static final String KEY_STATUS = "status";
 
   // Guest
+  public static final String KEY_ID = "id";
+  public static final String KEY_ALERT = "alert";
   public static final String KEY_PROFILE = "profile";
   public static final String KEY_GUEST = "guest";
-  public static final String KEY_ALERT = "alert";
-  public static final String KEY_NAMED = "named";
 
   // Profile
   public static final String KEY_NAME = "name";
