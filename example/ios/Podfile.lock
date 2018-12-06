@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.8.0)
   - boost-for-react-native (1.63.0)
   - Cache (5.2.0)
-  - ChannelIO (5.1.0):
+  - ChannelIO (5.1.1):
     - Alamofire (~> 4.8)
     - CHDwifft
     - CHNavBar
@@ -131,11 +131,11 @@ PODS:
     - React/fishhook
     - React/RCTBlob
   - ReSwift (4.0.1)
-  - Reusable (4.0.4):
-    - Reusable/Storyboard (= 4.0.4)
-    - Reusable/View (= 4.0.4)
-  - Reusable/Storyboard (4.0.4)
-  - Reusable/View (4.0.4)
+  - Reusable (4.0.5):
+    - Reusable/Storyboard (= 4.0.5)
+    - Reusable/View (= 4.0.5)
+  - Reusable/Storyboard (4.0.5)
+  - Reusable/View (4.0.5)
   - RNChannelIO (0.1.0):
     - ChannelIO
     - React
@@ -225,7 +225,7 @@ SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
   boost-for-react-native: 39c7adb57c4e60d6c5479dd8623128eb5b3f0f2c
   Cache: 807c5d86d01a177f06ede9865add3aea269bbfd4
-  ChannelIO: f75b7518c1b75a9894a166e30cc65deae55de37f
+  ChannelIO: 6b1f916ec009a261ae0cf38833cb30da8bbe311b
   CHDwifft: 11871cb81a6a391f844856c074622df07d19d372
   CHNavBar: 137cfc3ad7bdbbf155125d7b71bea02ddf9294a6
   CHSlackTextViewController: 2ac856e9cb50aa6281e43f5e11c348d9e81d9081
@@ -246,7 +246,7 @@ SPEC CHECKSUMS:
   PhoneNumberKit: 32a1cd1e0aa9e950feb01886a22fd7386b8cf903
   React: 1fe0eb13d90b625d94c3b117c274dcfd2e760e11
   ReSwift: f4012c613e13da7398827fe5aebdb938eaed40a3
-  Reusable: 7fc772097df3e5fc86f59d8a7af9708e49b5ff55
+  Reusable: 188be1a54ac0691bc66e5bb24ec6eb91971b315b
   RNChannelIO: ef26b2d14f2dd33b8b659313c0e8f6f02885232d
   RxAtomic: eacf60db868c96bfd63320e28619fe29c179656f
   RxCocoa: df63ebf7b9a70d6b4eeea407ed5dd4efc8979749

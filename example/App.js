@@ -45,6 +45,9 @@ export default class App extends Component<Props> {
     ChannelIO.willShowMessenger(() => {
       console.log("willShow2");
     })
+    ChannelIO.onClickRedirectLink(false, (link) => {
+      console.log('click redirect' + link);
+    })
 
     PushNotificationIOS.requestPermissions();
     PushNotificationIOS.addEventListener('register', (token) => {

@@ -131,6 +131,7 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_RECEIVE_PUSH, (data) => {
       cb(data.push);
     });
+
     replaceListener(ChannelModule.Event.ON_RECEIVE_PUSH, subscription);
   },
 
@@ -144,7 +145,22 @@ export const ChannelIO = {
     ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, (data) => {
       cb(data.link);
     });
+
     replaceListener(ChannelModule.Event.ON_CLICK_CHAT_LINK, subscription);
+  },
+
+    /**
+   * Event listener that triggers when a redirect on push bot link has been clicked by a user 
+   * @param {Boolean} handle True if you want to handle a link, otherwise false
+   * @param {Function} cb a callback function that takes a string link as parameter
+   */
+  onClickRedirectLink: (handle, cb) => {
+    let subscription = ChannelModule.setRedirectLinkHandle(handle);
+    ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_REDIRECT_LINK, (data) => {
+      cb(data.link);
+    });
+
+    replaceListener(ChannelModule.Event.ON_CLICK_REDIRECT_LINK, subscription);
   },
 
   /**
@@ -169,6 +185,7 @@ export const ChannelIO = {
     ON_BADGE_CHANGE: ChannelModule.Event.ON_CHANGE_BADGE,
     ON_RECEIVE_PUSH: ChannelModule.Event.ON_RECEIVE_PUSH,
     ON_CLICK_CHAT_LINK: ChannelModule.Event.ON_CLICK_CHAT_LINK,
+    ON_CLICK_REDIRECT_LINK: ChannelModule.EVENT.ON_CLICK_REDIRECT_LINK,
     WILL_SHOW_MESSENGER: ChannelModule.Event.WILL_SHOW_MESSENGER,
     WILL_HIDE_MESSENGER: ChannelModule.Event.WILL_HIDE_MESSENGER
   }
