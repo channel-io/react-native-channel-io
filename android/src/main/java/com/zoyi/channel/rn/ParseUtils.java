@@ -10,7 +10,6 @@ import com.facebook.react.bridge.ReadableType;
 import com.facebook.react.bridge.WritableArray;
 import com.facebook.react.bridge.WritableMap;
 
-import com.zoyi.channel.plugin.android.model.entity.Guest;
 import com.zoyi.channel.plugin.android.model.etc.*;
 import com.zoyi.channel.plugin.android.*;
 import com.zoyi.channel.react.android.Const;
@@ -245,14 +244,15 @@ public class ParseUtils {
       return guestMap;
     }
 
+    guestMap.putString(Const.KEY_ID, guest.getId());
+    guestMap.putString(Const.KEY_NAME, guest.getName());
+    guestMap.putString(Const.KEY_AVATAR_URL, guest.getAvatarUrl());
+    guestMap.putInt(Const.KEY_ALERT, guest.getAlert());
+
     Map<String, Object> profile = guest.getProfile();
     if (profile != null) {
       guestMap.putMap(Const.KEY_PROFILE, toWritableMap(profile));
     }
-
-    guestMap.putInt(Const.KEY_ALERT, guest.getAlert());
-    guestMap.putString(Const.KEY_MOBILE_NUMBER, guest.getMobileNumber());
-    guestMap.putBoolean(Const.KEY_NAMED, guest.isNamed());
 
     return guestMap;
   }
