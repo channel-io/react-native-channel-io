@@ -4749,6 +4749,11 @@ react-is@^16.5.0:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.5.2.tgz#e2a7b7c3f5d48062eb769fcb123505eb928722e3"
   integrity sha512-hSl7E6l25GTjNEZATqZIuWOgSnpXb3kD0DVCujmg46K5zLxsbiKaaT6VO9slkSBDPZfYs30lwfJwbOFOnoEnKQ==
 
+react-native-channel-plugin@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-channel-plugin/-/react-native-channel-plugin-0.2.0.tgz#ce65fb0ddbe46b462025409abcb14d082814082c"
+  integrity sha512-ifkVUNd+Zexjn43dd14He5cW88cDUsXD+LVTxp0m1IpQsLxqNMmuk2FZS65MAQ9TR/DtQeCL3GK+q2Cs/m4eKA==
+
 react-native@0.57.1:
   version "0.57.1"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.57.1.tgz#a8bffeac13e200b95bbebd11f7131570902e1e74"

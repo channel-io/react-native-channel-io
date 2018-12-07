@@ -10,7 +10,7 @@
     "@babel/runtime": "^7.1.2",
     "react": "16.5.0",
     "react-native": "0.57.1",
-    "react-native-channel-plugin": "git+https://github.com/zoyi/react-native-channel-io.git"
+    "react-native-channel-plugin": "^0.2.0"
   },
   "devDependencies": {
     "babel-jest": "23.6.0",

@@ -24,8 +24,70 @@
 		140ED2AC1D01E1AD002B40FF /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		22B518A921806ABA00C7E267 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5188D21806AB000C7E267 /* libRCTPushNotification.a */; };
+		65D356E121BA5B1B001D6A30 /* libRNChannelIo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D356DF21BA4EA5001D6A30 /* libRNChannelIo.a */; };
+		65D3579D21BA5B8D001D6A30 /* Imaginary.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577D21BA5B87001D6A30 /* Imaginary.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D3579F21BA5B8D001D6A30 /* DKCamera.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577E21BA5B87001D6A30 /* DKCamera.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357A121BA5B8D001D6A30 /* Lightbox.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577F21BA5B87001D6A30 /* Lightbox.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357A321BA5B8D001D6A30 /* TOCropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578021BA5B87001D6A30 /* TOCropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357A521BA5B8D001D6A30 /* DKPhotoGallery.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578121BA5B87001D6A30 /* DKPhotoGallery.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357A721BA5B8D001D6A30 /* DKImagePickerController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578221BA5B88001D6A30 /* DKImagePickerController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357A921BA5B8D001D6A30 /* Reusable.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578321BA5B88001D6A30 /* Reusable.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357AB21BA5B8D001D6A30 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578421BA5B88001D6A30 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357AD21BA5B8D001D6A30 /* CHNavBar.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578521BA5B88001D6A30 /* CHNavBar.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357AF21BA5B8D001D6A30 /* NVActivityIndicatorView.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578621BA5B88001D6A30 /* NVActivityIndicatorView.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357B121BA5B8D001D6A30 /* CropViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578721BA5B88001D6A30 /* CropViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357B321BA5B8D001D6A30 /* Starscream.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578821BA5B88001D6A30 /* Starscream.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357B521BA5B8D001D6A30 /* ChannelIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578921BA5B89001D6A30 /* ChannelIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357B721BA5B8D001D6A30 /* NVActivityIndicatorViewAppExtension.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578A21BA5B89001D6A30 /* NVActivityIndicatorViewAppExtension.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357B921BA5B8D001D6A30 /* RxSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578B21BA5B89001D6A30 /* RxSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357BB21BA5B8D001D6A30 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578C21BA5B89001D6A30 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357BD21BA5B8E001D6A30 /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578D21BA5B89001D6A30 /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357BF21BA5B8E001D6A30 /* CHDwifft.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578E21BA5B89001D6A30 /* CHDwifft.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357C121BA5B8E001D6A30 /* SnapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578F21BA5B89001D6A30 /* SnapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357C321BA5B8E001D6A30 /* Cache.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579021BA5B8A001D6A30 /* Cache.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357C521BA5B8E001D6A30 /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579121BA5B8A001D6A30 /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357C721BA5B8E001D6A30 /* RxCocoa.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579221BA5B8A001D6A30 /* RxCocoa.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357C921BA5B8E001D6A30 /* CRToast.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579321BA5B8A001D6A30 /* CRToast.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357CB21BA5B8E001D6A30 /* M13ProgressSuite.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579421BA5B8B001D6A30 /* M13ProgressSuite.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357CD21BA5B8E001D6A30 /* MGSwipeTableCell.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579521BA5B8B001D6A30 /* MGSwipeTableCell.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357CF21BA5B8F001D6A30 /* SVProgressHUD.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579621BA5B8B001D6A30 /* SVProgressHUD.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357D121BA5B8F001D6A30 /* SDWebImage.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579721BA5B8B001D6A30 /* SDWebImage.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357D321BA5B8F001D6A30 /* SocketIO.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579821BA5B8C001D6A30 /* SocketIO.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357D521BA5B8F001D6A30 /* ObjectMapper.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579921BA5B8C001D6A30 /* ObjectMapper.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357D721BA5B8F001D6A30 /* ReSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579A21BA5B8C001D6A30 /* ReSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357D921BA5B8F001D6A30 /* CHSlackTextViewController.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579B21BA5B8C001D6A30 /* CHSlackTextViewController.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		65D357DA21BA66C2001D6A30 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578C21BA5B89001D6A30 /* Alamofire.framework */; };
+		65D357DB21BA66C2001D6A30 /* Cache.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579021BA5B8A001D6A30 /* Cache.framework */; };
+		65D357DC21BA66C2001D6A30 /* ChannelIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578921BA5B89001D6A30 /* ChannelIO.framework */; };
+		65D357DD21BA66C2001D6A30 /* CHDwifft.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578E21BA5B89001D6A30 /* CHDwifft.framework */; };
+		65D357DE21BA66C2001D6A30 /* CHNavBar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578521BA5B88001D6A30 /* CHNavBar.framework */; };
+		65D357DF21BA66C2001D6A30 /* CHSlackTextViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579B21BA5B8C001D6A30 /* CHSlackTextViewController.framework */; };
+		65D357E021BA66C2001D6A30 /* CropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578721BA5B88001D6A30 /* CropViewController.framework */; };
+		65D357E121BA66C2001D6A30 /* CRToast.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579321BA5B8A001D6A30 /* CRToast.framework */; };
+		65D357E221BA66C3001D6A30 /* DKCamera.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577E21BA5B87001D6A30 /* DKCamera.framework */; };
+		65D357E321BA66C3001D6A30 /* DKImagePickerController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578221BA5B88001D6A30 /* DKImagePickerController.framework */; };
+		65D357E421BA66C3001D6A30 /* DKPhotoGallery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578121BA5B87001D6A30 /* DKPhotoGallery.framework */; };
+		65D357E521BA66C3001D6A30 /* Imaginary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577D21BA5B87001D6A30 /* Imaginary.framework */; };
+		65D357E621BA66C3001D6A30 /* Lightbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3577F21BA5B87001D6A30 /* Lightbox.framework */; };
+		65D357E721BA66C3001D6A30 /* M13ProgressSuite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579421BA5B8B001D6A30 /* M13ProgressSuite.framework */; };
+		65D357E821BA66C3001D6A30 /* MGSwipeTableCell.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579521BA5B8B001D6A30 /* MGSwipeTableCell.framework */; };
+		65D357E921BA66C3001D6A30 /* NVActivityIndicatorView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578621BA5B88001D6A30 /* NVActivityIndicatorView.framework */; };
+		65D357EA21BA66C3001D6A30 /* NVActivityIndicatorViewAppExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578A21BA5B89001D6A30 /* NVActivityIndicatorViewAppExtension.framework */; };
+		65D357EB21BA66C3001D6A30 /* ObjectMapper.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579921BA5B8C001D6A30 /* ObjectMapper.framework */; };
+		65D357EC21BA66C3001D6A30 /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579121BA5B8A001D6A30 /* PhoneNumberKit.framework */; };
+		65D357ED21BA66C3001D6A30 /* ReSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579A21BA5B8C001D6A30 /* ReSwift.framework */; };
+		65D357EE21BA66C3001D6A30 /* Reusable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578321BA5B88001D6A30 /* Reusable.framework */; };
+		65D357EF21BA66C3001D6A30 /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578D21BA5B89001D6A30 /* RxAtomic.framework */; };
+		65D357F021BA66C3001D6A30 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579221BA5B8A001D6A30 /* RxCocoa.framework */; };
+		65D357F121BA66C3001D6A30 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578B21BA5B89001D6A30 /* RxSwift.framework */; };
+		65D357F221BA66C3001D6A30 /* SDWebImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579721BA5B8B001D6A30 /* SDWebImage.framework */; };
+		65D357F321BA66C3001D6A30 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578F21BA5B89001D6A30 /* SnapKit.framework */; };
+		65D357F421BA66C3001D6A30 /* SocketIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579821BA5B8C001D6A30 /* SocketIO.framework */; };
+		65D357F521BA66C3001D6A30 /* Starscream.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578821BA5B88001D6A30 /* Starscream.framework */; };
+		65D357F621BA66C3001D6A30 /* SVProgressHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3579621BA5B8B001D6A30 /* SVProgressHUD.framework */; };
+		65D357F721BA66C3001D6A30 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578421BA5B88001D6A30 /* SwiftyJSON.framework */; };
+		65D357F821BA66C3001D6A30 /* TOCropViewController.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D3578021BA5B87001D6A30 /* TOCropViewController.framework */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		85F434FCFF5CD375FAD1436D /* Pods_example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B7BEC78FF20741E6729DB3B /* Pods_example.framework */; };
 		ADBDB9381DFEBF1600ED6528 /* libRCTBlob.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ADBDB9271DFEBF0700ED6528 /* libRCTBlob.a */; };
 /* End PBXBuildFile section */
 
@@ -289,6 +351,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTAnimation;
 		};
+		65D356DE21BA4EA5001D6A30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7193020FA8334FFC92035549 /* RNChannelIO.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNChannelIO;
+		};
 		78C398B81ACF4ADC00677621 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */;
@@ -319,6 +388,37 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				65D357AB21BA5B8D001D6A30 /* SwiftyJSON.framework in Embed Frameworks */,
+				65D357B321BA5B8D001D6A30 /* Starscream.framework in Embed Frameworks */,
+				65D357A521BA5B8D001D6A30 /* DKPhotoGallery.framework in Embed Frameworks */,
+				65D357D721BA5B8F001D6A30 /* ReSwift.framework in Embed Frameworks */,
+				65D357BF21BA5B8E001D6A30 /* CHDwifft.framework in Embed Frameworks */,
+				65D357D921BA5B8F001D6A30 /* CHSlackTextViewController.framework in Embed Frameworks */,
+				65D357A321BA5B8D001D6A30 /* TOCropViewController.framework in Embed Frameworks */,
+				65D357A121BA5B8D001D6A30 /* Lightbox.framework in Embed Frameworks */,
+				65D357B921BA5B8D001D6A30 /* RxSwift.framework in Embed Frameworks */,
+				65D357D121BA5B8F001D6A30 /* SDWebImage.framework in Embed Frameworks */,
+				65D357AF21BA5B8D001D6A30 /* NVActivityIndicatorView.framework in Embed Frameworks */,
+				65D357B721BA5B8D001D6A30 /* NVActivityIndicatorViewAppExtension.framework in Embed Frameworks */,
+				65D357AD21BA5B8D001D6A30 /* CHNavBar.framework in Embed Frameworks */,
+				65D357C121BA5B8E001D6A30 /* SnapKit.framework in Embed Frameworks */,
+				65D3579F21BA5B8D001D6A30 /* DKCamera.framework in Embed Frameworks */,
+				65D357C521BA5B8E001D6A30 /* PhoneNumberKit.framework in Embed Frameworks */,
+				65D357B521BA5B8D001D6A30 /* ChannelIO.framework in Embed Frameworks */,
+				65D3579D21BA5B8D001D6A30 /* Imaginary.framework in Embed Frameworks */,
+				65D357C921BA5B8E001D6A30 /* CRToast.framework in Embed Frameworks */,
+				65D357CD21BA5B8E001D6A30 /* MGSwipeTableCell.framework in Embed Frameworks */,
+				65D357BD21BA5B8E001D6A30 /* RxAtomic.framework in Embed Frameworks */,
+				65D357C321BA5B8E001D6A30 /* Cache.framework in Embed Frameworks */,
+				65D357B121BA5B8D001D6A30 /* CropViewController.framework in Embed Frameworks */,
+				65D357CF21BA5B8F001D6A30 /* SVProgressHUD.framework in Embed Frameworks */,
+				65D357A721BA5B8D001D6A30 /* DKImagePickerController.framework in Embed Frameworks */,
+				65D357D321BA5B8F001D6A30 /* SocketIO.framework in Embed Frameworks */,
+				65D357D521BA5B8F001D6A30 /* ObjectMapper.framework in Embed Frameworks */,
+				65D357A921BA5B8D001D6A30 /* Reusable.framework in Embed Frameworks */,
+				65D357C721BA5B8E001D6A30 /* RxCocoa.framework in Embed Frameworks */,
+				65D357CB21BA5B8E001D6A30 /* M13ProgressSuite.framework in Embed Frameworks */,
+				65D357BB21BA5B8D001D6A30 /* Alamofire.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -347,13 +447,43 @@
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		22B5187B21806AB000C7E267 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		22B518DF21806F7700C7E267 /* example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = example.entitlements; path = example/example.entitlements; sourceTree = "<group>"; };
-		2B7BEC78FF20741E6729DB3B /* Pods_example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
-		5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.debug.xcconfig"; sourceTree = "<group>"; };
+		65D3577D21BA5B87001D6A30 /* Imaginary.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Imaginary.framework; path = Carthage/Build/iOS/Imaginary.framework; sourceTree = "<group>"; };
+		65D3577E21BA5B87001D6A30 /* DKCamera.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DKCamera.framework; path = Carthage/Build/iOS/DKCamera.framework; sourceTree = "<group>"; };
+		65D3577F21BA5B87001D6A30 /* Lightbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Lightbox.framework; path = Carthage/Build/iOS/Lightbox.framework; sourceTree = "<group>"; };
+		65D3578021BA5B87001D6A30 /* TOCropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = TOCropViewController.framework; path = Carthage/Build/iOS/TOCropViewController.framework; sourceTree = "<group>"; };
+		65D3578121BA5B87001D6A30 /* DKPhotoGallery.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DKPhotoGallery.framework; path = Carthage/Build/iOS/DKPhotoGallery.framework; sourceTree = "<group>"; };
+		65D3578221BA5B88001D6A30 /* DKImagePickerController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DKImagePickerController.framework; path = Carthage/Build/iOS/DKImagePickerController.framework; sourceTree = "<group>"; };
+		65D3578321BA5B88001D6A30 /* Reusable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Reusable.framework; path = Carthage/Build/iOS/Reusable.framework; sourceTree = "<group>"; };
+		65D3578421BA5B88001D6A30 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
+		65D3578521BA5B88001D6A30 /* CHNavBar.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHNavBar.framework; path = Carthage/Build/iOS/CHNavBar.framework; sourceTree = "<group>"; };
+		65D3578621BA5B88001D6A30 /* NVActivityIndicatorView.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorView.framework; path = Carthage/Build/iOS/NVActivityIndicatorView.framework; sourceTree = "<group>"; };
+		65D3578721BA5B88001D6A30 /* CropViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CropViewController.framework; path = Carthage/Build/iOS/CropViewController.framework; sourceTree = "<group>"; };
+		65D3578821BA5B88001D6A30 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = Carthage/Build/iOS/Starscream.framework; sourceTree = "<group>"; };
+		65D3578921BA5B89001D6A30 /* ChannelIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ChannelIO.framework; path = Carthage/Build/iOS/ChannelIO.framework; sourceTree = "<group>"; };
+		65D3578A21BA5B89001D6A30 /* NVActivityIndicatorViewAppExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NVActivityIndicatorViewAppExtension.framework; path = Carthage/Build/iOS/NVActivityIndicatorViewAppExtension.framework; sourceTree = "<group>"; };
+		65D3578B21BA5B89001D6A30 /* RxSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxSwift.framework; path = Carthage/Build/iOS/RxSwift.framework; sourceTree = "<group>"; };
+		65D3578C21BA5B89001D6A30 /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
+		65D3578D21BA5B89001D6A30 /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
+		65D3578E21BA5B89001D6A30 /* CHDwifft.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHDwifft.framework; path = Carthage/Build/iOS/CHDwifft.framework; sourceTree = "<group>"; };
+		65D3578F21BA5B89001D6A30 /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SnapKit.framework; path = Carthage/Build/iOS/SnapKit.framework; sourceTree = "<group>"; };
+		65D3579021BA5B8A001D6A30 /* Cache.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cache.framework; path = Carthage/Build/iOS/Cache.framework; sourceTree = "<group>"; };
+		65D3579121BA5B8A001D6A30 /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
+		65D3579221BA5B8A001D6A30 /* RxCocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxCocoa.framework; path = Carthage/Build/iOS/RxCocoa.framework; sourceTree = "<group>"; };
+		65D3579321BA5B8A001D6A30 /* CRToast.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CRToast.framework; path = Carthage/Build/iOS/CRToast.framework; sourceTree = "<group>"; };
+		65D3579421BA5B8B001D6A30 /* M13ProgressSuite.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = M13ProgressSuite.framework; path = Carthage/Build/iOS/M13ProgressSuite.framework; sourceTree = "<group>"; };
+		65D3579521BA5B8B001D6A30 /* MGSwipeTableCell.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MGSwipeTableCell.framework; path = Carthage/Build/iOS/MGSwipeTableCell.framework; sourceTree = "<group>"; };
+		65D3579621BA5B8B001D6A30 /* SVProgressHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SVProgressHUD.framework; path = Carthage/Build/iOS/SVProgressHUD.framework; sourceTree = "<group>"; };
+		65D3579721BA5B8B001D6A30 /* SDWebImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDWebImage.framework; path = Carthage/Build/iOS/SDWebImage.framework; sourceTree = "<group>"; };
+		65D3579821BA5B8C001D6A30 /* SocketIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketIO.framework; path = Carthage/Build/iOS/SocketIO.framework; sourceTree = "<group>"; };
+		65D3579921BA5B8C001D6A30 /* ObjectMapper.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ObjectMapper.framework; path = Carthage/Build/iOS/ObjectMapper.framework; sourceTree = "<group>"; };
+		65D3579A21BA5B8C001D6A30 /* ReSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ReSwift.framework; path = Carthage/Build/iOS/ReSwift.framework; sourceTree = "<group>"; };
+		65D3579B21BA5B8C001D6A30 /* CHSlackTextViewController.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CHSlackTextViewController.framework; path = Carthage/Build/iOS/CHSlackTextViewController.framework; sourceTree = "<group>"; };
+		7193020FA8334FFC92035549 /* RNChannelIO.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNChannelIO.xcodeproj; path = "../node_modules/react-native-channel-plugin/ios/RNChannelIO.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		ADBDB91F1DFEBF0600ED6528 /* RCTBlob.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTBlob.xcodeproj; path = "../node_modules/react-native/Libraries/Blob/RCTBlob.xcodeproj"; sourceTree = "<group>"; };
-		E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-example.release.xcconfig"; path = "Pods/Target Support Files/Pods-example/Pods-example.release.xcconfig"; sourceTree = "<group>"; };
+		B9216923AA8A4D30809C5276 /* libRNChannelIo.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNChannelIo.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -382,7 +512,38 @@
 				00C302EA1ABCBA2D00DB3ED1 /* libRCTVibration.a in Frameworks */,
 				139FDEF61B0652A700C62182 /* libRCTWebSocket.a in Frameworks */,
 				22B518A921806ABA00C7E267 /* libRCTPushNotification.a in Frameworks */,
-				85F434FCFF5CD375FAD1436D /* Pods_example.framework in Frameworks */,
+				65D356E121BA5B1B001D6A30 /* libRNChannelIo.a in Frameworks */,
+				65D357DA21BA66C2001D6A30 /* Alamofire.framework in Frameworks */,
+				65D357DB21BA66C2001D6A30 /* Cache.framework in Frameworks */,
+				65D357DC21BA66C2001D6A30 /* ChannelIO.framework in Frameworks */,
+				65D357DD21BA66C2001D6A30 /* CHDwifft.framework in Frameworks */,
+				65D357DE21BA66C2001D6A30 /* CHNavBar.framework in Frameworks */,
+				65D357DF21BA66C2001D6A30 /* CHSlackTextViewController.framework in Frameworks */,
+				65D357E021BA66C2001D6A30 /* CropViewController.framework in Frameworks */,
+				65D357E121BA66C2001D6A30 /* CRToast.framework in Frameworks */,
+				65D357E221BA66C3001D6A30 /* DKCamera.framework in Frameworks */,
+				65D357E321BA66C3001D6A30 /* DKImagePickerController.framework in Frameworks */,
+				65D357E421BA66C3001D6A30 /* DKPhotoGallery.framework in Frameworks */,
+				65D357E521BA66C3001D6A30 /* Imaginary.framework in Frameworks */,
+				65D357E621BA66C3001D6A30 /* Lightbox.framework in Frameworks */,
+				65D357E721BA66C3001D6A30 /* M13ProgressSuite.framework in Frameworks */,
+				65D357E821BA66C3001D6A30 /* MGSwipeTableCell.framework in Frameworks */,
+				65D357E921BA66C3001D6A30 /* NVActivityIndicatorView.framework in Frameworks */,
+				65D357EA21BA66C3001D6A30 /* NVActivityIndicatorViewAppExtension.framework in Frameworks */,
+				65D357EB21BA66C3001D6A30 /* ObjectMapper.framework in Frameworks */,
+				65D357EC21BA66C3001D6A30 /* PhoneNumberKit.framework in Frameworks */,
+				65D357ED21BA66C3001D6A30 /* ReSwift.framework in Frameworks */,
+				65D357EE21BA66C3001D6A30 /* Reusable.framework in Frameworks */,
+				65D357EF21BA66C3001D6A30 /* RxAtomic.framework in Frameworks */,
+				65D357F021BA66C3001D6A30 /* RxCocoa.framework in Frameworks */,
+				65D357F121BA66C3001D6A30 /* RxSwift.framework in Frameworks */,
+				65D357F221BA66C3001D6A30 /* SDWebImage.framework in Frameworks */,
+				65D357F321BA66C3001D6A30 /* SnapKit.framework in Frameworks */,
+				65D357F421BA66C3001D6A30 /* SocketIO.framework in Frameworks */,
+				65D357F521BA66C3001D6A30 /* Starscream.framework in Frameworks */,
+				65D357F621BA66C3001D6A30 /* SVProgressHUD.framework in Frameworks */,
+				65D357F721BA66C3001D6A30 /* SwiftyJSON.framework in Frameworks */,
+				65D357F821BA66C3001D6A30 /* TOCropViewController.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,14 +676,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				2B7BEC78FF20741E6729DB3B /* Pods_example.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		5E91572E1DD0AC6500FF2AA8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -532,13 +685,58 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		6E60F32C535C8C8D8B14AE18 /* Pods */ = {
+		65D356B321BA4EA3001D6A30 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */,
-				E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */,
+				B9216923AA8A4D30809C5276 /* libRNChannelIo.a */,
 			);
-			name = Pods;
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		65D356DB21BA4EA5001D6A30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				65D356DF21BA4EA5001D6A30 /* libRNChannelIo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		65D356E021BA5B1B001D6A30 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				65D3578C21BA5B89001D6A30 /* Alamofire.framework */,
+				65D3579021BA5B8A001D6A30 /* Cache.framework */,
+				65D3578921BA5B89001D6A30 /* ChannelIO.framework */,
+				65D3578E21BA5B89001D6A30 /* CHDwifft.framework */,
+				65D3578521BA5B88001D6A30 /* CHNavBar.framework */,
+				65D3579B21BA5B8C001D6A30 /* CHSlackTextViewController.framework */,
+				65D3578721BA5B88001D6A30 /* CropViewController.framework */,
+				65D3579321BA5B8A001D6A30 /* CRToast.framework */,
+				65D3577E21BA5B87001D6A30 /* DKCamera.framework */,
+				65D3578221BA5B88001D6A30 /* DKImagePickerController.framework */,
+				65D3578121BA5B87001D6A30 /* DKPhotoGallery.framework */,
+				65D3577D21BA5B87001D6A30 /* Imaginary.framework */,
+				65D3577F21BA5B87001D6A30 /* Lightbox.framework */,
+				65D3579421BA5B8B001D6A30 /* M13ProgressSuite.framework */,
+				65D3579521BA5B8B001D6A30 /* MGSwipeTableCell.framework */,
+				65D3578621BA5B88001D6A30 /* NVActivityIndicatorView.framework */,
+				65D3578A21BA5B89001D6A30 /* NVActivityIndicatorViewAppExtension.framework */,
+				65D3579921BA5B8C001D6A30 /* ObjectMapper.framework */,
+				65D3579121BA5B8A001D6A30 /* PhoneNumberKit.framework */,
+				65D3579A21BA5B8C001D6A30 /* ReSwift.framework */,
+				65D3578321BA5B88001D6A30 /* Reusable.framework */,
+				65D3578D21BA5B89001D6A30 /* RxAtomic.framework */,
+				65D3579221BA5B8A001D6A30 /* RxCocoa.framework */,
+				65D3578B21BA5B89001D6A30 /* RxSwift.framework */,
+				65D3579721BA5B8B001D6A30 /* SDWebImage.framework */,
+				65D3578F21BA5B89001D6A30 /* SnapKit.framework */,
+				65D3579821BA5B8C001D6A30 /* SocketIO.framework */,
+				65D3578821BA5B88001D6A30 /* Starscream.framework */,
+				65D3579621BA5B8B001D6A30 /* SVProgressHUD.framework */,
+				65D3578421BA5B88001D6A30 /* SwiftyJSON.framework */,
+				65D3578021BA5B87001D6A30 /* TOCropViewController.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		78C398B11ACF4ADC00677621 /* Products */ = {
@@ -566,6 +764,7 @@
 				832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */,
 				00C302DF1ABCB9EE00DB3ED1 /* RCTVibration.xcodeproj */,
 				139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */,
+				7193020FA8334FFC92035549 /* RNChannelIO.xcodeproj */,
 			);
 			name = Libraries;
 			sourceTree = "<group>";
@@ -586,8 +785,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* exampleTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
-				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				6E60F32C535C8C8D8B14AE18 /* Pods */,
+				65D356B321BA4EA3001D6A30 /* Recovered References */,
+				65D356E021BA5B1B001D6A30 /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -637,13 +836,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "example" */;
 			buildPhases = (
-				E7CD8370D108D210FA7AB276 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				2292119A216BD77800CFDD87 /* Embed Frameworks */,
-				6DC38A49A22456B1F68901A1 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -744,6 +941,10 @@
 				{
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
+				},
+				{
+					ProductGroup = 65D356DB21BA4EA5001D6A30 /* Products */;
+					ProjectRef = 7193020FA8334FFC92035549 /* RNChannelIO.xcodeproj */;
 				},
 			);
 			projectRoot = "";
@@ -1007,6 +1208,13 @@
 			remoteRef = 5E9157321DD0AC6500FF2AA8 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		65D356DF21BA4EA5001D6A30 /* libRNChannelIo.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNChannelIo.a;
+			remoteRef = 65D356DE21BA4EA5001D6A30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		78C398B91ACF4ADC00677621 /* libRCTLinking.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -1064,120 +1272,6 @@
 			shellPath = /bin/sh;
 			shellScript = "export NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh";
 		};
-		6DC38A49A22456B1F68901A1 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-example/Pods-example-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/CHDwifft/CHDwifft.framework",
-				"${BUILT_PRODUCTS_DIR}/CHNavBar/CHNavBar.framework",
-				"${BUILT_PRODUCTS_DIR}/CHSlackTextViewController/CHSlackTextViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/CRToast/CRToast.framework",
-				"${BUILT_PRODUCTS_DIR}/Cache/Cache.framework",
-				"${BUILT_PRODUCTS_DIR}/ChannelIO/ChannelIO.framework",
-				"${BUILT_PRODUCTS_DIR}/DKCamera/DKCamera.framework",
-				"${BUILT_PRODUCTS_DIR}/DKImagePickerController/DKImagePickerController.framework",
-				"${BUILT_PRODUCTS_DIR}/DKPhotoGallery/DKPhotoGallery.framework",
-				"${BUILT_PRODUCTS_DIR}/DoubleConversion/DoubleConversion.framework",
-				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
-				"${BUILT_PRODUCTS_DIR}/Folly/folly.framework",
-				"${BUILT_PRODUCTS_DIR}/Imaginary/Imaginary.framework",
-				"${BUILT_PRODUCTS_DIR}/Lightbox/Lightbox.framework",
-				"${BUILT_PRODUCTS_DIR}/M13ProgressSuite/M13ProgressSuite.framework",
-				"${BUILT_PRODUCTS_DIR}/MGSwipeTableCell/MGSwipeTableCell.framework",
-				"${BUILT_PRODUCTS_DIR}/NVActivityIndicatorView/NVActivityIndicatorView.framework",
-				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
-				"${BUILT_PRODUCTS_DIR}/PhoneNumberKit/PhoneNumberKit.framework",
-				"${BUILT_PRODUCTS_DIR}/RNChannelIO/RNChannelIO.framework",
-				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/React/React.framework",
-				"${BUILT_PRODUCTS_DIR}/Reusable/Reusable.framework",
-				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
-				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
-				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
-				"${BUILT_PRODUCTS_DIR}/Socket.IO-Client-Swift/SocketIO.framework",
-				"${BUILT_PRODUCTS_DIR}/Starscream/Starscream.framework",
-				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
-				"${BUILT_PRODUCTS_DIR}/TOCropViewController/TOCropViewController.framework",
-				"${BUILT_PRODUCTS_DIR}/glog/glog.framework",
-				"${BUILT_PRODUCTS_DIR}/yoga/yoga.framework",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHDwifft.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHNavBar.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CHSlackTextViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CRToast.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Cache.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChannelIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKCamera.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKImagePickerController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DKPhotoGallery.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DoubleConversion.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/folly.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Imaginary.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Lightbox.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/M13ProgressSuite.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MGSwipeTableCell.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NVActivityIndicatorView.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PhoneNumberKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RNChannelIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/React.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Reusable.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SocketIO.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Starscream.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TOCropViewController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/glog.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/yoga.framework",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-example/Pods-example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E7CD8370D108D210FA7AB276 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-example-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -1232,12 +1326,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-channel-io/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-channel-plugin/ios/**",
 				);
 				INFOPLIST_FILE = exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1258,12 +1354,14 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-channel-io/ios/**",
+					"$(SRCROOT)/../node_modules/react-native-channel-plugin/ios/**",
 				);
 				INFOPLIST_FILE = exampleTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
+					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 					"\"$(SRCROOT)/$(TARGET_NAME)\"",
 				);
 				OTHER_LDFLAGS = (
@@ -1278,7 +1376,6 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5ECC9F64C1EB9853E44D33CA /* Pods-example.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1294,6 +1391,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-channel-io/ios",
+					"$(SRCROOT)/../node_modules/react-native-channel-plugin/ios/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1312,7 +1410,6 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E87FD501ADC687B30D9E4D1D /* Pods-example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -1327,6 +1424,7 @@
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-channel-io/ios",
+					"$(SRCROOT)/../node_modules/react-native-channel-plugin/ios/**",
 				);
 				INFOPLIST_FILE = example/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
