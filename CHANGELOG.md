@@ -1,5 +1,13 @@
+# 0.2.2
+## Bug fixes
+* Fixed undefined when removing listeners
+
+# 0.2.0
+## Updates
+* Applied handlePushNotification method signature
+
 # 0.1.10
-# Bug fixes
+## Bug fixes
 * Fixed `isChannelPushNotification` callback
 
 # 0.1.8

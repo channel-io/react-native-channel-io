@@ -15,7 +15,9 @@ var listeners = {};
 
 resetListeners = () => {
   Object.keys(listeners).forEach((key) => {
-    listeners[key].remove();
+    if (listeners[key] != undefined) {
+      listeners[key].remove();
+    }
   });
 
   listeners = {};
