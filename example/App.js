@@ -7,7 +7,7 @@
  */
 
 import React, {Component} from 'react';
-import {PushNotificationIOS, AppState, Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
+import {PushNotificationIOS, Button, AppState, Platform, StyleSheet, Text, View, NativeModules} from 'react-native';
 import { ChannelIO } from 'react-native-channel-plugin'
 
 const instructions = Platform.select({
@@ -19,14 +19,19 @@ const instructions = Platform.select({
 
 type Props = {};
 export default class App extends Component<Props> {
-  componentDidMount() {
+  doBoot() {
     let settings = {
-      "pluginKey": "06ccfc12-a9fd-4c68-b364-5d19f81a60dd"
+      "userId":"tester",
+      "pluginKey": "06ccfc12-a9fd-4c68-b364-5d19f81a60dd"//"06ccfc12-a9fd-4c68-b364-5d19f81a60dd"
     }
 
     ChannelIO.boot(settings).then((result) => {
       ChannelIO.show(false);
     });
+  }
+
+  componentDidMount() {
+    this.doBoot();
     ChannelIO.onChangeBadge((count) => {
       console.log(count);
     });
@@ -77,9 +82,15 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Button title="send event" onPress={() => {
+          ChannelIO.track("request_message");
+        }} />
+        <Button title="boot" onPress={() => {
+          this.doBoot();
+        }} />
+        <Button title="shut down" onPress={() => {
+          ChannelIO.shutdown();
+        }} />
       </View>
     );
   }
