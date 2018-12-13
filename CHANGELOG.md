@@ -1,3 +1,7 @@
+# 0.2.3
+## Bug fixes
+* Fixed boolean value parser
+
 # 0.2.2
 ## Bug fixes
 * Fixed undefined when removing listeners

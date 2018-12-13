@@ -91,6 +91,9 @@ export default class App extends Component<Props> {
         <Button title="shut down" onPress={() => {
           ChannelIO.shutdown();
         }} />
+        <Button title="show" onPress={() => {
+          ChannelIO.show(false);
+        }} />
       </View>
     );
   }
