@@ -44,12 +44,12 @@ public class Utils {
     return 0f;
   }
 
-  public static boolean getBoolean(ReadableMap readableMap, String key) {
+  public static boolean getBoolean(ReadableMap readableMap, String key, boolean defaultValue) {
     if (readableMap.hasKey(key)) {
       return readableMap.getBoolean(key);
     }
 
-    return false;
+    return defaultValue;
   }
 
   public static String getString(ReadableMap readableMap, String key) {

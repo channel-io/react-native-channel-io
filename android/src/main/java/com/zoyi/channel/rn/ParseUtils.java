@@ -110,7 +110,7 @@ public class ParseUtils {
 
       switch (type) {
         case Boolean:
-          hashMap.put(key, Utils.getBoolean(readableMap, key));
+          hashMap.put(key, Utils.getBoolean(readableMap, key, false));
           break;
         case Array:
           hashMap.put(key, Utils.getReadableArray(readableMap, key));
@@ -192,9 +192,9 @@ public class ParseUtils {
     String userId = Utils.getString(settingsMap, Const.KEY_USER_ID);
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
 
-    boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE);
-    boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT);
-    boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH);
+    boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
+    boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);
+    boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH, false);
 
     ReadableMap launcherConfig = Utils.getReadableMap(settingsMap, Const.KEY_LAUNCHER_CONFIG);
     ReadableMap profile = Utils.getReadableMap(settingsMap, Const.KEY_PROFILE);
