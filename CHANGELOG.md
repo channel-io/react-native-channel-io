@@ -1,3 +1,7 @@
+# 0.2.5
+## Bug fixes 
+* Fixed typo `ON_BADGE_CHANGE` to `ON_CHANGE_BADGE`
+
 # 0.2.3
 ## Bug fixes
 * Fixed boolean value parser

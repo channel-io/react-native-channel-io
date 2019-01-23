@@ -184,7 +184,7 @@ export const ChannelIO = {
   },
 
   Event: {
-    ON_BADGE_CHANGE: ChannelModule.Event.ON_CHANGE_BADGE,
+    ON_CHANGE_BADGE: ChannelModule.Event.ON_CHANGE_BADGE,
     ON_RECEIVE_PUSH: ChannelModule.Event.ON_RECEIVE_PUSH,
     ON_CLICK_CHAT_LINK: ChannelModule.Event.ON_CLICK_CHAT_LINK,
     ON_CLICK_REDIRECT_LINK: ChannelModule.Event.ON_CLICK_REDIRECT_LINK,
