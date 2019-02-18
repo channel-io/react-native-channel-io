@@ -116,8 +116,8 @@ RCT_EXPORT_METHOD(initPushToken:(NSString *)token) {
   if (token == nil || [token isEqualToString: @""]) {
     return;
   }
-  NSData *data = [token dataUsingEncoding:NSUTF8StringEncoding];
-  [ChannelIO initPushTokenWithDeviceToken:data];
+
+  [ChannelIO initPushTokenWithTokenString:token];
 }
 
 RCT_EXPORT_METHOD(show:(BOOL)animated) {
@@ -202,13 +202,13 @@ RCT_EXPORT_METHOD(setRedirectLinkHandle:(BOOL)handle) {
   return handleRedirectLink;
 }
 
-- (void)willOpenMessenger {
+- (void)willShowMessenger {
   if (hasListeners) {
     [self sendEventWithName:WILL_SHOW_MESSENGER body:nil];
   }
 }
 
-- (void)willCloseMessenger {
+- (void)willHideMessenger {
   if (hasListeners) {
     [self sendEventWithName:WILL_HIDE_MESSENGER body:nil];
   }

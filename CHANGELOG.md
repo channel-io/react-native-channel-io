@@ -1,3 +1,8 @@
+# 0.2.6
+## Updates
+* Updated `initPushToken` method to properly pass token string
+* Updated delegate methods
+
 # 0.2.5
 ## Bug fixes 
 * Fixed typo `ON_BADGE_CHANGE` to `ON_CHANGE_BADGE`
