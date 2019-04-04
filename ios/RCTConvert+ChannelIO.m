@@ -3,7 +3,7 @@
 //  RNExample
 //
 //  Created by Haeun Chung on 28/09/2018.
-//  Copyright © 2018 Facebook. All rights reserved.
+//  Copyright © 2018 ZOYI. All rights reserved.
 //
 
 #import "RCTConvert+ChannelIO.h"
