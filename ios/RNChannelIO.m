@@ -195,11 +195,17 @@ RCT_EXPORT_METHOD(setRedirectLinkHandle:(BOOL)handle) {
 }
 
 - (BOOL)onClickRedirectWithUrl:(NSURL *)url {
-    if (hasListeners) {
+  if (hasListeners) {
     [self sendEventWithName:ON_CLICK_REDIRECT_LINK body:@{@"link": url.absoluteString}];
     return handleRedirectLink;
   }
   return handleRedirectLink;
+}
+
+- (void)onChangeProfileWithKey:(NSString *)key value:(id)value {
+  if (hasListeners) {
+    [self sendEventWithName:ON_CHANGE_PROFILE body: @{@"key": key, @"value": value}];
+  }
 }
 
 - (void)willShowMessenger {

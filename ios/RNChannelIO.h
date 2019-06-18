@@ -22,6 +22,7 @@ static NSString * const WILL_SHOW_MESSENGER = @"ChannelIO:Event:WillShowMessenge
 static NSString * const WILL_HIDE_MESSENGER = @"ChannelIO:Event:WillHideMessenger";
 static NSString * const ON_CLICK_CHAT_LINK = @"ChannelIO:Event:OnClickChatLink";
 static NSString * const ON_CLICK_REDIRECT_LINK = @"ChannelIO:Event:OnClickRedirectLink";
+static NSString * const ON_CHANGE_PROFILE = @"ChannelIO:Event:OnChangeProfile"
 
 NS_ASSUME_NONNULL_END
 

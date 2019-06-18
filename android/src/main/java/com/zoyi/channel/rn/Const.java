@@ -80,8 +80,8 @@ public class Const {
   public static final String KEY_EVENT_COUNT = "count";
   public static final String KEY_EVENT_LINK = "link";
   public static final String KEY_EVENT_PUSH = "push";
-  public static final String KEY_PROFILE_KEY = "profileKey";
-  public static final String KEY_PROFILE_VALUE = "profileValue";
+  public static final String KEY_PROFILE_KEY = "key";
+  public static final String KEY_PROFILE_VALUE = "value";
 
   public static final String KEY_ON_CHANGE_BADGE = "ON_CHANGE_BADGE";
   public static final String KEY_ON_RECEIVE_PUSH = "ON_RECEIVE_PUSH";

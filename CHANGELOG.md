@@ -1,3 +1,8 @@
+# 0.3.0
+## Updates
+* Added `onChangeProfile` method
+* Removed support annotation for android
+
 # 0.2.6
 ## Updates
 * Updated `initPushToken` method to properly pass token string

@@ -171,7 +171,7 @@ export const ChannelIO = {
    */
   onChangeProfile: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_PROFILE, (data) => {
-      cb(data.profileKey, data.profileValue);
+      cb(data.key, data.value);
     });
     replaceListener(ChannelModule.Event.ON_CHANGE_PROFILE, subscription);
   },
