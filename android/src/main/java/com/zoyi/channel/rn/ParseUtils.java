@@ -271,6 +271,13 @@ public class ParseUtils {
     return resultMap;
   }
 
+  public static WritableMap createKeyValueMap(String keyName, String keyContent, String valueName, Object valueContent) {
+    Map<String, Object> map = new HashMap<>();
+    map.put(keyName, keyContent);
+    map.put(valueName, valueContent);
+    return toWritableMap(map);
+  }
+
   public static WritableMap createSingleMap(String key, Object object) {
     Map<String, Object> map = new HashMap<>();
     map.put(key, object);

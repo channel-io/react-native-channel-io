@@ -80,6 +80,8 @@ public class Const {
   public static final String KEY_EVENT_COUNT = "count";
   public static final String KEY_EVENT_LINK = "link";
   public static final String KEY_EVENT_PUSH = "push";
+  public static final String KEY_PROFILE_KEY = "profileKey";
+  public static final String KEY_PROFILE_VALUE = "profileValue";
 
   public static final String KEY_ON_CHANGE_BADGE = "ON_CHANGE_BADGE";
   public static final String KEY_ON_RECEIVE_PUSH = "ON_RECEIVE_PUSH";
@@ -87,6 +89,7 @@ public class Const {
   public static final String KEY_WILL_HIDE_MESSENGER = "WILL_HIDE_MESSENGER";
   public static final String KEY_ON_CLICK_CHAT_LINK = "ON_CLICK_CHAT_LINK";
   public static final String KEY_ON_CLICK_REDIRECT_LINK = "ON_CLICK_REDIRECT_LINK";
+  public static final String KEY_ON_CHANGE_GUEST_PROFILE = "ON_CHANGE_GUEST_PROFILE";
 
   public static final String EVENT_WILL_SHOW_MESSENGER = "ChannelIO:Event:WillShowMessenger";
   public static final String EVENT_WILL_HIDE_MESSENGER = "ChannelIO:Event:WillHideMessenger";
@@ -94,6 +97,7 @@ public class Const {
   public static final String EVENT_ON_RECEIVE_PUSH = "ChannelIO:Event:OnReceivePush";
   public static final String EVENT_ON_CLICK_CHAT_LINK = "ChannelIO:Event:OnClickChatLink";
   public static final String EVENT_ON_CLICK_REDIRECT_LINK = "ChannelIO:Event:OnClickRedirectLink";
+  public static final String EVENT_ON_CHANGE_GUEST_PROFILE = "ChannelIO:Event:onChangeGuestProfile";
 
 
   public static final String Event = "Event";
