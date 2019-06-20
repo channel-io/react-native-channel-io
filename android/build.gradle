@@ -24,8 +24,8 @@ buildscript {
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 27
-    buildToolsVersion "27.0.3"
+    compileSdkVersion 28
+    buildToolsVersion "28.0.3"
 
     defaultConfig {
         minSdkVersion 16
@@ -54,6 +54,6 @@ repositories {
 }
 
 dependencies {
-    compile 'com.facebook.react:react-native:0.20.1'
-    compile 'com.zoyi.channel:plugin-android:+'
+    implementation 'com.facebook.react:react-native:0.20.1'
+    implementation 'com.zoyi.channel:plugin-android:6.0.+'
 }

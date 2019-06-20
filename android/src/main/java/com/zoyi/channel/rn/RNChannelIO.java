@@ -1,8 +1,8 @@
 
 package com.zoyi.channel.rn;
 
+import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.*;
@@ -49,6 +49,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_WILL_HIDE_MESSENGER, Const.EVENT_WILL_HIDE_MESSENGER);
     eventMap.put(Const.KEY_ON_CLICK_CHAT_LINK, Const.EVENT_ON_CLICK_CHAT_LINK);
     eventMap.put(Const.KEY_ON_CLICK_REDIRECT_LINK, Const.EVENT_ON_CLICK_REDIRECT_LINK);
+    eventMap.put(Const.KEY_ON_CHANGE_PROFILE, Const.EVENT_ON_CHANGE_PROFILE);
 
     localeMap.put(Const.KEY_KOREAN, Const.LOCALE_KOREAN);
     localeMap.put(Const.KEY_JAPANESE, Const.LOCALE_JAPANESE);
@@ -80,7 +81,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
         ParseUtils.toProfile(Utils.getReadableMap(settings, Const.KEY_PROFILE)),
         new OnBootListener() {
           @Override
-          public void onCompletion(ChannelPluginCompletionStatus status, @Nullable Guest guest) {
+          public void onCompletion(ChannelPluginCompletionStatus status, Guest guest) {
             promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, guest));
           }
         });
@@ -138,7 +139,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void handlePush() {
-    ChannelIO.handlePushNotification();
+    Activity activity = getCurrentActivity();
+
+    if (activity != null){
+      ChannelIO.handlePushNotification(activity);
+    }
   }
 
   @ReactMethod
@@ -195,5 +200,14 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public boolean onClickRedirectUrl(String url) {
     Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_REDIRECT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
     return handleRedirectLink;
+  }
+
+  @Override
+  public void onChangeProfile(String key, Object value) {
+    Utils.sendEvent(
+      reactContext,
+      Const.EVENT_ON_CHANGE_PROFILE,
+      ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
+    );
   }
 }

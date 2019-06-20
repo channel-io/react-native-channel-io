@@ -2,7 +2,6 @@
 package com.zoyi.channel.rn;
 
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.util.Log;
 
 import com.facebook.react.bridge.Arguments;
@@ -86,7 +85,7 @@ public class Utils {
     return pluginKey;
   }
 
-  public static void sendEvent(ReactContext reactContext, String eventName, @Nullable WritableMap params) {
+  public static void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
     reactContext
         .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
         .emit(eventName, params);
