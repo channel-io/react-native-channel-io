@@ -169,11 +169,11 @@ export const ChannelIO = {
    * Event listener that triggers when guest profile is updated
    * @param {Function} cb a callback function that takes a key, value
    */
-  onChangeGuestProfile: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_GUEST_PROFILE, (data) => {
+  onChangeProfile: (cb) => {
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHANGE_PROFILE, (data) => {
       cb(data.profileKey, data.profileValue);
     });
-    replaceListener(ChannelModule.Event.ON_CHANGE_GUEST_PROFILE, subscription);
+    replaceListener(ChannelModule.Event.ON_CHANGE_PROFILE, subscription);
   },
 
   /**
@@ -199,7 +199,7 @@ export const ChannelIO = {
     ON_RECEIVE_PUSH: ChannelModule.Event.ON_RECEIVE_PUSH,
     ON_CLICK_CHAT_LINK: ChannelModule.Event.ON_CLICK_CHAT_LINK,
     ON_CLICK_REDIRECT_LINK: ChannelModule.Event.ON_CLICK_REDIRECT_LINK,
-    ON_CHANGE_GUEST_PROFILE: ChannelModule.Event.ON_CHANGE_GUEST_PROFILE,
+    ON_CHANGE_PROFILE: ChannelModule.Event.ON_CHANGE_PROFILE,
     WILL_SHOW_MESSENGER: ChannelModule.Event.WILL_SHOW_MESSENGER,
     WILL_HIDE_MESSENGER: ChannelModule.Event.WILL_HIDE_MESSENGER
   }
