@@ -3,7 +3,6 @@ package com.zoyi.channel.rn;
 
 import android.app.Activity;
 import android.content.Context;
-import android.support.annotation.Nullable;
 import android.widget.Toast;
 
 import com.facebook.react.bridge.*;
@@ -82,7 +81,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
         ParseUtils.toProfile(Utils.getReadableMap(settings, Const.KEY_PROFILE)),
         new OnBootListener() {
           @Override
-          public void onCompletion(ChannelPluginCompletionStatus status, @Nullable Guest guest) {
+          public void onCompletion(ChannelPluginCompletionStatus status, Guest guest) {
             promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, guest));
           }
         });

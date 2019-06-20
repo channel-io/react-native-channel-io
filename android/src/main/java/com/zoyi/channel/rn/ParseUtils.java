@@ -1,8 +1,6 @@
 
 package com.zoyi.channel.rn;
 
-import android.support.annotation.Nullable;
-
 import com.facebook.react.bridge.Arguments;
 import com.facebook.react.bridge.ReadableMap;
 import com.facebook.react.bridge.ReadableMapKeySetIterator;
@@ -223,7 +221,7 @@ public class ParseUtils {
   public static WritableMap getBootResult(
       ChannelPluginListener listener,
       ChannelPluginCompletionStatus status,
-      @Nullable Guest guest) {
+      Guest guest) {
 
     WritableMap result = Arguments.createMap();
 
