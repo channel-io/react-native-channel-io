@@ -1,3 +1,7 @@
+# 0.3.1
+## Updates
+* Replaced `implemetation` to `api` in gradle
+
 # 0.3.0
 ## Updates
 * Added `onChangeProfile` method
