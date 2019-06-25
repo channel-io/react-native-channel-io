@@ -70,6 +70,8 @@
 		223D4B2722C2723100D6D8DC /* PhoneNumberKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223D4AF822C2723100D6D8DC /* PhoneNumberKit.framework */; };
 		223D4B2822C2723100D6D8DC /* PhoneNumberKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 223D4AF822C2723100D6D8DC /* PhoneNumberKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		223D4B2B22C2732E00D6D8DC /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223D4B2A22C2732E00D6D8DC /* JavaScriptCore.framework */; };
+		223D4B2D22C2754D00D6D8DC /* RxAtomic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 223D4B2C22C2754D00D6D8DC /* RxAtomic.framework */; };
+		223D4B2E22C2754D00D6D8DC /* RxAtomic.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 223D4B2C22C2754D00D6D8DC /* RxAtomic.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		22B518A921806ABA00C7E267 /* libRCTPushNotification.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 22B5188D21806AB000C7E267 /* libRCTPushNotification.a */; };
 		65D356E121BA5B1B001D6A30 /* libRNChannelIo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 65D356DF21BA4EA5001D6A30 /* libRNChannelIo.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
@@ -378,6 +380,7 @@
 				223D4B0022C2723100D6D8DC /* ReSwift.framework in Embed Frameworks */,
 				223D4B2222C2723100D6D8DC /* CHDwifft.framework in Embed Frameworks */,
 				223D4B1C22C2723100D6D8DC /* RxSwift.framework in Embed Frameworks */,
+				223D4B2E22C2754D00D6D8DC /* RxAtomic.framework in Embed Frameworks */,
 				223D4B0622C2723100D6D8DC /* SocketIO.framework in Embed Frameworks */,
 				223D4B0222C2723100D6D8DC /* CRToast.framework in Embed Frameworks */,
 				223D4B0E22C2723100D6D8DC /* Starscream.framework in Embed Frameworks */,
@@ -447,6 +450,7 @@
 		223D4AF722C2723100D6D8DC /* Alamofire.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Alamofire.framework; path = Carthage/Build/iOS/Alamofire.framework; sourceTree = "<group>"; };
 		223D4AF822C2723100D6D8DC /* PhoneNumberKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhoneNumberKit.framework; path = Carthage/Build/iOS/PhoneNumberKit.framework; sourceTree = "<group>"; };
 		223D4B2A22C2732E00D6D8DC /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+		223D4B2C22C2754D00D6D8DC /* RxAtomic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = RxAtomic.framework; path = Carthage/Build/iOS/RxAtomic.framework; sourceTree = "<group>"; };
 		22B5187B21806AB000C7E267 /* RCTPushNotification.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTPushNotification.xcodeproj; path = "../node_modules/react-native/Libraries/PushNotificationIOS/RCTPushNotification.xcodeproj"; sourceTree = "<group>"; };
 		22B518DF21806F7700C7E267 /* example.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = example.entitlements; path = example/example.entitlements; sourceTree = "<group>"; };
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
@@ -478,6 +482,7 @@
 				223D4B1B22C2723100D6D8DC /* RxSwift.framework in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
 				00C302E51ABCBA2D00DB3ED1 /* libRCTActionSheet.a in Frameworks */,
+				223D4B2D22C2754D00D6D8DC /* RxAtomic.framework in Frameworks */,
 				223D4AF922C2723100D6D8DC /* CHNavBar.framework in Frameworks */,
 				00C302E71ABCBA2D00DB3ED1 /* libRCTGeolocation.a in Frameworks */,
 				223D4B1D22C2723100D6D8DC /* RxCocoa.framework in Frameworks */,
@@ -715,6 +720,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				223D4B2C22C2754D00D6D8DC /* RxAtomic.framework */,
 				223D4AF722C2723100D6D8DC /* Alamofire.framework */,
 				223D4AF422C2723000D6D8DC /* ChannelIO.framework */,
 				223D4AF522C2723000D6D8DC /* CHDwifft.framework */,
