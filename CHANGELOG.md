@@ -1,3 +1,7 @@
+# 0.3.2
+## Bug fixes
+* Fixed missing colon
+
 # 0.3.1
 ## Updates
 * Replaced `implemetation` to `api` in gradle

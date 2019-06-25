@@ -1,6 +1,6 @@
 {
   "name": "react-native-channel-plugin",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "react native module for channel io",
   "main": "index.js",
   "scripts": {
