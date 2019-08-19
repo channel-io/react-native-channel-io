@@ -212,7 +212,13 @@ public class ParseUtils {
 
     while (iterator.hasNextKey()) {
       String key = iterator.nextKey();
-      pushNotification.put(key, pushNotificationMap.getString(key));
+      ReadableType type = pushNotificationMap.getType(key);
+
+      switch (type) {
+        case String:
+          pushNotification.put(key, pushNotificationMap.getString(key));
+          break;
+      }
     }
 
     return pushNotification;
