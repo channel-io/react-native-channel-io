@@ -1,3 +1,8 @@
+# 0.3.3
+## Bug fixes
+* Fixed android package name
+* Fixed push payload parser crash when value was not string
+
 # 0.3.2
 ## Bug fixes
 * Fixed missing colon
