@@ -8,8 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
-#import <ChannelIO/ChannelIO-Swift.h>
 #import <React/RCTEventEmitter.h>
+
+@import ChannelIO;
 
 NS_ASSUME_NONNULL_BEGIN
 

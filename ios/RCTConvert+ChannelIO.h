@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTConvert.h>
-#import <ChannelIO/ChannelIO-Swift.h>
+
+@import ChannelIO;
 
 NS_ASSUME_NONNULL_BEGIN
 

@@ -10,7 +10,8 @@
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
 #import <React/RCTPushNotificationManager.h>
-#import <ChannelIO/ChannelIO-Swift.h>
+
+@import ChannelIO;
 
 @implementation AppDelegate
 
