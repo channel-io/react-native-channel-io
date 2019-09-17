@@ -50,5 +50,5 @@ buck-out/
 \.buckd/
 *.keystore
     
-example/ios/Pods
-example/ios/Carthage 
+rn59example/ios/Pods
+rn59example/ios/Carthage 
