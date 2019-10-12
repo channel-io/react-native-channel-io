@@ -825,6 +825,13 @@
     eslint-plugin-react-native "3.6.0"
     prettier "1.16.4"
 
+"@react-native-community/push-notification-ios@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@react-native-community/push-notification-ios/-/push-notification-ios-1.0.2.tgz#541bc8ce088d726c4a98fff0e261b4d0f555cacf"
+  integrity sha512-9lWaw+zBGvT8Yw9HZmiLkYbnmF5AzrWexYh2qmRt/shpfZawCTPmPBrq09N7JhiPV4g/gEbeLXlndxl1JQeB0g==
+  dependencies:
+    invariant "^2.2.4"
+
 "@types/babel__core@^7.1.0":
   version "7.1.3"
   resolved "https://registry.yarnpkg.com/@types/babel__core/-/babel__core-7.1.3.tgz#e441ea7df63cd080dfcd02ab199e6d16a735fc30"
@@ -4502,9 +4509,10 @@ react-is@^16.8.1, react-is@^16.8.4, react-is@^16.8.6:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
 
-react-native-channel-plugin@0.3.5:
-  version "0.3.5"
-  resolved "https://registry.yarnpkg.com/react-native-channel-plugin/-/react-native-channel-plugin-0.3.5.tgz#1f1e17d307e1c0c0f899d981a7d30c0dadec2fe5"
+react-native-channel-plugin@^0.3.6:
+  version "0.3.6"
+  resolved "https://registry.yarnpkg.com/react-native-channel-plugin/-/react-native-channel-plugin-0.3.6.tgz#b6c42ecbd103f35c29518e9c82a870adc7fb5dfd"
+  integrity sha512-P6R5ye17rVphKRuCikD21L1S5dClqEQ6ZrbVCov3lB/f4lCGDwS2Kn+e0MdHsmJR9PVJeUjeSJhMn8uToXVM/Q==
 
 react-native@0.60.5:
   version "0.60.5"

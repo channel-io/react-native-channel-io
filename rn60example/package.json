@@ -11,7 +11,7 @@
     "@react-native-community/push-notification-ios": "^1.0.2",
     "react": "16.8.6",
     "react-native": "0.60.5",
-    "react-native-channel-plugin": "0.3.5"
+    "react-native-channel-plugin": "^0.3.6"
   },
   "devDependencies": {
     "@babel/core": "^7.6.0",
