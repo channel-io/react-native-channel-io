@@ -1,3 +1,7 @@
+# 0.3.7
+## Updates
+* Updated ios target to 10.0 from 9.1
+
 # 0.3.3
 ## Bug fixes
 * Fixed android package name
