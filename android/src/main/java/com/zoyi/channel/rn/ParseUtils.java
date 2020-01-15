@@ -123,7 +123,7 @@ public class ParseUtils {
           break;
 
         case Map:
-          hashMap.put(key, Utils.getReadableMap(readableMap, key));
+          hashMap.put(key, toHashMap(readableMap.getMap(key)));
           break;
 
         default:
