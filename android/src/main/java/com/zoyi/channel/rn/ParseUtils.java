@@ -111,7 +111,7 @@ public class ParseUtils {
           hashMap.put(key, Utils.getBoolean(readableMap, key, false));
           break;
         case Array:
-          hashMap.put(key, Utils.getReadableArray(readableMap, key));
+          hashMap.put(key, toArrayList(Utils.getReadableArray(readableMap, key)));
           break;
 
         case Number:
@@ -123,7 +123,7 @@ public class ParseUtils {
           break;
 
         case Map:
-          hashMap.put(key, toHashMap(readableMap.getMap(key)));
+          hashMap.put(key, toHashMap(Utils.getReadableMap(readableMap, key)));
           break;
 
         default:
@@ -132,6 +132,44 @@ public class ParseUtils {
     }
 
     return hashMap;
+  }
+
+  public static List<Object> toArrayList(ReadableArray readableArray) {
+    ArrayList<Object> arrayList = new ArrayList<>();
+
+    if (readableArray == null) {
+      return arrayList;
+    }
+
+    for (int i = 0; i < readableArray.size(); i++) {
+      ReadableType type = readableArray.getType(i);
+
+      switch (type) {
+        case Boolean:
+          arrayList.add(readableArray.getBoolean(i));
+          break;
+        case Array:
+          arrayList.add(toArrayList(readableArray.getArray(i)));
+          break;
+
+        case Number:
+          arrayList.add(readableArray.getDouble(i));
+          break;
+
+        case String:
+          arrayList.add(readableArray.getString(i));
+          break;
+
+        case Map:
+          arrayList.add(toHashMap(readableArray.getMap(i)));
+          break;
+
+        default:
+          break;
+      }
+    }
+
+    return arrayList;
   }
 
   public static LauncherConfig toLauncherConfig(ReadableMap launcherConfigMap) {
