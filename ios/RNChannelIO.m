@@ -18,7 +18,6 @@
 {
   BOOL hasListeners;
   BOOL handleChatLink;
-  BOOL handleRedirectLink;
 }
 
 RCT_EXPORT_MODULE()
@@ -62,8 +61,7 @@ RCT_EXPORT_MODULE()
          @"ON_RECEIVE_PUSH": ON_RECEIVE_PUSH,
          @"WILL_SHOW_MESSENGER": WILL_SHOW_MESSENGER,
          @"WILL_HIDE_MESSENGER": WILL_HIDE_MESSENGER,
-         @"ON_CLICK_CHAT_LINK": ON_CLICK_CHAT_LINK,
-         @"ON_CLICK_REDIRECT_LINK": ON_CLICK_REDIRECT_LINK
+         @"ON_CLICK_CHAT_LINK": ON_CLICK_CHAT_LINK
      },
      @"Locale": @{
          @"korean": @(CHLocaleKorean),
@@ -92,8 +90,7 @@ RCT_EXPORT_MODULE()
      ON_RECEIVE_PUSH,
      WILL_SHOW_MESSENGER,
      WILL_HIDE_MESSENGER,
-     ON_CLICK_CHAT_LINK,
-     ON_CLICK_REDIRECT_LINK
+     ON_CLICK_CHAT_LINK
   ];
 }
 
@@ -103,8 +100,8 @@ RCT_EXPORT_METHOD(boot:(id)settings
                   rejecter:(RCTPromiseRejectBlock)reject) {
   ChannelPluginSettings * pluginSettings = [RCTConvert settings:settings];
   Profile *userProfile = [RCTConvert profile:settings[@"profile"]];
-  [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, Guest *guest) {
-    resolve(@{@"status": @(status), @"guest": guest != nil ? guest.toJson : NSNull.null });
+  [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, User *user) {
+    resolve(@{@"status": @(status), @"user": user != nil ? user.toJson : NSNull.null });
   }];
 }
 
@@ -168,10 +165,6 @@ RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
   handleChatLink = handle;
 }
 
-RCT_EXPORT_METHOD(setRedirectLinkHandle:(BOOL)handle) {
-  handleRedirectLink = handle;
-}
-
 #pragma mark ChannelPluginDelegate
 
 - (void)onChangeBadgeWithCount:(NSInteger)count {
@@ -192,14 +185,6 @@ RCT_EXPORT_METHOD(setRedirectLinkHandle:(BOOL)handle) {
     return handleChatLink;
   }
   return handleChatLink;
-}
-
-- (BOOL)onClickRedirectWithUrl:(NSURL *)url {
-  if (hasListeners) {
-    [self sendEventWithName:ON_CLICK_REDIRECT_LINK body:@{@"link": url.absoluteString}];
-    return handleRedirectLink;
-  }
-  return handleRedirectLink;
 }
 
 - (void)onChangeProfileWithKey:(NSString *)key value:(id)value {
