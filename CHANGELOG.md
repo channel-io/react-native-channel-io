@@ -1,3 +1,7 @@
+# 0.4.0
+## Updates
+* Updated channeltalk plugin v7.0
+
 # 0.3.7
 ## Updates
 * Updated ios target to 10.0 from 9.1
