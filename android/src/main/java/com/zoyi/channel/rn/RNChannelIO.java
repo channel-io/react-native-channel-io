@@ -3,15 +3,11 @@ package com.zoyi.channel.rn;
 
 import android.app.Activity;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.*;
-import com.zoyi.channel.plugin.android.global.*;
-
-import com.facebook.react.bridge.ReadableMap;
+import com.zoyi.channel.plugin.android.global.PrefSupervisor;
 import com.zoyi.channel.plugin.android.model.etc.PushEvent;
-import com.zoyi.channel.react.android.*;
 import com.zoyi.channel.react.android.Const;
 
 import java.util.HashMap;
@@ -81,8 +77,8 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
         ParseUtils.toProfile(Utils.getReadableMap(settings, Const.KEY_PROFILE)),
         new OnBootListener() {
           @Override
-          public void onCompletion(ChannelPluginCompletionStatus status, Guest guest) {
-            promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, guest));
+          public void onCompletion(ChannelPluginCompletionStatus status, User user) {
+            promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, user));
           }
         });
   }
@@ -121,7 +117,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void initPushToken(String tokenData) {
     Context context = getCurrentActivity();
 
-    if (context != null){
+    if (context != null) {
       PrefSupervisor.setDeviceToken(context, tokenData);
     }
   }
@@ -130,7 +126,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void handlePushNotification(ReadableMap userInfo, Promise promise) {
     Context context = getCurrentActivity();
 
-    if (context != null){
+    if (context != null) {
       ChannelIO.showPushNotification(context, ParseUtils.toPushNotification(userInfo));
     }
 
@@ -141,7 +137,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void handlePush() {
     Activity activity = getCurrentActivity();
 
-    if (activity != null){
+    if (activity != null) {
       ChannelIO.handlePushNotification(activity);
     }
   }
@@ -197,17 +193,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @Override
-  public boolean onClickRedirectUrl(String url) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_REDIRECT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
-    return handleRedirectLink;
-  }
-
-  @Override
   public void onChangeProfile(String key, Object value) {
     Utils.sendEvent(
-      reactContext,
-      Const.EVENT_ON_CHANGE_PROFILE,
-      ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
+        reactContext,
+        Const.EVENT_ON_CHANGE_PROFILE,
+        ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
     );
   }
 }

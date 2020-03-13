@@ -9,7 +9,7 @@ public class Const {
 
   // Boot
   public static final String KEY_PLUGIN_KEY = "pluginKey";
-  public static final String KEY_USER_ID = "userId";
+  public static final String KEY_MEMBER_ID = "memberId";
   public static final String KEY_LOCALE = "locale";
   public static final String KEY_DEBUG_MODE = "debugMode";
   public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";

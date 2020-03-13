@@ -1,23 +1,11 @@
-
 package com.zoyi.channel.rn;
 
-import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.bridge.ReadableMapKeySetIterator;
-import com.facebook.react.bridge.ReadableType;
-import com.facebook.react.bridge.WritableArray;
-import com.facebook.react.bridge.WritableMap;
-
-import com.zoyi.channel.plugin.android.model.etc.*;
+import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.*;
+import com.zoyi.channel.plugin.android.model.etc.PushEvent;
 import com.zoyi.channel.react.android.Const;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by jerry on 2018. 10. 11..
@@ -228,7 +216,7 @@ public class ParseUtils {
 
   public static ChannelPluginSettings toChannelPluginSettings(ReadableMap settingsMap) {
     String pluginKey = Utils.getString(settingsMap, Const.KEY_PLUGIN_KEY);
-    String userId = Utils.getString(settingsMap, Const.KEY_USER_ID);
+    String userId = Utils.getString(settingsMap, Const.KEY_MEMBER_ID);
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
 
     boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
@@ -239,7 +227,7 @@ public class ParseUtils {
     ReadableMap profile = Utils.getReadableMap(settingsMap, Const.KEY_PROFILE);
 
     return new ChannelPluginSettings(pluginKey)
-        .setUserId(userId)
+        .setMemberId(userId)
         .setLocale(CHLocale.fromString(locale))
         .setDebugMode(debugMode)
         .setEnabledTrackDefaultEvent(enabledTrackDefaultEvent)
@@ -268,13 +256,13 @@ public class ParseUtils {
   public static WritableMap getBootResult(
       ChannelPluginListener listener,
       ChannelPluginCompletionStatus status,
-      Guest guest) {
+      User user) {
 
     WritableMap result = Arguments.createMap();
 
     if (status == ChannelPluginCompletionStatus.SUCCESS) {
       ChannelIO.setChannelPluginListener(listener);
-      result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(guest));
+      result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(user));
     }
 
     result.putString(Const.KEY_STATUS, status.toString());
@@ -282,19 +270,19 @@ public class ParseUtils {
     return result;
   }
 
-  public static WritableMap guestToWritableMap(Guest guest) {
+  public static WritableMap guestToWritableMap(User user) {
     WritableMap guestMap = Arguments.createMap();
 
-    if (guest == null) {
+    if (user == null) {
       return guestMap;
     }
 
-    guestMap.putString(Const.KEY_ID, guest.getId());
-    guestMap.putString(Const.KEY_NAME, guest.getName());
-    guestMap.putString(Const.KEY_AVATAR_URL, guest.getAvatarUrl());
-    guestMap.putInt(Const.KEY_ALERT, guest.getAlert());
+    guestMap.putString(Const.KEY_ID, user.getId());
+    guestMap.putString(Const.KEY_NAME, user.getName());
+    guestMap.putString(Const.KEY_AVATAR_URL, user.getAvatarUrl());
+    guestMap.putInt(Const.KEY_ALERT, user.getAlert());
 
-    Map<String, Object> profile = guest.getProfile();
+    Map<String, Object> profile = user.getProfile();
     if (profile != null) {
       guestMap.putMap(Const.KEY_PROFILE, toWritableMap(profile));
     }
