@@ -1,3 +1,8 @@
+# 0.4.1
+## Bug fixes
+* Android profile bug fixes
+* Legacy support - userId
+
 # 0.4.0
 ## Updates
 * Updated channeltalk plugin v7.0
