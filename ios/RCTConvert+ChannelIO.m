@@ -54,7 +54,11 @@ RCT_ENUM_CONVERTER(
   settings.debugMode = [RCTConvert BOOL:json[@"debugMode"]];
   settings.hideDefaultInAppPush = [RCTConvert BOOL:json[@"hideDefaultInAppPush"]];
   settings.launcherConfig = [RCTConvert launcherConfig:json[@"launcherConfig"]];
-  settings.memberId = [RCTConvert NSString:json[@"memberId"]];
+  if ([json[@"memberId"] length] == 0 && [json[@"userId"] length] != 0) {
+    settings.memberId = [RCTConvert NSString:json[@"userId"]];
+  } else {
+    settings.memberId = [RCTConvert NSString:json[@"memberId"]];
+  }
   
   NSString *language = [RCTConvert NSString:json[@"language"]];
   if ([language isEqualToString:@"ko"]) {
