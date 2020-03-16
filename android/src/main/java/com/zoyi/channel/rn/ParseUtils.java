@@ -196,7 +196,7 @@ public class ParseUtils {
           .setAvatarUrl(Utils.getString(profileMap, Const.KEY_AVATAR_URL));
 
       Iterator propertyIterator = ParseUtils
-          .toHashMap(Utils.getReadableMap(profileMap, Const.KEY_PROPERTY))
+          .toHashMap(profileMap)
           .entrySet()
           .iterator();
 
@@ -216,7 +216,11 @@ public class ParseUtils {
 
   public static ChannelPluginSettings toChannelPluginSettings(ReadableMap settingsMap) {
     String pluginKey = Utils.getString(settingsMap, Const.KEY_PLUGIN_KEY);
-    String userId = Utils.getString(settingsMap, Const.KEY_MEMBER_ID);
+    String memberId = Utils.getString(settingsMap, Const.KEY_MEMBER_ID);
+    String userId = Utils.getString(settingsMap, Const.KEY_USER_ID);
+
+    String id = memberId == null ? userId : memberId;
+
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
 
     boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
@@ -227,7 +231,7 @@ public class ParseUtils {
     ReadableMap profile = Utils.getReadableMap(settingsMap, Const.KEY_PROFILE);
 
     return new ChannelPluginSettings(pluginKey)
-        .setMemberId(userId)
+        .setMemberId(id)
         .setLocale(CHLocale.fromString(locale))
         .setDebugMode(debugMode)
         .setEnabledTrackDefaultEvent(enabledTrackDefaultEvent)
