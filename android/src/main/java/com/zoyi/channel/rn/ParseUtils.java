@@ -224,8 +224,6 @@ public class ParseUtils {
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
     String language = Utils.getString(settingsMap, Const.KEY_LANGUAGE);
 
-    locale = locale == null ? language : locale;
-
     boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
     boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);
     boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH, false);
@@ -235,7 +233,7 @@ public class ParseUtils {
 
     return new ChannelPluginSettings(pluginKey)
         .setMemberId(id)
-        .setLocale(CHLocale.fromString(locale))
+        .setLocale(CHLocale.fromString(locale == null ? language : locale))
         .setDebugMode(debugMode)
         .setEnabledTrackDefaultEvent(enabledTrackDefaultEvent)
         .setHideDefaultInAppPush(hideDefaultInAppPush)
