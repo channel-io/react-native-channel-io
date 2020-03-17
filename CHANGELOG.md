@@ -1,3 +1,8 @@
+# 0.4.2
+## Bug fixes & support legacy
+# fix language bug
+# Legacy support - language / locale
+
 # 0.4.1
 ## Bug fixes
 * Android profile bug fixes
