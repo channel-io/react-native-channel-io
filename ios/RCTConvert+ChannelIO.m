@@ -57,14 +57,27 @@ RCT_ENUM_CONVERTER(
   settings.memberId = [RCTConvert NSString:json[@"memberId"]];
   
   NSString *language = [RCTConvert NSString:json[@"language"]];
-  if ([language isEqualToString:@"ko"]) {
-    settings.language = CHLocaleKorean;
-  } else if ([language isEqualToString:@"ja"]) {
-    settings.language = CHLocaleJapanese;
-  } else if ([language isEqualToString:@"en"]) {
-    settings.language = CHLocaleEnglish;
+  NSString *locale = [RCTConvert NSString:json[@"locale"]];
+  if (json[@"locale"] != 0) {
+    if ([locale isEqualToString:@"ko"]) {
+      settings.language = CHLocaleKorean;
+    } else if ([locale isEqualToString:@"ja"]) {
+      settings.language = CHLocaleJapanese;
+    } else if ([locale isEqualToString:@"en"]) {
+      settings.language = CHLocaleEnglish;
+    } else {
+      settings.language = CHLocaleDevice;
+    }
   } else {
-    settings.language = CHLocaleDevice;
+    if ([language isEqualToString:@"ko"]) {
+      settings.language = CHLocaleKorean;
+    } else if ([language isEqualToString:@"ja"]) {
+      settings.language = CHLocaleJapanese;
+    } else if ([language isEqualToString:@"en"]) {
+      settings.language = CHLocaleEnglish;
+    } else {
+      settings.language = CHLocaleDevice;
+    }
   }
   return settings;
 }
