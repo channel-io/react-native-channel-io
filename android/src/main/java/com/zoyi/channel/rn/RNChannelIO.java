@@ -47,11 +47,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_ON_CLICK_REDIRECT_LINK, Const.EVENT_ON_CLICK_REDIRECT_LINK);
     eventMap.put(Const.KEY_ON_CHANGE_PROFILE, Const.EVENT_ON_CHANGE_PROFILE);
 
-    localeMap.put(Const.KEY_KOREAN, Const.LOCALE_KOREAN);
-    localeMap.put(Const.KEY_JAPANESE, Const.LOCALE_JAPANESE);
-    localeMap.put(Const.KEY_ENGLISH, Const.LOCALE_ENGLISH);
-    localeMap.put(Const.KEY_DEVICE, Const.LOCALE_DEVICE);
-
     launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_RIGHT, Const.LAUNCHER_RIGHT);
     launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_LEFT, Const.LAUNCHER_LEFT);
 
@@ -60,7 +55,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     bootStatusMap.put(Const.KEY_BOOT_ACCESS_DENIED, Const.BOOT_ACCESS_DENIED);
     bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
     bootStatusMap.put(Const.KEY_BOOT_REQUIRE_PAYMENT, Const.BOOT_REQUIRE_PAYMENT);
-    bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
 
     constants.put(Const.Event, eventMap);
     constants.put(Const.Locale, localeMap);

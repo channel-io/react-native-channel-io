@@ -222,6 +222,9 @@ public class ParseUtils {
     String id = memberId == null ? userId : memberId;
 
     String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
+    String language = Utils.getString(settingsMap, Const.KEY_LANGUAGE);
+
+    locale = locale == null ? language : locale;
 
     boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
     boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);

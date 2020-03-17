@@ -5,6 +5,7 @@ package com.zoyi.channel.react.android;
  */
 
 public class Const {
+
   public static final String MODULE_NAME = "RNChannelIO";
 
   // Boot
@@ -12,6 +13,7 @@ public class Const {
   public static final String KEY_MEMBER_ID = "memberId";
   public static final String KEY_USER_ID = "userId";
   public static final String KEY_LOCALE = "locale";
+  public static final String KEY_LANGUAGE = "language";
   public static final String KEY_DEBUG_MODE = "debugMode";
   public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";
   public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
@@ -48,17 +50,6 @@ public class Const {
 
   public static final String LAUNCHER_RIGHT = "LauncherPositionRight";
   public static final String LAUNCHER_LEFT = "LauncherPositionLeft";
-
-  // Locale
-  public static final String KEY_KOREAN = "korean";
-  public static final String KEY_JAPANESE = "japanese";
-  public static final String KEY_ENGLISH = "english";
-  public static final String KEY_DEVICE = "device";
-
-  public static final String LOCALE_KOREAN = "CHLocaleKorean";
-  public static final String LOCALE_JAPANESE = "CHLocaleJapanese";
-  public static final String LOCALE_ENGLISH = "CHLocaleEnglish";
-  public static final String LOCALE_DEVICE = "CHLocaleDevice";
 
   // Boot Status
   public static final String BOOT_STATUS = "BootStatus";
