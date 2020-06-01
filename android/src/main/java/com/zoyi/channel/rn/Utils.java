@@ -1,10 +1,7 @@
 package com.zoyi.channel.rn;
 
-import android.content.Context;
-
 import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.zoyi.channel.plugin.android.global.PrefSupervisor;
 
 /**
  * Created by mika on 2018. 9. 18..
@@ -58,16 +55,6 @@ public class Utils {
     }
 
     return null;
-  }
-
-  public static String getPluginKey(Context context) {
-    String pluginKey = null;
-
-    if (PrefSupervisor.getPluginSetting(context) != null) {
-      pluginKey = PrefSupervisor.getPluginSetting(context).getPluginKey();
-    }
-
-    return pluginKey;
   }
 
   public static void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
