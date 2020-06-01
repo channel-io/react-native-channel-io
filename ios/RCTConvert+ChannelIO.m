@@ -54,17 +54,34 @@ RCT_ENUM_CONVERTER(
   settings.debugMode = [RCTConvert BOOL:json[@"debugMode"]];
   settings.hideDefaultInAppPush = [RCTConvert BOOL:json[@"hideDefaultInAppPush"]];
   settings.launcherConfig = [RCTConvert launcherConfig:json[@"launcherConfig"]];
-  settings.userId = [RCTConvert NSString:json[@"userId"]];
-  
-  NSString *locale = [RCTConvert NSString:json[@"locale"]];
-  if ([locale isEqualToString:@"ko"]) {
-    settings.locale = CHLocaleKorean;
-  } else if ([locale isEqualToString:@"ja"]) {
-    settings.locale = CHLocaleJapanese;
-  } else if ([locale isEqualToString:@"en"]) {
-    settings.locale = CHLocaleEnglish;
+  if ([json[@"memberId"] length] == 0 && [json[@"userId"] length] != 0) {
+    settings.memberId = [RCTConvert NSString:json[@"userId"]];
   } else {
-    settings.locale = CHLocaleDevice;
+    settings.memberId = [RCTConvert NSString:json[@"memberId"]];
+  }
+  
+  NSString *language = [RCTConvert NSString:json[@"language"]];
+  NSString *locale = [RCTConvert NSString:json[@"locale"]];
+  if (json[@"locale"] != 0) {
+    if ([locale isEqualToString:@"ko"]) {
+      settings.language = CHLocaleKorean;
+    } else if ([locale isEqualToString:@"ja"]) {
+      settings.language = CHLocaleJapanese;
+    } else if ([locale isEqualToString:@"en"]) {
+      settings.language = CHLocaleEnglish;
+    } else {
+      settings.language = CHLocaleDevice;
+    }
+  } else {
+    if ([language isEqualToString:@"ko"]) {
+      settings.language = CHLocaleKorean;
+    } else if ([language isEqualToString:@"ja"]) {
+      settings.language = CHLocaleJapanese;
+    } else if ([language isEqualToString:@"en"]) {
+      settings.language = CHLocaleEnglish;
+    } else {
+      settings.language = CHLocaleDevice;
+    }
   }
   return settings;
 }

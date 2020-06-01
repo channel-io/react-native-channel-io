@@ -3,15 +3,11 @@ package com.zoyi.channel.rn;
 
 import android.app.Activity;
 import android.content.Context;
-import android.widget.Toast;
 
 import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.*;
-import com.zoyi.channel.plugin.android.global.*;
-
-import com.facebook.react.bridge.ReadableMap;
+import com.zoyi.channel.plugin.android.global.PrefSupervisor;
 import com.zoyi.channel.plugin.android.model.etc.PushEvent;
-import com.zoyi.channel.react.android.*;
 import com.zoyi.channel.react.android.Const;
 
 import java.util.HashMap;
@@ -51,11 +47,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_ON_CLICK_REDIRECT_LINK, Const.EVENT_ON_CLICK_REDIRECT_LINK);
     eventMap.put(Const.KEY_ON_CHANGE_PROFILE, Const.EVENT_ON_CHANGE_PROFILE);
 
-    localeMap.put(Const.KEY_KOREAN, Const.LOCALE_KOREAN);
-    localeMap.put(Const.KEY_JAPANESE, Const.LOCALE_JAPANESE);
-    localeMap.put(Const.KEY_ENGLISH, Const.LOCALE_ENGLISH);
-    localeMap.put(Const.KEY_DEVICE, Const.LOCALE_DEVICE);
-
     launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_RIGHT, Const.LAUNCHER_RIGHT);
     launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_LEFT, Const.LAUNCHER_LEFT);
 
@@ -64,7 +55,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     bootStatusMap.put(Const.KEY_BOOT_ACCESS_DENIED, Const.BOOT_ACCESS_DENIED);
     bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
     bootStatusMap.put(Const.KEY_BOOT_REQUIRE_PAYMENT, Const.BOOT_REQUIRE_PAYMENT);
-    bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
 
     constants.put(Const.Event, eventMap);
     constants.put(Const.Locale, localeMap);
@@ -81,8 +71,8 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
         ParseUtils.toProfile(Utils.getReadableMap(settings, Const.KEY_PROFILE)),
         new OnBootListener() {
           @Override
-          public void onCompletion(ChannelPluginCompletionStatus status, Guest guest) {
-            promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, guest));
+          public void onCompletion(ChannelPluginCompletionStatus status, User user) {
+            promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, status, user));
           }
         });
   }
@@ -121,7 +111,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void initPushToken(String tokenData) {
     Context context = getCurrentActivity();
 
-    if (context != null){
+    if (context != null) {
       PrefSupervisor.setDeviceToken(context, tokenData);
     }
   }
@@ -131,9 +121,8 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     if (reactContext != null) {
       Context context = reactContext.getApplicationContext();
 
-      if (context != null) {
-        ChannelIO.showPushNotification(context, ParseUtils.toPushNotification(userInfo));
-      }
+    if (context != null) {
+      ChannelIO.showPushNotification(context, ParseUtils.toPushNotification(userInfo));
     }
 
     promise.resolve(true);
@@ -143,7 +132,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void handlePush() {
     Activity activity = getCurrentActivity();
 
-    if (activity != null){
+    if (activity != null) {
       ChannelIO.handlePushNotification(activity);
     }
   }
@@ -199,17 +188,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @Override
-  public boolean onClickRedirectUrl(String url) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_CLICK_REDIRECT_LINK, ParseUtils.createSingleMap(Const.KEY_EVENT_LINK, url));
-    return handleRedirectLink;
-  }
-
-  @Override
   public void onChangeProfile(String key, Object value) {
     Utils.sendEvent(
-      reactContext,
-      Const.EVENT_ON_CHANGE_PROFILE,
-      ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
+        reactContext,
+        Const.EVENT_ON_CHANGE_PROFILE,
+        ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
     );
   }
 }
