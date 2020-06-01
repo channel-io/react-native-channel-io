@@ -1,3 +1,17 @@
+# 0.4.2
+## Bug fixes & support legacy
+# fix language bug
+# Legacy support - language / locale
+
+# 0.4.1
+## Bug fixes
+* Android profile bug fixes
+* Legacy support - userId
+
+# 0.4.0
+## Updates
+* Updated channeltalk plugin v7.0
+
 # 0.3.7
 ## Updates
 * Updated ios target to 10.0 from 9.1

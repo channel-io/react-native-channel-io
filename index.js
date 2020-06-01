@@ -152,20 +152,6 @@ export const ChannelIO = {
   },
 
   /**
-   * Event listener that triggers when a redirect on push bot link has been clicked by a user
-   * @param {Boolean} handle True if you want to handle a link, otherwise false
-   * @param {Function} cb a callback function that takes a string link as parameter
-   */
-  onClickRedirectLink: (handle, cb) => {
-    let subscription = ChannelModule.setRedirectLinkHandle(handle);
-    ChannelEventEmitter.addListener(ChannelModule.Event.ON_CLICK_REDIRECT_LINK, (data) => {
-      cb(data.link);
-    });
-
-    replaceListener(ChannelModule.Event.ON_CLICK_REDIRECT_LINK, subscription);
-  },
-
-  /**
    * Event listener that triggers when guest profile is updated
    * @param {Function} cb a callback function that takes a key, value
    */
@@ -198,7 +184,6 @@ export const ChannelIO = {
     ON_CHANGE_BADGE: ChannelModule.Event.ON_CHANGE_BADGE,
     ON_RECEIVE_PUSH: ChannelModule.Event.ON_RECEIVE_PUSH,
     ON_CLICK_CHAT_LINK: ChannelModule.Event.ON_CLICK_CHAT_LINK,
-    ON_CLICK_REDIRECT_LINK: ChannelModule.Event.ON_CLICK_REDIRECT_LINK,
     ON_CHANGE_PROFILE: ChannelModule.Event.ON_CHANGE_PROFILE,
     WILL_SHOW_MESSENGER: ChannelModule.Event.WILL_SHOW_MESSENGER,
     WILL_HIDE_MESSENGER: ChannelModule.Event.WILL_HIDE_MESSENGER
