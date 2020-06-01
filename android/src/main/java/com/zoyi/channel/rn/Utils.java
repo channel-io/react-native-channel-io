@@ -1,25 +1,7 @@
-
 package com.zoyi.channel.rn;
 
-import android.content.Context;
-import android.util.Log;
-
-import com.facebook.react.bridge.Arguments;
-import com.facebook.react.bridge.ReactContext;
-import com.facebook.react.bridge.ReadableArray;
-import com.facebook.react.bridge.ReadableMap;
-import com.facebook.react.bridge.ReadableMapKeySetIterator;
-import com.facebook.react.bridge.ReadableType;
-import com.facebook.react.bridge.WritableArray;
-import com.facebook.react.bridge.WritableMap;
+import com.facebook.react.bridge.*;
 import com.facebook.react.modules.core.DeviceEventManagerModule;
-import com.zoyi.channel.plugin.android.model.entity.Guest;
-import com.zoyi.channel.plugin.android.*;
-import com.zoyi.channel.plugin.android.global.*;
-
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  * Created by mika on 2018. 9. 18..
@@ -73,16 +55,6 @@ public class Utils {
     }
 
     return null;
-  }
-
-  public static String getPluginKey(Context context) {
-    String pluginKey = null;
-
-    if (PrefSupervisor.getPluginSetting(context) != null) {
-      pluginKey = PrefSupervisor.getPluginSetting(context).getPluginKey();
-    }
-
-    return pluginKey;
   }
 
   public static void sendEvent(ReactContext reactContext, String eventName, WritableMap params) {
