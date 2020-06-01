@@ -1,8 +1,4 @@
-# 0.4.5
-## Bug fixes
-* Hotfix
-
-# 0.4.4
+# 0.4.4 ~ 0.4.6
 ## Bug fixes
 * Hotfix
 
