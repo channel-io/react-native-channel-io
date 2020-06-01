@@ -1,3 +1,7 @@
+# 0.4.4
+## Bug fixes
+* Hotfix
+
 # 0.4.3
 ## Bug fixes
 * support android channel-io 7.0.7
