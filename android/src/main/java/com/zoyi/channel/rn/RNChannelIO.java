@@ -120,7 +120,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void handlePushNotification(ReadableMap userInfo, Promise promise) {
     if (reactContext != null) {
       Context context = reactContext.getApplicationContext();
-    }
 
       if (context != null) {
         ChannelIO.showPushNotification(context, ParseUtils.toPushNotification(userInfo));
