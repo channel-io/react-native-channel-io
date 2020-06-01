@@ -1,7 +1,12 @@
+# 0.4.3
+## Bug fixes
+* support android channel-io 7.0.7
+* fix notification
+
 # 0.4.2
 ## Bug fixes & support legacy
-# fix language bug
-# Legacy support - language / locale
+* fix language bug
+* Legacy support - language / locale
 
 # 0.4.1
 ## Bug fixes
