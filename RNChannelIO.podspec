@@ -7,7 +7,7 @@ Pod::Spec.new do |s|
   s.license      = { :type => "SDK", :file => "LICENSE" }
   s.author       = "ZOYI"
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/zoyi/react-native-channel-io.git", :tag => "master" }
+  s.source       = { :git => "https://github.com/zoyi/react-native-channel-io.git", :branch => "fix/imageAssets" }
   s.source_files  = "ios/**/*.{h,m}"
   s.requires_arc = true
   s.swift_version = '5.0'
