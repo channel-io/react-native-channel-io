@@ -1,4 +1,4 @@
-package com.zoyi.channel.react.android;
+package com.zoyi.channel.rn;
 
 /**
  * Created by jerry on 2018. 10. 12..
@@ -11,14 +11,27 @@ public class Const {
   // Boot
   public static final String KEY_PLUGIN_KEY = "pluginKey";
   public static final String KEY_MEMBER_ID = "memberId";
+  public static final String KEY_MEMBER_HASH = "memberHash";
   public static final String KEY_USER_ID = "userId";
   public static final String KEY_LOCALE = "locale";
   public static final String KEY_LANGUAGE = "language";
-  public static final String KEY_DEBUG_MODE = "debugMode";
   public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";
   public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
+  public static final String KEY_UNSUBSCRIBED = "unsubscribed";
   public static final String KEY_LAUNCHER_CONFIG = "launcherConfig";
   public static final String KEY_STATUS = "status";
+
+  // UpdateUser
+  public static final String KEY_UPDATE_LOCALE = "locale";
+  public static final String KEY_UPDATE_LANGUAGE = "language";
+  public static final String KEY_UPDATE_TAGS = "tags";
+  public static final String KEY_UPDATE_PROFILE = "profile";
+  public static final String KEY_UPDATE_PROFILE_ONCE = "profileOnce";
+  public static final String KEY_UPDATE_UNSUBSCRIBED = "unsubscribed";
+
+  // Exception
+
+  public static final String KEY_EXCEPTION = "exception";
 
   // Guest
   public static final String KEY_ID = "id";
@@ -69,27 +82,30 @@ public class Const {
   public static final String BOOT_NOT_INITIALIZED = "ChannelPluginCompletionStatusNotInitialized";
 
   // Event
+  public static final String KEY_EVENT_CHAT_ID = "chatId";
   public static final String KEY_EVENT_COUNT = "count";
-  public static final String KEY_EVENT_LINK = "link";
-  public static final String KEY_EVENT_PUSH = "push";
+  public static final String KEY_EVENT_URL = "url";
+  public static final String KEY_EVENT_POPUP = "popup";
   public static final String KEY_PROFILE_KEY = "key";
   public static final String KEY_PROFILE_VALUE = "value";
 
-  public static final String KEY_ON_CHANGE_BADGE = "ON_CHANGE_BADGE";
-  public static final String KEY_ON_RECEIVE_PUSH = "ON_RECEIVE_PUSH";
-  public static final String KEY_WILL_SHOW_MESSENGER = "WILL_SHOW_MESSENGER";
-  public static final String KEY_WILL_HIDE_MESSENGER = "WILL_HIDE_MESSENGER";
-  public static final String KEY_ON_CLICK_CHAT_LINK = "ON_CLICK_CHAT_LINK";
-  public static final String KEY_ON_CLICK_REDIRECT_LINK = "ON_CLICK_REDIRECT_LINK";
-  public static final String KEY_ON_CHANGE_PROFILE = "ON_CHANGE_PROFILE";
+  public static final String KEY_ON_BADGE_CHANGED = "ON_BADGE_CHANGED";
+  public static final String KEY_ON_PROFILE_CHANGED = "ON_PROFILE_CHANGED";
+  public static final String KEY_ON_POPUP_DATA_RECEIVED = "ON_POPUP_DATA_RECEIVED";
+  public static final String KEY_ON_SHOW_MESSENGER = "ON_SHOW_MESSENGER";
+  public static final String KEY_ON_HIDE_MESSENGER = "ON_HIDE_MESSENGER";
+  public static final String KEY_ON_CHAT_CREATED = "ON_CHAT_CREATED";
+  public static final String KEY_ON_URL_CLICKED = "ON_URL_CLICKED";
+  public static final String KEY_ON_PUSH_NOTIFICATION_CLICKED = "ON_PUSH_NOTIFICATION_CLICKED";
 
-  public static final String EVENT_WILL_SHOW_MESSENGER = "ChannelIO:Event:WillShowMessenger";
-  public static final String EVENT_WILL_HIDE_MESSENGER = "ChannelIO:Event:WillHideMessenger";
-  public static final String EVENT_ON_CHANGE_BADGE = "ChannelIO:Event:OnChangeBadge";
-  public static final String EVENT_ON_RECEIVE_PUSH = "ChannelIO:Event:OnReceivePush";
-  public static final String EVENT_ON_CLICK_CHAT_LINK = "ChannelIO:Event:OnClickChatLink";
-  public static final String EVENT_ON_CLICK_REDIRECT_LINK = "ChannelIO:Event:OnClickRedirectLink";
-  public static final String EVENT_ON_CHANGE_PROFILE = "ChannelIO:Event:onChangeProfile";
+  public static final String EVENT_ON_BADGE_CHANGED = "ChannelIO:Event:OnBadgeChanged";
+  public static final String EVENT_ON_PROFILE_CHANGED = "ChannelIO:Event:OnProfileChanged";
+  public static final String EVENT_ON_POPUP_DATA_RECEIVED = "ChannelIO:Event:OnPopupDataReceive";
+  public static final String EVENT_ON_SHOW_MESSENGER = "ChannelIO:Event:OnShowMessenger";
+  public static final String EVENT_ON_HIDE_MESSENGER = "ChannelIO:Event:OnHideMessenger";
+  public static final String EVENT_ON_CHAT_CREATED = "ChannelIO:Event:OnChatCreated";
+  public static final String EVENT_ON_URL_CLICKED = "ChannelIO:Event:OnUrlClicked";
+  public static final String EVENT_ON_PUSH_NOTIFICATION_CLICKED = "ChannelIO:Event:OnPushNotificationClicked";
 
 
   public static final String Event = "Event";
