@@ -372,22 +372,25 @@ export const ChannelIO = {
   },
 
   /**
+   * For android only
    * Event listener that triggers when a push has been clicked by a user
    * @param {Boolean} handle True if you want to handle a push, otherwise false
    * @param {Function} cb a callback function that takes a string chat id as parameter
    */
   onPushNotificationClicked: (handle, cb) => {
-    ChannelModule.setPushNotificationHandle(handle);
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
-      (data) => {
-        cb(data.chatId);
-      }
-    );
-    replaceListener(
-      ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
-      subscription
-    );
+    if (Platform.OS === 'android') {
+      ChannelModule.setPushNotificationHandle(handle);
+      let subscription = ChannelEventEmitter.addListener(
+        ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
+        (data) => {
+          cb(data.chatId);
+        }
+      );
+      replaceListener(
+        ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
+        subscription
+      );
+    }
   },
 
   Event: {
