@@ -1,9 +1,14 @@
 package com.zoyi.channel.rn;
 
 import com.facebook.react.bridge.*;
-import com.zoyi.channel.plugin.android.*;
-import com.zoyi.channel.plugin.android.model.etc.PushEvent;
-import com.zoyi.channel.react.android.Const;
+import com.zoyi.channel.plugin.android.ChannelIO;
+import com.zoyi.channel.plugin.android.open.config.BootConfig;
+import com.zoyi.channel.plugin.android.open.enumerate.BootStatus;
+import com.zoyi.channel.plugin.android.open.enumerate.ChannelButtonPosition;
+import com.zoyi.channel.plugin.android.open.listener.ChannelPluginListener;
+import com.zoyi.channel.plugin.android.open.model.*;
+import com.zoyi.channel.plugin.android.open.option.ChannelButtonOption;
+import com.zoyi.channel.plugin.android.open.option.Language;
 
 import java.util.*;
 
@@ -163,31 +168,31 @@ public class ParseUtils {
     return arrayList;
   }
 
-  public static LauncherConfig toLauncherConfig(ReadableMap launcherConfigMap) {
-    if (launcherConfigMap != null) {
-      String positionString = Utils.getString(launcherConfigMap, Const.KEY_POSITION);
-      Position launcherPosition;
+  public static ChannelButtonOption toChannelButtonOption(ReadableMap channelButtonOption) {
+    if (channelButtonOption != null) {
+      String positionString = Utils.getString(channelButtonOption, Const.KEY_POSITION);
+      ChannelButtonPosition buttonPosition;
 
       if (positionString != null) {
         if (Const.KEY_LAUNCHER_POSITION_LEFT.equals(positionString)) {
-          launcherPosition = Position.LEFT;
+          buttonPosition = ChannelButtonPosition.LEFT;
         } else {
-          launcherPosition = Position.RIGHT;
+          buttonPosition = ChannelButtonPosition.RIGHT;
         }
       } else {
-        launcherPosition = Position.RIGHT;
+        buttonPosition = ChannelButtonPosition.RIGHT;
       }
 
-      return new LauncherConfig(
-          launcherPosition,
-          Utils.getFloat(launcherConfigMap, Const.KEY_X_MARGIN),
-          Utils.getFloat(launcherConfigMap, Const.KEY_Y_MARGIN));
+      return new ChannelButtonOption(
+          buttonPosition,
+          Utils.getFloat(channelButtonOption, Const.KEY_X_MARGIN),
+          Utils.getFloat(channelButtonOption, Const.KEY_Y_MARGIN));
     }
 
     return null;
   }
 
-  public static Profile toProfile(ReadableMap profileMap) {
+  private static Profile toProfile(ReadableMap profileMap) {
     if (profileMap != null) {
       Profile profile = Profile.create()
           .setName(Utils.getString(profileMap, Const.KEY_NAME))
@@ -214,30 +219,71 @@ public class ParseUtils {
     return null;
   }
 
-  public static ChannelPluginSettings toChannelPluginSettings(ReadableMap settingsMap) {
-    String pluginKey = Utils.getString(settingsMap, Const.KEY_PLUGIN_KEY);
-    String memberId = Utils.getString(settingsMap, Const.KEY_MEMBER_ID);
-    String userId = Utils.getString(settingsMap, Const.KEY_USER_ID);
+  public static BootConfig toBootConfig(ReadableMap configMap) {
+    String pluginKey = Utils.getString(configMap, Const.KEY_PLUGIN_KEY);
+    String memberId = Utils.getString(configMap, Const.KEY_MEMBER_ID);
+    String memberHash = Utils.getString(configMap, Const.KEY_MEMBER_HASH);
+    String userId = Utils.getString(configMap, Const.KEY_USER_ID);
 
     String id = memberId == null ? userId : memberId;
 
-    String locale = Utils.getString(settingsMap, Const.KEY_LOCALE);
-    String language = Utils.getString(settingsMap, Const.KEY_LANGUAGE);
+    String locale = Utils.getString(configMap, Const.KEY_LOCALE);
+    String language = Utils.getString(configMap, Const.KEY_LANGUAGE);
 
-    boolean debugMode = Utils.getBoolean(settingsMap, Const.KEY_DEBUG_MODE, false);
-    boolean enabledTrackDefaultEvent = Utils.getBoolean(settingsMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);
-    boolean hideDefaultInAppPush = Utils.getBoolean(settingsMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH, false);
+    boolean enabledTrackDefaultEvent = Utils.getBoolean(configMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);
+    boolean hideDefaultInAppPush = Utils.getBoolean(configMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH, false);
+    boolean unsubscribed = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED, false);
 
-    ReadableMap launcherConfig = Utils.getReadableMap(settingsMap, Const.KEY_LAUNCHER_CONFIG);
-    ReadableMap profile = Utils.getReadableMap(settingsMap, Const.KEY_PROFILE);
+    ReadableMap channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_LAUNCHER_CONFIG);
+    ReadableMap profile = Utils.getReadableMap(configMap, Const.KEY_PROFILE);
 
-    return new ChannelPluginSettings(pluginKey)
+    return BootConfig.create(pluginKey)
         .setMemberId(id)
-        .setLocale(CHLocale.fromString(locale == null ? language : locale))
-        .setDebugMode(debugMode)
-        .setEnabledTrackDefaultEvent(enabledTrackDefaultEvent)
-        .setHideDefaultInAppPush(hideDefaultInAppPush)
-        .setLauncherConfig(ParseUtils.toLauncherConfig(launcherConfig));
+        .setMemberHash(memberHash)
+        .setTrackDefaultEvent(enabledTrackDefaultEvent)
+        .setHidePopup(hideDefaultInAppPush)
+        .setUnsubscribed(unsubscribed)
+        .setProfile(ParseUtils.toProfile(profile))
+        .setLanguage(Language.fromString(language == null ? locale : language))
+        .setChannelButtonOption(ParseUtils.toChannelButtonOption(channelButtonOption));
+  }
+
+  public static List<String> toTags(ReadableArray tagsArray) {
+    ArrayList<String> arrayList = new ArrayList<>();
+
+    if (tagsArray == null) {
+      return arrayList;
+    }
+
+    for (int i = 0; i < tagsArray.size(); i++) {
+      ReadableType type = tagsArray.getType(i);
+
+      if (type == ReadableType.String) {
+        arrayList.add(tagsArray.getString(i));
+      }
+    }
+
+    return arrayList;
+  }
+
+  public static UserData toUserData(ReadableMap userDataMap) {
+    String locale = Utils.getString(userDataMap, Const.KEY_UPDATE_LOCALE);
+    String language = Utils.getString(userDataMap, Const.KEY_UPDATE_LANGUAGE);
+
+    ReadableArray tags = Utils.getReadableArray(userDataMap, Const.KEY_UPDATE_TAGS);
+
+    ReadableMap profile = Utils.getReadableMap(userDataMap, Const.KEY_UPDATE_PROFILE);
+    ReadableMap profileOnce = Utils.getReadableMap(userDataMap, Const.KEY_UPDATE_PROFILE_ONCE);
+
+    boolean unsubscribed = Utils.getBoolean(userDataMap, Const.KEY_UPDATE_UNSUBSCRIBED, false);
+
+    return new UserData.Builder()
+        .setLanguage(Language.fromString(language == null ? locale : language))
+        .setTags(toTags(tags))
+        .setProfileMap(toHashMap(profile))
+        .setProfileOnceMap(toHashMap(profileOnce))
+        .setUnsubscribed(unsubscribed)
+        .build();
   }
 
   public static Map<String, String> toPushNotification(ReadableMap pushNotificationMap) {
@@ -260,17 +306,33 @@ public class ParseUtils {
 
   public static WritableMap getBootResult(
       ChannelPluginListener listener,
-      ChannelPluginCompletionStatus status,
+      BootStatus status,
       User user) {
 
     WritableMap result = Arguments.createMap();
 
-    if (status == ChannelPluginCompletionStatus.SUCCESS) {
-      ChannelIO.setChannelPluginListener(listener);
+    if (status == BootStatus.SUCCESS) {
+      ChannelIO.setListener(listener);
       result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(user));
     }
 
     result.putString(Const.KEY_STATUS, status.toString());
+
+    return result;
+  }
+
+  public static WritableMap getUserResult(
+      Exception e,
+      User user
+  ) {
+
+    WritableMap result = Arguments.createMap();
+
+    if (e == null) {
+      result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(user));
+    } else {
+      result.putString(Const.KEY_EXCEPTION, e.getMessage());
+    }
 
     return result;
   }
@@ -295,16 +357,16 @@ public class ParseUtils {
     return guestMap;
   }
 
-  public static WritableMap pushEventToWritableMap(PushEvent pushEvent) {
+  public static WritableMap popupDataToWritableMap(PopupData popupData) {
     WritableMap resultMap = Arguments.createMap();
     WritableMap pushMap = Arguments.createMap();
 
-    pushMap.putString(Const.KEY_CHAT_ID, pushEvent.getChatId());
-    pushMap.putString(Const.KEY_SENDER_AVATAR_URL, pushEvent.getSenderAvatarUrl());
-    pushMap.putString(Const.KEY_SENDER_NAME, pushEvent.getSenderName());
-    pushMap.putString(Const.KEY_MESSAGE, pushEvent.getMessage());
+    pushMap.putString(Const.KEY_CHAT_ID, popupData.getChatId());
+    pushMap.putString(Const.KEY_SENDER_AVATAR_URL, popupData.getAvatarUrl());
+    pushMap.putString(Const.KEY_SENDER_NAME, popupData.getName());
+    pushMap.putString(Const.KEY_MESSAGE, popupData.getMessage());
 
-    resultMap.putMap(Const.KEY_EVENT_PUSH, pushMap);
+    resultMap.putMap(Const.KEY_EVENT_POPUP, pushMap);
 
     return resultMap;
   }
