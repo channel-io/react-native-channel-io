@@ -104,18 +104,28 @@ public class ParseUtils {
 
       switch (type) {
         case Boolean:
-          hashMap.put(key, Utils.getBoolean(readableMap, key, false));
-          break;
-        case Array:
-          hashMap.put(key, toArrayList(Utils.getReadableArray(readableMap, key)));
+          Boolean booleanValue = Utils.getBoolean(readableMap, key);
+          if (booleanValue != null) {
+            hashMap.put(key, booleanValue);
+          }
           break;
 
         case Number:
-          hashMap.put(key, Utils.getDouble(readableMap, key));
+          Double doubleValue = Utils.getDouble(readableMap, key);
+          if (doubleValue != null) {
+            hashMap.put(key, doubleValue);
+          }
           break;
 
         case String:
-          hashMap.put(key, Utils.getString(readableMap, key));
+          String stringValue = Utils.getString(readableMap, key);
+          if (stringValue != null) {
+            hashMap.put(key, stringValue);
+          }
+          break;
+
+        case Array:
+          hashMap.put(key, toArrayList(Utils.getReadableArray(readableMap, key)));
           break;
 
         case Map:
@@ -144,9 +154,6 @@ public class ParseUtils {
         case Boolean:
           arrayList.add(readableArray.getBoolean(i));
           break;
-        case Array:
-          arrayList.add(toArrayList(readableArray.getArray(i)));
-          break;
 
         case Number:
           arrayList.add(readableArray.getDouble(i));
@@ -154,6 +161,10 @@ public class ParseUtils {
 
         case String:
           arrayList.add(readableArray.getString(i));
+          break;
+
+        case Array:
+          arrayList.add(toArrayList(readableArray.getArray(i)));
           break;
 
         case Map:
@@ -168,25 +179,21 @@ public class ParseUtils {
     return arrayList;
   }
 
-  public static ChannelButtonOption toChannelButtonOption(ReadableMap channelButtonOption) {
-    if (channelButtonOption != null) {
-      String positionString = Utils.getString(channelButtonOption, Const.KEY_POSITION);
-      ChannelButtonPosition buttonPosition;
+  public static ChannelButtonOption toChannelButtonOption(ReadableMap channelButtonOptionMap) {
+    if (channelButtonOptionMap != null) {
+      String positionString = Utils.getString(channelButtonOptionMap, Const.KEY_POSITION);
+      Double xPosition = Utils.getDouble(channelButtonOptionMap, Const.KEY_X_MARGIN);
+      Double yPosition = Utils.getDouble(channelButtonOptionMap, Const.KEY_Y_MARGIN);
 
-      if (positionString != null) {
-        if (Const.KEY_LAUNCHER_POSITION_LEFT.equals(positionString)) {
-          buttonPosition = ChannelButtonPosition.LEFT;
-        } else {
-          buttonPosition = ChannelButtonPosition.RIGHT;
+      if (positionString != null && xPosition != null && yPosition != null) {
+        switch (positionString) {
+          case Const.KEY_LAUNCHER_POSITION_LEFT:
+            return new ChannelButtonOption(ChannelButtonPosition.LEFT, xPosition.floatValue(), yPosition.floatValue());
+
+          case Const.KEY_LAUNCHER_POSITION_RIGHT:
+            return new ChannelButtonOption(ChannelButtonPosition.RIGHT, xPosition.floatValue(), yPosition.floatValue());
         }
-      } else {
-        buttonPosition = ChannelButtonPosition.RIGHT;
       }
-
-      return new ChannelButtonOption(
-          buttonPosition,
-          Utils.getFloat(channelButtonOption, Const.KEY_X_MARGIN),
-          Utils.getFloat(channelButtonOption, Const.KEY_Y_MARGIN));
     }
 
     return null;
@@ -221,30 +228,26 @@ public class ParseUtils {
 
   public static BootConfig toBootConfig(ReadableMap configMap) {
     String pluginKey = Utils.getString(configMap, Const.KEY_PLUGIN_KEY);
-    String memberId = Utils.getString(configMap, Const.KEY_MEMBER_ID);
+    String memberId = Utils.getString(configMap, Const.KEY_MEMBER_ID, Const.KEY_USER_ID);
     String memberHash = Utils.getString(configMap, Const.KEY_MEMBER_HASH);
-    String userId = Utils.getString(configMap, Const.KEY_USER_ID);
 
-    String id = memberId == null ? userId : memberId;
+    String language = Utils.getString(configMap, Const.KEY_LANGUAGE, Const.KEY_LOCALE);
 
-    String locale = Utils.getString(configMap, Const.KEY_LOCALE);
-    String language = Utils.getString(configMap, Const.KEY_LANGUAGE);
+    Boolean trackDefaultEvent = Utils.getBoolean(configMap, Const.KEY_TRACK_DEFAULT_EVENT, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT);
+    Boolean hidePopup = Utils.getBoolean(configMap, Const.KEY_HIDE_POPUP, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH);
+    Boolean unsubscribed = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED);
 
-    boolean enabledTrackDefaultEvent = Utils.getBoolean(configMap, Const.KEY_ENABLED_TRACK_DEFAULT_EVENT, true);
-    boolean hideDefaultInAppPush = Utils.getBoolean(configMap, Const.KEY_HIDE_DEFAULT_IN_APP_PUSH, false);
-    boolean unsubscribed = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED, false);
-
-    ReadableMap channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_LAUNCHER_CONFIG);
+    ReadableMap channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_CHANNEL_BUTTON_OPTION, Const.KEY_LAUNCHER_CONFIG);
     ReadableMap profile = Utils.getReadableMap(configMap, Const.KEY_PROFILE);
 
     return BootConfig.create(pluginKey)
-        .setMemberId(id)
+        .setMemberId(memberId)
         .setMemberHash(memberHash)
-        .setTrackDefaultEvent(enabledTrackDefaultEvent)
-        .setHidePopup(hideDefaultInAppPush)
+        .setTrackDefaultEvent(trackDefaultEvent)
+        .setHidePopup(hidePopup)
         .setUnsubscribed(unsubscribed)
         .setProfile(ParseUtils.toProfile(profile))
-        .setLanguage(Language.fromString(language == null ? locale : language))
+        .setLanguage(Language.fromString(language))
         .setChannelButtonOption(ParseUtils.toChannelButtonOption(channelButtonOption));
   }
 
@@ -267,23 +270,26 @@ public class ParseUtils {
   }
 
   public static UserData toUserData(ReadableMap userDataMap) {
-    String locale = Utils.getString(userDataMap, Const.KEY_UPDATE_LOCALE);
-    String language = Utils.getString(userDataMap, Const.KEY_UPDATE_LANGUAGE);
+    String language = Utils.getString(userDataMap, Const.KEY_LANGUAGE, Const.KEY_LOCALE);
 
-    ReadableArray tags = Utils.getReadableArray(userDataMap, Const.KEY_UPDATE_TAGS);
+    ReadableArray tags = Utils.getReadableArray(userDataMap, Const.KEY_TAGS);
 
-    ReadableMap profile = Utils.getReadableMap(userDataMap, Const.KEY_UPDATE_PROFILE);
-    ReadableMap profileOnce = Utils.getReadableMap(userDataMap, Const.KEY_UPDATE_PROFILE_ONCE);
+    ReadableMap profile = Utils.getReadableMap(userDataMap, Const.KEY_PROFILE);
+    ReadableMap profileOnce = Utils.getReadableMap(userDataMap, Const.KEY_PROFILE_ONCE);
 
-    boolean unsubscribed = Utils.getBoolean(userDataMap, Const.KEY_UPDATE_UNSUBSCRIBED, false);
+    Boolean unsubscribed = Utils.getBoolean(userDataMap, Const.KEY_UNSUBSCRIBED);
 
-    return new UserData.Builder()
-        .setLanguage(Language.fromString(language == null ? locale : language))
+    UserData.Builder userDataBuilder = new UserData.Builder()
+        .setLanguage(Language.fromString(language))
         .setTags(toTags(tags))
         .setProfileMap(toHashMap(profile))
-        .setProfileOnceMap(toHashMap(profileOnce))
-        .setUnsubscribed(unsubscribed)
-        .build();
+        .setProfileOnceMap(toHashMap(profileOnce));
+
+    if (unsubscribed != null) {
+      return userDataBuilder.setUnsubscribed(unsubscribed).build();
+    } else {
+      return userDataBuilder.build();
+    }
   }
 
   public static Map<String, String> toPushNotification(ReadableMap pushNotificationMap) {
@@ -293,11 +299,10 @@ public class ParseUtils {
     while (iterator.hasNextKey()) {
       String key = iterator.nextKey();
       ReadableType type = pushNotificationMap.getType(key);
+      String value = pushNotificationMap.getString(key);
 
-      switch (type) {
-        case String:
-          pushNotification.put(key, pushNotificationMap.getString(key));
-          break;
+      if (type == ReadableType.String && value != null) {
+        pushNotification.put(key, value);
       }
     }
 
@@ -313,10 +318,10 @@ public class ParseUtils {
 
     if (status == BootStatus.SUCCESS) {
       ChannelIO.setListener(listener);
-      result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(user));
+      result.putMap(Const.RESULT_KEY_USER, ParseUtils.userToWritableMap(user));
     }
 
-    result.putString(Const.KEY_STATUS, status.toString());
+    result.putString(Const.RESULT_KEY_STATUS, status.toString());
 
     return result;
   }
@@ -329,44 +334,52 @@ public class ParseUtils {
     WritableMap result = Arguments.createMap();
 
     if (e == null) {
-      result.putMap(Const.KEY_GUEST, ParseUtils.guestToWritableMap(user));
+      result.putMap(Const.RESULT_KEY_USER, ParseUtils.userToWritableMap(user));
     } else {
-      result.putString(Const.KEY_EXCEPTION, e.getMessage());
+      result.putString(Const.RESULT_KEY_EXCEPTION, e.getMessage());
     }
 
     return result;
   }
 
-  public static WritableMap guestToWritableMap(User user) {
-    WritableMap guestMap = Arguments.createMap();
+  public static WritableMap userToWritableMap(User user) {
+    WritableMap userMap = Arguments.createMap();
 
     if (user == null) {
-      return guestMap;
+      return userMap;
     }
 
-    guestMap.putString(Const.KEY_ID, user.getId());
-    guestMap.putString(Const.KEY_NAME, user.getName());
-    guestMap.putString(Const.KEY_AVATAR_URL, user.getAvatarUrl());
-    guestMap.putInt(Const.KEY_ALERT, user.getAlert());
+    userMap.putString(Const.KEY_ID, user.getId());
+    userMap.putString(Const.KEY_MEMBER_ID, user.getMemberId());
+    userMap.putString(Const.KEY_NAME, user.getName());
+    userMap.putString(Const.KEY_AVATAR_URL, user.getAvatarUrl());
+    userMap.putInt(Const.KEY_ALERT, user.getAlert());
+    userMap.putBoolean(Const.KEY_UNSUBSCRIBED, user.isUnsubscribed());
+    userMap.putString(Const.KEY_LANGUAGE, user.getLanguage());
 
     Map<String, Object> profile = user.getProfile();
     if (profile != null) {
-      guestMap.putMap(Const.KEY_PROFILE, toWritableMap(profile));
+      userMap.putMap(Const.KEY_PROFILE, toWritableMap(profile));
     }
 
-    return guestMap;
+    List<String> tags = user.getTags();
+    if (tags != null) {
+      userMap.putArray(Const.KEY_TAGS, toWritableArray(tags.toArray()));
+    }
+
+    return userMap;
   }
 
   public static WritableMap popupDataToWritableMap(PopupData popupData) {
     WritableMap resultMap = Arguments.createMap();
-    WritableMap pushMap = Arguments.createMap();
+    WritableMap popupMap = Arguments.createMap();
 
-    pushMap.putString(Const.KEY_CHAT_ID, popupData.getChatId());
-    pushMap.putString(Const.KEY_SENDER_AVATAR_URL, popupData.getAvatarUrl());
-    pushMap.putString(Const.KEY_SENDER_NAME, popupData.getName());
-    pushMap.putString(Const.KEY_MESSAGE, popupData.getMessage());
+    popupMap.putString(Const.KEY_CHAT_ID, popupData.getChatId());
+    popupMap.putString(Const.KEY_SENDER_AVATAR_URL, popupData.getAvatarUrl());
+    popupMap.putString(Const.KEY_SENDER_NAME, popupData.getName());
+    popupMap.putString(Const.KEY_MESSAGE, popupData.getMessage());
 
-    resultMap.putMap(Const.KEY_EVENT_POPUP, pushMap);
+    resultMap.putMap(Const.KEY_EVENT_POPUP, popupMap);
 
     return resultMap;
   }

@@ -3,7 +3,7 @@ import {
   Platform,
   NativeEventEmitter,
   DeviceEventEmitter,
-} from "react-native";
+} from 'react-native';
 
 const ChannelModule = NativeModules.RNChannelIO;
 export const ChannelEventEmitter = Platform.select({
@@ -21,7 +21,7 @@ resetListeners = () => {
   });
 
   listeners = {};
-};
+}
 
 replaceListener = (type, newSubscriber) => {
   let subscriber = listeners[type];
@@ -29,9 +29,10 @@ replaceListener = (type, newSubscriber) => {
     subscriber.remove();
   }
   listeners[type] = newSubscriber;
-};
+}
 
 export const ChannelIO = {
+
   /**
    * Boot `ChannelIO`
    * Note that in order to use any methods from `ChannelIO`, you have to use this method beforehand
@@ -69,7 +70,10 @@ export const ChannelIO = {
    * Show `ChannelIO` button
    * @param {Boolean} aniamted Animate the launcher if true
    */
-  show: (animated) => ChannelModule.showChannelButton(),
+  show: (animated) => {
+    console.log('ChannelIO', 'ChannelIO.show(animated) is deprecated. Please use ChannelIO.showChannelButton()')
+    ChannelModule.showChannelButton()
+  },
   /**
    * Show `ChannelIO` button
    */
@@ -80,7 +84,10 @@ export const ChannelIO = {
    * Hide `ChannelIO` button
    * @param {Boolean} aniamted Animate the launcher if true
    */
-  hide: (animated) => ChannelModule.hideChannelButton(),
+  hide: (animated) => {
+    console.log('ChannelIO', 'ChannelIO.hide(animated) is deprecated. Please use ChannelIO.hideChannelButton()')
+    ChannelModule.hideChannelButton()
+  },
   /**
    * Hide `ChannelIO` button
    */
@@ -91,7 +98,10 @@ export const ChannelIO = {
    * Open `ChannelIO` messenger
    * @param {Boolean} aniamted Animate messenger if true
    */
-  open: (animated) => ChannelModule.showMessenger(),
+  open: (animated) => {
+    console.log('ChannelIO', 'ChannelIO.open(animated) is deprecated. Please use ChannelIO.showMessenger()')
+    ChannelModule.showMessenger()
+  },
   /**
    * Show `ChannelIO` messenger
    */
@@ -102,7 +112,10 @@ export const ChannelIO = {
    * Close `ChannelIO` messenger
    * @param {Boolean} Animate messenger if true
    */
-  close: (animated) => ChannelModule.hideMessenger(),
+  close: (animated) => {
+    console.log('ChannelIO', 'ChannelIO.close(animated) is deprecated. Please use ChannelIO.hideMessenger()')
+    ChannelModule.hideMessenger()
+  },
   /**
    * Hide `ChannelIO` messenger
    */
@@ -114,7 +127,7 @@ export const ChannelIO = {
    * @param {String} payload auto fill message
    */
   openChat: (chatId, payload) => {
-    if (typeof payload === "string") {
+    if (typeof payload === 'string') {
       ChannelModule.openChat(chatId, payload);
     } else {
       ChannelModule.openChat(chatId, undefined);
@@ -160,30 +173,29 @@ export const ChannelIO = {
    * @param {Object} userInfo userInfo part from push data
    * @returns {Boolean} true if the userInfo indicates `ChannelIO'`s push, otherwise false
    */
-  isChannelPushNotification: async (userInfo) =>
-    ChannelModule.isChannelPushNotification(userInfo),
-
+  isChannelPushNotification: async (userInfo) => ChannelModule.isChannelPushNotification(userInfo),
+  
   /**
    * @deprecated
    * Handle `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
-  handlePushNotification: async (userInfo) =>
-    ChannelModule.receivePushNotification(userInfo),
+  handlePushNotification: async (userInfo) => {
+    console.log('ChannelIO', 'ChannelIO.handlePushNotification(userInfo) is deprecated. Please use ChannelIO.receivePushNotification(userInfo)')
+    ChannelModule.receivePushNotification(userInfo)
+  },
   /**
    * Receive `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
-  receivePushNotification: async (userInfo) =>
-    ChannelModule.receivePushNotification(userInfo),
+  receivePushNotification: async (userInfo) => ChannelModule.receivePushNotification(userInfo),
 
   /**
    * Check whether a push data has stored
    * @returns {Boolean} true if the `ChannelIO'`s push has stored, otherwise false
    */
-  hasStoredPushNotification: async () =>
-    ChannelModule.hasStoredPushNotification(),
-
+  hasStoredPushNotification: async () => ChannelModule.hasStoredPushNotification(),
+  
   /**
    * Open stored ChannelIO'` push notification
    */
@@ -195,12 +207,10 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
   onChangeBadge: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_BADGE_CHANGED,
-      (data) => {
-        cb(data.count);
-      }
-    );
+    console.log('ChannelIO', 'ChannelIO.onChangeBadge(cb) is deprecated. Please use ChannelIO.onBadgeChanged(cb)')
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
+      cb(data.count);
+    });
 
     replaceListener(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
   },
@@ -209,12 +219,9 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
   onBadgeChanged: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_BADGE_CHANGED,
-      (data) => {
-        cb(data.count);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
+      cb(data.count);
+    });
 
     replaceListener(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
   },
@@ -225,12 +232,10 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a object popup data as parameter
    */
   onReceivePush: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_POPUP_DATA_RECEIVED,
-      (data) => {
-        cb(data.popup);
-      }
-    );
+    console.log('ChannelIO', 'ChannelIO.onReceivePush(cb) is deprecated. Please use ChannelIO.onPopupDataReceived(cb)')
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
+      cb(data.popup);
+    });
 
     replaceListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
   },
@@ -239,12 +244,9 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a object popup data as parameter
    */
   onPopupDataReceived: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_POPUP_DATA_RECEIVED,
-      (data) => {
-        cb(data.popup);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
+      cb(data.popup);
+    });
 
     replaceListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
   },
@@ -256,13 +258,11 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string url as parameter
    */
   onClickChatLink: (handle, cb) => {
+    console.log('ChannelIO', 'ChannelIO.onClickChatLink(handle, cb) is deprecated. Please use ChannelIO.onUrlClicked(handle, cb)')
     ChannelModule.setUrlHandle(handle);
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_URL_CLICKED,
-      (data) => {
-        cb(data.url);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+      cb(data.url);
+    });
     replaceListener(ChannelModule.Event.ON_URL_CLICKED, subscription);
   },
   /**
@@ -272,12 +272,9 @@ export const ChannelIO = {
    */
   onUrlClicked: (handle, cb) => {
     ChannelModule.setUrlHandle(handle);
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_URL_CLICKED,
-      (data) => {
-        cb(data.url);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+      cb(data.url);
+    });
     replaceListener(ChannelModule.Event.ON_URL_CLICKED, subscription);
   },
 
@@ -287,12 +284,10 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a key, value
    */
   onChangeProfile: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_PROFILE_CHANGED,
-      (data) => {
-        cb(data.key, data.value);
-      }
-    );
+    console.log('ChannelIO', 'ChannelIO.onChangeProfile(cb) is deprecated. Please use ChannelIO.onProfileChanged(cb)')
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
+      cb(data.key, data.value);
+    });
     replaceListener(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
   },
   /**
@@ -300,12 +295,9 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a key, value
    */
   onProfileChanged: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_PROFILE_CHANGED,
-      (data) => {
-        cb(data.key, data.value);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
+      cb(data.key, data.value);
+    });
     replaceListener(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
   },
 
@@ -315,10 +307,8 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   willShowMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_SHOW_MESSENGER,
-      cb
-    );
+    console.log('ChannelIO', 'ChannelIO.willShowMessenger(cb) is deprecated. Please use ChannelIO.onShowMessenger(cb)')
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
     replaceListener(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
   },
   /**
@@ -326,10 +316,7 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   onShowMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_SHOW_MESSENGER,
-      cb
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
     replaceListener(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
   },
 
@@ -339,10 +326,8 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   willHideMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_HIDE_MESSENGER,
-      cb
-    );
+    console.log('ChannelIO', 'ChannelIO.willHideMessenger(cb) is deprecated. Please use ChannelIO.onHideMessenger(cb)')
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
     replaceListener(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
   },
   /**
@@ -350,10 +335,7 @@ export const ChannelIO = {
    * @param {Function} cb a callback function
    */
   onHideMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_HIDE_MESSENGER,
-      cb
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
     replaceListener(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
   },
 
@@ -362,17 +344,14 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string chat id as parameter
    */
   onChatCreated: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(
-      ChannelModule.Event.ON_CHAT_CREATED,
-      (data) => {
-        cb(data.chatId);
-      }
-    );
+    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHAT_CREATED, (data) => {
+      cb(data.chatId);
+    });
     replaceListener(ChannelModule.Event.ON_CHAT_CREATED, subscription);
   },
 
   /**
-   * For android only
+   * This event listener is for android platform
    * Event listener that triggers when a push has been clicked by a user
    * @param {Boolean} handle True if you want to handle a push, otherwise false
    * @param {Function} cb a callback function that takes a string chat id as parameter
@@ -380,16 +359,10 @@ export const ChannelIO = {
   onPushNotificationClicked: (handle, cb) => {
     if (Platform.OS === 'android') {
       ChannelModule.setPushNotificationHandle(handle);
-      let subscription = ChannelEventEmitter.addListener(
-        ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
-        (data) => {
-          cb(data.chatId);
-        }
-      );
-      replaceListener(
-        ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
-        subscription
-      );
+      let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, (data) => {
+        cb(data.chatId);
+      });
+      replaceListener(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, subscription);
     }
   },
 
@@ -401,7 +374,6 @@ export const ChannelIO = {
     ON_HIDE_MESSENGER: ChannelModule.Event.ON_HIDE_MESSENGER,
     ON_CHAT_CREATED: ChannelModule.Event.ON_CHAT_CREATED,
     ON_URL_CLICKED: ChannelModule.Event.ON_URL_CLICKED,
-    ON_PUSH_NOTIFICATION_CLICKED:
-      ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED,
-  },
-};
+    ON_PUSH_NOTIFICATION_CLICKED: ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED
+  }
+}

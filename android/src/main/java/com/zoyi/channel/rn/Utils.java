@@ -9,51 +9,59 @@ import com.facebook.react.modules.core.DeviceEventManagerModule;
 
 public class Utils {
 
-  public static double getDouble(ReadableMap readableMap, String key) {
-    if (readableMap.hasKey(key)) {
-      return readableMap.getDouble(key);
-    }
-
-    return 0.0;
-  }
-
-  public static float getFloat(ReadableMap readableMap, String key) {
-    if (readableMap.hasKey(key)) {
-      return Double.valueOf(getDouble(readableMap, key)).floatValue();
-    }
-
-    return 0f;
-  }
-
-  public static boolean getBoolean(ReadableMap readableMap, String key, boolean defaultValue) {
+  public static Boolean getBoolean(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getBoolean(key);
     }
+    return null;
+  }
 
-    return defaultValue;
+  public static Boolean getBoolean(ReadableMap readableMap, String key, String legacyKey) {
+    if (getBoolean(readableMap, key) != null) {
+      return getBoolean(readableMap, key);
+    }
+    return getBoolean(readableMap, legacyKey);
+  }
+
+  public static Double getDouble(ReadableMap readableMap, String key) {
+    if (readableMap.hasKey(key)) {
+      return readableMap.getDouble(key);
+    }
+    return null;
   }
 
   public static String getString(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getString(key);
     }
-
     return null;
+  }
+
+  public static String getString(ReadableMap readableMap, String key, String legacyKey) {
+    if (getString(readableMap, key) != null) {
+      return getString(readableMap, key);
+    }
+    return getString(readableMap, legacyKey);
   }
 
   public static ReadableMap getReadableMap(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getMap(key);
     }
-
     return null;
+  }
+
+  public static ReadableMap getReadableMap(ReadableMap readableMap, String key, String legacyKey) {
+    if (getReadableMap(readableMap, key) != null) {
+      return getReadableMap(readableMap, key);
+    }
+    return getReadableMap(readableMap, legacyKey);
   }
 
   public static ReadableArray getReadableArray(ReadableMap readableMap, String key) {
     if (readableMap.hasKey(key)) {
       return readableMap.getArray(key);
     }
-
     return null;
   }
 

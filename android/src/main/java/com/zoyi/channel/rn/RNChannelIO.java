@@ -38,9 +38,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public Map<String, Object> getConstants() {
     Map<String, Object> constants = new HashMap<>();
     Map<String, String> eventMap = new HashMap<>();
-    Map<String, String> localeMap = new HashMap<>();
-    Map<String, String> bootStatusMap = new HashMap<>();
-    Map<String, String> launcherPositionMap = new HashMap<>();
 
     eventMap.put(Const.KEY_ON_BADGE_CHANGED, Const.EVENT_ON_BADGE_CHANGED);
     eventMap.put(Const.KEY_ON_POPUP_DATA_RECEIVED, Const.EVENT_ON_POPUP_DATA_RECEIVED);
@@ -51,19 +48,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_ON_PROFILE_CHANGED, Const.EVENT_ON_PROFILE_CHANGED);
     eventMap.put(Const.KEY_ON_PUSH_NOTIFICATION_CLICKED, Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED);
 
-    launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_RIGHT, Const.LAUNCHER_RIGHT);
-    launcherPositionMap.put(Const.KEY_LAUNCHER_POSITION_LEFT, Const.LAUNCHER_LEFT);
-
-    bootStatusMap.put(Const.KEY_BOOT_SUCCESS, Const.BOOT_SUCCESS);
-    bootStatusMap.put(Const.KEY_BOOT_TIMEOUT, Const.BOOT_TIMEOUT);
-    bootStatusMap.put(Const.KEY_BOOT_ACCESS_DENIED, Const.BOOT_ACCESS_DENIED);
-    bootStatusMap.put(Const.KEY_BOOT_NOT_INITIALIZED, Const.BOOT_NOT_INITIALIZED);
-    bootStatusMap.put(Const.KEY_BOOT_REQUIRE_PAYMENT, Const.BOOT_REQUIRE_PAYMENT);
-
-    constants.put(Const.Event, eventMap);
-    constants.put(Const.Locale, localeMap);
-    constants.put(Const.LAUNCHER_POSITION, launcherPositionMap);
-    constants.put(Const.BOOT_STATUS, bootStatusMap);
+    constants.put(Const.KEY_EVENT, eventMap);
 
     return constants;
   }
@@ -103,7 +88,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void showMessenger() {
-    ChannelIO.openChat(getCurrentActivity(), null, null);
+    ChannelIO.showMessenger(getCurrentActivity());
   }
 
   @ReactMethod
