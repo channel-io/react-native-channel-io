@@ -205,15 +205,6 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     ChannelIO.setDebugMode(enable);
   }
 
-  @ReactMethod
-  public void handleUrlClicked(@Nullable String url) {
-    Activity activity = getCurrentActivity();
-
-    if (activity != null && url != null) {
-      IntentUtils.setUrl(activity, url).startActivity();
-    }
-  }
-
   @Override
   public void onShowMessenger() {
     Utils.sendEvent(reactContext, Const.EVENT_ON_SHOW_MESSENGER, null);
@@ -257,5 +248,14 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   @Override
   public void onPopupDataReceived(PopupData popupData) {
     Utils.sendEvent(reactContext, Const.EVENT_ON_POPUP_DATA_RECEIVED, ParseUtils.popupDataToWritableMap(popupData));
+  }
+
+  @ReactMethod
+  public void handleUrlClicked(@Nullable String url) {
+    Activity activity = getCurrentActivity();
+
+    if (activity != null && url != null) {
+      IntentUtils.setUrl(activity, url).startActivity();
+    }
   }
 }

@@ -23,29 +23,23 @@ public class ParseUtils {
     if (array == null) {
       return writableArray;
     }
-
+    
     for (int i = 0; i < array.length; i++) {
       Object value = array[i];
 
       if (value == null) {
         writableArray.pushNull();
-      }
-      if (value instanceof Boolean) {
+      } else if (value instanceof Boolean) {
         writableArray.pushBoolean((Boolean) value);
-      }
-      if (value instanceof Double) {
+      } else if (value instanceof Double) {
         writableArray.pushDouble((Double) value);
-      }
-      if (value instanceof Integer) {
+      } else if (value instanceof Integer) {
         writableArray.pushInt((Integer) value);
-      }
-      if (value instanceof String) {
+      } else if (value instanceof String) {
         writableArray.pushString((String) value);
-      }
-      if (value instanceof Map) {
+      } else if (value instanceof Map) {
         writableArray.pushMap(toWritableMap((Map<String, Object>) value));
-      }
-      if (value != null && value.getClass().isArray()) {
+      } else if (value.getClass().isArray()) {
         writableArray.pushArray(toWritableArray((Object[]) value));
       }
     }
@@ -60,26 +54,26 @@ public class ParseUtils {
       return writableMap;
     }
 
-    Iterator iterator = map.entrySet().iterator();
+    Iterator<Map.Entry<String, Object>> iterator = map.entrySet().iterator();
 
     while (iterator.hasNext()) {
-      Map.Entry pair = (Map.Entry) iterator.next();
+      Map.Entry<String, Object> pair = iterator.next();
       Object value = pair.getValue();
 
       if (value == null) {
-        writableMap.putNull((String) pair.getKey());
+        writableMap.putNull(pair.getKey());
       } else if (value instanceof Boolean) {
-        writableMap.putBoolean((String) pair.getKey(), (Boolean) value);
+        writableMap.putBoolean(pair.getKey(), (Boolean) value);
       } else if (value instanceof Double) {
-        writableMap.putDouble((String) pair.getKey(), (Double) value);
+        writableMap.putDouble(pair.getKey(), (Double) value);
       } else if (value instanceof Integer) {
-        writableMap.putInt((String) pair.getKey(), (Integer) value);
+        writableMap.putInt(pair.getKey(), (Integer) value);
       } else if (value instanceof String) {
-        writableMap.putString((String) pair.getKey(), (String) value);
+        writableMap.putString(pair.getKey(), (String) value);
       } else if (value instanceof Map) {
-        writableMap.putMap((String) pair.getKey(), toWritableMap((Map<String, Object>) value));
-      } else if (value.getClass() != null && value.getClass().isArray()) {
-        writableMap.putArray((String) pair.getKey(), toWritableArray((Object[]) value));
+        writableMap.putMap(pair.getKey(), toWritableMap((Map<String, Object>) value));
+      } else if (value.getClass().isArray()) {
+        writableMap.putArray(pair.getKey(), toWritableArray((Object[]) value));
       }
 
       iterator.remove();
@@ -122,6 +116,10 @@ public class ParseUtils {
           hashMap.put(key, toHashMap(Utils.getReadableMap(readableMap, key).getValue()));
           break;
 
+        case Null:
+          hashMap.put(key, null);
+          break;
+
         default:
           break;
       }
@@ -161,6 +159,10 @@ public class ParseUtils {
           arrayList.add(toHashMap(readableArray.getMap(i)));
           break;
 
+        case Null:
+          arrayList.add(null);
+          break;
+
         default:
           break;
       }
@@ -191,22 +193,42 @@ public class ParseUtils {
 
   private static Profile toProfile(ReadableMap profileMap) {
     if (profileMap != null) {
-      Profile profile = Profile.create()
-          .setName(Utils.getString(profileMap, Const.KEY_NAME).getValue())
-          .setEmail(Utils.getString(profileMap, Const.KEY_EMAIL).getValue())
-          .setMobileNumber(Utils.getString(profileMap, Const.KEY_MOBILE_NUMBER).getValue())
-          .setAvatarUrl(Utils.getString(profileMap, Const.KEY_AVATAR_URL).getValue());
+      Profile profile = Profile.create();
 
-      Iterator propertyIterator = ParseUtils
-          .toHashMap(profileMap)
-          .entrySet()
-          .iterator();
+      MapEntry<String> name = Utils.getString(profileMap, Const.KEY_NAME);
+      if (name.hasValue()) {
+        profile.setName(name.getValue());
+      }
+
+      MapEntry<String> email = Utils.getString(profileMap, Const.KEY_EMAIL);
+      if (email.hasValue()) {
+        profile.setEmail(email.getValue());
+      }
+
+      MapEntry<String> mobileNumber = Utils.getString(profileMap, Const.KEY_MOBILE_NUMBER);
+      if (mobileNumber.hasValue()) {
+        profile.setMobileNumber(mobileNumber.getValue());
+      }
+
+      MapEntry<String> avatarUrl = Utils.getString(profileMap, Const.KEY_AVATAR_URL);
+      if (avatarUrl.hasValue()) {
+        profile.setAvatarUrl(avatarUrl.getValue());
+      }
+
+      Iterator<Map.Entry<String, Object>> propertyIterator = toHashMap(profileMap).entrySet().iterator();
+
+      List<String> primitiveKeys = Arrays.asList(Const.KEY_NAME, Const.KEY_EMAIL, Const.KEY_MOBILE_NUMBER, Const.KEY_AVATAR_URL);
 
       while (propertyIterator.hasNext()) {
-        Map.Entry pair = (Map.Entry) propertyIterator.next();
+        Map.Entry<String, Object> pair = propertyIterator.next();
+
+        if (pair.getKey() != null && primitiveKeys.contains(pair.getKey())) {
+          continue;
+        }
+
         Object value = pair.getValue();
 
-        profile.setProperty((String) pair.getKey(), value);
+        profile.setProperty(pair.getKey(), value);
 
         propertyIterator.remove();
       }
@@ -253,12 +275,12 @@ public class ParseUtils {
 
     MapEntry<ReadableMap> channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_CHANNEL_BUTTON_OPTION, Const.KEY_LAUNCHER_CONFIG);
     if (channelButtonOption.hasValue()) {
-      bootConfig.setChannelButtonOption(ParseUtils.toChannelButtonOption(channelButtonOption.getValue()));
+      bootConfig.setChannelButtonOption(toChannelButtonOption(channelButtonOption.getValue()));
     }
 
     MapEntry<ReadableMap> profile = Utils.getReadableMap(configMap, Const.KEY_PROFILE);
     if (profile.hasValue()) {
-      bootConfig.setProfile(ParseUtils.toProfile(profile.getValue()));
+      bootConfig.setProfile(toProfile(profile.getValue()));
     }
 
     return bootConfig;
@@ -338,7 +360,7 @@ public class ParseUtils {
     WritableMap result = Arguments.createMap();
 
     if (status == BootStatus.SUCCESS) {
-      result.putMap(Const.RESULT_KEY_USER, ParseUtils.userToWritableMap(user));
+      result.putMap(Const.RESULT_KEY_USER, userToWritableMap(user));
     }
 
     result.putString(Const.RESULT_KEY_STATUS, status.toString());
@@ -354,7 +376,7 @@ public class ParseUtils {
     WritableMap result = Arguments.createMap();
 
     if (user != null) {
-      result.putMap(Const.RESULT_KEY_USER, ParseUtils.userToWritableMap(user));
+      result.putMap(Const.RESULT_KEY_USER, userToWritableMap(user));
     } else if (e != null) {
       result.putString(Const.RESULT_KEY_EXCEPTION, e.getMessage());
     }

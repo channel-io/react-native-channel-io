@@ -14,9 +14,9 @@ const ChannelEventEmitter = Platform.select({
 var subscribers = {};
 
 const replaceSubscriber = (type, newSubscriber) => {
-  let subscriber = subscribers[type];
-  if (subscriber && typeof subscriber.remove === 'function') {
-    subscriber.remove();
+  const oldSubscriber = subscribers[type];
+  if (oldSubscriber && typeof oldSubscriber.remove === 'function') {
+    oldSubscriber.remove();
   }
   subscribers[type] = newSubscriber;
 }
@@ -146,21 +146,27 @@ export const ChannelIO = {
    * @param userData userData object contains user data information for updating
    * @returns A promise that returns exception or user info
    */
-  updateUser: async (userData) => ChannelModule.updateUser(userData),
+  updateUser: async (userData) => {
+    return ChannelModule.updateUser(userData)
+  },
 
   /**
    * Add user tags
    * @param tags tags object contains tags information for adding
    * @returns A promise that returns exception or user data
    */
-  addTags: async (tags) => ChannelModule.addTags(tags),
+  addTags: async (tags) => {
+    return ChannelModule.addTags(tags)
+  },
 
   /**
    * Remove user tags
    * @param tags tags object contains tags information for removing
    * @returns A promise that returns exception or user data
    */
-  removeTags: async (tags) => ChannelModule.removeTags(tags),
+  removeTags: async (tags) => {
+    return ChannelModule.removeTags(tags)
+  },
 
   /**
    * Initialize push token
@@ -208,22 +214,29 @@ export const ChannelIO = {
    */
   onChangeBadge: (cb) => {
     console.log('ChannelIO', 'ChannelIO.onChangeBadge(cb) is deprecated. Please use ChannelIO.onBadgeChanged(cb)')
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-      cb(data.count);
-    });
-
-    replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
+        cb(data.count);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, null);
+    }
+    
   },
   /**
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
   onBadgeChanged: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-      cb(data.count);
-    });
-
-    replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
+        cb(data.count);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, null);
+    }
   },
 
   /**
@@ -233,22 +246,28 @@ export const ChannelIO = {
    */
   onReceivePush: (cb) => {
     console.log('ChannelIO', 'ChannelIO.onReceivePush(cb) is deprecated. Please use ChannelIO.onPopupDataReceived(cb)')
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
-      cb(data.popup);
-    });
-
-    replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
+        cb(data.popup);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, null);
+    }
   },
   /**
    * Event listener that triggers when in-app popup has been arrived
    * @param {Function} cb a callback function that takes a object popup data as parameter
    */
   onPopupDataReceived: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
-      cb(data.popup);
-    });
-
-    replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
+        cb(data.popup);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, null);
+    }
   },
 
   /**
@@ -259,24 +278,32 @@ export const ChannelIO = {
    */
   onClickChatLink: (handle, cb) => {
     console.log('ChannelIO', 'ChannelIO.onClickChatLink(handle, cb) is deprecated. Please use ChannelIO.onUrlClicked(cb)')
-    replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
-      if (!handle) {
-        ChannelModule.handleUrlClicked(data.url);
-      }
-      cb(data.url);
-    });
+    if (cb) {
+      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+        if (!handle) {
+          ChannelModule.handleUrlClicked(data.url);
+        }
+        cb(data.url);
+      });
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, null);
+    }
   },
   /**
    * Event listener that triggers when a url has been clicked by a user
    * @param {Function} cb a callback function that takes a string url as parameter
    */
   onUrlClicked: (cb) => {
-    replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
-      const next = () => {
-        ChannelModule.handleUrlClicked(data.url);
-      }
-      cb(data.url, next);
-    });
+    if (cb) {
+      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+        const next = () => {
+          ChannelModule.handleUrlClicked(data.url);
+        }
+        cb(data.url, next);
+      });
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, null);
+    }
   },
 
   /**
@@ -286,20 +313,28 @@ export const ChannelIO = {
    */
   onChangeProfile: (cb) => {
     console.log('ChannelIO', 'ChannelIO.onChangeProfile(cb) is deprecated. Please use ChannelIO.onProfileChanged(cb)')
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
-      cb(data.key, data.value);
-    });
-    replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
+        cb(data.key, data.value);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, null);
+    }
   },
   /**
    * Event listener that triggers when guest profile is updated
    * @param {Function} cb a callback function that takes a key, value
    */
   onProfileChanged: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
-      cb(data.key, data.value);
-    });
-    replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
+        cb(data.key, data.value);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, null);
+    }
   },
 
   /**
@@ -309,16 +344,24 @@ export const ChannelIO = {
    */
   willShowMessenger: (cb) => {
     console.log('ChannelIO', 'ChannelIO.willShowMessenger(cb) is deprecated. Please use ChannelIO.onShowMessenger(cb)')
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
-    replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
+      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, null);
+    }
   },
   /**
    * Event listener that triggers when `ChannelIO` messenger is about to display
    * @param {Function} cb a callback function
    */
   onShowMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
-    replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
+      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, null);
+    }
   },
 
   /**
@@ -328,16 +371,24 @@ export const ChannelIO = {
    */
   willHideMessenger: (cb) => {
     console.log('ChannelIO', 'ChannelIO.willHideMessenger(cb) is deprecated. Please use ChannelIO.onHideMessenger(cb)')
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
-    replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
+      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, null);
+    }
   },
   /**
    * Event listener that triggers when `ChannelIO` messenger is about to dismiss
    * @param {Function} cb a callback function
    */
   onHideMessenger: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
-    replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
+      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, null);
+    }
   },
 
   /**
@@ -345,9 +396,13 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string chat id as parameter
    */
   onChatCreated: (cb) => {
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHAT_CREATED, (data) => {
-      cb(data.chatId);
-    });
-    replaceSubscriber(ChannelModule.Event.ON_CHAT_CREATED, subscription);
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHAT_CREATED, (data) => {
+        cb(data.chatId);
+      });
+      replaceSubscriber(ChannelModule.Event.ON_CHAT_CREATED, subscription);
+    } else {
+      replaceSubscriber(ChannelModule.Event.ON_CHAT_CREATED, null);
+    }
   },
 }
