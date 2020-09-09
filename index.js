@@ -6,30 +6,35 @@ import {
 } from 'react-native';
 
 const ChannelModule = NativeModules.RNChannelIO;
-export const ChannelEventEmitter = Platform.select({
+const ChannelEventEmitter = Platform.select({
   ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
 });
 
-var listeners = {};
+var subscribers = {};
 
-resetListeners = () => {
-  Object.keys(listeners).forEach((key) => {
-    if (listeners[key] != undefined) {
-      listeners[key].remove();
-    }
-  });
-
-  listeners = {};
-}
-
-replaceListener = (type, newSubscriber) => {
-  let subscriber = listeners[type];
-  if (subscriber != undefined) {
+const replaceSubscriber = (type, newSubscriber) => {
+  let subscriber = subscribers[type];
+  if (subscriber && typeof subscriber.remove === 'function') {
     subscriber.remove();
   }
-  listeners[type] = newSubscriber;
+  subscribers[type] = newSubscriber;
 }
+
+const hasSubscriber = (type) => {
+  return !!subscribers[type]
+}
+
+ChannelEventEmitter.addListener(ChannelModule.Event.ON_PRE_URL_CLICKED, (data) => {
+  if (!hasSubscriber(ChannelModule.Event.ON_URL_CLICKED)) {
+    ChannelModule.handleUrlClicked(data.url);
+  } else {
+    const subscriber = subscribers[ChannelModule.Event.ON_URL_CLICKED];
+    if (typeof subscriber === 'function') {
+      subscriber(data);
+    }
+  }
+});
 
 export const ChannelIO = {
 
@@ -40,10 +45,6 @@ export const ChannelIO = {
    * @returns A promise that returns status and guest info
    */
   boot: async (bootConfig) => {
-    ChannelModule.setUrlHandle(false);
-    ChannelModule.setPushNotificationHandle(false);
-    resetListeners();
-
     return ChannelModule.boot(bootConfig);
   },
 
@@ -58,10 +59,6 @@ export const ChannelIO = {
    * Shutdown `ChannelIO`
    */
   shutdown: () => {
-    ChannelModule.setUrlHandle(false);
-    ChannelModule.setPushNotificationHandle(false);
-    resetListeners();
-
     ChannelModule.shutdown();
   },
 
@@ -130,6 +127,9 @@ export const ChannelIO = {
     if (typeof payload === 'string') {
       ChannelModule.openChat(chatId, payload);
     } else {
+      if (typeof payload === 'boolean') {
+        console.log('ChannelIO', 'ChannelIO.openChat(chatId, animated) is deprecated. Please use ChannelIO.openChat(chatId, message)')
+      }
       ChannelModule.openChat(chatId, undefined);
     }
   },
@@ -212,7 +212,7 @@ export const ChannelIO = {
       cb(data.count);
     });
 
-    replaceListener(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
   },
   /**
    * Event listener that triggers when badge count has been changed
@@ -223,7 +223,7 @@ export const ChannelIO = {
       cb(data.count);
     });
 
-    replaceListener(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
   },
 
   /**
@@ -237,7 +237,7 @@ export const ChannelIO = {
       cb(data.popup);
     });
 
-    replaceListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
   },
   /**
    * Event listener that triggers when in-app popup has been arrived
@@ -248,7 +248,7 @@ export const ChannelIO = {
       cb(data.popup);
     });
 
-    replaceListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
   },
 
   /**
@@ -258,24 +258,25 @@ export const ChannelIO = {
    * @param {Function} cb a callback function that takes a string url as parameter
    */
   onClickChatLink: (handle, cb) => {
-    console.log('ChannelIO', 'ChannelIO.onClickChatLink(handle, cb) is deprecated. Please use ChannelIO.onUrlClicked(handle, cb)')
-    ChannelModule.setUrlHandle(handle);
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+    console.log('ChannelIO', 'ChannelIO.onClickChatLink(handle, cb) is deprecated. Please use ChannelIO.onUrlClicked(cb)')
+    replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+      if (!handle) {
+        ChannelModule.handleUrlClicked(data.url);
+      }
       cb(data.url);
     });
-    replaceListener(ChannelModule.Event.ON_URL_CLICKED, subscription);
   },
   /**
    * Event listener that triggers when a url has been clicked by a user
-   * @param {Boolean} handle True if you want to handle a url, otherwise false
    * @param {Function} cb a callback function that takes a string url as parameter
    */
-  onUrlClicked: (handle, cb) => {
-    ChannelModule.setUrlHandle(handle);
-    let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_URL_CLICKED, (data) => {
-      cb(data.url);
+  onUrlClicked: (cb) => {
+    replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
+      const next = () => {
+        ChannelModule.handleUrlClicked(data.url);
+      }
+      cb(data.url, next);
     });
-    replaceListener(ChannelModule.Event.ON_URL_CLICKED, subscription);
   },
 
   /**
@@ -288,7 +289,7 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
       cb(data.key, data.value);
     });
-    replaceListener(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
   },
   /**
    * Event listener that triggers when guest profile is updated
@@ -298,7 +299,7 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
       cb(data.key, data.value);
     });
-    replaceListener(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
   },
 
   /**
@@ -309,7 +310,7 @@ export const ChannelIO = {
   willShowMessenger: (cb) => {
     console.log('ChannelIO', 'ChannelIO.willShowMessenger(cb) is deprecated. Please use ChannelIO.onShowMessenger(cb)')
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
-    replaceListener(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
   },
   /**
    * Event listener that triggers when `ChannelIO` messenger is about to display
@@ -317,7 +318,7 @@ export const ChannelIO = {
    */
   onShowMessenger: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
-    replaceListener(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
   },
 
   /**
@@ -328,7 +329,7 @@ export const ChannelIO = {
   willHideMessenger: (cb) => {
     console.log('ChannelIO', 'ChannelIO.willHideMessenger(cb) is deprecated. Please use ChannelIO.onHideMessenger(cb)')
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
-    replaceListener(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
   },
   /**
    * Event listener that triggers when `ChannelIO` messenger is about to dismiss
@@ -336,7 +337,7 @@ export const ChannelIO = {
    */
   onHideMessenger: (cb) => {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
-    replaceListener(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
   },
 
   /**
@@ -347,33 +348,6 @@ export const ChannelIO = {
     let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_CHAT_CREATED, (data) => {
       cb(data.chatId);
     });
-    replaceListener(ChannelModule.Event.ON_CHAT_CREATED, subscription);
+    replaceSubscriber(ChannelModule.Event.ON_CHAT_CREATED, subscription);
   },
-
-  /**
-   * This event listener is for android platform
-   * Event listener that triggers when a push has been clicked by a user
-   * @param {Boolean} handle True if you want to handle a push, otherwise false
-   * @param {Function} cb a callback function that takes a string chat id as parameter
-   */
-  onPushNotificationClicked: (handle, cb) => {
-    if (Platform.OS === 'android') {
-      ChannelModule.setPushNotificationHandle(handle);
-      let subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, (data) => {
-        cb(data.chatId);
-      });
-      replaceListener(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, subscription);
-    }
-  },
-
-  Event: {
-    ON_BADGE_CHANGED: ChannelModule.Event.ON_BADGE_CHANGED,
-    ON_PROFILE_CHANGED: ChannelModule.Event.ON_PROFILE_CHANGED,
-    ON_POPUP_DATA_RECEIVED: ChannelModule.Event.ON_POPUP_DATA_RECEIVED,
-    ON_SHOW_MESSENGER: ChannelModule.Event.ON_SHOW_MESSENGER,
-    ON_HIDE_MESSENGER: ChannelModule.Event.ON_HIDE_MESSENGER,
-    ON_CHAT_CREATED: ChannelModule.Event.ON_CHAT_CREATED,
-    ON_URL_CLICKED: ChannelModule.Event.ON_URL_CLICKED,
-    ON_PUSH_NOTIFICATION_CLICKED: ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED
-  }
 }

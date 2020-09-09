@@ -68,7 +68,7 @@ public class Const {
   public static final String KEY_ON_HIDE_MESSENGER = "ON_HIDE_MESSENGER";
   public static final String KEY_ON_CHAT_CREATED = "ON_CHAT_CREATED";
   public static final String KEY_ON_URL_CLICKED = "ON_URL_CLICKED";
-  public static final String KEY_ON_PUSH_NOTIFICATION_CLICKED = "ON_PUSH_NOTIFICATION_CLICKED";
+  public static final String KEY_ON_PRE_URL_CLICKED = "ON_PRE_URL_CLICKED";
 
   public static final String EVENT_ON_BADGE_CHANGED = "ChannelIO:Event:OnBadgeChanged";
   public static final String EVENT_ON_PROFILE_CHANGED = "ChannelIO:Event:OnProfileChanged";
@@ -77,5 +77,5 @@ public class Const {
   public static final String EVENT_ON_HIDE_MESSENGER = "ChannelIO:Event:OnHideMessenger";
   public static final String EVENT_ON_CHAT_CREATED = "ChannelIO:Event:OnChatCreated";
   public static final String EVENT_ON_URL_CLICKED = "ChannelIO:Event:OnUrlClicked";
-  public static final String EVENT_ON_PUSH_NOTIFICATION_CLICKED = "ChannelIO:Event:OnPushNotificationClicked";
+  public static final String EVENT_ON_PRE_URL_CLICKED = "ChannelIO:Event:OnPreUrlClicked";
 }

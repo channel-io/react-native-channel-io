@@ -1,4 +1,3 @@
-
 package com.zoyi.channel.rn;
 
 import android.app.Activity;
@@ -8,25 +7,25 @@ import androidx.annotation.Nullable;
 
 import com.facebook.react.bridge.*;
 import com.zoyi.channel.plugin.android.ChannelIO;
-import com.zoyi.channel.plugin.android.open.callback.*;
+import com.zoyi.channel.plugin.android.open.callback.BootCallback;
+import com.zoyi.channel.plugin.android.open.callback.UserUpdateCallback;
 import com.zoyi.channel.plugin.android.open.enumerate.BootStatus;
 import com.zoyi.channel.plugin.android.open.listener.ChannelPluginListener;
 import com.zoyi.channel.plugin.android.open.model.PopupData;
 import com.zoyi.channel.plugin.android.open.model.User;
+import com.zoyi.channel.plugin.android.util.IntentUtils;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPluginListener {
 
-  private boolean handleUrl = false;
-  private boolean handlePushNotification = false;
-
   private ReactContext reactContext;
 
   public RNChannelIO(ReactApplicationContext reactContext) {
     super(reactContext);
     this.reactContext = reactContext;
+    ChannelIO.setListener(this);
   }
 
   @Override
@@ -44,9 +43,9 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_ON_SHOW_MESSENGER, Const.EVENT_ON_SHOW_MESSENGER);
     eventMap.put(Const.KEY_ON_HIDE_MESSENGER, Const.EVENT_ON_HIDE_MESSENGER);
     eventMap.put(Const.KEY_ON_CHAT_CREATED, Const.EVENT_ON_CHAT_CREATED);
-    eventMap.put(Const.KEY_ON_URL_CLICKED, Const.EVENT_ON_URL_CLICKED);
     eventMap.put(Const.KEY_ON_PROFILE_CHANGED, Const.EVENT_ON_PROFILE_CHANGED);
-    eventMap.put(Const.KEY_ON_PUSH_NOTIFICATION_CLICKED, Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED);
+    eventMap.put(Const.KEY_ON_URL_CLICKED, Const.EVENT_ON_URL_CLICKED);
+    eventMap.put(Const.KEY_ON_PRE_URL_CLICKED, Const.EVENT_ON_PRE_URL_CLICKED);
 
     constants.put(Const.KEY_EVENT, eventMap);
 
@@ -60,7 +59,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
         new BootCallback() {
           @Override
           public void onComplete(BootStatus bootStatus, @Nullable User user) {
-            promise.resolve(ParseUtils.getBootResult(RNChannelIO.this, bootStatus, user));
+            promise.resolve(ParseUtils.getBootResult(bootStatus, user));
           }
         }
     );
@@ -122,7 +121,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   @ReactMethod
   public void addTags(ReadableArray tags, final Promise promise) {
     ChannelIO.addTags(
-        ParseUtils.toTags(tags),
+        ParseUtils.toStringArray(tags),
         new UserUpdateCallback() {
           @Override
           public void onComplete(@Nullable Exception e, @Nullable User user) {
@@ -135,7 +134,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   @ReactMethod
   public void removeTags(ReadableArray tags, final Promise promise) {
     ChannelIO.removeTags(
-        ParseUtils.toTags(tags),
+        ParseUtils.toStringArray(tags),
         new UserUpdateCallback() {
           @Override
           public void onComplete(@Nullable Exception e, @Nullable User user) {
@@ -207,13 +206,12 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
-  public void setUrlHandle(boolean handleUrl) {
-    this.handleUrl = handleUrl;
-  }
+  public void handleUrlClicked(@Nullable String url) {
+    Activity activity = getCurrentActivity();
 
-  @ReactMethod
-  public void setPushNotificationHandle(boolean handlePushNotification) {
-    this.handlePushNotification = handlePushNotification;
+    if (activity != null && url != null) {
+      IntentUtils.setUrl(activity, url).startActivity();
+    }
   }
 
   @Override
@@ -247,14 +245,13 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @Override
   public boolean onUrlClicked(String url) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_URL_CLICKED, ParseUtils.createSingleMap(Const.KEY_EVENT_URL, url));
-    return handleUrl;
+    Utils.sendEvent(reactContext, Const.EVENT_ON_PRE_URL_CLICKED, ParseUtils.createSingleMap(Const.KEY_EVENT_URL, url));
+    return true;
   }
 
   @Override
   public boolean onPushNotificationClicked(String chatId) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED, ParseUtils.createSingleMap(Const.KEY_EVENT_CHAT_ID, chatId));
-    return handlePushNotification;
+    return false;
   }
 
   @Override
