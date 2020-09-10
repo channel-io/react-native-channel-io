@@ -169,6 +169,20 @@ export const ChannelIO = {
   },
 
   /**
+   * Check is channel booted
+   * @returns {Boolean} true if the channel is booted, otherwise false
+   */  
+  isBooted: async () => {
+    return ChannelModule.isBooted()
+  },
+
+  /**
+   * Set debug mode for native module
+   * @param {Boolean} enable True if you want to set debug mode, otherwise false
+   */  
+  setDebugMode: (enable) => ChannelModule.setDebugMode(enable),
+
+  /**
    * Initialize push token
    * @param {String} token a push token
    */

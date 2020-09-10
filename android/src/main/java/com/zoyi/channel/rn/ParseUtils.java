@@ -23,7 +23,7 @@ public class ParseUtils {
     if (array == null) {
       return writableArray;
     }
-    
+
     for (int i = 0; i < array.length; i++) {
       Object value = array[i];
 
@@ -54,10 +54,7 @@ public class ParseUtils {
       return writableMap;
     }
 
-    Iterator<Map.Entry<String, Object>> iterator = map.entrySet().iterator();
-
-    while (iterator.hasNext()) {
-      Map.Entry<String, Object> pair = iterator.next();
+    for (Map.Entry<String, Object> pair : map.entrySet()) {
       Object value = pair.getValue();
 
       if (value == null) {
@@ -75,8 +72,6 @@ public class ParseUtils {
       } else if (value.getClass().isArray()) {
         writableMap.putArray(pair.getKey(), toWritableArray((Object[]) value));
       }
-
-      iterator.remove();
     }
 
     return writableMap;
@@ -229,8 +224,6 @@ public class ParseUtils {
         Object value = pair.getValue();
 
         profile.setProperty(pair.getKey(), value);
-
-        propertyIterator.remove();
       }
 
       return profile;
