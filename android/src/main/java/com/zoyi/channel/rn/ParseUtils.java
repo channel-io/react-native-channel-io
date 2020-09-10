@@ -410,8 +410,8 @@ public class ParseUtils {
     WritableMap popupMap = Arguments.createMap();
 
     popupMap.putString(Const.KEY_CHAT_ID, popupData.getChatId());
-    popupMap.putString(Const.KEY_SENDER_AVATAR_URL, popupData.getAvatarUrl());
-    popupMap.putString(Const.KEY_SENDER_NAME, popupData.getName());
+    popupMap.putString(Const.KEY_AVATAR_URL, popupData.getAvatarUrl());
+    popupMap.putString(Const.KEY_NAME, popupData.getName());
     popupMap.putString(Const.KEY_MESSAGE, popupData.getMessage());
 
     resultMap.putMap(Const.KEY_EVENT_POPUP, popupMap);

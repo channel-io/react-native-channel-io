@@ -25,6 +25,8 @@ public class Const {
   public static final String KEY_EMAIL = "email";
   public static final String KEY_MOBILE_NUMBER = "mobileNumber";
   public static final String KEY_AVATAR_URL = "avatarUrl";
+  public static final String KEY_CHAT_ID = "chatId";
+  public static final String KEY_MESSAGE = "message";
 
   // Legacy
   public static final String KEY_USER_ID = "userId";
@@ -32,12 +34,6 @@ public class Const {
   public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";
   public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
   public static final String KEY_LAUNCHER_CONFIG = "launcherConfig";
-
-  // Push event
-  public static final String KEY_CHAT_ID = "chatId";
-  public static final String KEY_SENDER_AVATAR_URL = "senderAvatarUrl";
-  public static final String KEY_SENDER_NAME = "senderName";
-  public static final String KEY_MESSAGE = "message";
 
   // Launcher config
   public static final String KEY_POSITION = "position";
