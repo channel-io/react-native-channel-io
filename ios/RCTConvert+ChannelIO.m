@@ -11,36 +11,37 @@
 @implementation RCTConvert (ChannelIOEnums)
 
 RCT_ENUM_CONVERTER(
-  CHLocale,
-  (@{@"ko": @(CHLocaleKorean),
-    @"en": @(CHLocaleEnglish),
-    @"ja": @(CHLocaleJapanese),
-    @"device": @(CHLocaleDevice)
+  LanguageOption,
+  (@{LANGUAGE_OPTION_KO: @(LanguageOptionKorean),
+    LANGUAGE_OPTION_EN: @(LanguageOptionEnglish),
+    LANGUAGE_OPTION_JA: @(LanguageOptionJapanese),
+    LANGUAGE_OPTION_DEVICE: @(LanguageOptionDevice)
   }),
-  CHLocaleDevice,
+  LanguageOptionDevice,
   integerValue
 )
 
 RCT_ENUM_CONVERTER(
-  ChannelPluginCompletionStatus,
-  (@{@"SUCCESS": @(ChannelPluginCompletionStatusSuccess),
-    @"UNKNOWN_ERROR": @(ChannelPluginCompletionStatusUnknown),
-    @"ACCESS_DENIED": @(ChannelPluginCompletionStatusAccessDenied),
-    @"NETWORK_TIMEOUT": @(ChannelPluginCompletionStatusNetworkTimeout),
-    @"REQUIRE_PAYMENT": @(ChannelPluginCompletionStatusRequirePayment),
-    @"NOT_INITIALIZED": @(ChannelPluginCompletionStatusNotInitialized),
-    @"SERVICE_UNDER_CONSTRUCTION": @(ChannelPluginCompletionStatusServiceUnderConstruction)
+  BootStatus,
+  (@{BOOT_STATUS_SUCCESS: @(BootStatusSuccess),
+    BOOT_STATUS_NOT_INITIALIZED: @(BootStatusNotInitialized),
+    BOOT_STATUS_NETWORK_TIMEOUT: @(BootStatusNetworkTimeout),
+    BOOT_STATUS_NOT_AVAILABLE_VERSION: @(BootStatusNotAvailableVersion),
+    BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(BootStatusServiceUnderConstruction),
+    BOOT_STATUS_REQUIRE_PAYMENT: @(BootStatusRequirePayment),
+    BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
+    BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
   }),
-  ChannelPluginCompletionStatusNotInitialized,
+  BootStatusNotInitialized,
   integerValue
 )
 
 RCT_ENUM_CONVERTER(
-  LauncherPosition,
-  (@{@"right": @(LauncherPositionRight),
-    @"left": @(LauncherPositionLeft)
+  ChannelButtonPosition,
+  (@{CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
+    CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
   }),
-  LauncherPositionRight,
+  ChannelButtonPositionRight,
   integerValue
 )
 
@@ -48,41 +49,56 @@ RCT_ENUM_CONVERTER(
 
 @implementation RCTConvert (ChannelIO)
 
-+ (ChannelPluginSettings *)settings:(id)json {
-  ChannelPluginSettings *settings = [[ChannelPluginSettings alloc] init];
-  settings.pluginKey = [RCTConvert NSString:json[@"pluginKey"]];
-  settings.debugMode = [RCTConvert BOOL:json[@"debugMode"]];
-  settings.hideDefaultInAppPush = [RCTConvert BOOL:json[@"hideDefaultInAppPush"]];
-  settings.launcherConfig = [RCTConvert launcherConfig:json[@"launcherConfig"]];
-  if ([json[@"memberId"] length] == 0 && [json[@"userId"] length] != 0) {
-    settings.memberId = [RCTConvert NSString:json[@"userId"]];
-  } else {
-    settings.memberId = [RCTConvert NSString:json[@"memberId"]];
++ (BootConfig *)bootConfig:(id)json {
+  BootConfig *settings = [[BootConfig alloc] init];
+  settings.pluginKey = [RCTConvert NSString:json[KEY_PLUGIN_KEY]];
+  settings.memberHash = [RCTConvert NSString:json[KEY_MEMBER_HASH]];
+  settings.hidePopup = json[KEY_HIDE_POPUP] == nil
+    ? [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]] : [RCTConvert BOOL:json[KEY_HIDE_POPUP]];
+  settings.trackDefaultEvent = json[KEY_TRACK_DEFAULT_EVENT] == nil
+    ? [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]]
+    : [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]];
+  
+  if (json[KEY_LAUNCHER_CONFIG] == nil && json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
+    settings.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
+  } else if (json[KEY_LAUNCHER_CONFIG] != nil && json[KEY_CHANNEL_BUTTON_OPTION] == nil) {
+    settings.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_LAUNCHER_CONFIG]];
   }
   
-  NSString *language = [RCTConvert NSString:json[@"language"]];
-  NSString *locale = [RCTConvert NSString:json[@"locale"]];
-  if (json[@"locale"] != 0) {
-    if ([locale isEqualToString:@"ko"]) {
-      settings.language = CHLocaleKorean;
-    } else if ([locale isEqualToString:@"ja"]) {
-      settings.language = CHLocaleJapanese;
-    } else if ([locale isEqualToString:@"en"]) {
-      settings.language = CHLocaleEnglish;
+  if (json[KEY_MEMBER_ID] == nil && json[KEY_USER_ID] != nil) {
+    settings.memberId = [RCTConvert NSString:json[KEY_USER_ID]];
+  } else {
+    settings.memberId = [RCTConvert NSString:json[KEY_MEMBER_ID]];
+  }
+  
+  NSString *language = [RCTConvert NSString:json[KEY_LANGUAGE]];
+  NSString *locale = [RCTConvert NSString:json[KEY_LOCALE]];
+  if (json[KEY_LOCALE] != nil) {
+    if ([locale isEqualToString:LANGUAGE_OPTION_KO]) {
+      settings.language = LanguageOptionKorean;
+    } else if ([locale isEqualToString:LANGUAGE_OPTION_JA]) {
+      settings.language = LanguageOptionJapanese;
+    } else if ([locale isEqualToString:LANGUAGE_OPTION_EN]) {
+      settings.language = LanguageOptionEnglish;
     } else {
-      settings.language = CHLocaleDevice;
+      settings.language = LanguageOptionDevice;
     }
   } else {
-    if ([language isEqualToString:@"ko"]) {
-      settings.language = CHLocaleKorean;
-    } else if ([language isEqualToString:@"ja"]) {
-      settings.language = CHLocaleJapanese;
-    } else if ([language isEqualToString:@"en"]) {
-      settings.language = CHLocaleEnglish;
+    if ([language isEqualToString:LANGUAGE_OPTION_KO]) {
+      settings.language = LanguageOptionKorean;
+    } else if ([language isEqualToString:LANGUAGE_OPTION_JA]) {
+      settings.language = LanguageOptionJapanese;
+    } else if ([language isEqualToString:LANGUAGE_OPTION_EN]) {
+      settings.language = LanguageOptionEnglish;
     } else {
-      settings.language = CHLocaleDevice;
+      settings.language = LanguageOptionDevice;
     }
   }
+  
+  if (json[KEY_PROFILE] != nil) {
+    settings.profile = [RCTConvert profile:json[KEY_PROFILE]];
+  }
+  
   return settings;
 }
 
@@ -92,37 +108,27 @@ RCT_ENUM_CONVERTER(
   }
   
   Profile *profile = [[Profile alloc] init];
-  [profile setWithName:[RCTConvert NSString:json[@"name"]]];
-  [profile setWithEmail:[RCTConvert NSString:json[@"email"]]];
-  [profile setWithAvatarUrl:[RCTConvert NSString:json[@"avatarUrl"]]];
-  [profile setWithMobileNumber:[RCTConvert NSString:json[@"mobileNumber"]]];
-  
-  [json enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id  _Nonnull obj, BOOL * _Nonnull stop) {
-    if (![key isEqual:@"name"] &&
-        ![key isEqual:@"email"] &&
-        ![key isEqual:@"avatarUrl"] &&
-        ![key isEqual:@"mobileNumber"]) {
-      [profile setWithPropertyKey:key value:obj];
-    }
+  [json enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id obj, BOOL * _Nonnull stop) {
+    [profile setWithPropertyKey:key value:obj];
   }];
   
   return profile;
 }
 
-+ (LauncherConfig *)launcherConfig:(id)json {
++ (ChannelButtonOption *)channelButtonOption:(id)json {
   if (json == nil) {
     return nil;
   }
   
-  LauncherConfig *config = [[LauncherConfig alloc] init];
+  ChannelButtonOption *config = [[ChannelButtonOption alloc] init];
   
-  config.xMargin = [RCTConvert float:json[@"xMargin"]];
-  config.yMargin = [RCTConvert float:json[@"yMargin"]];
-  NSString *position = [RCTConvert NSString:@"position"];
-  if ([position isEqualToString:@"left"]) {
-    config.position = LauncherPositionLeft;
+  config.xMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_X_MARGIN]];
+  config.yMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_Y_MARGIN]];
+  NSString *position = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_POSITION]];
+  if ([position isEqualToString:CHANNEL_BUTTON_OPTION_POSITION_LEFT]) {
+    config.position = ChannelButtonPositionLeft;
   } else {
-    config.position = LauncherPositionRight;
+    config.position = ChannelButtonPositionRight;
   }
   return config;
 }
