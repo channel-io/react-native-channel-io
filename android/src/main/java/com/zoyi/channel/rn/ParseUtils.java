@@ -352,7 +352,7 @@ public class ParseUtils {
 
     WritableMap result = Arguments.createMap();
 
-    if (status == BootStatus.SUCCESS) {
+    if (status == BootStatus.SUCCESS && user != null) {
       result.putMap(Const.RESULT_KEY_USER, userToWritableMap(user));
     }
 
@@ -371,7 +371,7 @@ public class ParseUtils {
     if (user != null) {
       result.putMap(Const.RESULT_KEY_USER, userToWritableMap(user));
     } else if (e != null) {
-      result.putString(Const.RESULT_KEY_EXCEPTION, e.getMessage());
+      result.putString(Const.RESULT_KEY_ERROR, e.getMessage());
     }
 
     return result;

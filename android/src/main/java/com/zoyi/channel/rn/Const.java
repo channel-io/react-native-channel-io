@@ -44,7 +44,7 @@ public class Const {
 
   // Result
   public static final String RESULT_KEY_STATUS = "status";
-  public static final String RESULT_KEY_EXCEPTION = "exception";
+  public static final String RESULT_KEY_ERROR = "error";
   public static final String RESULT_KEY_USER = "user";
 
   // Event
