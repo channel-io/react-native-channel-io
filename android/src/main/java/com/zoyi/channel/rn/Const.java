@@ -47,6 +47,9 @@ public class Const {
   public static final String RESULT_KEY_ERROR = "error";
   public static final String RESULT_KEY_USER = "user";
 
+  // Error
+  public static final String ERROR_UNKNOWN = "UNKNOWN_ERROR";
+
   // Event
   public static final String KEY_EVENT = "Event";
 

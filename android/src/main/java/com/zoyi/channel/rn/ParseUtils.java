@@ -368,10 +368,12 @@ public class ParseUtils {
 
     WritableMap result = Arguments.createMap();
 
-    if (user != null) {
+    if (user != null && e == null) {
       result.putMap(Const.RESULT_KEY_USER, userToWritableMap(user));
     } else if (e != null) {
       result.putString(Const.RESULT_KEY_ERROR, e.getMessage());
+    } else {
+      result.putString(Const.RESULT_KEY_ERROR, Const.ERROR_UNKNOWN);
     }
 
     return result;
