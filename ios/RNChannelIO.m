@@ -56,64 +56,50 @@ RCT_EXPORT_MODULE()
 
 - (NSDictionary *)constantsToExport {
   return @{
-     KEY_EVENT: @{
-         KEY_EVENT_ON_BADGE_CHANGED: EVENT_ON_BADGE_CHANGED,
-         KEY_EVENT_ON_PROFILE_CHANGED: EVENT_ON_PROFILE_CHANGED,
-         KEY_EVENT_ON_POPUP_DATA_RECEIVED: EVENT_ON_POPUP_DATA_RECEIVED,
-         KEY_EVENT_ON_SHOW_MESSENGER: EVENT_ON_SHOW_MESSENGER,
-         KEY_EVENT_ON_HIDE_MESSENGER: EVENT_ON_HIDE_MESSENGER,
-         KEY_EVENT_ON_CHAT_CREATED: EVENT_ON_CHAT_CREATED,
-         KEY_EVENT_ON_PRE_URL_CLICKED: EVENT_ON_PRE_URL_CLICKED,
-         KEY_EVENT_ON_URL_CLICKED: EVENT_ON_URL_CLICKED,
-         KEY_EVENT_ON_PUSH_NOTIFICATION_CLICKED: EVENT_ON_PUSH_NOTIFICATION_CLICKED,
-         // deprecated
-         KEY_EVENT_ON_CHANGE_BADGE: EVENT_ON_CHANGE_BADGE,
-         KEY_EVENT_ON_RECEIVE_PUSH: EVENT_ON_RECEIVE_PUSH,
-         KEY_EVENT_WILL_SHOW_MESSENGER: EVENT_WILL_SHOW_MESSENGER,
-         KEY_EVENT_WILL_HIDE_MESSENGER: EVENT_WILL_HIDE_MESSENGER,
-         KEY_EVENT_ON_CLICK_CHAT_LINK: EVENT_ON_CLICK_CHAT_LINK,
-         KEY_EVENT_ON_CHANGE_PROFILE: EVENT_ON_CHANGE_PROFILE
-     },
-     KEY_LANGUAGE: @{
-         KEY_LANGUAGE_KOREAN: @(LanguageOptionKorean),
-         KEY_LANGUAGE_ENGLISH: @(LanguageOptionEnglish),
-         KEY_LANGUAGE_JAPANESE: @(LanguageOptionJapanese),
-         KEY_LANGUAGE_DEVICE: @(LanguageOptionDevice)
-     },
-     KEY_BOOT_STATUS: @{
-       KEY_BOOT_STATUS_SUCCESS: @(BootStatusSuccess),
-       KEY_BOOT_STATUS_NOT_INITIALIZED: @(BootStatusNotInitialized),
-       KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(BootStatusNetworkTimeout),
-       KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(BootStatusNotAvailableVersion),
-       KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(BootStatusServiceUnderConstruction),
-       KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(BootStatusRequirePayment),
-       KEY_BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
-       KEY_BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
-     },
-     KEY_CHANNEL_BUTTON_POSITION: @{
-         CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
-         CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
-     },
-     KEY_LOCALE: @{
-         KEY_LANGUAGE_KOREAN: @(CHLocaleKorean),
-         KEY_LANGUAGE_ENGLISH: @(CHLocaleEnglish),
-         KEY_LANGUAGE_JAPANESE: @(CHLocaleJapanese),
-         KEY_LANGUAGE_DEVICE: @(CHLocaleDevice)
-     },
-     KEY_CHANNEL_PLUGIN_COMPLETION_STATUS: @{
-         KEY_BOOT_STATUS_SUCCESS: @(ChannelPluginCompletionStatusSuccess),
-         KEY_BOOT_STATUS_NOT_INITIALIZED: @(ChannelPluginCompletionStatusNotInitialized),
-         KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(ChannelPluginCompletionStatusNetworkTimeout),
-         KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(ChannelPluginCompletionStatusNotAvailableVersion),
-         KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(ChannelPluginCompletionStatusServiceUnderConstruction),
-         KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(ChannelPluginCompletionStatusRequirePayment),
-         KEY_BOOT_STATUS_ACCESS_DENIED: @(ChannelPluginCompletionStatusAccessDenied),
-         KEY_BOOT_STATUS_UNKNOWN_ERROR: @(ChannelPluginCompletionStatusUnknown)
-     },
-     KEY_LAUNCHER_POSITION: @{
-         CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(LauncherPositionRight),
-         CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(LauncherPositionLeft)
-     }
+    EVENT: @{
+        KEY_EVENT_ON_BADGE_CHANGED: EVENT_ON_BADGE_CHANGED,
+        KEY_EVENT_ON_PROFILE_CHANGED: EVENT_ON_PROFILE_CHANGED,
+        KEY_EVENT_ON_POPUP_DATA_RECEIVED: EVENT_ON_POPUP_DATA_RECEIVED,
+        KEY_EVENT_ON_SHOW_MESSENGER: EVENT_ON_SHOW_MESSENGER,
+        KEY_EVENT_ON_HIDE_MESSENGER: EVENT_ON_HIDE_MESSENGER,
+        KEY_EVENT_ON_CHAT_CREATED: EVENT_ON_CHAT_CREATED,
+        KEY_EVENT_ON_PRE_URL_CLICKED: EVENT_ON_PRE_URL_CLICKED,
+        KEY_EVENT_ON_URL_CLICKED: EVENT_ON_URL_CLICKED
+    },
+    LANGUAGE: @{
+        KEY_LANGUAGE_KOREAN: @(LanguageOptionKorean),
+        KEY_LANGUAGE_ENGLISH: @(LanguageOptionEnglish),
+        KEY_LANGUAGE_JAPANESE: @(LanguageOptionJapanese),
+        KEY_LANGUAGE_DEVICE: @(LanguageOptionDevice)
+    },
+    BOOT_STATUS: @{
+        KEY_BOOT_STATUS_SUCCESS: @(BootStatusSuccess),
+        KEY_BOOT_STATUS_NOT_INITIALIZED: @(BootStatusNotInitialized),
+        KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(BootStatusNetworkTimeout),
+        KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(BootStatusNotAvailableVersion),
+        KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(BootStatusServiceUnderConstruction),
+        KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(BootStatusRequirePayment),
+        KEY_BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
+        KEY_BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
+    },
+    CHANNEL_BUTTON_POSITION: @{
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
+    },
+    CHANNEL_PLUGIN_COMPLETION_STATUS: @{
+        KEY_BOOT_STATUS_SUCCESS: @(ChannelPluginCompletionStatusSuccess),
+        KEY_BOOT_STATUS_NOT_INITIALIZED: @(ChannelPluginCompletionStatusNotInitialized),
+        KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(ChannelPluginCompletionStatusNetworkTimeout),
+        KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(ChannelPluginCompletionStatusNotAvailableVersion),
+        KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(ChannelPluginCompletionStatusServiceUnderConstruction),
+        KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(ChannelPluginCompletionStatusRequirePayment),
+        KEY_BOOT_STATUS_ACCESS_DENIED: @(ChannelPluginCompletionStatusAccessDenied),
+        KEY_BOOT_STATUS_UNKNOWN_ERROR: @(ChannelPluginCompletionStatusUnknown)
+    },
+    LAUNCHER_POSITION: @{
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(LauncherPositionRight),
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(LauncherPositionLeft)
+    }
   };
 }
 
@@ -126,14 +112,7 @@ RCT_EXPORT_MODULE()
     EVENT_ON_PRE_URL_CLICKED,
     EVENT_ON_URL_CLICKED,
     EVENT_ON_PROFILE_CHANGED,
-    EVENT_ON_POPUP_DATA_RECEIVED,
-    EVENT_ON_PUSH_NOTIFICATION_CLICKED,
-    // deprecated
-    EVENT_ON_CHANGE_BADGE,
-    EVENT_ON_RECEIVE_PUSH,
-    EVENT_WILL_SHOW_MESSENGER,
-    EVENT_WILL_HIDE_MESSENGER,
-    EVENT_ON_CLICK_CHAT_LINK
+    EVENT_ON_POPUP_DATA_RECEIVED
   ];
 }
 
@@ -202,17 +181,7 @@ RCT_EXPORT_METHOD(showChannelButton) {
   [ChannelIO showChannelButton];
 }
 
-// deprecated
-RCT_EXPORT_METHOD(show:(BOOL)animated) {
-  [ChannelIO showChannelButton];
-}
-
 RCT_EXPORT_METHOD(hideChannelButton) {
-  [ChannelIO hideChannelButton];
-}
-
-// deprecated
-RCT_EXPORT_METHOD(hide:(BOOL)animated) {
   [ChannelIO hideChannelButton];
 }
 
@@ -220,17 +189,7 @@ RCT_EXPORT_METHOD(showMessenger) {
   [ChannelIO showMessenger];
 }
 
-// deprecated
-RCT_EXPORT_METHOD(open:(BOOL)animated) {
-  [ChannelIO showMessenger];
-}
-
 RCT_EXPORT_METHOD(hideMessenger) {
-  [ChannelIO hideMessenger];
-}
-
-// deprecated
-RCT_EXPORT_METHOD(close:(BOOL)animated) {
   [ChannelIO hideMessenger];
 }
 
@@ -265,25 +224,7 @@ RCT_EXPORT_METHOD(receivePushNotification:(NSDictionary *)userInfo
   }];
 }
 
-// deprecated
-RCT_EXPORT_METHOD(handlePushNotification:(NSDictionary *)userInfo
-                  resolver:(RCTPromiseResolveBlock)resolve
-                  rejecter:(RCTPromiseRejectBlock)reject) {
-  [ChannelIO handlePushNotification:userInfo completion:^{
-    resolve(@(YES));
-  }];
-}
-
 #pragma mark Property setters
-
-RCT_EXPORT_METHOD(setUrlHandle:(BOOL)handle) {
-  handleChatLink = handle;
-}
-
-// deprecated
-RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
-  handleChatLink = handle;
-}
 
 RCT_EXPORT_METHOD(updateUser:(NSDictionary<NSString *, id> *)userData
                   resolver:(RCTPromiseResolveBlock)resolve
@@ -318,9 +259,9 @@ RCT_EXPORT_METHOD(updateUser:(NSDictionary<NSString *, id> *)userData
     if (userData[KEY_PROFILE] == NSNull.null) {
       [builder setProfileNil];
     } else {
-      NSDictionary<NSString *, id> *profiles = [RCTConvert NSDictionary:userData[KEY_PROFILE]];
-      for (id key in profiles) {
-        [builder withProfileKey:key value:[profiles objectForKey:key]];
+      NSDictionary<NSString *, id> *profile = [RCTConvert NSDictionary:userData[KEY_PROFILE]];
+      for (id key in profile) {
+        [builder withProfileKey:key value:[profile objectForKey:key]];
       }
     }
   }
@@ -329,9 +270,9 @@ RCT_EXPORT_METHOD(updateUser:(NSDictionary<NSString *, id> *)userData
     if (userData[KEY_PROFILE_ONCE] == NSNull.null) {
       [builder setProfileOnceNil];
     } else {
-      NSDictionary<NSString *, id> *profileOnces = [RCTConvert NSDictionary:userData[KEY_PROFILE_ONCE]];
-      for (id key in profileOnces) {
-        [builder withProfileOnceKey:key value:[profileOnces objectForKey:key]];
+      NSDictionary<NSString *, id> *profileOnce = [RCTConvert NSDictionary:userData[KEY_PROFILE_ONCE]];
+      for (id key in profileOnce) {
+        [builder withProfileOnceKey:key value:[profileOnce objectForKey:key]];
       }
     }
   }
@@ -345,13 +286,21 @@ RCT_EXPORT_METHOD(updateUser:(NSDictionary<NSString *, id> *)userData
   }
 
   [ChannelIO updateUserWithParam:[builder build] completion:^(NSError *error, User *user) {
-    if (user != nil && error == nil) {
-      resolve(@{KEY_USER: user.toJson});
-    } else if (user == nil && error != nil) {
-      resolve(@{KEY_ERROR: error.description});
-    } else {
-      resolve(@{KEY_ERROR: ERROR_UNKNOWN});
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
     }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
   }];
 }
 
@@ -359,13 +308,21 @@ RCT_EXPORT_METHOD(addTags:(NSArray<NSString *> *)tags
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   [ChannelIO addTags:tags completion:^(NSError *error, User *user) {
-    if (user != nil && error == nil) {
-      resolve(@{KEY_USER: user.toJson});
-    } else if (user == nil && error != nil) {
-      resolve(@{KEY_ERROR: error.description});
-    } else {
-      resolve(@{KEY_ERROR: ERROR_UNKNOWN});
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
     }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
   }];
 }
 
@@ -373,13 +330,21 @@ RCT_EXPORT_METHOD(removeTags:(NSArray<NSString *> *)tags
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   [ChannelIO removeTags:tags completion:^(NSError *error, User *user) {
-    if (user != nil && error == nil) {
-      resolve(@{KEY_USER: user.toJson});
-    } else if (user == nil && error != nil) {
-      resolve(@{KEY_ERROR: error.description});
-    } else {
-      resolve(@{KEY_ERROR: ERROR_UNKNOWN});
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
     }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
   }];
 }
 
@@ -412,7 +377,6 @@ RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
 - (BOOL)onUrlClickedWithUrl:(NSURL *)url {
   if (hasListeners) {
     [self sendEventWithName:EVENT_ON_PRE_URL_CLICKED body:@{KEY_URL: url.absoluteString}];
-    return true;
   }
   return true;
 }

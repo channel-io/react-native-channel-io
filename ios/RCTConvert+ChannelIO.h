@@ -35,6 +35,10 @@ static NSString * const BOOT_STATUS_REQUIRE_PAYMENT = @"REQUIRE_PAYMENT";
 static NSString * const BOOT_STATUS_ACCESS_DENIED = @"ACCESS_DENIED";
 static NSString * const BOOT_STATUS_UNKNOWN_ERROR = @"UNKNOWN_ERROR";
 
+// ChannelBUttonOption
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT = @"right";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT = @"left";
+
 // ChannelButtonOption
 static NSString * const CHANNEL_BUTTON_OPTION_POSITION = @"position";
 static NSString * const CHANNEL_BUTTON_OPTION_POSITION_RIGHT = @"right";

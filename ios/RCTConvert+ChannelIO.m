@@ -50,56 +50,55 @@ RCT_ENUM_CONVERTER(
 @implementation RCTConvert (ChannelIO)
 
 + (BootConfig *)bootConfig:(id)json {
-  BootConfig *settings = [[BootConfig alloc] init];
-  settings.pluginKey = [RCTConvert NSString:json[KEY_PLUGIN_KEY]];
-  settings.memberHash = [RCTConvert NSString:json[KEY_MEMBER_HASH]];
-  settings.hidePopup = json[KEY_HIDE_POPUP] == nil
-    ? [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]] : [RCTConvert BOOL:json[KEY_HIDE_POPUP]];
-  settings.trackDefaultEvent = json[KEY_TRACK_DEFAULT_EVENT] == nil
-    ? [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]]
-    : [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]];
+  BootConfig *config = [[BootConfig alloc] init];
+  config.pluginKey = [RCTConvert NSString:json[KEY_PLUGIN_KEY]];
+  config.memberHash = [RCTConvert NSString:json[KEY_MEMBER_HASH]];
+  config.hidePopup = json[KEY_HIDE_POPUP] != nil
+    ? [RCTConvert BOOL:json[KEY_HIDE_POPUP]] : [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]];
+  config.trackDefaultEvent = json[KEY_TRACK_DEFAULT_EVENT] != nil
+    ? [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]] : [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]];
   
   if (json[KEY_LAUNCHER_CONFIG] == nil && json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
-    settings.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
+    config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
   } else if (json[KEY_LAUNCHER_CONFIG] != nil && json[KEY_CHANNEL_BUTTON_OPTION] == nil) {
-    settings.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_LAUNCHER_CONFIG]];
+    config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_LAUNCHER_CONFIG]];
   }
   
-  if (json[KEY_MEMBER_ID] == nil && json[KEY_USER_ID] != nil) {
-    settings.memberId = [RCTConvert NSString:json[KEY_USER_ID]];
-  } else {
-    settings.memberId = [RCTConvert NSString:json[KEY_MEMBER_ID]];
+  if (json[KEY_MEMBER_ID] != nil && json[KEY_USER_ID] == nil) {
+    config.memberId = [RCTConvert NSString:json[KEY_MEMBER_ID]];
+  } else if (json[KEY_MEMBER_ID] == nil && json[KEY_USER_ID] != nil) {
+    config.memberId = [RCTConvert NSString:json[KEY_USER_ID]];
   }
   
   NSString *language = [RCTConvert NSString:json[KEY_LANGUAGE]];
   NSString *locale = [RCTConvert NSString:json[KEY_LOCALE]];
   if (json[KEY_LOCALE] != nil) {
     if ([locale isEqualToString:LANGUAGE_OPTION_KO]) {
-      settings.language = LanguageOptionKorean;
+      config.language = LanguageOptionKorean;
     } else if ([locale isEqualToString:LANGUAGE_OPTION_JA]) {
-      settings.language = LanguageOptionJapanese;
+      config.language = LanguageOptionJapanese;
     } else if ([locale isEqualToString:LANGUAGE_OPTION_EN]) {
-      settings.language = LanguageOptionEnglish;
+      config.language = LanguageOptionEnglish;
     } else {
-      settings.language = LanguageOptionDevice;
+      config.language = LanguageOptionDevice;
     }
   } else {
     if ([language isEqualToString:LANGUAGE_OPTION_KO]) {
-      settings.language = LanguageOptionKorean;
+      config.language = LanguageOptionKorean;
     } else if ([language isEqualToString:LANGUAGE_OPTION_JA]) {
-      settings.language = LanguageOptionJapanese;
+      config.language = LanguageOptionJapanese;
     } else if ([language isEqualToString:LANGUAGE_OPTION_EN]) {
-      settings.language = LanguageOptionEnglish;
+      config.language = LanguageOptionEnglish;
     } else {
-      settings.language = LanguageOptionDevice;
+      config.language = LanguageOptionDevice;
     }
   }
   
   if (json[KEY_PROFILE] != nil) {
-    settings.profile = [RCTConvert profile:json[KEY_PROFILE]];
+    config.profile = [RCTConvert profile:json[KEY_PROFILE]];
   }
   
-  return settings;
+  return config;
 }
 
 + (Profile *)profile:(NSDictionary *)json {
@@ -120,18 +119,17 @@ RCT_ENUM_CONVERTER(
     return nil;
   }
   
-  ChannelButtonOption *config = [[ChannelButtonOption alloc] init];
+  ChannelButtonOption *option = [[ChannelButtonOption alloc] init];
   
-  config.xMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_X_MARGIN]];
-  config.yMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_Y_MARGIN]];
+  option.xMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_X_MARGIN]];
+  option.yMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_Y_MARGIN]];
   NSString *position = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_POSITION]];
   if ([position isEqualToString:CHANNEL_BUTTON_OPTION_POSITION_LEFT]) {
-    config.position = ChannelButtonPositionLeft;
+    option.position = ChannelButtonPositionLeft;
   } else {
-    config.position = ChannelButtonPositionRight;
+    option.position = ChannelButtonPositionRight;
   }
-  return config;
+  return option;
 }
 
 @end
-
