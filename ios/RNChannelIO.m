@@ -56,85 +56,145 @@ RCT_EXPORT_MODULE()
 
 - (NSDictionary *)constantsToExport {
   return @{
-     @"Event": @{
-         @"ON_CHANGE_BADGE": ON_CHANGE_BADGE,
-         @"ON_RECEIVE_PUSH": ON_RECEIVE_PUSH,
-         @"WILL_SHOW_MESSENGER": WILL_SHOW_MESSENGER,
-         @"WILL_HIDE_MESSENGER": WILL_HIDE_MESSENGER,
-         @"ON_CLICK_CHAT_LINK": ON_CLICK_CHAT_LINK
-     },
-     @"Locale": @{
-         @"korean": @(CHLocaleKorean),
-         @"japanese": @(CHLocaleJapanese),
-         @"english": @(CHLocaleEnglish),
-         @"device": @(CHLocaleDevice)
-     },
-     @"BootStatus": @{
-         @"success": @(ChannelPluginCompletionStatusSuccess),
-         @"unknown": @(ChannelPluginCompletionStatusUnknown),
-         @"accessDenied": @(ChannelPluginCompletionStatusAccessDenied),
-         @"timeout": @(ChannelPluginCompletionStatusNetworkTimeout),
-         @"requirePayment": @(ChannelPluginCompletionStatusRequirePayment),
-         @"notInitialized": @(ChannelPluginCompletionStatusNotInitialized)
-     },
-     @"LauncherPosition": @{
-         @"right": @(LauncherPositionRight),
-         @"left": @(LauncherPositionLeft)
-     }
+    EVENT: @{
+        KEY_EVENT_ON_BADGE_CHANGED: EVENT_ON_BADGE_CHANGED,
+        KEY_EVENT_ON_PROFILE_CHANGED: EVENT_ON_PROFILE_CHANGED,
+        KEY_EVENT_ON_POPUP_DATA_RECEIVED: EVENT_ON_POPUP_DATA_RECEIVED,
+        KEY_EVENT_ON_SHOW_MESSENGER: EVENT_ON_SHOW_MESSENGER,
+        KEY_EVENT_ON_HIDE_MESSENGER: EVENT_ON_HIDE_MESSENGER,
+        KEY_EVENT_ON_CHAT_CREATED: EVENT_ON_CHAT_CREATED,
+        KEY_EVENT_ON_PRE_URL_CLICKED: EVENT_ON_PRE_URL_CLICKED,
+        KEY_EVENT_ON_URL_CLICKED: EVENT_ON_URL_CLICKED
+    },
+    LANGUAGE: @{
+        KEY_LANGUAGE_KOREAN: @(LanguageOptionKorean),
+        KEY_LANGUAGE_ENGLISH: @(LanguageOptionEnglish),
+        KEY_LANGUAGE_JAPANESE: @(LanguageOptionJapanese),
+        KEY_LANGUAGE_DEVICE: @(LanguageOptionDevice)
+    },
+    BOOT_STATUS: @{
+        KEY_BOOT_STATUS_SUCCESS: @(BootStatusSuccess),
+        KEY_BOOT_STATUS_NOT_INITIALIZED: @(BootStatusNotInitialized),
+        KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(BootStatusNetworkTimeout),
+        KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(BootStatusNotAvailableVersion),
+        KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(BootStatusServiceUnderConstruction),
+        KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(BootStatusRequirePayment),
+        KEY_BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
+        KEY_BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
+    },
+    CHANNEL_BUTTON_POSITION: @{
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
+    },
+    CHANNEL_PLUGIN_COMPLETION_STATUS: @{
+        KEY_BOOT_STATUS_SUCCESS: @(ChannelPluginCompletionStatusSuccess),
+        KEY_BOOT_STATUS_NOT_INITIALIZED: @(ChannelPluginCompletionStatusNotInitialized),
+        KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(ChannelPluginCompletionStatusNetworkTimeout),
+        KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(ChannelPluginCompletionStatusNotAvailableVersion),
+        KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(ChannelPluginCompletionStatusServiceUnderConstruction),
+        KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(ChannelPluginCompletionStatusRequirePayment),
+        KEY_BOOT_STATUS_ACCESS_DENIED: @(ChannelPluginCompletionStatusAccessDenied),
+        KEY_BOOT_STATUS_UNKNOWN_ERROR: @(ChannelPluginCompletionStatusUnknown)
+    },
+    LAUNCHER_POSITION: @{
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(LauncherPositionRight),
+        KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(LauncherPositionLeft)
+    }
   };
 }
 
 - (NSArray<NSString *> *)supportedEvents {
   return @[
-     ON_CHANGE_BADGE,
-     ON_RECEIVE_PUSH,
-     WILL_SHOW_MESSENGER,
-     WILL_HIDE_MESSENGER,
-     ON_CLICK_CHAT_LINK
+    EVENT_ON_BADGE_CHANGED,
+    EVENT_ON_CHAT_CREATED,
+    EVENT_ON_HIDE_MESSENGER,
+    EVENT_ON_SHOW_MESSENGER,
+    EVENT_ON_PRE_URL_CLICKED,
+    EVENT_ON_URL_CLICKED,
+    EVENT_ON_PROFILE_CHANGED,
+    EVENT_ON_POPUP_DATA_RECEIVED
   ];
 }
 
-
-RCT_EXPORT_METHOD(boot:(id)settings
+RCT_EXPORT_METHOD(boot:(id)bootConfig
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
-  ChannelPluginSettings * pluginSettings = [RCTConvert settings:settings];
-  Profile *userProfile = [RCTConvert profile:settings[@"profile"]];
-  [ChannelIO bootWith:pluginSettings profile:userProfile completion:^(ChannelPluginCompletionStatus status, User *user) {
-    resolve(@{@"status": @(status), @"user": user != nil ? user.toJson : NSNull.null });
+  BootConfig * config = [RCTConvert bootConfig:bootConfig];
+  [ChannelIO bootWith:config completion:^(BootStatus status, User *user) {
+    NSString * stringStatus = BOOT_STATUS_UNKNOWN_ERROR;
+    switch (status) {
+      case BootStatusSuccess:
+        stringStatus = BOOT_STATUS_SUCCESS;
+        break;
+      case BootStatusNotInitialized:
+        stringStatus = BOOT_STATUS_NOT_INITIALIZED;
+        break;
+      case BootStatusNetworkTimeout:
+        stringStatus = BOOT_STATUS_NETWORK_TIMEOUT;
+        break;
+      case BootStatusNotAvailableVersion:
+        stringStatus = BOOT_STATUS_NOT_AVAILABLE_VERSION;
+        break;
+      case BootStatusServiceUnderConstruction:
+        stringStatus = BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION;
+        break;
+      case BootStatusRequirePayment:
+        stringStatus = BOOT_STATUS_REQUIRE_PAYMENT;
+        break;
+      case BootStatusAccessDenied:
+        stringStatus = BOOT_STATUS_ACCESS_DENIED;
+        break;
+      default:
+        stringStatus = BOOT_STATUS_UNKNOWN_ERROR;
+        break;
+    }
+    
+    if (status == BootStatusSuccess && user != nil) {
+      resolve(@{KEY_STATUS: stringStatus, KEY_USER: user.toJson});
+    } else {
+      resolve(@{KEY_STATUS: stringStatus});
+    }
   }];
+}
+
+RCT_EXPORT_METHOD(sleep) {
+  [ChannelIO sleep];
 }
 
 RCT_EXPORT_METHOD(shutdown) {
   [ChannelIO shutdown];
 }
 
+RCT_EXPORT_METHOD(isBooted:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  resolve(@(ChannelIO.isBooted));
+}
+
 RCT_EXPORT_METHOD(initPushToken:(NSString *)token) {
   if (token == nil || [token isEqualToString: @""]) {
     return;
   }
-
   [ChannelIO initPushTokenWithTokenString:token];
 }
 
-RCT_EXPORT_METHOD(show:(BOOL)animated) {
-  [ChannelIO showWithAnimated:animated];
+RCT_EXPORT_METHOD(showChannelButton) {
+  [ChannelIO showChannelButton];
 }
 
-RCT_EXPORT_METHOD(hide:(BOOL)animated) {
-  [ChannelIO hideWithAnimated:animated];
+RCT_EXPORT_METHOD(hideChannelButton) {
+  [ChannelIO hideChannelButton];
 }
 
-RCT_EXPORT_METHOD(open:(BOOL)animated) {
-  [ChannelIO openWithAnimated:animated];
+RCT_EXPORT_METHOD(showMessenger) {
+  [ChannelIO showMessenger];
 }
 
-RCT_EXPORT_METHOD(close:(BOOL)animated) {
-  [ChannelIO closeWithAnimated:animated completion:^{}];
+RCT_EXPORT_METHOD(hideMessenger) {
+  [ChannelIO hideMessenger];
 }
 
-RCT_EXPORT_METHOD(openChat:(NSString *)chatId animated:(BOOL)animated) {
-  [ChannelIO openChatWith:chatId animated:animated];
+RCT_EXPORT_METHOD(openChat:(NSString *)chatId message:(id)payload) {
+  [ChannelIO openChatWith:chatId message:payload];
 }
 
 RCT_EXPORT_METHOD(track:(NSString *)name eventProperty:(NSDictionary *)properties) {
@@ -151,57 +211,198 @@ RCT_EXPORT_METHOD(isChannelPushNotification:(NSDictionary *)userInfo
   }
 }
 
-RCT_EXPORT_METHOD(handlePushNotification:(NSDictionary *)userInfo
+RCT_EXPORT_METHOD(hasStoredPushNotification:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  resolve(@([ChannelIO hasStoredPushNotification]));
+}
+
+RCT_EXPORT_METHOD(receivePushNotification:(NSDictionary *)userInfo
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
-  [ChannelIO handlePushNotification:userInfo completion:^{
+  [ChannelIO receivePushNotification:userInfo completion:^{
     resolve(@(YES));
   }];
 }
 
-#pragma mark Property setters 
+#pragma mark Property setters
 
-RCT_EXPORT_METHOD(setLinkHandle:(BOOL)handle) {
-  handleChatLink = handle;
+RCT_EXPORT_METHOD(updateUser:(NSDictionary<NSString *, id> *)userData
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  UpdateUserParamObjcBuilder *builder = [[UpdateUserParamObjcBuilder alloc] init];
+  
+  if ([[userData allKeys] containsObject:KEY_LANGUAGE]) {
+    NSString *language = [RCTConvert NSString:userData[KEY_LANGUAGE]];
+    if ([language isEqualToString:LANGUAGE_OPTION_KO]) {
+      [builder withLanguage:LanguageOptionKorean];
+    } else if ([language isEqualToString:LANGUAGE_OPTION_JA]) {
+      [builder withLanguage:LanguageOptionJapanese];
+    } else if ([language isEqualToString:LANGUAGE_OPTION_EN]) {
+      [builder withLanguage:LanguageOptionEnglish];
+    } else {
+      [builder withLanguage:LanguageOptionDevice];
+    }
+  } else if ([[userData allKeys] containsObject:KEY_LOCALE]) {
+    NSString *locale = [RCTConvert NSString:userData[KEY_LOCALE]];
+    if ([locale isEqualToString:LANGUAGE_OPTION_KO]) {
+      [builder withLanguage:LanguageOptionKorean];
+    } else if ([locale isEqualToString:LANGUAGE_OPTION_JA]) {
+      [builder withLanguage:LanguageOptionJapanese];
+    } else if ([locale isEqualToString:LANGUAGE_OPTION_EN]) {
+      [builder withLanguage:LanguageOptionEnglish];
+    } else {
+      [builder withLanguage:LanguageOptionDevice];
+    }
+  }
+  
+  if ([[userData allKeys] containsObject:KEY_PROFILE]) {
+    if (userData[KEY_PROFILE] == NSNull.null) {
+      [builder setProfileNil];
+    } else {
+      NSDictionary<NSString *, id> *profile = [RCTConvert NSDictionary:userData[KEY_PROFILE]];
+      for (id key in profile) {
+        [builder withProfileKey:key value:[profile objectForKey:key]];
+      }
+    }
+  }
+  
+  if ([[userData allKeys] containsObject:KEY_PROFILE_ONCE]) {
+    if (userData[KEY_PROFILE_ONCE] == NSNull.null) {
+      [builder setProfileOnceNil];
+    } else {
+      NSDictionary<NSString *, id> *profileOnce = [RCTConvert NSDictionary:userData[KEY_PROFILE_ONCE]];
+      for (id key in profileOnce) {
+        [builder withProfileOnceKey:key value:[profileOnce objectForKey:key]];
+      }
+    }
+  }
+  
+  if ([[userData allKeys] containsObject:KEY_TAGS]) {
+    if (userData[KEY_TAGS] == NSNull.null) {
+      [builder withTags:[NSArray array]];
+    } else {
+      [builder withTags:[RCTConvert NSArray:userData[KEY_TAGS]]];
+    }
+  }
+
+  [ChannelIO updateUserWithParam:[builder build] completion:^(NSError *error, User *user) {
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
+    }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
+  }];
+}
+
+RCT_EXPORT_METHOD(addTags:(NSArray<NSString *> *)tags
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  [ChannelIO addTags:tags completion:^(NSError *error, User *user) {
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
+    }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
+  }];
+}
+
+RCT_EXPORT_METHOD(removeTags:(NSArray<NSString *> *)tags
+                  resolver:(RCTPromiseResolveBlock)resolve
+                  rejecter:(RCTPromiseRejectBlock)reject) {
+  [ChannelIO removeTags:tags completion:^(NSError *error, User *user) {
+    NSMutableDictionary<NSString *, id> *result = [NSMutableDictionary dictionary];
+    
+    if (user != nil) {
+      [result setValue:user.toJson forKey:KEY_USER];
+    }
+    
+    if (error != nil) {
+      [result setValue:error.description forKey:KEY_ERROR];
+    }
+    
+    if ([[result allKeys] count] == 0) {
+      [result setValue:ERROR_UNKNOWN forKey:KEY_ERROR];
+    }
+    
+    resolve(result);
+  }];
+}
+
+RCT_EXPORT_METHOD(setDebugMode:(BOOL)enable) {
+  [ChannelIO setDebugModeWith:enable];
+}
+
+RCT_EXPORT_METHOD(openStoredPushNotification) {
+  [ChannelIO openStoredPushNotification];
+}
+
+RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
+  [CrossPlatformUtils openBrowserWithUrl:url];
 }
 
 #pragma mark ChannelPluginDelegate
 
-- (void)onChangeBadgeWithCount:(NSInteger)count {
+- (void)onBadgeChangedWithAlert:(NSInteger)alert {
   if (hasListeners) {
-    [self sendEventWithName:ON_CHANGE_BADGE body:@{@"count": @(count)}];
+    [self sendEventWithName:EVENT_ON_BADGE_CHANGED body:@{KEY_COUNT: @(alert)}];
   }
 }
 
-- (void)onReceivePushWithEvent:(PushEvent *)event {
+- (void)onPopupDataReceivedWithEvent:(PopupData *)event {
   if (hasListeners) {
-    [self sendEventWithName:ON_RECEIVE_PUSH body:@{@"push": event.toJson}];
+    [self sendEventWithName:EVENT_ON_POPUP_DATA_RECEIVED body:@{KEY_POPUP: event.toJson}];
   }
 }
 
-- (BOOL)onClickChatLinkWithUrl:(NSURL *)url {
+- (BOOL)onUrlClickedWithUrl:(NSURL *)url {
   if (hasListeners) {
-    [self sendEventWithName:ON_CLICK_CHAT_LINK body:@{@"link": url.absoluteString}];
-    return handleChatLink;
+    [self sendEventWithName:EVENT_ON_PRE_URL_CLICKED body:@{KEY_URL: url.absoluteString}];
   }
-  return handleChatLink;
+  return true;
 }
 
-- (void)onChangeProfileWithKey:(NSString *)key value:(id)value {
+- (void)onProfileChangedWithKey:(NSString *)key value:(id)value {
   if (hasListeners) {
-    [self sendEventWithName:ON_CHANGE_PROFILE body: @{@"key": key, @"value": value}];
-  }
-}
-
-- (void)willShowMessenger {
-  if (hasListeners) {
-    [self sendEventWithName:WILL_SHOW_MESSENGER body:nil];
+    [self sendEventWithName:EVENT_ON_PROFILE_CHANGED
+                       body: @{KEY_PROFILE_KEY: key, KEY_PROFILE_VALUE: value}];
   }
 }
 
-- (void)willHideMessenger {
+- (void)onShowMessenger {
   if (hasListeners) {
-    [self sendEventWithName:WILL_HIDE_MESSENGER body:nil];
+    [self sendEventWithName:EVENT_ON_SHOW_MESSENGER body:nil];
+  }
+}
+
+- (void)onHideMessenger {
+  if (hasListeners) {
+    [self sendEventWithName:EVENT_ON_HIDE_MESSENGER body:nil];
+  }
+}
+
+- (void)onChatCreatedWithChatId:(NSString *)chatId {
+  if (hasListeners) {
+    [self sendEventWithName:EVENT_ON_CHAT_CREATED body:@{KEY_CHAT_ID: chatId}];
   }
 }
 
