@@ -7,15 +7,15 @@ Pod::Spec.new do |s|
   s.license      = { :type => "SDK", :file => "LICENSE" }
   s.author       = "ZOYI"
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/zoyi/react-native-channel-io.git", :tag => "master" }
-  s.source_files  = "ios/**/*.{h,m}"
+  s.source       = { :http => 'http://hp.exp.channel.io/gist/e6fe04a744e5af8393449ebaff3c7376' }
+  s.source_files = "ios/**/*.{h,m}", 'ChannelIO.framework/Headers/**/*.{swift,h,m}'
   s.requires_arc = true
   s.swift_version = '5.0'
 
   s.ios.deployment_target = '10.0'
   
   s.dependency "React"
-  s.dependency "ChannelIO"
+  s.dependency "ChannelIOSDK"
 end
 
   
