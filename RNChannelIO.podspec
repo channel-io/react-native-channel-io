@@ -5,17 +5,15 @@ Pod::Spec.new do |s|
   s.description  = "channel plugin for react native"
   s.homepage     = "https://channel.io"
   s.license      = { :type => "SDK", :file => "LICENSE" }
-  s.author       = "ZOYI"
+  s.author       = { 'Channel Corp.' => 'eng@channel.io', 'Jam' => 'jam@channel.io', 'Jin' => 'jin@channel.io' }
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/zoyi/react-native-channel-io.git", :tag => "master" }
-  s.source_files  = "ios/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/zoyi/react-native-channel-io.git" }
+  s.source_files = "ios/**/*.{h,m}"
   s.requires_arc = true
   s.swift_version = '5.0'
 
   s.ios.deployment_target = '10.0'
   
   s.dependency "React"
-  s.dependency "ChannelIO"
+  s.dependency "ChannelIOSDK"
 end
-
-  
