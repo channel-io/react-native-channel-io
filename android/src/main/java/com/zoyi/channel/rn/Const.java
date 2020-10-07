@@ -1,4 +1,4 @@
-package com.zoyi.channel.react.android;
+package com.zoyi.channel.rn;
 
 /**
  * Created by jerry on 2018. 10. 12..
@@ -8,92 +8,73 @@ public class Const {
 
   public static final String MODULE_NAME = "RNChannelIO";
 
-  // Boot
   public static final String KEY_PLUGIN_KEY = "pluginKey";
   public static final String KEY_MEMBER_ID = "memberId";
-  public static final String KEY_USER_ID = "userId";
-  public static final String KEY_LOCALE = "locale";
+  public static final String KEY_MEMBER_HASH = "memberHash";
+  public static final String KEY_PROFILE = "profile";
   public static final String KEY_LANGUAGE = "language";
-  public static final String KEY_DEBUG_MODE = "debugMode";
-  public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";
-  public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
-  public static final String KEY_LAUNCHER_CONFIG = "launcherConfig";
-  public static final String KEY_STATUS = "status";
-
-  // Guest
+  public static final String KEY_UNSUBSCRIBED = "unsubscribed";
+  public static final String KEY_TRACK_DEFAULT_EVENT = "trackDefaultEvent";
+  public static final String KEY_HIDE_POPUP = "hidePopup";
+  public static final String KEY_CHANNEL_BUTTON_OPTION = "channelButtonOption";
+  public static final String KEY_TAGS = "tags";
+  public static final String KEY_PROFILE_ONCE = "profileOnce";
   public static final String KEY_ID = "id";
   public static final String KEY_ALERT = "alert";
-  public static final String KEY_PROFILE = "profile";
-  public static final String KEY_GUEST = "guest";
-
-  // Profile
   public static final String KEY_NAME = "name";
   public static final String KEY_EMAIL = "email";
   public static final String KEY_MOBILE_NUMBER = "mobileNumber";
   public static final String KEY_AVATAR_URL = "avatarUrl";
-  public static final String KEY_PROPERTY = "property";
-
-  // Push event
   public static final String KEY_CHAT_ID = "chatId";
-  public static final String KEY_SENDER_AVATAR_URL = "senderAvatarUrl";
-  public static final String KEY_SENDER_NAME = "senderName";
   public static final String KEY_MESSAGE = "message";
 
-  // Launcher config
-  public static final String LAUNCHER_POSITION = "LauncherPosition";
+  // Legacy
+  public static final String KEY_USER_ID = "userId";
+  public static final String KEY_LOCALE = "locale";
+  public static final String KEY_ENABLED_TRACK_DEFAULT_EVENT = "enabledTrackDefaultEvent";
+  public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
+  public static final String KEY_LAUNCHER_CONFIG = "launcherConfig";
 
+  // Launcher config
   public static final String KEY_POSITION = "position";
   public static final String KEY_LAUNCHER_POSITION_RIGHT = "right";
   public static final String KEY_LAUNCHER_POSITION_LEFT = "left";
   public static final String KEY_X_MARGIN = "xMargin";
   public static final String KEY_Y_MARGIN = "yMargin";
 
-  public static final String LAUNCHER_RIGHT = "LauncherPositionRight";
-  public static final String LAUNCHER_LEFT = "LauncherPositionLeft";
+  // Result
+  public static final String RESULT_KEY_STATUS = "status";
+  public static final String RESULT_KEY_ERROR = "error";
+  public static final String RESULT_KEY_USER = "user";
 
-  // Boot Status
-  public static final String BOOT_STATUS = "BootStatus";
-
-  public static final String KEY_BOOT_SUCCESS = "success";
-  public static final String KEY_BOOT_UNKNOWN = "unknown";
-  public static final String KEY_BOOT_ACCESS_DENIED = "accessDenied";
-  public static final String KEY_BOOT_TIMEOUT = "timeout";
-  public static final String KEY_BOOT_REQUIRE_PAYMENT = "requirePayment";
-  public static final String KEY_BOOT_NOT_INITIALIZED = "notInitialized";
-
-  public static final String BOOT_SUCCESS = "ChannelPluginCompletionStatusSuccess";
-  public static final String BOOT_UNKNOWN = "ChannelPluginCompletionStatusUnknown";
-  public static final String BOOT_ACCESS_DENIED = "ChannelPluginCompletionStatusAccessDenied";
-  public static final String BOOT_TIMEOUT = "ChannelPluginCompletionStatusNetworkTimeout";
-  public static final String BOOT_REQUIRE_PAYMENT = "ChannelPluginCompletionStatusRequirePayment";
-  public static final String BOOT_NOT_INITIALIZED = "ChannelPluginCompletionStatusNotInitialized";
+  // Error
+  public static final String ERROR_UNKNOWN = "UNKNOWN_ERROR";
 
   // Event
+  public static final String KEY_EVENT = "Event";
+
+  public static final String KEY_EVENT_CHAT_ID = "chatId";
   public static final String KEY_EVENT_COUNT = "count";
-  public static final String KEY_EVENT_LINK = "link";
-  public static final String KEY_EVENT_PUSH = "push";
+  public static final String KEY_EVENT_URL = "url";
+  public static final String KEY_EVENT_POPUP = "popup";
   public static final String KEY_PROFILE_KEY = "key";
   public static final String KEY_PROFILE_VALUE = "value";
 
-  public static final String KEY_ON_CHANGE_BADGE = "ON_CHANGE_BADGE";
-  public static final String KEY_ON_RECEIVE_PUSH = "ON_RECEIVE_PUSH";
-  public static final String KEY_WILL_SHOW_MESSENGER = "WILL_SHOW_MESSENGER";
-  public static final String KEY_WILL_HIDE_MESSENGER = "WILL_HIDE_MESSENGER";
-  public static final String KEY_ON_CLICK_CHAT_LINK = "ON_CLICK_CHAT_LINK";
-  public static final String KEY_ON_CLICK_REDIRECT_LINK = "ON_CLICK_REDIRECT_LINK";
-  public static final String KEY_ON_CHANGE_PROFILE = "ON_CHANGE_PROFILE";
+  public static final String KEY_ON_BADGE_CHANGED = "ON_BADGE_CHANGED";
+  public static final String KEY_ON_PROFILE_CHANGED = "ON_PROFILE_CHANGED";
+  public static final String KEY_ON_POPUP_DATA_RECEIVED = "ON_POPUP_DATA_RECEIVED";
+  public static final String KEY_ON_SHOW_MESSENGER = "ON_SHOW_MESSENGER";
+  public static final String KEY_ON_HIDE_MESSENGER = "ON_HIDE_MESSENGER";
+  public static final String KEY_ON_CHAT_CREATED = "ON_CHAT_CREATED";
+  public static final String KEY_ON_URL_CLICKED = "ON_URL_CLICKED";
+  public static final String KEY_ON_PRE_URL_CLICKED = "ON_PRE_URL_CLICKED";
 
-  public static final String EVENT_WILL_SHOW_MESSENGER = "ChannelIO:Event:WillShowMessenger";
-  public static final String EVENT_WILL_HIDE_MESSENGER = "ChannelIO:Event:WillHideMessenger";
-  public static final String EVENT_ON_CHANGE_BADGE = "ChannelIO:Event:OnChangeBadge";
-  public static final String EVENT_ON_RECEIVE_PUSH = "ChannelIO:Event:OnReceivePush";
-  public static final String EVENT_ON_CLICK_CHAT_LINK = "ChannelIO:Event:OnClickChatLink";
-  public static final String EVENT_ON_CLICK_REDIRECT_LINK = "ChannelIO:Event:OnClickRedirectLink";
-  public static final String EVENT_ON_CHANGE_PROFILE = "ChannelIO:Event:onChangeProfile";
-
-
-  public static final String Event = "Event";
-  public static final String Locale = "Locale";
-  public static final String BootStatus = "BootStatus";
-  public static final String LauncherPosition = "LauncherPosition";
+  public static final String EVENT_ON_BADGE_CHANGED = "ChannelIO:Event:OnBadgeChanged";
+  public static final String EVENT_ON_PROFILE_CHANGED = "ChannelIO:Event:OnProfileChanged";
+  public static final String EVENT_ON_POPUP_DATA_RECEIVED = "ChannelIO:Event:OnPopupDataReceive";
+  public static final String EVENT_ON_SHOW_MESSENGER = "ChannelIO:Event:OnShowMessenger";
+  public static final String EVENT_ON_HIDE_MESSENGER = "ChannelIO:Event:OnHideMessenger";
+  public static final String EVENT_ON_CHAT_CREATED = "ChannelIO:Event:OnChatCreated";
+  public static final String EVENT_ON_URL_CLICKED = "ChannelIO:Event:OnUrlClicked";
+  public static final String EVENT_ON_PRE_URL_CLICKED = "ChannelIO:Event:OnPreUrlClicked";
 }
