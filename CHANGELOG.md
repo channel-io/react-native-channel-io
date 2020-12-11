@@ -1,3 +1,12 @@
+# 0.5.1
+## Update
+* Apply reaction
+* Apply files security
+
+# 0.5.0
+## Updates
+* Renew apis - channeltalk plugin v8.0
+
 # 0.4.4 ~ 0.4.6
 ## Bug fixes
 * Hotfix
