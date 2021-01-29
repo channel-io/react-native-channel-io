@@ -361,6 +361,11 @@ RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
 }
 
 #pragma mark ChannelPluginDelegate
+- (void)onBadgeChangedWithCount:(NSInteger)count {
+  if (hasListeners) {
+    [self sendEventWithName:EVENT_ON_BADGE_CHANGED body:@{KEY_COUNT: @(count)}];
+  }
+}
 
 - (void)onBadgeChangedWithAlert:(NSInteger)alert {
   if (hasListeners) {

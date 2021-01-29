@@ -1,4 +1,11 @@
+# 0.5.3
+
+## Bug Fixes
+
+- iOS - Fixed an issue where onBadgeChanged was not called
+
 # 0.5.1
+
 ## Update
 * Apply reaction
 * Apply files security
