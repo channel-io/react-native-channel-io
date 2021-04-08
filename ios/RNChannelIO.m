@@ -360,6 +360,14 @@ RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
   [CrossPlatformUtils openBrowserWithUrl:url];
 }
 
+RCT_EXPORT_METHOD(setPage:(NSString *)page) {
+  [ChannelIO setPage:page];
+}
+
+RCT_EXPORT_METHOD(resetPage) {
+  [ChannelIO resetPage];
+}
+
 #pragma mark ChannelPluginDelegate
 - (void)onBadgeChangedWithCount:(NSInteger)count {
   if (hasListeners) {

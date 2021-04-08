@@ -222,6 +222,24 @@ export const ChannelIO = {
   openStoredPushNotification: () => ChannelModule.openStoredPushNotification(),
 
   /**
+   * Set page to be used instead of recent activity name or view controller.
+   */
+  setPage: (page) => {
+    if (typeof page === "string") {
+      ChannelModule.setPage(page)
+    } else if (typeof page === null || page === undefined) {
+      ChannelModule.setPage(null)
+    } else {
+      console.error('ChannelIO', '"page" must be "string".')
+    }
+  },
+
+  /**
+   * Reset page data customized by developer.
+   */
+  resetPage: () => ChannelModule.resetPage(),
+
+  /**
    * @deprecated
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
