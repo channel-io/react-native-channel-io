@@ -1,3 +1,8 @@
+# 0.6.0
+
+## Updates
+* Added `setPage`, `resetPage` method
+
 # 0.5.3
 
 ## Bug Fixes
