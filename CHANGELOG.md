@@ -1,3 +1,8 @@
+# 0.6.1
+
+## Bug Fixes
+* Fix `setPage` - if page is null
+
 # 0.6.0
 
 ## Updates
