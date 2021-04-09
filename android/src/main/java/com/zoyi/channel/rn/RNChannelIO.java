@@ -258,4 +258,14 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
       IntentUtils.setUrl(activity, url).startActivity();
     }
   }
+
+  @ReactMethod
+  public void setPage(@Nullable String page) {
+    ChannelIO.setPage(page);
+  }
+
+  @ReactMethod
+  public void resetPage() {
+    ChannelIO.resetPage();
+  }
 }
