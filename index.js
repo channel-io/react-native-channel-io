@@ -230,7 +230,7 @@ export const ChannelIO = {
     } else if (typeof page === null || page === undefined) {
       ChannelModule.setPage(null)
     } else {
-      console.error('ChannelIO', '"page" must be "string".')
+      console.error('ChannelIO', '"page" must be type of "string", null or undefined.')
     }
   },
 
