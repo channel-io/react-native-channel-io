@@ -1,4 +1,11 @@
+# 0.6.4
+
+## Update
+
+- support android channel-io 9.0.4
+
 # 0.6.3
+
 ## Update
 * support android channel-io 9.0.3
 
