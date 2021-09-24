@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import <ChannelIO/ChannelIO.h>
+#import <ChannelIOFront/ChannelIOFront-Swift.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
