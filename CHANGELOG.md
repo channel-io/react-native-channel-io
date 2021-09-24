@@ -1,8 +1,12 @@
+# 0.6.5
+
+## Update
+* support iOS channel-io 9.1.0
+
 # 0.6.4
 
 ## Update
-
-- support android channel-io 9.0.4
+* support android channel-io 9.0.4
 
 # 0.6.3
 
@@ -26,8 +30,7 @@
 # 0.5.3
 
 ## Bug Fixes
-
-- iOS - Fixed an issue where onBadgeChanged was not called
+* iOS - Fixed an issue where onBadgeChanged was not called
 
 # 0.5.1
 
