@@ -13,7 +13,8 @@ public class Const {
   public static final String KEY_MEMBER_HASH = "memberHash";
   public static final String KEY_PROFILE = "profile";
   public static final String KEY_LANGUAGE = "language";
-  public static final String KEY_UNSUBSCRIBED = "unsubscribed";
+  public static final String KEY_UNSUBSCRIBED_EMAIL = "unsubscribedEmail";
+  public static final String KEY_UNSUBSCRIBED_TEXTING = "unsubscribedTexting";
   public static final String KEY_TRACK_DEFAULT_EVENT = "trackDefaultEvent";
   public static final String KEY_HIDE_POPUP = "hidePopup";
   public static final String KEY_CHANNEL_BUTTON_OPTION = "channelButtonOption";
@@ -57,11 +58,9 @@ public class Const {
   public static final String KEY_EVENT_COUNT = "count";
   public static final String KEY_EVENT_URL = "url";
   public static final String KEY_EVENT_POPUP = "popup";
-  public static final String KEY_PROFILE_KEY = "key";
-  public static final String KEY_PROFILE_VALUE = "value";
 
   public static final String KEY_ON_BADGE_CHANGED = "ON_BADGE_CHANGED";
-  public static final String KEY_ON_PROFILE_CHANGED = "ON_PROFILE_CHANGED";
+  public static final String KEY_ON_FOLLOW_UP_CHANGED = "ON_FOLLOW_UP_CHANGED";
   public static final String KEY_ON_POPUP_DATA_RECEIVED = "ON_POPUP_DATA_RECEIVED";
   public static final String KEY_ON_SHOW_MESSENGER = "ON_SHOW_MESSENGER";
   public static final String KEY_ON_HIDE_MESSENGER = "ON_HIDE_MESSENGER";
@@ -70,7 +69,7 @@ public class Const {
   public static final String KEY_ON_PRE_URL_CLICKED = "ON_PRE_URL_CLICKED";
 
   public static final String EVENT_ON_BADGE_CHANGED = "ChannelIO:Event:OnBadgeChanged";
-  public static final String EVENT_ON_PROFILE_CHANGED = "ChannelIO:Event:OnProfileChanged";
+  public static final String EVENT_ON_FOLLOW_UP_CHANGED = "ChannelIO:Event:OnFollowUpChanged";
   public static final String EVENT_ON_POPUP_DATA_RECEIVED = "ChannelIO:Event:OnPopupDataReceive";
   public static final String EVENT_ON_SHOW_MESSENGER = "ChannelIO:Event:OnShowMessenger";
   public static final String EVENT_ON_HIDE_MESSENGER = "ChannelIO:Event:OnHideMessenger";

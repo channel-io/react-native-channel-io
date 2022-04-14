@@ -43,7 +43,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     eventMap.put(Const.KEY_ON_SHOW_MESSENGER, Const.EVENT_ON_SHOW_MESSENGER);
     eventMap.put(Const.KEY_ON_HIDE_MESSENGER, Const.EVENT_ON_HIDE_MESSENGER);
     eventMap.put(Const.KEY_ON_CHAT_CREATED, Const.EVENT_ON_CHAT_CREATED);
-    eventMap.put(Const.KEY_ON_PROFILE_CHANGED, Const.EVENT_ON_PROFILE_CHANGED);
+    eventMap.put(Const.KEY_ON_FOLLOW_UP_CHANGED, Const.EVENT_ON_FOLLOW_UP_CHANGED);
     eventMap.put(Const.KEY_ON_URL_CLICKED, Const.EVENT_ON_URL_CLICKED);
     eventMap.put(Const.KEY_ON_PRE_URL_CLICKED, Const.EVENT_ON_PRE_URL_CLICKED);
 
@@ -226,11 +226,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @Override
-  public void onProfileChanged(String key, @Nullable Object value) {
+  public void onFollowUpChanged(Map<String, String> data) {
     Utils.sendEvent(
         reactContext,
-        Const.EVENT_ON_PROFILE_CHANGED,
-        ParseUtils.createKeyValueMap(Const.KEY_PROFILE_KEY, key, Const.KEY_PROFILE_VALUE, value)
+        Const.EVENT_ON_FOLLOW_UP_CHANGED,
+        ParseUtils.toWritableStringMap(data)
     );
   }
 

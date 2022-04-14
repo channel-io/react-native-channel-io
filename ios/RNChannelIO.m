@@ -58,7 +58,7 @@ RCT_EXPORT_MODULE()
   return @{
     EVENT: @{
         KEY_EVENT_ON_BADGE_CHANGED: EVENT_ON_BADGE_CHANGED,
-        KEY_EVENT_ON_PROFILE_CHANGED: EVENT_ON_PROFILE_CHANGED,
+        KEY_EVENT_ON_FOLLOW_UP_CHANGED: EVENT_ON_FOLLOW_UP_CHANGED,
         KEY_EVENT_ON_POPUP_DATA_RECEIVED: EVENT_ON_POPUP_DATA_RECEIVED,
         KEY_EVENT_ON_SHOW_MESSENGER: EVENT_ON_SHOW_MESSENGER,
         KEY_EVENT_ON_HIDE_MESSENGER: EVENT_ON_HIDE_MESSENGER,
@@ -85,20 +85,6 @@ RCT_EXPORT_MODULE()
     CHANNEL_BUTTON_POSITION: @{
         KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
         KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
-    },
-    CHANNEL_PLUGIN_COMPLETION_STATUS: @{
-        KEY_BOOT_STATUS_SUCCESS: @(ChannelPluginCompletionStatusSuccess),
-        KEY_BOOT_STATUS_NOT_INITIALIZED: @(ChannelPluginCompletionStatusNotInitialized),
-        KEY_BOOT_STATUS_NETWORK_TIMEOUT: @(ChannelPluginCompletionStatusNetworkTimeout),
-        KEY_BOOT_STATUS_NOT_AVAILABLE_VERSION: @(ChannelPluginCompletionStatusNotAvailableVersion),
-        KEY_BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(ChannelPluginCompletionStatusServiceUnderConstruction),
-        KEY_BOOT_STATUS_REQUIRE_PAYMENT: @(ChannelPluginCompletionStatusRequirePayment),
-        KEY_BOOT_STATUS_ACCESS_DENIED: @(ChannelPluginCompletionStatusAccessDenied),
-        KEY_BOOT_STATUS_UNKNOWN_ERROR: @(ChannelPluginCompletionStatusUnknown)
-    },
-    LAUNCHER_POSITION: @{
-        KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(LauncherPositionRight),
-        KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(LauncherPositionLeft)
     }
   };
 }
@@ -111,7 +97,7 @@ RCT_EXPORT_MODULE()
     EVENT_ON_SHOW_MESSENGER,
     EVENT_ON_PRE_URL_CLICKED,
     EVENT_ON_URL_CLICKED,
-    EVENT_ON_PROFILE_CHANGED,
+    EVENT_ON_FOLLOW_UP_CHANGED,
     EVENT_ON_POPUP_DATA_RECEIVED
   ];
 }
@@ -120,6 +106,7 @@ RCT_EXPORT_METHOD(boot:(id)bootConfig
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
   BootConfig * config = [RCTConvert bootConfig:bootConfig];
+
   [ChannelIO bootWith:config completion:^(BootStatus status, User *user) {
     NSString * stringStatus = BOOT_STATUS_UNKNOWN_ERROR;
     switch (status) {
@@ -394,10 +381,9 @@ RCT_EXPORT_METHOD(resetPage) {
   return true;
 }
 
-- (void)onProfileChangedWithKey:(NSString *)key value:(id)value {
+- (void)onFollowUpChangedWithData:(NSDictionary<NSString *,id> *)data {
   if (hasListeners) {
-    [self sendEventWithName:EVENT_ON_PROFILE_CHANGED
-                       body: @{KEY_PROFILE_KEY: key, KEY_PROFILE_VALUE: value}];
+    [self sendEventWithName:EVENT_ON_FOLLOW_UP_CHANGED body:data];
   }
 }
 

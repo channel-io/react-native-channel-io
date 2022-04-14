@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <React/RCTBridgeModule.h>
 #import <React/RCTEventEmitter.h>
-#import <ChannelIOFront/ChannelIOFront-Swift.h>
+#import <ChannelIOFront/ChannelIOFront-swift.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 static NSString * const EVENT = @"Event";
 
 static NSString * const KEY_EVENT_ON_BADGE_CHANGED = @"ON_BADGE_CHANGED";
-static NSString * const KEY_EVENT_ON_PROFILE_CHANGED = @"ON_PROFILE_CHANGED";
+static NSString * const KEY_EVENT_ON_FOLLOW_UP_CHANGED = @"ON_FOLLOW_UP_CHANGED";
 static NSString * const KEY_EVENT_ON_POPUP_DATA_RECEIVED = @"ON_POPUP_DATA_RECEIVED";
 static NSString * const KEY_EVENT_ON_SHOW_MESSENGER = @"ON_SHOW_MESSENGER";
 static NSString * const KEY_EVENT_ON_HIDE_MESSENGER = @"ON_HIDE_MESSENGER";
@@ -29,7 +29,7 @@ static NSString * const KEY_EVENT_ON_PRE_URL_CLICKED = @"ON_PRE_URL_CLICKED";
 static NSString * const KEY_EVENT_ON_URL_CLICKED = @"ON_URL_CLICKED";
 
 static NSString * const EVENT_ON_BADGE_CHANGED = @"ChannelIO:Event:OnBadgeChanged";
-static NSString * const EVENT_ON_PROFILE_CHANGED = @"ChannelIO:Event:OnProfileChanged";
+static NSString * const EVENT_ON_FOLLOW_UP_CHANGED = @"ChannelIO:Event:OnFollowUpChanged";
 static NSString * const EVENT_ON_POPUP_DATA_RECEIVED = @"ChannelIO:Event:OnPopupDataReceive";
 static NSString * const EVENT_ON_SHOW_MESSENGER = @"ChannelIO:Event:OnShowMessenger";
 static NSString * const EVENT_ON_HIDE_MESSENGER = @"ChannelIO:Event:OnHideMessenger";
@@ -69,8 +69,6 @@ static NSString * const KEY_COUNT = @"count";
 static NSString * const KEY_URL = @"url";
 static NSString * const KEY_POPUP = @"popup";
 static NSString * const KEY_PROFILE_ONCE = @"profileOnce";
-static NSString * const KEY_PROFILE_KEY = @"key";
-static NSString * const KEY_PROFILE_VALUE = @"value";
 static NSString * const KEY_USER = @"user";
 static NSString * const KEY_ERROR = @"error";
 static NSString * const KEY_TAGS = @"tags";
