@@ -1,3 +1,7 @@
+# 0.7.0
+## Update
+* Updated channeltalk plugin v10
+
 # 0.6.8
 
 ## Update

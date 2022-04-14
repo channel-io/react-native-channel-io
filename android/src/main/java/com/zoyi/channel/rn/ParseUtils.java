@@ -77,6 +77,20 @@ public class ParseUtils {
     return writableMap;
   }
 
+  public static WritableMap toWritableStringMap(Map<String, String> map) {
+    WritableMap writableMap = Arguments.createMap();
+
+    if (map == null) {
+      return writableMap;
+    }
+
+    for (Map.Entry<String, String> pair : map.entrySet()) {
+      writableMap.putString(pair.getKey(), pair.getValue());
+    }
+
+    return writableMap;
+  }
+
   public static Map<String, Object> toHashMap(ReadableMap readableMap) {
     HashMap<String, Object> hashMap = new HashMap<>();
 
@@ -261,9 +275,14 @@ public class ParseUtils {
       bootConfig.setHidePopup(hidePopup.getValue());
     }
 
-    MapEntry<Boolean> unsubscribed = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED);
-    if (unsubscribed.hasValue()) {
-      bootConfig.setUnsubscribed(unsubscribed.getValue());
+    MapEntry<Boolean> unsubscribedEmail = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED_EMAIL);
+    if (unsubscribedEmail.hasValue()) {
+      bootConfig.setUnsubscribeEmail(unsubscribedEmail.getValue());
+    }
+
+    MapEntry<Boolean> unsubscribedTexting = Utils.getBoolean(configMap, Const.KEY_UNSUBSCRIBED_TEXTING);
+    if (unsubscribedTexting.hasValue()) {
+      bootConfig.setUnsubscribeTexting(unsubscribedTexting.getValue());
     }
 
     MapEntry<ReadableMap> channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_CHANNEL_BUTTON_OPTION, Const.KEY_LAUNCHER_CONFIG);
@@ -320,9 +339,14 @@ public class ParseUtils {
       userDataBuilder.setProfileOnceMap(toHashMap(profileOnce.getValue()));
     }
 
-    MapEntry<Boolean> unsubscribed = Utils.getBoolean(userDataMap, Const.KEY_UNSUBSCRIBED);
-    if (unsubscribed.hasValue()) {
-      userDataBuilder.setUnsubscribed(unsubscribed.getValue());
+    MapEntry<Boolean> unsubscribedEmail = Utils.getBoolean(userDataMap, Const.KEY_UNSUBSCRIBED_EMAIL);
+    if (unsubscribedEmail.hasValue()) {
+      userDataBuilder.setUnsubscribeEmail(unsubscribedEmail.getValue());
+    }
+
+    MapEntry<Boolean> unsubscribedTexting = Utils.getBoolean(userDataMap, Const.KEY_UNSUBSCRIBED_TEXTING);
+    if (unsubscribedTexting.hasValue()) {
+      userDataBuilder.setUnsubscribeTexting(unsubscribedTexting.getValue());
     }
 
     return userDataBuilder.build();
@@ -391,7 +415,8 @@ public class ParseUtils {
     userMap.putString(Const.KEY_NAME, user.getName());
     userMap.putString(Const.KEY_AVATAR_URL, user.getAvatarUrl());
     userMap.putInt(Const.KEY_ALERT, user.getAlert());
-    userMap.putBoolean(Const.KEY_UNSUBSCRIBED, user.isUnsubscribed());
+    userMap.putBoolean(Const.KEY_UNSUBSCRIBED_EMAIL, user.isUnsubscribeEmail());
+    userMap.putBoolean(Const.KEY_UNSUBSCRIBED_TEXTING, user.isUnsubscribeTexting());
     userMap.putString(Const.KEY_LANGUAGE, user.getLanguage());
 
     Map<String, Object> profile = user.getProfile();
@@ -419,13 +444,6 @@ public class ParseUtils {
     resultMap.putMap(Const.KEY_EVENT_POPUP, popupMap);
 
     return resultMap;
-  }
-
-  public static WritableMap createKeyValueMap(String keyName, String keyContent, String valueName, Object valueContent) {
-    Map<String, Object> map = new HashMap<>();
-    map.put(keyName, keyContent);
-    map.put(valueName, valueContent);
-    return toWritableMap(map);
   }
 
   public static WritableMap createSingleMap(String key, Object object) {
