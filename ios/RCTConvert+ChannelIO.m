@@ -45,6 +45,15 @@ RCT_ENUM_CONVERTER(
   integerValue
 )
 
+RCT_ENUM_CONVERTER(
+  BubblePosition,
+  (@{BUBBLE_OPTION_POSITION_TOP: @(BubblePositionTop),
+     BUBBLE_OPTION_POSITION_BOTTOM: @(BubblePositionBottom)
+  }),
+  BubblePositionTop,
+  integerValue
+)
+
 @end
 
 @implementation RCTConvert (ChannelIO)
@@ -59,6 +68,7 @@ RCT_ENUM_CONVERTER(
     ? [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]] : [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]];
   config.unsubscribeEmail = [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_EMAIL]];
   config.unsubscribeTexting = [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_TEXTING]];
+  config.bubbleOption = [RCTConvert bubbleOption:json[KEY_BUBBLE_OPTION]];
 
   if (json[KEY_LAUNCHER_CONFIG] == nil && json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
     config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
@@ -130,6 +140,23 @@ RCT_ENUM_CONVERTER(
     option.position = ChannelButtonPositionLeft;
   } else {
     option.position = ChannelButtonPositionRight;
+  }
+  return option;
+}
+
++ (BubbleOption *)bubbleOption:(id)json {
+  if (json == nil) {
+    return nil;
+  }
+  
+  BubbleOption *option = [[BubbleOption alloc] init];
+  
+  option.yMargin = [RCTConvert NSNumber:json[BUBBLE_OPTION_Y_MARGIN]];
+  NSString *position = [RCTConvert NSString:json[BUBBLE_OPTION_POSITION]];
+  if ([position isEqualToString:BUBBLE_OPTION_POSITION_TOP]) {
+    option.position = BubblePositionTop;
+  } else {
+    option.position = BubblePositionBottom;
   }
   return option;
 }
