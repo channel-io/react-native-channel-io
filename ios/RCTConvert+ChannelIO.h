@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <React/RCTConvert.h>
-#import <ChannelIOFront/ChannelIOFront-Swift.h>
+#import <ChannelIOFront/ChannelIOFront-swift.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -50,6 +50,8 @@ static NSString * const KEY_MEMBER_HASH = @"memberHash";
 static NSString * const KEY_HIDE_POPUP = @"hidePopup";
 static NSString * const KEY_TRACK_DEFAULT_EVENT = @"trackDefaultEvent";
 static NSString * const KEY_CHANNEL_BUTTON_OPTION = @"channelButtonOption";
+static NSString * const KEY_UNSUBSCRIBE_EMAIL = @"unsubscribeEmail";
+static NSString * const KEY_UNSUBSCRIBE_TEXTING = @"unsubscribeTexting";
 
 static NSString * const KEY_MEMBER_ID = @"memberId";
 static NSString * const KEY_LANGUAGE = @"language";

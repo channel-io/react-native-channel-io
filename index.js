@@ -340,32 +340,32 @@ export const ChannelIO = {
 
   /**
    * @deprecated
-   * Event listener that triggers when guest profile is updated
-   * @param {Function} cb a callback function that takes a key, value
+   * 'onChangeProfile' is deprecated. Please use 'onFollowUpChanged'.
    */
   onChangeProfile: (cb) => {
-    console.log('ChannelIO', 'ChannelIO.onChangeProfile(cb) is deprecated. Please use ChannelIO.onProfileChanged(cb)')
-    if (cb) {
-      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
-        cb(data.key, data.value);
-      });
-      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, null);
-    }
-  },
+    console.warn("'onChangeProfile' is deprecated. Please use 'onFollowUpChanged'.")
+  },  
+
   /**
-   * Event listener that triggers when guest profile is updated
-   * @param {Function} cb a callback function that takes a key, value
+   * @deprecated
+   * 'onProfileChanged' is deprecated. Please use 'onFollowUpChanged'.
    */
   onProfileChanged: (cb) => {
+    console.warn("'onProfileChanged' is deprecated. Please use 'onFollowUpChanged'.")
+  },
+
+  /**
+   * Event listener that triggers when guest profile is updated
+   * @param {Function} cb a callback function that takes a map
+   */
+  onFollowUpChanged: (cb) => {
     if (cb) {
-      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PROFILE_CHANGED, (data) => {
-        cb(data.key, data.value);
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_FOLLOW_UP_CHANGED, (data) => {
+        cb(data);
       });
-      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, subscription);
+      replaceSubscriber(ChannelModule.Event.ON_FOLLOW_UP_CHANGED, subscription);
     } else {
-      replaceSubscriber(ChannelModule.Event.ON_PROFILE_CHANGED, null);
+      replaceSubscriber(ChannelModule.Event.ON_FOLLOW_UP_CHANGED, null);
     }
   },
 
