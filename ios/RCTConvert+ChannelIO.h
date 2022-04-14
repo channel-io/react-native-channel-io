@@ -34,7 +34,7 @@ static NSString * const BOOT_STATUS_REQUIRE_PAYMENT = @"REQUIRE_PAYMENT";
 static NSString * const BOOT_STATUS_ACCESS_DENIED = @"ACCESS_DENIED";
 static NSString * const BOOT_STATUS_UNKNOWN_ERROR = @"UNKNOWN_ERROR";
 
-// ChannelBUttonOption
+// ChannelButtonOptionPosition
 static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT = @"right";
 static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT = @"left";
 
@@ -45,11 +45,22 @@ static NSString * const CHANNEL_BUTTON_OPTION_POSITION_LEFT = @"left";
 static NSString * const CHANNEL_BUTTON_OPTION_X_MARGIN = @"xMargin";
 static NSString * const CHANNEL_BUTTON_OPTION_Y_MARGIN = @"yMargin";
 
+// BubblePostition
+static NSString * const KEY_BUBBLE_POSITION_TOP = @"top";
+static NSString * const KEY_BUBBLE_POSITION_BOTTOM = @"bottom";
+
+// BubbleOption
+static NSString * const BUBBLE_OPTION_POSITION = @"position";
+static NSString * const BUBBLE_OPTION_POSITION_TOP = @"top";
+static NSString * const BUBBLE_OPTION_POSITION_BOTTOM = @"bottom";
+static NSString * const BUBBLE_OPTION_Y_MARGIN = @"yMargin";
+
 static NSString * const KEY_PLUGIN_KEY = @"pluginKey";
 static NSString * const KEY_MEMBER_HASH = @"memberHash";
 static NSString * const KEY_HIDE_POPUP = @"hidePopup";
 static NSString * const KEY_TRACK_DEFAULT_EVENT = @"trackDefaultEvent";
 static NSString * const KEY_CHANNEL_BUTTON_OPTION = @"channelButtonOption";
+static NSString * const KEY_BUBBLE_OPTION = @"bubbleOption";
 static NSString * const KEY_UNSUBSCRIBE_EMAIL = @"unsubscribeEmail";
 static NSString * const KEY_UNSUBSCRIBE_TEXTING = @"unsubscribeTexting";
 

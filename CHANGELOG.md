@@ -1,3 +1,7 @@
+# 0.7.1
+## Update
+* support bootConfig - bubbleOption
+
 # 0.7.0
 ## Update
 * Updated channeltalk plugin v10

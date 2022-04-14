@@ -18,6 +18,7 @@ public class Const {
   public static final String KEY_TRACK_DEFAULT_EVENT = "trackDefaultEvent";
   public static final String KEY_HIDE_POPUP = "hidePopup";
   public static final String KEY_CHANNEL_BUTTON_OPTION = "channelButtonOption";
+  public static final String KEY_BUBBLE_OPTION = "bubbleOption";
   public static final String KEY_TAGS = "tags";
   public static final String KEY_PROFILE_ONCE = "profileOnce";
   public static final String KEY_ID = "id";
@@ -42,6 +43,10 @@ public class Const {
   public static final String KEY_LAUNCHER_POSITION_LEFT = "left";
   public static final String KEY_X_MARGIN = "xMargin";
   public static final String KEY_Y_MARGIN = "yMargin";
+
+  // BubbleOption
+  public static final String KEY_BUBBLE_POSITION_TOP = "top";
+  public static final String KEY_BUBBLE_POSITION_BOTTOM = "bottom";
 
   // Result
   public static final String RESULT_KEY_STATUS = "status";

@@ -11,6 +11,9 @@ import com.zoyi.channel.rn.model.MapEntry;
 
 import java.util.*;
 
+import io.channel.plugin.android.enumerate.BubblePosition;
+import io.channel.plugin.android.open.option.BubbleOption;
+
 /**
  * Created by jerry on 2018. 10. 11..
  */
@@ -200,6 +203,25 @@ public class ParseUtils {
     return null;
   }
 
+  public static BubbleOption toBubbleOption(ReadableMap bubbleOptionMap) {
+    if (bubbleOptionMap != null) {
+      String positionString = Utils.getString(bubbleOptionMap, Const.KEY_POSITION).getValue();
+      Double yPosition = Utils.getDouble(bubbleOptionMap, Const.KEY_Y_MARGIN).getValue();
+
+      if (positionString != null && yPosition != null) {
+        switch (positionString) {
+          case Const.KEY_BUBBLE_POSITION_TOP:
+            return new BubbleOption(BubblePosition.TOP, yPosition.floatValue());
+
+          case Const.KEY_BUBBLE_POSITION_BOTTOM:
+            return new BubbleOption(BubblePosition.BOTTOM, yPosition.floatValue());
+        }
+      }
+    }
+
+    return null;
+  }
+
   private static Profile toProfile(ReadableMap profileMap) {
     if (profileMap != null) {
       Profile profile = Profile.create();
@@ -288,6 +310,11 @@ public class ParseUtils {
     MapEntry<ReadableMap> channelButtonOption = Utils.getReadableMap(configMap, Const.KEY_CHANNEL_BUTTON_OPTION, Const.KEY_LAUNCHER_CONFIG);
     if (channelButtonOption.hasValue()) {
       bootConfig.setChannelButtonOption(toChannelButtonOption(channelButtonOption.getValue()));
+    }
+
+    MapEntry<ReadableMap> bubbleOption = Utils.getReadableMap(configMap, Const.KEY_BUBBLE_OPTION);
+    if (bubbleOption.hasValue()) {
+      bootConfig.setBubbleOption(toBubbleOption(bubbleOption.getValue()));
     }
 
     MapEntry<ReadableMap> profile = Utils.getReadableMap(configMap, Const.KEY_PROFILE);
