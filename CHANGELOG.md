@@ -1,3 +1,8 @@
+# 0.7.2
+
+## Update
+* support android channel-io 10.0.1
+
 # 0.7.1
 ## Update
 * support bootConfig - bubbleOption
