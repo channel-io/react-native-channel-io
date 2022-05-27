@@ -66,9 +66,15 @@ RCT_ENUM_CONVERTER(
     ? [RCTConvert BOOL:json[KEY_HIDE_POPUP]] : [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]];
   config.trackDefaultEvent = json[KEY_TRACK_DEFAULT_EVENT] != nil
     ? [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]] : [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]];
-  config.unsubscribeEmail = [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_EMAIL]];
-  config.unsubscribeTexting = [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_TEXTING]];
   config.bubbleOption = [RCTConvert bubbleOption:json[KEY_BUBBLE_OPTION]];
+
+  if (json[KEY_UNSUBSCRIBE_EMAIL] != nil) {
+    [config setWithUnsubscribeEmail: [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_EMAIL]]];
+  }
+
+  if (json[KEY_UNSUBSCRIBE_TEXTING] != nil) {
+    [config setWithUnsubscribeTexting: [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_TEXTING]]];
+  }
 
   if (json[KEY_LAUNCHER_CONFIG] == nil && json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
     config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
