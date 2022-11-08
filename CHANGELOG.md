@@ -1,8 +1,12 @@
+# 0.7.5
+
+## Update
+* support android channel-io 10.0.6
+
 # 0.7.4
 
 ## Update
 * iOS - Fixed an issue where changed to false when unsubscribeText / unsubscribeEmail is empty
-
 
 # 0.7.3
 
