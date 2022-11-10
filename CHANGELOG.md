@@ -1,3 +1,8 @@
+# 0.7.6
+
+## Bug Fixes
+* Fix RN issue - https://github.com/facebook/react-native/issues/35210
+
 # 0.7.5
 
 ## Update
