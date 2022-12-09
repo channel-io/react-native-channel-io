@@ -1,3 +1,8 @@
+# 0.7.7
+
+## Update
+* support android channel-io 10.0.7
+
 # 0.7.6
 
 ## Bug Fixes
