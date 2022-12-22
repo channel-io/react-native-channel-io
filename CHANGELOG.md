@@ -1,3 +1,8 @@
+# 0.7.8
+
+## Bug Fixes
+* Android - Fixed an issue where an error occurred during assembleRelease
+
 # 0.7.7
 
 ## Update
