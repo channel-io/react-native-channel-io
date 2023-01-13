@@ -1,3 +1,8 @@
+# 0.7.9
+
+## Update
+* Update README.md
+
 # 0.7.8
 
 ## Bug Fixes
