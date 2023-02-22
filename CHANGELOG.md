@@ -1,3 +1,13 @@
+# 0.7.10
+
+## Update
+* Update RNChannelIO
+  * changed deployment target 10 -> 11
+  * changed dependency: "ChannelIOSDK", '~> 10'
+
+## Bug Fixes
+* Fixes an issue where both memberId and userId are omitted when using memberId and userId at the same time.
+
 # 0.7.9
 
 ## Update
