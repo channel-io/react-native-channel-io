@@ -76,15 +76,15 @@ RCT_ENUM_CONVERTER(
     [config setWithUnsubscribeTexting: [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_TEXTING]]];
   }
 
-  if (json[KEY_LAUNCHER_CONFIG] == nil && json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
+  if (json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
     config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
-  } else if (json[KEY_LAUNCHER_CONFIG] != nil && json[KEY_CHANNEL_BUTTON_OPTION] == nil) {
+  } else if (json[KEY_LAUNCHER_CONFIG] != nil) {
     config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_LAUNCHER_CONFIG]];
   }
   
-  if (json[KEY_MEMBER_ID] != nil && json[KEY_USER_ID] == nil) {
+  if (json[KEY_MEMBER_ID] != nil) {
     config.memberId = [RCTConvert NSString:json[KEY_MEMBER_ID]];
-  } else if (json[KEY_MEMBER_ID] == nil && json[KEY_USER_ID] != nil) {
+  } else if (json[KEY_USER_ID] != nil) {
     config.memberId = [RCTConvert NSString:json[KEY_USER_ID]];
   }
   
