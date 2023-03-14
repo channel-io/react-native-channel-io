@@ -252,24 +252,22 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @Override
   public boolean onPushNotificationClicked(final String chatId) {
-    if (hasPushNotificationClickSubscriber) {
-      // `PrefSupervisor` is an internal class that does not provide compatibility promise between SDK versions
-      //   -- avoid using it in third party libraries whenever possible as it may break at any time
-      final String userId = PrefSupervisor.getLatestPushUserId(getCurrentActivity());
-      if (userId == null) { return false; }
+    if (!hasPushNotificationClickSubscriber) { return false; }
 
-      Utils.sendEvent(
-              reactContext,
-              Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED,
-              ParseUtils.toWritableMap(new HashMap<String, Object>() {{
-                put(Const.KEY_USER_ID, userId);
-                put(Const.KEY_CHAT_ID, chatId);
-              }})
-      );
-      return true; // defer push notification click handling -- the JavaScript code will call `performDefaultPushNotificationClickAction` if needed.
-    } else {
-      return false;
-    }
+    // `PrefSupervisor` is an internal class that does not provide compatibility promise between SDK versions
+    //   -- avoid using it in third party libraries whenever possible as it may break at any time
+    final String userId = PrefSupervisor.getLatestPushUserId(getCurrentActivity());
+    if (userId == null) { return false; }
+
+    Utils.sendEvent(
+            reactContext,
+            Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED,
+            ParseUtils.toWritableMap(new HashMap<String, Object>() {{
+              put(Const.KEY_USER_ID, userId);
+              put(Const.KEY_CHAT_ID, chatId);
+            }})
+    );
+    return true; // defer push notification click handling -- the JavaScript code will call `performDefaultPushNotificationClickAction` if needed.
   }
 
   @Override
