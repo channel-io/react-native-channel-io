@@ -373,6 +373,8 @@ export const ChannelIO = {
    * Event listener that triggers when user clicks a system push notification.
    * Note that the callback only works on Android. A call to this method on an iOS
    *  environment will be silently ignored.
+   *
+   * @param {Function} cb a callback function
    */
   onPushNotificationClicked: (cb) => {
     if (Platform.OS !== 'android') { return }
