@@ -8,6 +8,8 @@ public class Const {
 
   public static final String MODULE_NAME = "RNChannelIO";
 
+  public static final String USER = "user";
+
   public static final String KEY_PLUGIN_KEY = "pluginKey";
   public static final String KEY_MEMBER_ID = "memberId";
   public static final String KEY_MEMBER_HASH = "memberHash";
@@ -59,6 +61,7 @@ public class Const {
   // Event
   public static final String KEY_EVENT = "Event";
 
+  public static final String KEY_EVENT_USER_ID = "userId";
   public static final String KEY_EVENT_CHAT_ID = "chatId";
   public static final String KEY_EVENT_COUNT = "count";
   public static final String KEY_EVENT_URL = "url";
@@ -72,6 +75,7 @@ public class Const {
   public static final String KEY_ON_CHAT_CREATED = "ON_CHAT_CREATED";
   public static final String KEY_ON_URL_CLICKED = "ON_URL_CLICKED";
   public static final String KEY_ON_PRE_URL_CLICKED = "ON_PRE_URL_CLICKED";
+  public static final String KEY_ON_PUSH_NOTIFICATION_CLICKED = "ON_PUSH_NOTIFICATION_CLICKED";
 
   public static final String EVENT_ON_BADGE_CHANGED = "ChannelIO:Event:OnBadgeChanged";
   public static final String EVENT_ON_FOLLOW_UP_CHANGED = "ChannelIO:Event:OnFollowUpChanged";
@@ -81,4 +85,10 @@ public class Const {
   public static final String EVENT_ON_CHAT_CREATED = "ChannelIO:Event:OnChatCreated";
   public static final String EVENT_ON_URL_CLICKED = "ChannelIO:Event:OnUrlClicked";
   public static final String EVENT_ON_PRE_URL_CLICKED = "ChannelIO:Event:OnPreUrlClicked";
+  public static final String EVENT_ON_PUSH_NOTIFICATION_CLICKED = "ChannelIO:Event:OnPushNotificationClicked";
+
+  // Extra
+  public static final String EXTRA_CHAT_ID = "chatId";
+  public static final String EXTRA_PERSON_TYPE = "personType";
+  public static final String EXTRA_PERSON_ID = "personId";
 }
