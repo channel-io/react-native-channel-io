@@ -370,6 +370,31 @@ export const ChannelIO = {
   },
 
   /**
+   * Event listener that triggers when user clicks a system push notification.
+   * Note that the callback only works on Android. A call to this method on an iOS
+   *  environment will be silently ignored.
+   *
+   * @param {Function} cb a callback function
+   */
+  onPushNotificationClicked: (cb) => {
+    if (Platform.OS !== 'android') { return }
+
+    if (cb) {
+      const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, data => {
+        const next = () => ChannelModule.performDefaultPushNotificationClickAction(data.userId, data.chatId);
+
+        cb(data.chatId, next);
+      });
+
+      ChannelModule.notifyPushNotificationClickSubscriberExistence(true);
+      replaceSubscriber(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, subscription);
+    } else {
+      ChannelModule.notifyPushNotificationClickSubscriberExistence(false);
+      replaceSubscriber(ChannelModule.Event.ON_PUSH_NOTIFICATION_CLICKED, null);
+    }
+  },
+
+  /**
    * @deprecated
    * Event listener that triggers when `ChannelIO` messenger is about to display
    * @param {Function} cb a callback function

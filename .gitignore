@@ -45,6 +45,9 @@ local.properties
 .classpath
 .vscode
 
+# JetBrains Fleet
+.fleet
+
 # BUCK
 buck-out/
 \.buckd/
