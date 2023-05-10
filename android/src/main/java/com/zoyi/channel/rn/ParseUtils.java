@@ -386,11 +386,12 @@ public class ParseUtils {
     while (iterator.hasNextKey()) {
       String key = iterator.nextKey();
       ReadableType type = pushNotificationMap.getType(key);
-      String value = pushNotificationMap.getString(key);
+      if (type != ReadableType.String) continue;
 
-      if (type == ReadableType.String && value != null) {
-        pushNotification.put(key, value);
-      }
+      String value = pushNotificationMap.getString(key);
+      if (value == null) continue;
+
+      pushNotification.put(key, value);
     }
 
     return pushNotification;
