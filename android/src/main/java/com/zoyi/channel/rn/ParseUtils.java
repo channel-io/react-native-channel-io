@@ -113,7 +113,14 @@ public class ParseUtils {
           break;
 
         case Number:
-          hashMap.put(key, Utils.getDouble(readableMap, key).getValue());
+          try {
+            int number = readableMap.getInt(key);
+            hashMap.put(key, number);
+          } catch (Exception e) {
+            double number = readableMap.getDouble(key);
+            hashMap.put(key, number);
+          }
+
           break;
 
         case String:
@@ -380,16 +387,40 @@ public class ParseUtils {
   }
 
   public static Map<String, String> toPushNotification(ReadableMap pushNotificationMap) {
-    Map<String, String> pushNotification = new HashMap<>();
+    HashMap<String, String> pushNotification = new HashMap<>();
     ReadableMapKeySetIterator iterator = pushNotificationMap.keySetIterator();
 
     while (iterator.hasNextKey()) {
       String key = iterator.nextKey();
       ReadableType type = pushNotificationMap.getType(key);
-      String value = pushNotificationMap.getString(key);
 
-      if (type == ReadableType.String && value != null) {
-        pushNotification.put(key, value);
+      switch (type) {
+        case Boolean:
+          boolean bool = pushNotificationMap.getBoolean(key);
+          pushNotification.put(key, Boolean.toString(bool));
+          break;
+
+        case Number:
+          try {
+            int number = pushNotificationMap.getInt(key);
+            pushNotification.put(key, Integer.toString(number));
+          } catch (Exception e) {
+            double number = pushNotificationMap.getDouble(key);
+            pushNotification.put(key, Double.toString(number));
+          }
+
+          break;
+
+        case String:
+          String str = pushNotificationMap.getString(key);
+
+          if (str != null) {
+            pushNotification.put(key, str);
+          }
+          break;
+
+        default:
+          break;
       }
     }
 
