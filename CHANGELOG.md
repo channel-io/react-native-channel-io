@@ -1,3 +1,11 @@
+# 0.7.12
+
+## Update
+* support android channel-io 10.0.9
+
+## Bug Fixes
+* Android - Fixed an error in isChannelPushNotification.
+
 # 0.7.11
 
 ## Update
