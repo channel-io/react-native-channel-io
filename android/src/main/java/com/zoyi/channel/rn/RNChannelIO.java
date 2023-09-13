@@ -226,8 +226,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @Override
-  public void onBadgeChanged(int count) {
-    Utils.sendEvent(reactContext, Const.EVENT_ON_BADGE_CHANGED, ParseUtils.createSingleMap(Const.KEY_EVENT_COUNT, count));
+  public void onBadgeChanged(int i) { }
+
+  @Override
+  public void onBadgeChanged(int unread, int alert) {
+    Utils.sendEvent(reactContext, Const.EVENT_ON_BADGE_CHANGED, ParseUtils.toBadgeChanged(unread, alert));
   }
 
   @Override
@@ -260,12 +263,12 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     if (userId == null) { return false; }
 
     Utils.sendEvent(
-            reactContext,
-            Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED,
-            ParseUtils.toWritableMap(new HashMap<String, Object>() {{
-              put(Const.KEY_USER_ID, userId);
-              put(Const.KEY_CHAT_ID, chatId);
-            }})
+        reactContext,
+        Const.EVENT_ON_PUSH_NOTIFICATION_CLICKED,
+        ParseUtils.toWritableMap(new HashMap<String, Object>() {{
+          put(Const.KEY_USER_ID, userId);
+          put(Const.KEY_CHAT_ID, chatId);
+        }})
     );
     return true; // defer push notification click handling -- the JavaScript code will call `performDefaultPushNotificationClickAction` if needed.
   }
@@ -323,5 +326,12 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   @ReactMethod
   public void resetPage() {
     ChannelIO.resetPage();
+  }
+
+  @ReactMethod
+  public void setAppearance(@Nullable String appearance) {
+    if (ParseUtils.isAppearanceValue(appearance)) {
+      ChannelIO.setAppearance(ParseUtils.toAppearance(appearance));
+    }
   }
 }

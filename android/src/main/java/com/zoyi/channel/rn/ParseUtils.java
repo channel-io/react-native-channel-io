@@ -11,7 +11,10 @@ import com.zoyi.channel.rn.model.MapEntry;
 
 import java.util.*;
 
+import javax.annotation.Nullable;
+
 import io.channel.plugin.android.enumerate.BubblePosition;
+import io.channel.plugin.android.open.model.Appearance;
 import io.channel.plugin.android.open.option.BubbleOption;
 
 /**
@@ -229,6 +232,23 @@ public class ParseUtils {
     return null;
   }
 
+  public static boolean isAppearanceValue(@Nullable String appearance) {
+    if (appearance == null) {
+      return false;
+    }
+
+    String[] appearances = {Const.KEY_APPEARANCE_SYSTEM, Const.KEY_APPEARANCE_LIGHT, Const.KEY_APPEARANCE_DARK};
+    List<String> appearanceList = new ArrayList<>(Arrays.asList(appearances));
+    return appearanceList.contains(appearance);
+  }
+  public static Appearance toAppearance(String appearance) {
+    switch (appearance) {
+      case Const.KEY_APPEARANCE_LIGHT: return Appearance.LIGHT;
+      case Const.KEY_APPEARANCE_DARK: return Appearance.DARK;
+      default: return Appearance.SYSTEM;
+    }
+  }
+
   private static Profile toProfile(ReadableMap profileMap) {
     if (profileMap != null) {
       Profile profile = Profile.create();
@@ -329,6 +349,14 @@ public class ParseUtils {
       bootConfig.setProfile(toProfile(profile.getValue()));
     }
 
+    MapEntry<String> appearanceMap = Utils.getString(configMap, Const.KEY_APPEARANCE);
+    if (appearanceMap.hasValue()) {
+      String appearance = appearanceMap.getValue();
+      if (isAppearanceValue(appearance)) {
+        bootConfig.setAppearance(toAppearance(appearance));
+      }
+    }
+
     return bootConfig;
   }
 
@@ -425,6 +453,13 @@ public class ParseUtils {
     }
 
     return pushNotification;
+  }
+
+  public static WritableMap toBadgeChanged(int unread, int alert) {
+    HashMap<String, Object> result = new HashMap<>();
+    result.put(Const.KEY_UNREAD, unread);
+    result.put(Const.KEY_ALERT, alert);
+    return toWritableMap(result);
   }
 
   public static WritableMap getBootResult(

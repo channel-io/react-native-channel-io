@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RNChannelIO"
-  s.version      = "0.1.1"
+  s.version      = "0.2.0"
   s.summary      = "RNChannelIO"
   s.description  = "channel plugin for react native"
   s.homepage     = "https://channel.io"
@@ -15,5 +15,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '11.0'
   
   s.dependency "React"
-  s.dependency "ChannelIOSDK", '~> 10'
+  s.dependency "ChannelIOSDK", '~> 11'
 end

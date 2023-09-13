@@ -85,7 +85,12 @@ RCT_EXPORT_MODULE()
     CHANNEL_BUTTON_POSITION: @{
         KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
         KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
-    }
+    },
+    CHANNEL_APPEARANCE: @{
+      KEY_APPEARANCE_SYSTEM: @(AppearanceSystem),
+      KEY_APPEARANCE_DARK: @(AppearanceDark),
+      KEY_APPEARANCE_LIGHT: @(AppearanceLight)
+    },
   };
 }
 
@@ -355,16 +360,22 @@ RCT_EXPORT_METHOD(resetPage) {
   [ChannelIO resetPage];
 }
 
-#pragma mark ChannelPluginDelegate
-- (void)onBadgeChangedWithCount:(NSInteger)count {
-  if (hasListeners) {
-    [self sendEventWithName:EVENT_ON_BADGE_CHANGED body:@{KEY_COUNT: @(count)}];
+RCT_EXPORT_METHOD(setAppearance:(NSString *)appearance) {
+  if (appearance != nil) {
+    if ([appearance isEqualToString:APPEARANCE_SYSTEM]) {
+      [ChannelIO setAppearance:AppearanceSystem];
+    } else if ([appearance isEqualToString:APPEARANCE_LIGHT]) {
+      [ChannelIO setAppearance:AppearanceLight];
+    } else if ([appearance isEqualToString:APPEARANCE_DARK]) {
+      [ChannelIO setAppearance:AppearanceDark];
+    }
   }
 }
 
-- (void)onBadgeChangedWithAlert:(NSInteger)alert {
+#pragma mark ChannelPluginDelegate
+- (void)onBadgeChangedWithUnread:(NSInteger)unread alert:(NSInteger)alert {
   if (hasListeners) {
-    [self sendEventWithName:EVENT_ON_BADGE_CHANGED body:@{KEY_COUNT: @(alert)}];
+    [self sendEventWithName:EVENT_ON_BADGE_CHANGED body:@{KEY_UNREAD: @(unread), KEY_ALERT: @(alert)}];
   }
 }
 

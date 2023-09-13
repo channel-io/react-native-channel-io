@@ -240,6 +240,18 @@ export const ChannelIO = {
   resetPage: () => ChannelModule.resetPage(),
 
   /**
+   * Sets the appearance of the SDK.
+   * @param {String} appearance system | light | dark
+   */
+  setAppearance: (appearance) => {
+    if (typeof appearance === "string") {
+      ChannelModule.setAppearance(appearance)
+    } else {
+      console.error('ChannelIO', '"appearance" must be type of "string". ex) "system", "light", "dark"')
+    }
+  },
+
+  /**
    * @deprecated
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
