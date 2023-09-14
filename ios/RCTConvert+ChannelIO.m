@@ -54,6 +54,16 @@ RCT_ENUM_CONVERTER(
   integerValue
 )
 
+RCT_ENUM_CONVERTER(
+  Appearance,
+  (@{APPEARANCE_SYSTEM: @(AppearanceSystem),
+     APPEARANCE_DARK: @(AppearanceDark),
+     APPEARANCE_LIGHT: @(AppearanceLight)
+  }),
+  AppearanceSystem,
+  integerValue
+)
+
 @end
 
 @implementation RCTConvert (ChannelIO)
@@ -114,6 +124,17 @@ RCT_ENUM_CONVERTER(
   
   if (json[KEY_PROFILE] != nil) {
     config.profile = [RCTConvert profile:json[KEY_PROFILE]];
+  }
+  
+  NSString *appearance = [RCTConvert NSString:json[KEY_APPEARANCE]];
+  if (json[KEY_APPEARANCE] != nil) {
+    if ([appearance isEqualToString:APPEARANCE_SYSTEM]) {
+      [config setWithAppearance:AppearanceSystem];
+    } else if ([appearance isEqualToString:APPEARANCE_LIGHT]) {
+      [config setWithAppearance:AppearanceLight];
+    } else if ([appearance isEqualToString:APPEARANCE_DARK]) {
+      [config setWithAppearance:AppearanceDark];
+    }
   }
   
   return config;

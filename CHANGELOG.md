@@ -1,3 +1,9 @@
+# 0.8.0
+## Update
+* Updated channeltalk plugin v11
+  * Supports dark mode
+  * Redesigned UI / UX
+
 # 0.7.12
 
 ## Update

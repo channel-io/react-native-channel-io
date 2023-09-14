@@ -72,6 +72,16 @@ static NSString * const KEY_PROFILE_ONCE = @"profileOnce";
 static NSString * const KEY_USER = @"user";
 static NSString * const KEY_ERROR = @"error";
 static NSString * const KEY_TAGS = @"tags";
+static NSString * const KEY_UNREAD = @"unread";
+static NSString * const KEY_ALERT = @"alert";
+
+// Appearance
+static NSString * const CHANNEL_APPEARANCE = @"Appearance";
+
+static NSString * const KEY_APPEARANCE_SYSTEM = @"system";
+static NSString * const KEY_APPEARANCE_LIGHT = @"light";
+static NSString * const KEY_APPEARANCE_DARK = @"dark";
+
 
 // deprecated
 

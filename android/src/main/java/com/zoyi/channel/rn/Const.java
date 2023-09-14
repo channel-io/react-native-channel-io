@@ -25,12 +25,14 @@ public class Const {
   public static final String KEY_PROFILE_ONCE = "profileOnce";
   public static final String KEY_ID = "id";
   public static final String KEY_ALERT = "alert";
+  public static final String KEY_UNREAD = "unread";
   public static final String KEY_NAME = "name";
   public static final String KEY_EMAIL = "email";
   public static final String KEY_MOBILE_NUMBER = "mobileNumber";
   public static final String KEY_AVATAR_URL = "avatarUrl";
   public static final String KEY_CHAT_ID = "chatId";
   public static final String KEY_MESSAGE = "message";
+  public static final String KEY_APPEARANCE = "appearance";
 
   // Legacy
   public static final String KEY_USER_ID = "userId";
@@ -49,6 +51,11 @@ public class Const {
   // BubbleOption
   public static final String KEY_BUBBLE_POSITION_TOP = "top";
   public static final String KEY_BUBBLE_POSITION_BOTTOM = "bottom";
+
+  // Appearance
+  public static final String KEY_APPEARANCE_SYSTEM = "system";
+  public static final String KEY_APPEARANCE_LIGHT = "light";
+  public static final String KEY_APPEARANCE_DARK = "dark";
 
   // Result
   public static final String RESULT_KEY_STATUS = "status";
