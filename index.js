@@ -240,6 +240,18 @@ export const ChannelIO = {
   resetPage: () => ChannelModule.resetPage(),
 
   /**
+   * Sets the appearance of the SDK.
+   * @param {String} appearance system | light | dark
+   */
+  setAppearance: (appearance) => {
+    if (typeof appearance === "string") {
+      ChannelModule.setAppearance(appearance)
+    } else {
+      console.error('ChannelIO', '"appearance" must be type of "string". ex) "system", "light", "dark"')
+    }
+  },
+
+  /**
    * @deprecated
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
@@ -248,7 +260,7 @@ export const ChannelIO = {
     console.log('ChannelIO', 'ChannelIO.onChangeBadge(cb) is deprecated. Please use ChannelIO.onBadgeChanged(cb)')
     if (cb) {
       const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-        cb(data.count);
+        cb(data.unread, data.alert);
       });
       replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
     } else {
@@ -263,7 +275,7 @@ export const ChannelIO = {
   onBadgeChanged: (cb) => {
     if (cb) {
       const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-        cb(data.count);
+        cb(data.unread, data.alert);
       });
       replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
     } else {

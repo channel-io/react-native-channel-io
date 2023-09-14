@@ -49,6 +49,11 @@ static NSString * const CHANNEL_BUTTON_OPTION_Y_MARGIN = @"yMargin";
 static NSString * const KEY_BUBBLE_POSITION_TOP = @"top";
 static NSString * const KEY_BUBBLE_POSITION_BOTTOM = @"bottom";
 
+// Appearance
+static NSString * const APPEARANCE_SYSTEM = @"system";
+static NSString * const APPEARANCE_LIGHT = @"light";
+static NSString * const APPEARANCE_DARK = @"dark";
+
 // BubbleOption
 static NSString * const BUBBLE_OPTION_POSITION = @"position";
 static NSString * const BUBBLE_OPTION_POSITION_TOP = @"top";
@@ -63,6 +68,7 @@ static NSString * const KEY_CHANNEL_BUTTON_OPTION = @"channelButtonOption";
 static NSString * const KEY_BUBBLE_OPTION = @"bubbleOption";
 static NSString * const KEY_UNSUBSCRIBE_EMAIL = @"unsubscribeEmail";
 static NSString * const KEY_UNSUBSCRIBE_TEXTING = @"unsubscribeTexting";
+static NSString * const KEY_APPEARANCE = @"appearance";
 
 static NSString * const KEY_MEMBER_ID = @"memberId";
 static NSString * const KEY_LANGUAGE = @"language";
