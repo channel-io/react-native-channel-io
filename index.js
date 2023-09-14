@@ -260,7 +260,7 @@ export const ChannelIO = {
     console.log('ChannelIO', 'ChannelIO.onChangeBadge(cb) is deprecated. Please use ChannelIO.onBadgeChanged(cb)')
     if (cb) {
       const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-        cb(data.count);
+        cb(data.unread, data.alert);
       });
       replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
     } else {
@@ -275,7 +275,7 @@ export const ChannelIO = {
   onBadgeChanged: (cb) => {
     if (cb) {
       const subscription = ChannelEventEmitter.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-        cb(data.count);
+        cb(data.unread, data.alert);
       });
       replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
     } else {

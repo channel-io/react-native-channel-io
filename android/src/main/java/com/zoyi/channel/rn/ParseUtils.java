@@ -241,7 +241,13 @@ public class ParseUtils {
     List<String> appearanceList = new ArrayList<>(Arrays.asList(appearances));
     return appearanceList.contains(appearance);
   }
+
+  @Nullable
   public static Appearance toAppearance(String appearance) {
+    if (!isAppearanceValue(appearance)) {
+      return null;
+    }
+
     switch (appearance) {
       case Const.KEY_APPEARANCE_LIGHT: return Appearance.LIGHT;
       case Const.KEY_APPEARANCE_DARK: return Appearance.DARK;
@@ -351,9 +357,10 @@ public class ParseUtils {
 
     MapEntry<String> appearanceMap = Utils.getString(configMap, Const.KEY_APPEARANCE);
     if (appearanceMap.hasValue()) {
-      String appearance = appearanceMap.getValue();
-      if (isAppearanceValue(appearance)) {
-        bootConfig.setAppearance(toAppearance(appearance));
+      Appearance appearance = toAppearance(appearanceMap.getValue());
+
+      if (appearance != null) {
+        bootConfig.setAppearance(appearance);
       }
     }
 

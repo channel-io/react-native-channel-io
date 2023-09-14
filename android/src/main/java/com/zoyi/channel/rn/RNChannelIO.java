@@ -20,6 +20,8 @@ import com.zoyi.channel.plugin.android.util.IntentUtils;
 import java.util.HashMap;
 import java.util.Map;
 
+import io.channel.plugin.android.open.model.Appearance;
+
 public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPluginListener {
 
   private ReactContext reactContext;
@@ -330,8 +332,9 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void setAppearance(@Nullable String appearance) {
-    if (ParseUtils.isAppearanceValue(appearance)) {
-      ChannelIO.setAppearance(ParseUtils.toAppearance(appearance));
+    Appearance appearanceValue = ParseUtils.toAppearance(appearance);
+    if (appearanceValue != null) {
+      ChannelIO.setAppearance(appearanceValue);
     }
   }
 }
