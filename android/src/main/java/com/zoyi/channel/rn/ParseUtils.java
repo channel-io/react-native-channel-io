@@ -232,26 +232,17 @@ public class ParseUtils {
     return null;
   }
 
-  public static boolean isAppearanceValue(@Nullable String appearance) {
-    if (appearance == null) {
-      return false;
-    }
-
-    String[] appearances = {Const.KEY_APPEARANCE_SYSTEM, Const.KEY_APPEARANCE_LIGHT, Const.KEY_APPEARANCE_DARK};
-    List<String> appearanceList = new ArrayList<>(Arrays.asList(appearances));
-    return appearanceList.contains(appearance);
-  }
-
   @Nullable
   public static Appearance toAppearance(String appearance) {
-    if (!isAppearanceValue(appearance)) {
+    if (appearance == null) {
       return null;
     }
 
     switch (appearance) {
       case Const.KEY_APPEARANCE_LIGHT: return Appearance.LIGHT;
       case Const.KEY_APPEARANCE_DARK: return Appearance.DARK;
-      default: return Appearance.SYSTEM;
+      case Const.KEY_APPEARANCE_SYSTEM: return Appearance.SYSTEM;
+      default: return null;
     }
   }
 
