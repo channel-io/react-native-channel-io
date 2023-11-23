@@ -82,6 +82,26 @@ RCT_EXPORT_MODULE()
         KEY_BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
         KEY_BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
     },
+    CHANNEL_BUTTON_ICON: @{
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHANNEL: @(ChannelButtonIconChannel),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED: @(ChannelButtonIconChatBubbleFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED: @(ChannelButtonIconChatProgressFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED: @(ChannelButtonIconChatQuestionFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED: @(ChannelButtonIconChatLightningFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED: @(ChannelButtonIconChatBubbleAltFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED: @(ChannelButtonIconSmsFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED: @(ChannelButtonIconCommentFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED: @(ChannelButtonIconSendForwardFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED: @(ChannelButtonIconHelpFilled),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS: @(ChannelButtonIconChatProgress),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION: @(ChannelButtonIconChatQuestion),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT: @(ChannelButtonIconChatBubbleAlt),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_SMS: @(ChannelButtonIconSms),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT: @(ChannelButtonIconComment),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD: @(ChannelButtonIconSendForward),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION: @(ChannelButtonIconCommunication),
+      KEY_CHANNEL_BUTTON_OPTION_ICON_HEADSET: @(ChannelButtonIconHeadset)
+    },
     CHANNEL_BUTTON_POSITION: @{
         KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
         KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)

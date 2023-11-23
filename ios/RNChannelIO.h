@@ -60,6 +60,9 @@ static NSString * const KEY_LANGUAGE_DEVICE = @"device";
 // error
 static NSString * const ERROR_UNKNOWN = @"UNKNOWN_ERROR";
 
+// ChannelButtonIcon
+static NSString * const CHANNEL_BUTTON_ICON = @"ChannelButtonIcon";
+
 // ChannelButtonPosition
 static NSString * const CHANNEL_BUTTON_POSITION = @"ChannelButtonPosition";
 
