@@ -41,10 +41,27 @@ public class Const {
   public static final String KEY_HIDE_DEFAULT_IN_APP_PUSH = "hideDefaultInAppPush";
   public static final String KEY_LAUNCHER_CONFIG = "launcherConfig";
 
-  // Launcher config
+  // ChannelButtonOption
+  public static final String KEY_ICON = "icon";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED = "chatBubbleFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED = "chatProgressFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED = "chatQuestionFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED = "chatLightningFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED = "chatBubbleAltFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED = "smsFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED = "commentFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED = "sendForwardFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED = "helpFilled";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS = "chatProgress";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION = "chatQuestion";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT = "chatBubbleAlt";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_SMS = "sms";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT = "comment";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD = "sendForward";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION = "communication";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_ICON_HEADSET = "headset";
   public static final String KEY_POSITION = "position";
-  public static final String KEY_LAUNCHER_POSITION_RIGHT = "right";
-  public static final String KEY_LAUNCHER_POSITION_LEFT = "left";
+  public static final String KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT = "left";
   public static final String KEY_X_MARGIN = "xMargin";
   public static final String KEY_Y_MARGIN = "yMargin";
 
