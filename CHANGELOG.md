@@ -1,4 +1,11 @@
+# 0.8.1
+
+## Update
+* support android channel-io 11.1.0
+* support bootConfig - channelButtonOption - channelButtonIcon
+
 # 0.8.0
+
 ## Update
 * Updated channeltalk plugin v11
   * Supports dark mode
