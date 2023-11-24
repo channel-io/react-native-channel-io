@@ -57,7 +57,7 @@ RCT_ENUM_CONVERTER(
     CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION: @(ChannelButtonIconCommunication),
     CHANNEL_BUTTON_OPTION_ICON_HEADSET: @(ChannelButtonIconHeadset)
   }),
-  ChannelButtonPositionRight,
+  ChannelButtonIconChannel,
   integerValue
 )
 
