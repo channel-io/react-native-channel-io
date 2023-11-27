@@ -14,6 +14,7 @@ import java.util.*;
 import javax.annotation.Nullable;
 
 import io.channel.plugin.android.enumerate.BubblePosition;
+import io.channel.plugin.android.open.enumerate.ChannelButtonIcon;
 import io.channel.plugin.android.open.model.Appearance;
 import io.channel.plugin.android.open.option.BubbleOption;
 
@@ -195,22 +196,75 @@ public class ParseUtils {
 
   public static ChannelButtonOption toChannelButtonOption(ReadableMap channelButtonOptionMap) {
     if (channelButtonOptionMap != null) {
+      String iconString = Utils.getString(channelButtonOptionMap, Const.KEY_ICON).getValue();
       String positionString = Utils.getString(channelButtonOptionMap, Const.KEY_POSITION).getValue();
       Double xPosition = Utils.getDouble(channelButtonOptionMap, Const.KEY_X_MARGIN).getValue();
       Double yPosition = Utils.getDouble(channelButtonOptionMap, Const.KEY_Y_MARGIN).getValue();
 
-      if (positionString != null && xPosition != null && yPosition != null) {
-        switch (positionString) {
-          case Const.KEY_LAUNCHER_POSITION_LEFT:
-            return new ChannelButtonOption(ChannelButtonPosition.LEFT, xPosition.floatValue(), yPosition.floatValue());
-
-          case Const.KEY_LAUNCHER_POSITION_RIGHT:
-            return new ChannelButtonOption(ChannelButtonPosition.RIGHT, xPosition.floatValue(), yPosition.floatValue());
-        }
+      if (iconString != null && positionString != null && xPosition != null && yPosition != null) {
+        return new ChannelButtonOption(
+            toChannelButtonIcon(iconString),
+            toChannelButtonPosition(positionString),
+            xPosition.floatValue(),
+            yPosition.floatValue()
+        );
+      } else if (iconString != null) {
+        return new ChannelButtonOption(toChannelButtonIcon(iconString));
+      } else if (positionString != null && xPosition != null && yPosition != null) {
+        return new ChannelButtonOption(toChannelButtonPosition(positionString), xPosition.floatValue(), yPosition.floatValue());
       }
     }
 
     return null;
+  }
+
+  private static ChannelButtonPosition toChannelButtonPosition(String positionString) {
+    if (positionString.equals(Const.KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT)) {
+      return ChannelButtonPosition.LEFT;
+    } else {
+      return ChannelButtonPosition.RIGHT;
+    }
+  }
+
+  private static ChannelButtonIcon toChannelButtonIcon(String iconString) {
+    switch (iconString) {
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED:
+        return ChannelButtonIcon.ChatBubbleFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED:
+        return ChannelButtonIcon.ChatProgressFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED:
+        return ChannelButtonIcon.ChatQuestionFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED:
+        return ChannelButtonIcon.ChatLightningFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED:
+        return ChannelButtonIcon.ChatBubbleAltFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED:
+        return ChannelButtonIcon.SmsFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED:
+        return ChannelButtonIcon.CommentFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED:
+        return ChannelButtonIcon.SendForwardFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED:
+        return ChannelButtonIcon.HelpFilled;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS:
+        return ChannelButtonIcon.ChatProgress;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION:
+        return ChannelButtonIcon.ChatQuestion;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT:
+        return ChannelButtonIcon.ChatBubbleAlt;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_SMS:
+        return ChannelButtonIcon.Sms;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT:
+        return ChannelButtonIcon.Comment;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD:
+        return ChannelButtonIcon.SendForward;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION:
+        return ChannelButtonIcon.Communication;
+      case Const.KEY_CHANNEL_BUTTON_OPTION_ICON_HEADSET:
+        return ChannelButtonIcon.Headset;
+      default:
+        return ChannelButtonIcon.Channel;
+    }
   }
 
   public static BubbleOption toBubbleOption(ReadableMap bubbleOptionMap) {

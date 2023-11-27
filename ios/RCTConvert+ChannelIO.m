@@ -37,6 +37,31 @@ RCT_ENUM_CONVERTER(
 )
 
 RCT_ENUM_CONVERTER(
+  ChannelButtonIcon,
+  (@{CHANNEL_BUTTON_OPTION_ICON_CHANNEL: @(ChannelButtonIconChannel),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED: @(ChannelButtonIconChatBubbleFilled),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED: @(ChannelButtonIconChatProgressFilled),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED: @(ChannelButtonIconChatQuestionFilled),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED: @(ChannelButtonIconChatLightningFilled),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED: @(ChannelButtonIconChatBubbleAltFilled),
+    CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED: @(ChannelButtonIconSmsFilled),
+    CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED: @(ChannelButtonIconCommentFilled),
+    CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED: @(ChannelButtonIconSendForwardFilled),
+    CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED: @(ChannelButtonIconHelpFilled),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS: @(ChannelButtonIconChatProgress),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION: @(ChannelButtonIconChatQuestion),
+    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT: @(ChannelButtonIconChatBubbleAlt),
+    CHANNEL_BUTTON_OPTION_ICON_SMS: @(ChannelButtonIconSms),
+    CHANNEL_BUTTON_OPTION_ICON_COMMENT: @(ChannelButtonIconComment),
+    CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD: @(ChannelButtonIconSendForward),
+    CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION: @(ChannelButtonIconCommunication),
+    CHANNEL_BUTTON_OPTION_ICON_HEADSET: @(ChannelButtonIconHeadset)
+  }),
+  ChannelButtonIconChannel,
+  integerValue
+)
+
+RCT_ENUM_CONVERTER(
   ChannelButtonPosition,
   (@{CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
     CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
@@ -162,6 +187,44 @@ RCT_ENUM_CONVERTER(
   
   option.xMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_X_MARGIN]];
   option.yMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_Y_MARGIN]];
+
+  NSString *icon = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_ICON]];
+  if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED]) {
+    option.icon = ChannelButtonIconChatBubbleFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED]) {
+    option.icon = ChannelButtonIconChatQuestionFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED]) {
+    option.icon = ChannelButtonIconChatLightningFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED]) {
+    option.icon = ChannelButtonIconChatBubbleAltFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED]) {
+    option.icon = ChannelButtonIconSmsFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED]) {
+    option.icon = ChannelButtonIconCommentFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED]) {
+    option.icon = ChannelButtonIconSendForwardFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED]) {
+    option.icon = ChannelButtonIconHelpFilled;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS]) {
+    option.icon = ChannelButtonIconChatProgress;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION]) {
+    option.icon = ChannelButtonIconChatQuestion;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT]) {
+    option.icon = ChannelButtonIconChatBubbleAlt;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SMS]) {
+    option.icon = ChannelButtonIconSms;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMENT]) {
+    option.icon = ChannelButtonIconComment;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD]) {
+    option.icon = ChannelButtonIconSendForward;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION]) {
+    option.icon = ChannelButtonIconCommunication;
+  } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_HEADSET]) {
+    option.icon = ChannelButtonIconHeadset;
+  } else {
+    option.icon = ChannelButtonIconChannel;
+  }
+  
   NSString *position = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_POSITION]];
   if ([position isEqualToString:CHANNEL_BUTTON_OPTION_POSITION_LEFT]) {
     option.position = ChannelButtonPositionLeft;
