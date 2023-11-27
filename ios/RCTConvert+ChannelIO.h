@@ -34,11 +34,50 @@ static NSString * const BOOT_STATUS_REQUIRE_PAYMENT = @"REQUIRE_PAYMENT";
 static NSString * const BOOT_STATUS_ACCESS_DENIED = @"ACCESS_DENIED";
 static NSString * const BOOT_STATUS_UNKNOWN_ERROR = @"UNKNOWN_ERROR";
 
+// ChannelButtonOptionIcon
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHANNEL = @"channel";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED = @"chatBubbleFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED = @"chatProgressFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED = @"chatQuestionFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED = @"chatLightningFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED = @"chatBubbleAltFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED = @"smsFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED = @"commentFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED = @"sendForwardFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED = @"helpFilled";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS = @"chatProgress";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION = @"chatQuestion";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT = @"chatBubbleAlt";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_SMS = @"sms";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_COMMENT = @"comment";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD = @"sendForward";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION = @"communication";
+static NSString * const KEY_CHANNEL_BUTTON_OPTION_ICON_HEADSET = @"headset";
+
 // ChannelButtonOptionPosition
 static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_RIGHT = @"right";
 static NSString * const KEY_CHANNEL_BUTTON_OPTION_POSITION_LEFT = @"left";
 
 // ChannelButtonOption
+static NSString * const CHANNEL_BUTTON_OPTION_ICON = @"icon";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHANNEL = @"channel";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED = @"chatBubbleFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED = @"chatProgressFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED = @"chatQuestionFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED = @"chatLightningFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED = @"chatBubbleAltFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED = @"smsFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED = @"commentFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED = @"sendForwardFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED = @"helpFilled";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS = @"chatProgress";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION = @"chatQuestion";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT = @"chatBubbleAlt";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_SMS = @"sms";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_COMMENT = @"comment";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD = @"sendForward";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION = @"communication";
+static NSString * const CHANNEL_BUTTON_OPTION_ICON_HEADSET = @"headset";
 static NSString * const CHANNEL_BUTTON_OPTION_POSITION = @"position";
 static NSString * const CHANNEL_BUTTON_OPTION_POSITION_RIGHT = @"right";
 static NSString * const CHANNEL_BUTTON_OPTION_POSITION_LEFT = @"left";

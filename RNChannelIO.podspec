@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "RNChannelIO"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "RNChannelIO"
   s.description  = "channel plugin for react native"
   s.homepage     = "https://channel.io"
