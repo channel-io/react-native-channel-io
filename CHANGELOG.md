@@ -1,3 +1,9 @@
+# 0.8.2
+
+## Update
+* support android channel-io 11.2.2
+* support openSupportBot
+
 # 0.8.1
 
 ## Update

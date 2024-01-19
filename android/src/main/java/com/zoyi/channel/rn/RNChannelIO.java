@@ -108,6 +108,11 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
+  public void openSupportBot(String supportBotId, String message) {
+    ChannelIO.openSupportBot(getCurrentActivity(), supportBotId, message);
+  }
+
+  @ReactMethod
   public void track(String name, ReadableMap eventProperty) {
     ChannelIO.track(name, ParseUtils.toHashMap(eventProperty));
   }
