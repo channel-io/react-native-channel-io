@@ -135,6 +135,15 @@ export const ChannelIO = {
   },
 
   /**
+   * Opens User chat to run a specific Support bot.
+   * @param {String} supportBotId This is the support bot's ID. If supportBotId is invalid or nil, the chat room is closed.
+   * @param {String} message This message will be displayed in the input field after completing the support bot operation.
+   */
+  openSupportBot: (supportBotId, message) => {
+    ChannelModule.openSupportBot(supportBotId, message);
+  },
+
+  /**
    * Send a event
    * @param {String} eventName event name
    * @param {Object} properties a json object contains information

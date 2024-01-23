@@ -209,6 +209,10 @@ RCT_EXPORT_METHOD(openChat:(NSString *)chatId message:(id)payload) {
   [ChannelIO openChatWith:chatId message:payload];
 }
 
+RCT_EXPORT_METHOD(openSupportBot:(NSString *)supportBotId message:(NSString *)message) {
+  [ChannelIO openSupportBotWith:supportBotId message:message];
+}
+
 RCT_EXPORT_METHOD(track:(NSString *)name eventProperty:(NSDictionary *)properties) {
   [ChannelIO trackWithEventName:name eventProperty:properties];
 }
