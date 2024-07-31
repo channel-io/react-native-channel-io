@@ -135,12 +135,13 @@ export const ChannelIO = {
   },
 
   /**
-   * Opens User chat to run a specific Support bot.
-   * @param {String} supportBotId This is the support bot's ID. If supportBotId is invalid or nil, the chat room is closed.
-   * @param {String} message This message will be displayed in the input field after completing the support bot operation.
+   * Opens a user chat and starts the specified workflow.
+   * - If a corresponded workflow with the provided workflowId is exists, it will be executed. if workflowId is invalid, an error page is displayed.
+   * - If you don't pass workflowId, no action is taken.
+   * @param {String} workflowId The ID of workflow to start with. An error page will be shown if such workflow does not exist.
    */
-  openSupportBot: (supportBotId, message) => {
-    ChannelModule.openSupportBot(supportBotId, message);
+  openWorkflow: (workflowId) => {
+    ChannelModule.openWorkflow(workflowId);
   },
 
   /**
@@ -231,13 +232,17 @@ export const ChannelIO = {
   openStoredPushNotification: () => ChannelModule.openStoredPushNotification(),
 
   /**
-   * Set page to be used instead of recent activity name or view controller.
+   * Sets the name of the screen along with user chat profile. If track is called before setPage, the event will not reflect the page information.
+   * @param {String} page This is the screen name when track is called. When calling .track(), the event's page is set to null.
+   * @param {String} profile The user chat profile value.
+   *     - When nil is assigned to a specific field within the profile object, only the value of that field is cleared.
+   *     - The user chat profile value is applied when a user chat is created.
    */
-  setPage: (page) => {
+  setPage: (page, profile) => {
     if (typeof page === "string") {
-      ChannelModule.setPage(page)
+      ChannelModule.setPage(page, profile)
     } else if (page === null || page === undefined) {
-      ChannelModule.setPage(null)
+      ChannelModule.setPage(null, profile)
     } else {
       console.error('ChannelIO', '"page" must be type of "string", null or undefined.')
     }
@@ -259,6 +264,11 @@ export const ChannelIO = {
       console.error('ChannelIO', '"appearance" must be type of "string". ex) "system", "light", "dark"')
     }
   },
+
+  /**
+   * Hides the Channel popup on the global screen.
+   */
+  hidePopup: () => ChannelModule.hidePopup(),
 
   /**
    * @deprecated
