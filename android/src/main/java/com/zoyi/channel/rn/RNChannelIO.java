@@ -108,8 +108,8 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
-  public void openSupportBot(String supportBotId, String message) {
-    ChannelIO.openSupportBot(getCurrentActivity(), supportBotId, message);
+  public void openWorkflow(String workflowId) {
+    ChannelIO.openWorkflow(getCurrentActivity(), workflowId);
   }
 
   @ReactMethod
@@ -326,8 +326,9 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   }
 
   @ReactMethod
-  public void setPage(@Nullable String page) {
-    ChannelIO.setPage(page);
+  public void setPage(@Nullable String page, @Nullable ReadableMap profile) {
+    Map<String, Object> profileMap = profile == null ? null : profile.toHashMap();
+    ChannelIO.setPage(page, profileMap);
   }
 
   @ReactMethod
@@ -341,5 +342,10 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     if (appearanceValue != null) {
       ChannelIO.setAppearance(appearanceValue);
     }
+  }
+
+  @ReactMethod
+  public void hidePopup() {
+    ChannelIO.hidePopup();
   }
 }

@@ -1,3 +1,11 @@
+# 0.9.0
+
+## Update
+* Updated channeltalk plugin v12
+  * We introduce powerful feature to help your chat: Workflow. Workflow will completely replace support bots.
+    * Removed ChannelIO.openSupportBot() in favor of new ChannelIO.openWorkflow().
+  * Added new public API: ChannelIO.hidePopup()
+
 # 0.8.3
 
 ## Update

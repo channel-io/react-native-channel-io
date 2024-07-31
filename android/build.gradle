@@ -17,19 +17,17 @@ buildscript {
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.3'
+        classpath 'com.android.tools.build:gradle:3.2.0'
     }
 }
 
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 33
-    buildToolsVersion "31.0.0"
-
     defaultConfig {
-        minSdkVersion 15
-        targetSdkVersion 33
+        compileSdk 34
+        minSdkVersion 23
+        targetSdkVersion 34
         versionCode 1
         // get version name from package.json version
         versionName computeVersionName()
@@ -51,9 +49,13 @@ repositories {
         url 'https://maven.google.com/'
         name 'Google'
     }
+    maven {
+        url 'https://maven.channel.io/maven2'
+        name 'ChannelTalk'
+    }
 }
 
 dependencies {
     implementation 'com.facebook.react:react-native'
-    api 'io.channel:plugin-android:11.6.3'
+    api 'io.channel:plugin-android:12.0.0'
 }

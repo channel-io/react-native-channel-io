@@ -209,8 +209,8 @@ RCT_EXPORT_METHOD(openChat:(NSString *)chatId message:(id)payload) {
   [ChannelIO openChatWith:chatId message:payload];
 }
 
-RCT_EXPORT_METHOD(openSupportBot:(NSString *)supportBotId message:(NSString *)message) {
-  [ChannelIO openSupportBotWith:supportBotId message:message];
+RCT_EXPORT_METHOD(openWorkflow:(NSString *)workflowId) {
+  [ChannelIO openWorkflowWith:workflowId];
 }
 
 RCT_EXPORT_METHOD(track:(NSString *)name eventProperty:(NSDictionary *)properties) {
@@ -377,7 +377,11 @@ RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
 }
 
 RCT_EXPORT_METHOD(setPage:(NSString *)page) {
-  [ChannelIO setPage:page];
+  [ChannelIO setPage:page profile:[[NSDictionary alloc] init]];
+}
+
+RCT_EXPORT_METHOD(setPage:(NSString *)page profile:(NSDictionary<NSString *, id> *)profile) {
+  [ChannelIO setPage:page profile:profile];
 }
 
 RCT_EXPORT_METHOD(resetPage) {
@@ -394,6 +398,10 @@ RCT_EXPORT_METHOD(setAppearance:(NSString *)appearance) {
       [ChannelIO setAppearance:AppearanceDark];
     }
   }
+}
+
+RCT_EXPORT_METHOD(hidePopup) {
+  [ChannelIO hidePopup];
 }
 
 #pragma mark ChannelPluginDelegate
