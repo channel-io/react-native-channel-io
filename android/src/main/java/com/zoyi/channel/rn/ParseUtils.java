@@ -470,6 +470,10 @@ public class ParseUtils {
     HashMap<String, String> pushNotification = new HashMap<>();
     ReadableMapKeySetIterator iterator = pushNotificationMap.keySetIterator();
 
+    if (pushNotificationMap == null) {
+      return pushNotification;
+    }
+
     while (iterator.hasNextKey()) {
       String key = iterator.nextKey();
       ReadableType type = pushNotificationMap.getType(key);
