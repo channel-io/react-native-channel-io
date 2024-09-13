@@ -1,3 +1,8 @@
+# 0.9.1
+
+## Update
+* support android channel-io 12.2.0
+
 # 0.9.0
 
 ## Update
