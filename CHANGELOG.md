@@ -1,3 +1,12 @@
+# 0.9.2
+
+## Update
+* support android channel-io 12.3.0
+
+## Bug Fixes
+* Android - Fixed issue #133
+* Android - Fixed issue #129
+
 # 0.9.1
 
 ## Update
