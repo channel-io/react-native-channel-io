@@ -468,6 +468,11 @@ public class ParseUtils {
 
   public static Map<String, String> toPushNotification(ReadableMap pushNotificationMap) {
     HashMap<String, String> pushNotification = new HashMap<>();
+
+    if(pushNotificationMap == null) {
+      return pushNotification;
+    }
+
     ReadableMapKeySetIterator iterator = pushNotificationMap.keySetIterator();
 
     while (iterator.hasNextKey()) {
