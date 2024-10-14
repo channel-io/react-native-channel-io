@@ -348,4 +348,12 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   public void hidePopup() {
     ChannelIO.hidePopup();
   }
+
+  @ReactMethod
+  public void addListener(String eventName) {
+  }
+
+  @ReactMethod
+  public void removeListeners(Integer count) {
+  }
 }
