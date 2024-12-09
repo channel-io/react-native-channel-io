@@ -6,6 +6,95 @@ import {
   EmitterSubscription,
 } from 'react-native';
 
+type ChannelButtonIconType = 
+  | 'channel'
+  | 'chatBubbleFilled'
+  | 'chatProgressFilled'
+  | 'chatQuestionFilled'
+  | 'chatLightningFilled' 
+  | 'chatBubbleAltFilled'
+  | 'smsFilled'
+  | 'commentFilled'
+  | 'sendForwardFilled'
+  | 'helpFilled'
+  | 'chatProgress'
+  | 'chatQuestion'
+  | 'chatBubbleAlt'
+  | 'sms'
+  | 'comment'
+  | 'sendForward'
+  | 'communication'
+  | 'headset'
+
+interface ChannelButtonOption {
+  xMargin?: number;
+  yMargin?: number;
+  position?: 'left' | 'right';
+  icon?: ChannelButtonIconType;
+}
+
+interface BubbleOption {
+  position?: 'top' | 'bottom';
+  yMargin?: number;
+}
+
+type Appearance = 'system' | 'light' | 'dark';
+
+interface BootConfig {
+  pluginKey: string;
+  memberId?: string;
+  memberHash?: string;
+  profile?: Record<string, any>;
+  language?: string;
+  unsubscribeEmail?: boolean;
+  unsubscribeTexting?: boolean;
+  trackDefaultEvent?: boolean;
+  hidePopup?: boolean;
+  channelButtonOption?: ChannelButtonOption;
+  bubbleOption?: BubbleOption;
+  appearance?: Appearance;
+}
+
+interface BootResult {
+  status: boolean;
+  user: User;
+}
+
+interface TagsResult {
+  error: boolean;
+  user: User;
+}
+ 
+interface User {
+  id: string
+  memberId?: string
+  name?: string
+  avatarUrl?: string
+  profile?: Record<string, any>
+  alert: number
+  unread: number
+  tags?: string[]
+  language: string
+  unsubscribeEmail: boolean
+  unsubscribeTexting: boolean
+}
+
+interface PopupData {
+  chatId: string
+  avatarUrl: string
+  name: string
+  message: string
+}
+
+interface UserData {
+  language: string
+  tags?: string[]
+  profile?: Record<string, any>
+  profileOnce?: Record<string, any>
+  unsubscribeEmail: boolean
+  unsubscribeTexting: boolean
+}
+
 interface ChannelModuleType {
   Event: {
     ON_PRE_URL_CLICKED: string;
@@ -25,56 +114,26 @@ interface ChannelModuleType {
   hideChannelButton: () => void;
   showMessenger: () => void;
   hideMessenger: () => void;
-  handleUrlClicked: (url: string) => void;
-  openChat: (chatId: string, payload?: string) => void;
-  openWorkflow: (workflowId: string) => void;
+  openChat: (chatId?: string | null, payload?: string | null) => void;
+  openWorkflow: (workflowId?: string) => void;
   track: (eventName: string, properties?: Record<string, any>) => void;
-  updateUser: (userData: UserData) => Promise<any>;
-  addTags: (tags: string[]) => Promise<any>;
-  removeTags: (tags: string[]) => Promise<any>;
-  isBooted: () => Promise<boolean>;
-  setDebugMode: (enable: boolean) => void;
+  updateUser: (userData: UserData) => Promise<User>;
+  addTags: (tags: string[]) => Promise<TagsResult>;
+  removeTags: (tags: string[]) => Promise<TagsResult>;
+  setPage: (page?: string | null, profile?: Record<string, any>) => void;
+  resetPage: () => void;
+  hidePopup: () => void;
   initPushToken: (token: string) => void;
   isChannelPushNotification: (userInfo: any) => Promise<boolean>;
   receivePushNotification: (userInfo: any) => Promise<void>;
   hasStoredPushNotification: () => Promise<boolean>;
   openStoredPushNotification: () => void;
-  setPage: (page: string | null, profile?: any) => void;
-  resetPage: () => void;
-  setAppearance: (appearance: string) => void;
-  hidePopup: () => void;
+  isBooted: () => Promise<boolean>;
+  setDebugMode: (enable: boolean) => void;
+  setAppearance: (appearance: Appearance) => void;
+  handleUrlClicked: (url: string) => void;
   notifyPushNotificationClickSubscriberExistence: (exists: boolean) => void;
   performDefaultPushNotificationClickAction: (userId: string, chatId: string) => void;
-}
-
-interface BootConfig {
-  pluginKey: string;
-  memberId?: string;
-  memberHash?: string;
-  profile?: Record<string, any>;
-  language?: 'en' | 'ko' | 'jp';
-  unsubscribeEmail?: boolean;
-  unsubscribeTexting?: boolean;
-  trackDefaultEvent?: boolean;
-  hidePopup?: boolean;
-  channelButtonOption?: {
-    xMargin?: number;
-    yMargin?: number;
-    position?: 'left' | 'right';
-  };
-  appearance?: 'system' | 'light' | 'dark';
-}
-
-interface BootResult {
-  status: boolean;
-  guest?: {
-    id: string;
-    [key: string]: any;
-  };
-}
-
-interface UserData {
-  [key: string]: any;
 }
 
 type Subscriber = EmitterSubscription | null | ((data: { url: string }) => void)
@@ -201,7 +260,7 @@ export const ChannelIO = {
    * @param {String} chatId user chat id
    * @param {String} payload auto fill message
    */
-  openChat: (chatId: string, payload?: string) => {
+  openChat: (chatId?: string | null, payload?: string | null) => {
     if (typeof payload === 'string') {
       ChannelModule.openChat(chatId, payload);
     } else {
@@ -218,7 +277,7 @@ export const ChannelIO = {
    * - If you don't pass workflowId, no action is taken.
    * @param {String} workflowId The ID of workflow to start with. An error page will be shown if such workflow does not exist.
    */
-  openWorkflow: (workflowId: string) => {
+  openWorkflow: (workflowId?: string) => {
     ChannelModule.openWorkflow(workflowId);
   },
 
@@ -316,7 +375,7 @@ export const ChannelIO = {
    *     - When nil is assigned to a specific field within the profile object, only the value of that field is cleared.
    *     - The user chat profile value is applied when a user chat is created.
    */
-  setPage: (page?: string, profile?: Record<string, any>) => {
+  setPage: (page?: string | null, profile?: Record<string, any>) => {
     if (typeof page === "string") {
       ChannelModule.setPage(page, profile)
     } else if (page === null || page === undefined) {
@@ -335,7 +394,7 @@ export const ChannelIO = {
    * Sets the appearance of the SDK.
    * @param {String} appearance system | light | dark
    */
-  setAppearance: (appearance: 'system' | 'light' | 'dark') => {
+  setAppearance: (appearance: Appearance) => {
     if (typeof appearance === "string") {
       ChannelModule.setAppearance(appearance)
     } else {
@@ -385,7 +444,7 @@ export const ChannelIO = {
    * Event listener that triggers when in-app popup has been arrived
    * @param {Function} cb a callback function that takes a object popup data as parameter
    */
-  onReceivePush: (cb?: (popup: { chatId: string; message: string; name: string; avatarUrl: string; }) => void) => {
+  onReceivePush: (cb?: (popup: PopupData) => void) => {
     console.log('ChannelIO', 'ChannelIO.onReceivePush(cb) is deprecated. Please use ChannelIO.onPopupDataReceived(cb)')
     if (cb) {
       const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
@@ -400,7 +459,7 @@ export const ChannelIO = {
    * Event listener that triggers when in-app popup has been arrived
    * @param {Function} cb a callback function that takes a object popup data as parameter
    */
-  onPopupDataReceived: (cb?: (popup: { chatId: string; message: string; name: string; avatarUrl: string; }) => void) => {
+  onPopupDataReceived: (cb?: (popup: PopupData) => void) => {
     if (cb) {
       const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
         cb(data.popup);
