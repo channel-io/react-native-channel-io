@@ -122,7 +122,7 @@ export interface UserData {
   unsubscribeTexting: boolean
 }
 
-export interface RNChannelIO {
+export interface ChannelModuleType {
   Event: {
     ON_PRE_URL_CLICKED: string;
     ON_URL_CLICKED: string;
@@ -147,25 +147,72 @@ export interface RNChannelIO {
   updateUser: (userData: UserData) => Promise<UpdateUserResult>;
   addTags: (tags: string[]) => Promise<AddTagsResult>;
   removeTags: (tags: string[]) => Promise<RemoveTagsResult>;
-  setPage: (page?: string | null, profile?: Profile) => void;
-  resetPage: () => void;
-  hidePopup: () => void;
+  isBooted: () => Promise<boolean>;
+  setDebugMode: (enable: boolean) => void;
   initPushToken: (token: string) => void;
   isChannelPushNotification: (userInfo: Record<string, any>) => Promise<boolean>;
   receivePushNotification: (userInfo: Record<string, any>) => Promise<void>;
   hasStoredPushNotification: () => Promise<boolean>;
   openStoredPushNotification: () => void;
-  isBooted: () => Promise<boolean>;
-  setDebugMode: (enable: boolean) => void;
+  setPage: (page?: string | null, profile?: Profile) => void;
+  resetPage: () => void;
   setAppearance: (appearance: Appearance) => void;
+  hidePopup: () => void;
   handleUrlClicked: (url: string) => void;
   notifyPushNotificationClickSubscriberExistence: (exists: boolean) => void;
   performDefaultPushNotificationClickAction: (userId: string, chatId: string) => void;
 }
 
+export interface RNChannelIO extends Pick<ChannelModuleType, 
+  | 'boot'
+  | 'sleep'
+  | 'shutdown'
+  | 'showChannelButton'
+  | 'hideChannelButton'
+  | 'showMessenger'
+  | 'hideMessenger'
+  | 'openChat'
+  | 'openWorkflow'
+  | 'track'
+  | 'updateUser'
+  | 'addTags'
+  | 'removeTags'
+  | 'isBooted'
+  | 'setDebugMode'
+  | 'initPushToken'
+  | 'isChannelPushNotification'
+  | 'receivePushNotification'
+  | 'hasStoredPushNotification'
+  | 'openStoredPushNotification'
+  | 'setPage'
+  | 'resetPage'
+  | 'setAppearance'
+  | 'hidePopup'> {
+  show: (animated: boolean) => void;
+  hide: (animated: boolean) => void;
+  open: (animated: boolean) => void;
+  close: (animated: boolean) => void;
+  handlePushNotification: (userInfo: Record<string, any>) => Promise<void>;
+  onChangeBadge: (cb?: (unread: number, alert: number) => void) => void;
+  onBadgeChanged: (cb?: (unread: number, alert: number) => void) => void;
+  onReceivePush: (cb?: (popup: PopupData) => void) => void;
+  onPopupDataReceived: (cb?: (popup: PopupData) => void) => void;
+  onClickChatLink: (handle: boolean, cb?: (url: string) => void) => void;
+  onUrlClicked: (cb?: (url: string, next: () => void) => void) => void;
+  onChangeProfile: (cb?: () => void) => void;
+  onProfileChanged: (cb?: (data: Record<string, any>) => void) => void;
+  onFollowUpChanged: (cb?: (data: Record<string, any>) => void) => void;
+  onPushNotificationClicked: (cb?: (chatId: string, next: () => void) => void) => void;
+  willShowMessenger: (cb?: () => void) => void;
+  onShowMessenger: (cb?: () => void) => void;
+  willHideMessenger: (cb?: () => void) => void;
+  onHideMessenger: (cb?: () => void) => void;
+  onChatCreated: (cb?: (chatId: string) => void) => void;
+}
+
 type Subscriber = EmitterSubscription | null | ((data: { url: string }) => void)
 
-const ChannelModule = NativeModules.RNChannelIO as RNChannelIO;
+const ChannelModule = NativeModules.RNChannelIO as ChannelModuleType;
 const ChannelEventEmitter = Platform.select({
   ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
@@ -200,7 +247,7 @@ ChannelEventEmitter?.addListener(ChannelModule.Event.ON_PRE_URL_CLICKED, (data: 
   }
 });
 
-export const ChannelIO = {
+export const ChannelIO: RNChannelIO = {
 
   /**
    * Boot `ChannelIO`
