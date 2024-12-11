@@ -38,12 +38,7 @@ export interface BubbleOption {
   yMargin?: number;
 }
 
-export interface Profile {
-  name?: string;
-  email?: string;
-  mobileNumber?: string;
-  avatarUrl?: string;
-}
+export interface Profile extends Record<string, any> {}
 
 export type Language = 'ko' | 'ja' | 'en';
 
@@ -64,15 +59,38 @@ export interface BootConfig {
   appearance?: Appearance;
 }
 
-export interface BootResult {
-  status: boolean;
+export interface BootSuccess {
+  status: 'SUCCESS';
   user: User;
 }
 
-export interface TagsResult {
-  error: boolean;
+export interface BootError {
+  status:
+      | 'NOT_INITIALIZED'
+      | 'NETWORK_TIMEOUT'
+      | 'NOT_AVAILABLE_VERSION'
+      | 'SERVICE_UNDER_CONSTRUCTION'
+      | 'REQUIRE_PAYMENT'
+      | 'ACCESS_DENIED'
+      | 'UNKNOWN_ERROR';
+  user: undefined;
+}
+
+export type BootResult = BootSuccess | BootError
+
+export interface UpdateUserResult {
+  error: string;
   user: User;
 }
+
+interface TagsResult {
+  error: string;
+  user: User;
+}
+
+export interface AddTagsResult extends TagsResult {}
+
+export interface RemoveTagsResult extends TagsResult {}
  
 export interface User {
   id: string
@@ -84,8 +102,8 @@ export interface User {
   unread: number
   tags?: string[]
   language: Language
-  unsubscribeEmail: boolean
-  unsubscribeTexting: boolean
+  unsubscribeEmail?: boolean
+  unsubscribeTexting?: boolean
 }
 
 export interface PopupData {
@@ -126,15 +144,15 @@ export interface RNChannelIO {
   openChat: (chatId?: string | null, payload?: string | null) => void;
   openWorkflow: (workflowId?: string) => void;
   track: (eventName: string, properties?: Record<string, any>) => void;
-  updateUser: (userData: UserData) => Promise<User>;
-  addTags: (tags: string[]) => Promise<TagsResult>;
-  removeTags: (tags: string[]) => Promise<TagsResult>;
+  updateUser: (userData: UserData) => Promise<UpdateUserResult>;
+  addTags: (tags: string[]) => Promise<AddTagsResult>;
+  removeTags: (tags: string[]) => Promise<RemoveTagsResult>;
   setPage: (page?: string | null, profile?: Profile) => void;
   resetPage: () => void;
   hidePopup: () => void;
   initPushToken: (token: string) => void;
-  isChannelPushNotification: (userInfo: any) => Promise<boolean>;
-  receivePushNotification: (userInfo: any) => Promise<void>;
+  isChannelPushNotification: (userInfo: Record<string, any>) => Promise<boolean>;
+  receivePushNotification: (userInfo: Record<string, any>) => Promise<void>;
   hasStoredPushNotification: () => Promise<boolean>;
   openStoredPushNotification: () => void;
   isBooted: () => Promise<boolean>;
@@ -349,14 +367,14 @@ export const ChannelIO = {
    * @param {Object} userInfo userInfo part from push data
    * @returns {Boolean} true if the userInfo indicates `ChannelIO'`s push, otherwise false
    */
-  isChannelPushNotification: async (userInfo: any) => ChannelModule.isChannelPushNotification(userInfo),
+  isChannelPushNotification: async (userInfo: Record<string, any>) => ChannelModule.isChannelPushNotification(userInfo),
   
   /**
    * @deprecated
    * Handle `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
-  handlePushNotification: async (userInfo: any) => {
+  handlePushNotification: async (userInfo: Record<string, any>) => {
     console.log('ChannelIO', 'ChannelIO.handlePushNotification(userInfo) is deprecated. Please use ChannelIO.receivePushNotification(userInfo)')
     ChannelModule.receivePushNotification(userInfo)
   },
@@ -364,7 +382,7 @@ export const ChannelIO = {
    * Receive `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
-  receivePushNotification: async (userInfo: any) => ChannelModule.receivePushNotification(userInfo),
+  receivePushNotification: async (userInfo: Record<string, any>) => ChannelModule.receivePushNotification(userInfo),
 
   /**
    * Check whether a push data has stored
