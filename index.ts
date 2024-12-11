@@ -38,14 +38,23 @@ export interface BubbleOption {
   yMargin?: number;
 }
 
+export interface Profile {
+  name?: string;
+  email?: string;
+  mobileNumber?: string;
+  avatarUrl?: string;
+}
+
+export type Language = 'ko' | 'ja' | 'en';
+
 export type Appearance = 'system' | 'light' | 'dark';
 
 export interface BootConfig {
   pluginKey: string;
   memberId?: string;
   memberHash?: string;
-  profile?: Record<string, any>;
-  language?: string;
+  profile?: Profile;
+  language?: Language;
   unsubscribeEmail?: boolean;
   unsubscribeTexting?: boolean;
   trackDefaultEvent?: boolean;
@@ -70,11 +79,11 @@ export interface User {
   memberId?: string
   name?: string
   avatarUrl?: string
-  profile?: Record<string, any>
+  profile?: Profile
   alert: number
   unread: number
   tags?: string[]
-  language: string
+  language: Language
   unsubscribeEmail: boolean
   unsubscribeTexting: boolean
 }
@@ -87,9 +96,9 @@ export interface PopupData {
 }
 
 export interface UserData {
-  language: string
+  language: Language
   tags?: string[]
-  profile?: Record<string, any>
+  profile?: Profile
   profileOnce?: Record<string, any>
   unsubscribeEmail: boolean
   unsubscribeTexting: boolean
@@ -120,7 +129,7 @@ export interface RNChannelIO {
   updateUser: (userData: UserData) => Promise<User>;
   addTags: (tags: string[]) => Promise<TagsResult>;
   removeTags: (tags: string[]) => Promise<TagsResult>;
-  setPage: (page?: string | null, profile?: Record<string, any>) => void;
+  setPage: (page?: string | null, profile?: Profile) => void;
   resetPage: () => void;
   hidePopup: () => void;
   initPushToken: (token: string) => void;
@@ -375,7 +384,7 @@ export const ChannelIO = {
    *     - When nil is assigned to a specific field within the profile object, only the value of that field is cleared.
    *     - The user chat profile value is applied when a user chat is created.
    */
-  setPage: (page?: string | null, profile?: Record<string, any>) => {
+  setPage: (page?: string | null, profile?: Profile) => {
     if (typeof page === "string") {
       ChannelModule.setPage(page, profile)
     } else if (page === null || page === undefined) {
