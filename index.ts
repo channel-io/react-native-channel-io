@@ -6,7 +6,7 @@ import {
   EmitterSubscription,
 } from 'react-native';
 
-type ChannelButtonIconType = 
+export type ChannelButtonIconType = 
   | 'channel'
   | 'chatBubbleFilled'
   | 'chatProgressFilled'
@@ -44,54 +44,6 @@ export type Language = 'ko' | 'ja' | 'en';
 
 export type Appearance = 'system' | 'light' | 'dark';
 
-export interface BootConfig {
-  pluginKey: string;
-  memberId?: string;
-  memberHash?: string;
-  profile?: Profile;
-  language?: Language;
-  unsubscribeEmail?: boolean;
-  unsubscribeTexting?: boolean;
-  trackDefaultEvent?: boolean;
-  hidePopup?: boolean;
-  channelButtonOption?: ChannelButtonOption;
-  bubbleOption?: BubbleOption;
-  appearance?: Appearance;
-}
-
-export interface BootSuccess {
-  status: 'SUCCESS';
-  user: User;
-}
-
-export interface BootError {
-  status:
-      | 'NOT_INITIALIZED'
-      | 'NETWORK_TIMEOUT'
-      | 'NOT_AVAILABLE_VERSION'
-      | 'SERVICE_UNDER_CONSTRUCTION'
-      | 'REQUIRE_PAYMENT'
-      | 'ACCESS_DENIED'
-      | 'UNKNOWN_ERROR';
-  user: undefined;
-}
-
-export type BootResult = BootSuccess | BootError
-
-export interface UpdateUserResult {
-  error: string;
-  user: User;
-}
-
-interface TagsResult {
-  error: string;
-  user: User;
-}
-
-export interface AddTagsResult extends TagsResult {}
-
-export interface RemoveTagsResult extends TagsResult {}
- 
 export interface User {
   id: string
   memberId?: string
@@ -122,7 +74,55 @@ export interface UserData {
   unsubscribeTexting: boolean
 }
 
-export interface ChannelModuleType {
+export interface BootConfig {
+  pluginKey: string;
+  memberId?: string;
+  memberHash?: string;
+  profile?: Profile;
+  language?: Language;
+  unsubscribeEmail?: boolean;
+  unsubscribeTexting?: boolean;
+  trackDefaultEvent?: boolean;
+  hidePopup?: boolean;
+  channelButtonOption?: ChannelButtonOption;
+  bubbleOption?: BubbleOption;
+  appearance?: Appearance;
+}
+
+interface BootSuccess {
+  status: 'SUCCESS';
+  user: User;
+}
+
+interface BootError {
+  status:
+      | 'NOT_INITIALIZED'
+      | 'NETWORK_TIMEOUT'
+      | 'NOT_AVAILABLE_VERSION'
+      | 'SERVICE_UNDER_CONSTRUCTION'
+      | 'REQUIRE_PAYMENT'
+      | 'ACCESS_DENIED'
+      | 'UNKNOWN_ERROR';
+  user: undefined;
+}
+
+type BootResult = BootSuccess | BootError
+
+interface UpdateUserResult {
+  error: string;
+  user: User;
+}
+
+interface TagsResult {
+  error: string;
+  user: User;
+}
+
+interface AddTagsResult extends TagsResult {}
+
+interface RemoveTagsResult extends TagsResult {}
+
+interface ChannelModuleType {
   Event: {
     ON_PRE_URL_CLICKED: string;
     ON_URL_CLICKED: string;
@@ -163,7 +163,7 @@ export interface ChannelModuleType {
   performDefaultPushNotificationClickAction: (userId: string, chatId: string) => void;
 }
 
-export interface RNChannelIO extends Pick<ChannelModuleType, 
+interface RNChannelIO extends Pick<ChannelModuleType, 
   | 'boot'
   | 'sleep'
   | 'shutdown'
