@@ -222,14 +222,12 @@ const subscribers: {
   [key: string]: Subscriber;
 } = {}
 
-const replaceSubscriber = (type: string, newSubscriber?: Subscriber) => {
+const replaceSubscriber = (type: string, newSubscriber: Subscriber) => {
   const oldSubscriber = subscribers[type];
   if (oldSubscriber && 'remove' in oldSubscriber && typeof oldSubscriber.remove === 'function') {
     oldSubscriber.remove();
   }
-  if (newSubscriber) {
-    subscribers[type] = newSubscriber;
-  }
+  subscribers[type] = newSubscriber;
 }
 
 const hasSubscriber = (type: string) => {
