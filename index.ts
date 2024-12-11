@@ -26,21 +26,21 @@ type ChannelButtonIconType =
   | 'communication'
   | 'headset'
 
-interface ChannelButtonOption {
+export interface ChannelButtonOption {
   xMargin?: number;
   yMargin?: number;
   position?: 'left' | 'right';
   icon?: ChannelButtonIconType;
 }
 
-interface BubbleOption {
+export interface BubbleOption {
   position?: 'top' | 'bottom';
   yMargin?: number;
 }
 
-type Appearance = 'system' | 'light' | 'dark';
+export type Appearance = 'system' | 'light' | 'dark';
 
-interface BootConfig {
+export interface BootConfig {
   pluginKey: string;
   memberId?: string;
   memberHash?: string;
@@ -55,17 +55,17 @@ interface BootConfig {
   appearance?: Appearance;
 }
 
-interface BootResult {
+export interface BootResult {
   status: boolean;
   user: User;
 }
 
-interface TagsResult {
+export interface TagsResult {
   error: boolean;
   user: User;
 }
  
-interface User {
+export interface User {
   id: string
   memberId?: string
   name?: string
@@ -79,14 +79,14 @@ interface User {
   unsubscribeTexting: boolean
 }
 
-interface PopupData {
+export interface PopupData {
   chatId: string
   avatarUrl: string
   name: string
   message: string
 }
 
-interface UserData {
+export interface UserData {
   language: string
   tags?: string[]
   profile?: Record<string, any>
@@ -95,7 +95,7 @@ interface UserData {
   unsubscribeTexting: boolean
 }
 
-interface ChannelModuleType {
+export interface RNChannelIO {
   Event: {
     ON_PRE_URL_CLICKED: string;
     ON_URL_CLICKED: string;
@@ -138,7 +138,7 @@ interface ChannelModuleType {
 
 type Subscriber = EmitterSubscription | null | ((data: { url: string }) => void)
 
-const ChannelModule = NativeModules.RNChannelIO as ChannelModuleType;
+const ChannelModule = NativeModules.RNChannelIO as RNChannelIO;
 const ChannelEventEmitter = Platform.select({
   ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
