@@ -1,3 +1,10 @@
+# 0.10.0
+
+## Update
+* Migrated to TypeScript
+* support android channel-io 12.5.2
+* support iOS channel-io 12.4.1
+
 # 0.9.3
 
 ## Update

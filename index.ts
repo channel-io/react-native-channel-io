@@ -66,12 +66,12 @@ export interface PopupData {
 }
 
 export interface UserData {
-  language: Language
+  language?: Language
   tags?: string[]
   profile?: Profile
   profileOnce?: Record<string, any>
-  unsubscribeEmail: boolean
-  unsubscribeTexting: boolean
+  unsubscribeEmail?: boolean
+  unsubscribeTexting?: boolean
 }
 
 export interface BootConfig {

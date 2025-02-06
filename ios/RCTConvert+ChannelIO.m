@@ -11,106 +11,106 @@
 @implementation RCTConvert (ChannelIOEnums)
 
 RCT_ENUM_CONVERTER(
-  LanguageOption,
-  (@{LANGUAGE_OPTION_KO: @(LanguageOptionKorean),
-    LANGUAGE_OPTION_EN: @(LanguageOptionEnglish),
-    LANGUAGE_OPTION_JA: @(LanguageOptionJapanese),
-    LANGUAGE_OPTION_DEVICE: @(LanguageOptionDevice)
-  }),
-  LanguageOptionDevice,
-  integerValue
-)
+                   CHTLanguageOption,
+                   (@{LANGUAGE_OPTION_KO: @(CHTLanguageOptionKorean),
+                      LANGUAGE_OPTION_EN: @(CHTLanguageOptionEnglish),
+                      LANGUAGE_OPTION_JA: @(CHTLanguageOptionJapanese),
+                      LANGUAGE_OPTION_DEVICE: @(CHTLanguageOptionDevice)
+                    }),
+                   CHTLanguageOptionDevice,
+                   integerValue
+                   )
 
 RCT_ENUM_CONVERTER(
-  BootStatus,
-  (@{BOOT_STATUS_SUCCESS: @(BootStatusSuccess),
-    BOOT_STATUS_NOT_INITIALIZED: @(BootStatusNotInitialized),
-    BOOT_STATUS_NETWORK_TIMEOUT: @(BootStatusNetworkTimeout),
-    BOOT_STATUS_NOT_AVAILABLE_VERSION: @(BootStatusNotAvailableVersion),
-    BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(BootStatusServiceUnderConstruction),
-    BOOT_STATUS_REQUIRE_PAYMENT: @(BootStatusRequirePayment),
-    BOOT_STATUS_ACCESS_DENIED: @(BootStatusAccessDenied),
-    BOOT_STATUS_UNKNOWN_ERROR: @(BootStatusUnknown)
-  }),
-  BootStatusNotInitialized,
-  integerValue
-)
+                   CHTBootStatus,
+                   (@{BOOT_STATUS_SUCCESS: @(CHTBootStatusSuccess),
+                      BOOT_STATUS_NOT_INITIALIZED: @(CHTBootStatusNotInitialized),
+                      BOOT_STATUS_NETWORK_TIMEOUT: @(CHTBootStatusNetworkTimeout),
+                      BOOT_STATUS_NOT_AVAILABLE_VERSION: @(CHTBootStatusNotAvailableVersion),
+                      BOOT_STATUS_SERVICE_UNDER_CONSTRUCTION: @(CHTBootStatusServiceUnderConstruction),
+                      BOOT_STATUS_REQUIRE_PAYMENT: @(CHTBootStatusRequirePayment),
+                      BOOT_STATUS_ACCESS_DENIED: @(CHTBootStatusAccessDenied),
+                      BOOT_STATUS_UNKNOWN_ERROR: @(CHTBootStatusUnknown)
+                    }),
+                   CHTBootStatusNotInitialized,
+                   integerValue
+                   )
 
 RCT_ENUM_CONVERTER(
-  ChannelButtonIcon,
-  (@{CHANNEL_BUTTON_OPTION_ICON_CHANNEL: @(ChannelButtonIconChannel),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED: @(ChannelButtonIconChatBubbleFilled),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED: @(ChannelButtonIconChatProgressFilled),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED: @(ChannelButtonIconChatQuestionFilled),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED: @(ChannelButtonIconChatLightningFilled),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED: @(ChannelButtonIconChatBubbleAltFilled),
-    CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED: @(ChannelButtonIconSmsFilled),
-    CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED: @(ChannelButtonIconCommentFilled),
-    CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED: @(ChannelButtonIconSendForwardFilled),
-    CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED: @(ChannelButtonIconHelpFilled),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS: @(ChannelButtonIconChatProgress),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION: @(ChannelButtonIconChatQuestion),
-    CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT: @(ChannelButtonIconChatBubbleAlt),
-    CHANNEL_BUTTON_OPTION_ICON_SMS: @(ChannelButtonIconSms),
-    CHANNEL_BUTTON_OPTION_ICON_COMMENT: @(ChannelButtonIconComment),
-    CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD: @(ChannelButtonIconSendForward),
-    CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION: @(ChannelButtonIconCommunication),
-    CHANNEL_BUTTON_OPTION_ICON_HEADSET: @(ChannelButtonIconHeadset)
-  }),
-  ChannelButtonIconChannel,
-  integerValue
-)
+                   CHTChannelButtonIcon,
+                   (@{CHANNEL_BUTTON_OPTION_ICON_CHANNEL: @(CHTChannelButtonIconChannel),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED: @(CHTChannelButtonIconChatBubbleFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS_FILLED: @(CHTChannelButtonIconChatProgressFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED: @(CHTChannelButtonIconChatQuestionFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED: @(CHTChannelButtonIconChatLightningFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED: @(CHTChannelButtonIconChatBubbleAltFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED: @(CHTChannelButtonIconSmsFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED: @(CHTChannelButtonIconCommentFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED: @(CHTChannelButtonIconSendForwardFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED: @(CHTChannelButtonIconHelpFilled),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS: @(CHTChannelButtonIconChatProgress),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION: @(CHTChannelButtonIconChatQuestion),
+                      CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT: @(CHTChannelButtonIconChatBubbleAlt),
+                      CHANNEL_BUTTON_OPTION_ICON_SMS: @(CHTChannelButtonIconSms),
+                      CHANNEL_BUTTON_OPTION_ICON_COMMENT: @(CHTChannelButtonIconComment),
+                      CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD: @(CHTChannelButtonIconSendForward),
+                      CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION: @(CHTChannelButtonIconCommunication),
+                      CHANNEL_BUTTON_OPTION_ICON_HEADSET: @(CHTChannelButtonIconHeadset)
+                    }),
+                   CHTChannelButtonIconChannel,
+                   integerValue
+                   )
 
 RCT_ENUM_CONVERTER(
-  ChannelButtonPosition,
-  (@{CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(ChannelButtonPositionRight),
-    CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(ChannelButtonPositionLeft)
-  }),
-  ChannelButtonPositionRight,
-  integerValue
-)
+                   CHTChannelButtonPosition,
+                   (@{CHANNEL_BUTTON_OPTION_POSITION_RIGHT: @(CHTChannelButtonPositionRight),
+                      CHANNEL_BUTTON_OPTION_POSITION_LEFT: @(CHTChannelButtonPositionLeft)
+                    }),
+                   CHTChannelButtonPositionRight,
+                   integerValue
+                   )
 
 RCT_ENUM_CONVERTER(
-  BubblePosition,
-  (@{BUBBLE_OPTION_POSITION_TOP: @(BubblePositionTop),
-     BUBBLE_OPTION_POSITION_BOTTOM: @(BubblePositionBottom)
-  }),
-  BubblePositionTop,
-  integerValue
-)
+                   CHTBubblePosition,
+                   (@{BUBBLE_OPTION_POSITION_TOP: @(CHTBubblePositionTop),
+                      BUBBLE_OPTION_POSITION_BOTTOM: @(CHTBubblePositionBottom)
+                    }),
+                   CHTBubblePositionTop,
+                   integerValue
+                   )
 
 RCT_ENUM_CONVERTER(
-  Appearance,
-  (@{APPEARANCE_SYSTEM: @(AppearanceSystem),
-     APPEARANCE_DARK: @(AppearanceDark),
-     APPEARANCE_LIGHT: @(AppearanceLight)
-  }),
-  AppearanceSystem,
-  integerValue
-)
+                   CHTAppearance,
+                   (@{APPEARANCE_SYSTEM: @(CHTAppearanceSystem),
+                      APPEARANCE_DARK: @(CHTAppearanceDark),
+                      APPEARANCE_LIGHT: @(CHTAppearanceLight)
+                    }),
+                   CHTAppearanceSystem,
+                   integerValue
+                   )
 
 @end
 
 @implementation RCTConvert (ChannelIO)
 
-+ (BootConfig *)bootConfig:(id)json {
-  BootConfig *config = [[BootConfig alloc] init];
++ (CHTBootConfig *)bootConfig:(id)json {
+  CHTBootConfig *config = [[CHTBootConfig alloc] init];
   config.pluginKey = [RCTConvert NSString:json[KEY_PLUGIN_KEY]];
   config.memberHash = [RCTConvert NSString:json[KEY_MEMBER_HASH]];
   config.hidePopup = json[KEY_HIDE_POPUP] != nil
-    ? [RCTConvert BOOL:json[KEY_HIDE_POPUP]] : [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]];
+  ? [RCTConvert BOOL:json[KEY_HIDE_POPUP]] : [RCTConvert BOOL:json[KEY_HIDE_DEFAULT_IN_APP_PUSH]];
   config.trackDefaultEvent = json[KEY_TRACK_DEFAULT_EVENT] != nil
-    ? [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]] : [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]];
+  ? [RCTConvert BOOL:json[KEY_TRACK_DEFAULT_EVENT]] : [RCTConvert BOOL:json[KEY_ENABLED_TRACK_DEFAULT_EVENT]];
   config.bubbleOption = [RCTConvert bubbleOption:json[KEY_BUBBLE_OPTION]];
-
+  
   if (json[KEY_UNSUBSCRIBE_EMAIL] != nil) {
     [config setWithUnsubscribeEmail: [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_EMAIL]]];
   }
-
+  
   if (json[KEY_UNSUBSCRIBE_TEXTING] != nil) {
     [config setWithUnsubscribeTexting: [RCTConvert BOOL:json[KEY_UNSUBSCRIBE_TEXTING]]];
   }
-
+  
   if (json[KEY_CHANNEL_BUTTON_OPTION] != nil) {
     config.channelButtonOption = [RCTConvert channelButtonOption:json[KEY_CHANNEL_BUTTON_OPTION]];
   } else if (json[KEY_LAUNCHER_CONFIG] != nil) {
@@ -127,23 +127,23 @@ RCT_ENUM_CONVERTER(
   NSString *locale = [RCTConvert NSString:json[KEY_LOCALE]];
   if (json[KEY_LOCALE] != nil) {
     if ([locale isEqualToString:LANGUAGE_OPTION_KO]) {
-      config.language = LanguageOptionKorean;
+      config.language = CHTLanguageOptionKorean;
     } else if ([locale isEqualToString:LANGUAGE_OPTION_JA]) {
-      config.language = LanguageOptionJapanese;
+      config.language = CHTLanguageOptionJapanese;
     } else if ([locale isEqualToString:LANGUAGE_OPTION_EN]) {
-      config.language = LanguageOptionEnglish;
+      config.language = CHTLanguageOptionEnglish;
     } else {
-      config.language = LanguageOptionDevice;
+      config.language = CHTLanguageOptionDevice;
     }
   } else {
     if ([language isEqualToString:LANGUAGE_OPTION_KO]) {
-      config.language = LanguageOptionKorean;
+      config.language = CHTLanguageOptionKorean;
     } else if ([language isEqualToString:LANGUAGE_OPTION_JA]) {
-      config.language = LanguageOptionJapanese;
+      config.language = CHTLanguageOptionJapanese;
     } else if ([language isEqualToString:LANGUAGE_OPTION_EN]) {
-      config.language = LanguageOptionEnglish;
+      config.language = CHTLanguageOptionEnglish;
     } else {
-      config.language = LanguageOptionDevice;
+      config.language = CHTLanguageOptionDevice;
     }
   }
   
@@ -154,23 +154,23 @@ RCT_ENUM_CONVERTER(
   NSString *appearance = [RCTConvert NSString:json[KEY_APPEARANCE]];
   if (json[KEY_APPEARANCE] != nil) {
     if ([appearance isEqualToString:APPEARANCE_SYSTEM]) {
-      [config setWithAppearance:AppearanceSystem];
+      [config setWithAppearance:CHTAppearanceSystem];
     } else if ([appearance isEqualToString:APPEARANCE_LIGHT]) {
-      [config setWithAppearance:AppearanceLight];
+      [config setWithAppearance:CHTAppearanceLight];
     } else if ([appearance isEqualToString:APPEARANCE_DARK]) {
-      [config setWithAppearance:AppearanceDark];
+      [config setWithAppearance:CHTAppearanceDark];
     }
   }
   
   return config;
 }
 
-+ (Profile *)profile:(NSDictionary *)json {
++ (CHTProfile *)profile:(NSDictionary *)json {
   if (json == nil) {
     return nil;
   }
   
-  Profile *profile = [[Profile alloc] init];
+  CHTProfile *profile = [[CHTProfile alloc] init];
   [json enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, id obj, BOOL * _Nonnull stop) {
     [profile setWithPropertyKey:key value:obj];
   }];
@@ -178,75 +178,75 @@ RCT_ENUM_CONVERTER(
   return profile;
 }
 
-+ (ChannelButtonOption *)channelButtonOption:(id)json {
++ (CHTChannelButtonOption *)channelButtonOption:(id)json {
   if (json == nil) {
     return nil;
   }
   
-  ChannelButtonOption *option = [[ChannelButtonOption alloc] init];
+  CHTChannelButtonOption *option = [[CHTChannelButtonOption alloc] init];
   
   option.xMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_X_MARGIN]];
   option.yMargin = [RCTConvert float:json[CHANNEL_BUTTON_OPTION_Y_MARGIN]];
-
+  
   NSString *icon = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_ICON]];
   if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_FILLED]) {
-    option.icon = ChannelButtonIconChatBubbleFilled;
+    option.icon = CHTChannelButtonIconChatBubbleFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION_FILLED]) {
-    option.icon = ChannelButtonIconChatQuestionFilled;
+    option.icon = CHTChannelButtonIconChatQuestionFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_LIGHTNING_FILLED]) {
-    option.icon = ChannelButtonIconChatLightningFilled;
+    option.icon = CHTChannelButtonIconChatLightningFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT_FILLED]) {
-    option.icon = ChannelButtonIconChatBubbleAltFilled;
+    option.icon = CHTChannelButtonIconChatBubbleAltFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SMS_FILLED]) {
-    option.icon = ChannelButtonIconSmsFilled;
+    option.icon = CHTChannelButtonIconSmsFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMENT_FILLED]) {
-    option.icon = ChannelButtonIconCommentFilled;
+    option.icon = CHTChannelButtonIconCommentFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD_FILLED]) {
-    option.icon = ChannelButtonIconSendForwardFilled;
+    option.icon = CHTChannelButtonIconSendForwardFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_HELP_FILLED]) {
-    option.icon = ChannelButtonIconHelpFilled;
+    option.icon = CHTChannelButtonIconHelpFilled;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_PROGRESS]) {
-    option.icon = ChannelButtonIconChatProgress;
+    option.icon = CHTChannelButtonIconChatProgress;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_QUESTION]) {
-    option.icon = ChannelButtonIconChatQuestion;
+    option.icon = CHTChannelButtonIconChatQuestion;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_CHAT_BUBBLE_ALT]) {
-    option.icon = ChannelButtonIconChatBubbleAlt;
+    option.icon = CHTChannelButtonIconChatBubbleAlt;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SMS]) {
-    option.icon = ChannelButtonIconSms;
+    option.icon = CHTChannelButtonIconSms;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMENT]) {
-    option.icon = ChannelButtonIconComment;
+    option.icon = CHTChannelButtonIconComment;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_SEND_FORWARD]) {
-    option.icon = ChannelButtonIconSendForward;
+    option.icon = CHTChannelButtonIconSendForward;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_COMMUNICATION]) {
-    option.icon = ChannelButtonIconCommunication;
+    option.icon = CHTChannelButtonIconCommunication;
   } else if ([icon isEqualToString:CHANNEL_BUTTON_OPTION_ICON_HEADSET]) {
-    option.icon = ChannelButtonIconHeadset;
+    option.icon = CHTChannelButtonIconHeadset;
   } else {
-    option.icon = ChannelButtonIconChannel;
+    option.icon = CHTChannelButtonIconChannel;
   }
   
   NSString *position = [RCTConvert NSString:json[CHANNEL_BUTTON_OPTION_POSITION]];
   if ([position isEqualToString:CHANNEL_BUTTON_OPTION_POSITION_LEFT]) {
-    option.position = ChannelButtonPositionLeft;
+    option.position = CHTChannelButtonPositionLeft;
   } else {
-    option.position = ChannelButtonPositionRight;
+    option.position = CHTChannelButtonPositionRight;
   }
   return option;
 }
 
-+ (BubbleOption *)bubbleOption:(id)json {
++ (CHTBubbleOption *)bubbleOption:(id)json {
   if (json == nil) {
     return nil;
   }
   
-  BubbleOption *option = [[BubbleOption alloc] init];
+  CHTBubbleOption *option = [[CHTBubbleOption alloc] init];
   
   option.yMargin = [RCTConvert NSNumber:json[BUBBLE_OPTION_Y_MARGIN]];
   NSString *position = [RCTConvert NSString:json[BUBBLE_OPTION_POSITION]];
   if ([position isEqualToString:BUBBLE_OPTION_POSITION_TOP]) {
-    option.position = BubblePositionTop;
+    option.position = CHTBubblePositionTop;
   } else {
-    option.position = BubblePositionBottom;
+    option.position = CHTBubblePositionBottom;
   }
   return option;
 }
