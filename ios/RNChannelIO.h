@@ -13,7 +13,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface RNChannelIO : RCTEventEmitter <RCTBridgeModule, ChannelPluginDelegate>
+@interface RNChannelIO : RCTEventEmitter <RCTBridgeModule, CHTChannelPluginDelegate>
 @end
 
 // event key

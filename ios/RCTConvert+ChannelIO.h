@@ -13,9 +13,9 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface RCTConvert (ChannelIO)
-+ (BootConfig *)bootConfig:(id)json;
-+ (Profile *)profile:(id)json;
-+ (ChannelButtonOption *)channelButtonOption:(id)json;
++ (CHTBootConfig *)bootConfig:(id)json;
++ (CHTProfile *)profile:(id)json;
++ (CHTChannelButtonOption *)channelButtonOption:(id)json;
 @end
 
 // LanguageOption
