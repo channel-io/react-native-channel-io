@@ -16,4 +16,5 @@ Pod::Spec.new do |s|
   
   s.dependency "React"
   s.dependency "ChannelIOSDK", '12.7.0'
+
 end
