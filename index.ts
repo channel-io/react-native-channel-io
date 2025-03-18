@@ -188,24 +188,12 @@ interface RNChannelIO extends Pick<ChannelModuleType,
   | 'resetPage'
   | 'setAppearance'
   | 'hidePopup'> {
-  show: (animated: boolean) => void;
-  hide: (animated: boolean) => void;
-  open: (animated: boolean) => void;
-  close: (animated: boolean) => void;
-  handlePushNotification: (userInfo: Record<string, any>) => Promise<void>;
-  onChangeBadge: (cb?: (unread: number, alert: number) => void) => void;
   onBadgeChanged: (cb?: (unread: number, alert: number) => void) => void;
-  onReceivePush: (cb?: (popup: PopupData) => void) => void;
   onPopupDataReceived: (cb?: (popup: PopupData) => void) => void;
-  onClickChatLink: (handle: boolean, cb?: (url: string) => void) => void;
   onUrlClicked: (cb?: (url: string, next: () => void) => void) => void;
-  onChangeProfile: (cb?: () => void) => void;
-  onProfileChanged: (cb?: (data: Record<string, any>) => void) => void;
   onFollowUpChanged: (cb?: (data: Record<string, any>) => void) => void;
   onPushNotificationClicked: (cb?: (chatId: string, next: () => void) => void) => void;
-  willShowMessenger: (cb?: () => void) => void;
   onShowMessenger: (cb?: () => void) => void;
-  willHideMessenger: (cb?: () => void) => void;
   onHideMessenger: (cb?: () => void) => void;
   onChatCreated: (cb?: (chatId: string) => void) => void;
 }
@@ -276,56 +264,20 @@ export const ChannelIO: RNChannelIO = {
   },
 
   /**
-   * @deprecated
-   * Show `ChannelIO` button
-   * @param {Boolean} aniamted Animate the launcher if true
-   */
-  show: (animated: boolean) => {
-    console.log('ChannelIO', 'ChannelIO.show(animated) is deprecated. Please use ChannelIO.showChannelButton()')
-    ChannelModule.showChannelButton()
-  },
-  /**
    * Show `ChannelIO` button
    */
   showChannelButton: () => ChannelModule.showChannelButton(),
 
-  /**
-   * @deprecated
-   * Hide `ChannelIO` button
-   * @param {Boolean} aniamted Animate the launcher if true
-   */
-  hide: (animated: boolean) => {
-    console.log('ChannelIO', 'ChannelIO.hide(animated) is deprecated. Please use ChannelIO.hideChannelButton()')
-    ChannelModule.hideChannelButton()
-  },
   /**
    * Hide `ChannelIO` button
    */
   hideChannelButton: () => ChannelModule.hideChannelButton(),
 
   /**
-   * @deprecated
-   * Open `ChannelIO` messenger
-   * @param {Boolean} aniamted Animate messenger if true
-   */
-  open: (animated: boolean) => {
-    console.log('ChannelIO', 'ChannelIO.open(animated) is deprecated. Please use ChannelIO.showMessenger()')
-    ChannelModule.showMessenger()
-  },
-  /**
    * Show `ChannelIO` messenger
    */
   showMessenger: () => ChannelModule.showMessenger(),
 
-  /**
-   * @deprecated
-   * Close `ChannelIO` messenger
-   * @param {Boolean} Animate messenger if true
-   */
-  close: (animated: boolean) => {
-    console.log('ChannelIO', 'ChannelIO.close(animated) is deprecated. Please use ChannelIO.hideMessenger()')
-    ChannelModule.hideMessenger()
-  },
   /**
    * Hide `ChannelIO` messenger
    */
@@ -419,15 +371,6 @@ export const ChannelIO: RNChannelIO = {
   isChannelPushNotification: async (userInfo: Record<string, any>) => ChannelModule.isChannelPushNotification(userInfo),
   
   /**
-   * @deprecated
-   * Handle `ChannelIO` push notification
-   * @param {Object} userInfo userInfo part from push data
-   */
-  handlePushNotification: async (userInfo: Record<string, any>) => {
-    console.log('ChannelIO', 'ChannelIO.handlePushNotification(userInfo) is deprecated. Please use ChannelIO.receivePushNotification(userInfo)')
-    ChannelModule.receivePushNotification(userInfo)
-  },
-  /**
    * Receive `ChannelIO` push notification
    * @param {Object} userInfo userInfo part from push data
    */
@@ -484,23 +427,6 @@ export const ChannelIO: RNChannelIO = {
   hidePopup: () => ChannelModule.hidePopup(),
 
   /**
-   * @deprecated
-   * Event listener that triggers when badge count has been changed
-   * @param {Function} cb a callback function that takes a integer badge count as parameter
-   */
-  onChangeBadge: (cb?: (unread: number, alert: number) => void) => {
-    console.log('ChannelIO', 'ChannelIO.onChangeBadge(cb) is deprecated. Please use ChannelIO.onBadgeChanged(cb)')
-    if (cb) {
-      const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_BADGE_CHANGED, (data) => {
-        cb(data.unread, data.alert);
-      });
-      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, subscription);
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_BADGE_CHANGED, null);
-    }
-    
-  },
-  /**
    * Event listener that triggers when badge count has been changed
    * @param {Function} cb a callback function that takes a integer badge count as parameter
    */
@@ -515,22 +441,6 @@ export const ChannelIO: RNChannelIO = {
     }
   },
 
-  /**
-   * @deprecated
-   * Event listener that triggers when in-app popup has been arrived
-   * @param {Function} cb a callback function that takes a object popup data as parameter
-   */
-  onReceivePush: (cb?: (popup: PopupData) => void) => {
-    console.log('ChannelIO', 'ChannelIO.onReceivePush(cb) is deprecated. Please use ChannelIO.onPopupDataReceived(cb)')
-    if (cb) {
-      const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, (data) => {
-        cb(data.popup);
-      });
-      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, subscription);
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_POPUP_DATA_RECEIVED, null);
-    }
-  },
   /**
    * Event listener that triggers when in-app popup has been arrived
    * @param {Function} cb a callback function that takes a object popup data as parameter
@@ -547,25 +457,6 @@ export const ChannelIO: RNChannelIO = {
   },
 
   /**
-   * @deprecated
-   * Event listener that triggers when a link has been clicked by a user
-   * @param {Boolean} handle True if you want to handle a link, otherwise false
-   * @param {Function} cb a callback function that takes a string url as parameter
-   */
-  onClickChatLink: (handle: boolean, cb?: (url: string) => void) => {
-    console.log('ChannelIO', 'ChannelIO.onClickChatLink(handle, cb) is deprecated. Please use ChannelIO.onUrlClicked(cb)')
-    if (cb) {
-      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, (data) => {
-        if (!handle) {
-          ChannelModule.handleUrlClicked(data.url);
-        }
-        cb(data.url);
-      });
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, null);
-    }
-  },
-  /**
    * Event listener that triggers when a url has been clicked by a user
    * @param {Function} cb a callback function that takes a string url as parameter
    */
@@ -580,23 +471,7 @@ export const ChannelIO: RNChannelIO = {
     } else {
       replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, null);
     }
-  },
-
-  /**
-   * @deprecated
-   * 'onChangeProfile' is deprecated. Please use 'onFollowUpChanged'.
-   */
-  onChangeProfile: (cb?: () => void) => {
-    console.warn("'onChangeProfile' is deprecated. Please use 'onFollowUpChanged'.")
-  },  
-
-  /**
-   * @deprecated
-   * 'onProfileChanged' is deprecated. Please use 'onFollowUpChanged'.
-   */
-  onProfileChanged: (cb?: (data: Record<string, any>) => void) => {
-    console.warn("'onProfileChanged' is deprecated. Please use 'onFollowUpChanged'.")
-  },
+  }, 
 
   /**
    * Event listener that triggers when guest profile is updated
@@ -639,20 +514,6 @@ export const ChannelIO: RNChannelIO = {
   },
 
   /**
-   * @deprecated
-   * Event listener that triggers when `ChannelIO` messenger is about to display
-   * @param {Function} cb a callback function
-   */
-  willShowMessenger: (cb?: () => void) => {
-    console.log('ChannelIO', 'ChannelIO.willShowMessenger(cb) is deprecated. Please use ChannelIO.onShowMessenger(cb)')
-    if (cb) {
-      const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_SHOW_MESSENGER, cb);
-      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, subscription);
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_SHOW_MESSENGER, null);
-    }
-  },
-  /**
    * Event listener that triggers when `ChannelIO` messenger is about to display
    * @param {Function} cb a callback function
    */
@@ -665,20 +526,6 @@ export const ChannelIO: RNChannelIO = {
     }
   },
 
-  /**
-   * @deprecated
-   * Event listener that triggers when `ChannelIO` messenger is about to dismiss
-   * @param {Function} cb a callback function
-   */
-  willHideMessenger: (cb?: () => void) => {
-    console.log('ChannelIO', 'ChannelIO.willHideMessenger(cb) is deprecated. Please use ChannelIO.onHideMessenger(cb)')
-    if (cb) {
-      const subscription = ChannelEventEmitter?.addListener(ChannelModule.Event.ON_HIDE_MESSENGER, cb);
-      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, subscription);
-    } else {
-      replaceSubscriber(ChannelModule.Event.ON_HIDE_MESSENGER, null);
-    }
-  },
   /**
    * Event listener that triggers when `ChannelIO` messenger is about to dismiss
    * @param {Function} cb a callback function
