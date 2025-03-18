@@ -3,6 +3,8 @@
 ## Update
 * support android channel-io 12.7.0
 * support iOS channel-io 12.7.0
+* remove deprecated functions
+  * show / hide / open / close / handlePushNotification / onChangeBadge / onReceivePush / onClickChatLink / onChangeProfile / onProfileChanged / willShowMessenger / willHideMessenger
 
 # 0.11.1
 
