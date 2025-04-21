@@ -376,11 +376,11 @@ RCT_EXPORT_METHOD(handleUrlClicked:(NSURL *)url) {
   [CrossPlatformUtils openBrowserWithUrl:url];
 }
 
-RCT_EXPORT_METHOD(setPage:(NSString *)page) {
-  [ChannelIO setPage:page profile:[[NSDictionary alloc] init]];
+RCT_EXPORT_METHOD(setPageNull:(NSDictionary<NSString *, id> *)profile) {
+  [ChannelIO setPage:NULL profile:profile];
 }
 
-RCT_EXPORT_METHOD(setPage:(NSString *)page profile:(NSDictionary<NSString *, id> *)profile) {
+RCT_EXPORT_METHOD(setPage:(nullable NSString *)page profile:(NSDictionary<NSString *, id> *)profile) {
   [ChannelIO setPage:page profile:profile];
 }
 
