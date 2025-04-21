@@ -1,3 +1,12 @@
+# 0.11.3
+
+## Update
+* support android channel-io 12.7.0
+* support iOS channel-io 12.7.0
+
+## Bug Fixes
+* react-native 0.76.0 or higher: Fixes an issue where an error occurs when using setPage.
+
 # 0.11.2
 
 ## Update

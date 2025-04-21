@@ -154,6 +154,7 @@ interface ChannelModuleType {
   receivePushNotification: (userInfo: Record<string, any>) => Promise<void>;
   hasStoredPushNotification: () => Promise<boolean>;
   openStoredPushNotification: () => void;
+  setPageNull: (profile?: Profile) => void;
   setPage: (page?: string | null, profile?: Profile) => void;
   resetPage: () => void;
   setAppearance: (appearance: Appearance) => void;
@@ -390,15 +391,15 @@ export const ChannelIO: RNChannelIO = {
   /**
    * Sets the name of the screen along with user chat profile. If track is called before setPage, the event will not reflect the page information.
    * @param {String} page This is the screen name when track is called. When calling .track(), the event's page is set to null.
-   * @param {String} profile The user chat profile value.
+   * @param {Object} profile The user chat profile value.
    *     - When nil is assigned to a specific field within the profile object, only the value of that field is cleared.
    *     - The user chat profile value is applied when a user chat is created.
    */
   setPage: (page?: string | null, profile?: Profile) => {
     if (typeof page === "string") {
-      ChannelModule.setPage(page, profile)
+      ChannelModule.setPage(page, profile ?? {})
     } else if (page === null || page === undefined) {
-      ChannelModule.setPage(null, profile)
+      ChannelModule.setPageNull(profile ?? {})
     } else {
       console.error('ChannelIO', '"page" must be type of "string", null or undefined.')
     }
