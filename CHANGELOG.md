@@ -1,3 +1,9 @@
+# 0.11.7
+
+## Update
+* support android channel-io 12.11.2
+* support iOS channel-io 12.10.2
+
 # 0.11.6
 
 ## Update
