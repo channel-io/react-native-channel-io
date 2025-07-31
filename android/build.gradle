@@ -57,5 +57,5 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native'
-    api 'io.channel:plugin-android:12.11.0'
+    api 'io.channel:plugin-android:12.11.2'
 }
