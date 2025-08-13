@@ -1,3 +1,8 @@
+# 0.11.8
+
+## Update
+* support iOS channel-io 12.11.0
+
 # 0.11.7
 
 ## Update
