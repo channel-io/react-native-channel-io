@@ -1,3 +1,8 @@
+# 0.11.12
+
+## Update
+* Android - Support Gradle 8.0 and above
+
 # 0.11.11
 
 ## Update
