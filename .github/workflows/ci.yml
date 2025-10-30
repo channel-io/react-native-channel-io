@@ -1,0 +1,32 @@
+name: Continuous Integration for react-native-channel-io
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency: # only one job can be run in one PR
+  group: react-native-channel-io-${{ github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  test-n-deploy:
+    runs-on: channel-runner
+    env:
+      TZ: "Asia/Seoul"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: channel-io/ch-github-actions/setup-node@v1
+        with:
+          # nvm rc 참고
+          node-version: 24.10.0
+          package-manager: npm
+
+      - name: build and deploy
+        run: npm publish --dry-run
