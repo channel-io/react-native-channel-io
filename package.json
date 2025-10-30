@@ -15,5 +15,16 @@
   "peerDependencies": {
     "react-native": ">=0.60.0",
     "react-native-firebase": ">=5.0.0"
-  }
+  },
+  "files": [
+    "android/src",
+    "android/build.gradle",
+    "ios",
+    "RNChannelIO.podspec",
+    "index.ts",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE",
+    "package.json"
+  ]
 }
