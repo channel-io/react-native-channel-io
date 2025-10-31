@@ -28,5 +28,5 @@ jobs:
           node-version: 24.10.0
           registry-url: 'https://registry.npmjs.org'
 
-      - name: build and deploy
-        run: npm publish --dry-run
+      - name: deploy
+        run: npm publish
