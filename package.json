@@ -9,6 +9,10 @@
   "keywords": [
     "react-native", "live chat", "channelio", "customer acquisition"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/channel-io/react-native-channel-io"
+  },
   "author": "ZOYI",
   "license": "SDK",
   "homepage": "https://www.channel.io",
