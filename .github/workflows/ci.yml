@@ -1,0 +1,32 @@
+name: Continuous Integration for react-native-channel-io
+
+on:
+  release:
+    types: [created]
+
+permissions:
+  contents: read
+  id-token: write
+
+concurrency:
+  group: react-native-channel-io-${{ github.head_ref || github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      TZ: "Asia/Seoul"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup node
+        uses: actions/setup-node@v4
+        with:
+          # nvm rc 참고
+          node-version: 24.10.0
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: build and deploy
+        run: npm publish --dry-run
