@@ -1,6 +1,6 @@
 {
   "name": "react-native-channel-plugin",
-  "version": "0.12.0",
+  "version": "0.12.1",
   "description": "react native module for channel io",
   "main": "index.ts",
   "scripts": {
@@ -17,8 +17,7 @@
   "license": "SDK",
   "homepage": "https://www.channel.io",
   "peerDependencies": {
-    "react-native": ">=0.60.0",
-    "react-native-firebase": ">=5.0.0"
+    "react-native": ">=0.60.0"
   },
   "files": [
     "android/src",
