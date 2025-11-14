@@ -1,3 +1,8 @@
+# 0.12.1
+
+## Update
+* Remove unused react-native-firebase peerDependency
+
 # 0.12.0
 
 ## Update
