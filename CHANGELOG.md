@@ -1,3 +1,8 @@
+# 0.12.5
+
+## Bug Fixes
+* Android - Fixed Number data to be parsed as double for profile/track
+
 # 0.12.4
 
 ## Update
