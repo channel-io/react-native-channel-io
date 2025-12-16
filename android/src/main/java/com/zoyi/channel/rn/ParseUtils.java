@@ -117,14 +117,7 @@ public class ParseUtils {
           break;
 
         case Number:
-          try {
-            int number = readableMap.getInt(key);
-            hashMap.put(key, number);
-          } catch (Exception e) {
-            double number = readableMap.getDouble(key);
-            hashMap.put(key, number);
-          }
-
+          hashMap.put(key, readableMap.getDouble(key));
           break;
 
         case String:
