@@ -15,6 +15,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '15.0'
   
   s.dependency "React"
-  s.dependency "ChannelIOSDK", '13.0.3'
+  s.dependency "ChannelIOSDK", '13.0.5'
 
 end

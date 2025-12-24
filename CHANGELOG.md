@@ -1,3 +1,9 @@
+# 0.12.6
+
+## Update
+* support android channel-io 13.1.3
+* support iOS channel-io 13.0.5
+
 # 0.12.5
 
 ## Bug Fixes
