@@ -1,0 +1,199 @@
+name: Bump RN plugin version
+
+on:
+  workflow_dispatch:
+    inputs:
+      new_rn_version:
+        description: 'New RN plugin version (e.g., 0.12.9; must be greater than current)'
+        required: true
+        type: string
+
+concurrency:
+  group: rn-bump
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    env:
+      NEW_RN: ${{ inputs.new_rn_version }}
+    steps:
+      - name: Validate semver format
+        run: |
+          if [[ ! "$NEW_RN" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "::error::invalid semver: $NEW_RN (expected X.Y.Z)"
+            exit 1
+          fi
+
+      - uses: actions/checkout@v4
+        with:
+          ref: master
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Read current versions
+        id: current
+        run: |
+          CURRENT_RN=$(jq -r '.version' package.json)
+          CURRENT_ANDROID=$(grep -oE "plugin-android:[0-9]+\.[0-9]+\.[0-9]+" android/build.gradle | cut -d: -f2)
+          CURRENT_IOS=$(grep -oE "ChannelIOSDK[^']*'[0-9]+\.[0-9]+\.[0-9]+'" RNChannelIO.podspec | grep -oE "[0-9]+\.[0-9]+\.[0-9]+")
+          echo "rn=$CURRENT_RN" >> "$GITHUB_OUTPUT"
+          echo "android=$CURRENT_ANDROID" >> "$GITHUB_OUTPUT"
+          echo "ios=$CURRENT_IOS" >> "$GITHUB_OUTPUT"
+
+      - name: Check new version > current
+        env:
+          CURRENT_RN: ${{ steps.current.outputs.rn }}
+        run: |
+          HIGHEST=$(printf '%s\n' "$CURRENT_RN" "$NEW_RN" | sort -V | tail -1)
+          if [[ "$HIGHEST" != "$NEW_RN" || "$CURRENT_RN" == "$NEW_RN" ]]; then
+            echo "::error::version must be greater than current ($CURRENT_RN)"
+            exit 1
+          fi
+
+      - name: Fetch latest SDK releases
+        id: latest
+        env:
+          GH_TOKEN: ${{ secrets.SDK_READ_TOKEN }}
+        run: |
+          ANDROID_LATEST=$(gh api repos/channel-io/cht-plugin-android/releases/latest --jq '.tag_name') || {
+            echo "::error::SDK fetch failed for Android"; exit 1;
+          }
+          IOS_LATEST=$(gh api repos/channel-io/channel-plugin-ios/releases/latest --jq '.tag_name') || {
+            echo "::error::SDK fetch failed for iOS"; exit 1;
+          }
+          echo "android=$ANDROID_LATEST" >> "$GITHUB_OUTPUT"
+          echo "ios=$IOS_LATEST" >> "$GITHUB_OUTPUT"
+
+      - name: Determine what changed
+        id: changed
+        env:
+          CURRENT_ANDROID: ${{ steps.current.outputs.android }}
+          CURRENT_IOS: ${{ steps.current.outputs.ios }}
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+          CURRENT_RN: ${{ steps.current.outputs.rn }}
+        run: |
+          ANDROID_CHANGED=false
+          IOS_CHANGED=false
+          [[ "$CURRENT_ANDROID" != "$ANDROID_LATEST" ]] && ANDROID_CHANGED=true
+          [[ "$CURRENT_IOS" != "$IOS_LATEST" ]] && IOS_CHANGED=true
+          if [[ "$ANDROID_CHANGED" == "false" && "$IOS_CHANGED" == "false" && "$CURRENT_RN" == "$NEW_RN" ]]; then
+            echo "::error::nothing to bump — both SDKs at current pins and RN version unchanged"
+            exit 1
+          fi
+          echo "android=$ANDROID_CHANGED" >> "$GITHUB_OUTPUT"
+          echo "ios=$IOS_CHANGED" >> "$GITHUB_OUTPUT"
+
+      - name: Check branch does not exist
+        run: |
+          if git ls-remote --exit-code --heads origin "auto-bump/$NEW_RN"; then
+            echo "::error::branch auto-bump/$NEW_RN already exists on origin — delete it or pick a different version"
+            exit 1
+          fi
+
+      - name: Edit files
+        env:
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+        run: |
+          jq --arg v "$NEW_RN" '.version = $v' package.json > package.json.tmp && mv package.json.tmp package.json
+          sed -i -E "s/(plugin-android:)[0-9]+\.[0-9]+\.[0-9]+/\1${ANDROID_LATEST}/" android/build.gradle
+          sed -i -E "s/(s\.dependency[[:space:]]+\"ChannelIOSDK\",[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')/\1${IOS_LATEST}\2/" RNChannelIO.podspec
+          sed -i -E "s/(s\.version[[:space:]]*=[[:space:]]*\")[0-9]+\.[0-9]+\.[0-9]+(\")/\1${NEW_RN}\2/" RNChannelIO.podspec
+
+      - name: Prepend CHANGELOG entry
+        env:
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+          ANDROID_CHANGED: ${{ steps.changed.outputs.android }}
+          IOS_CHANGED: ${{ steps.changed.outputs.ios }}
+        run: |
+          BULLETS=""
+          [[ "$ANDROID_CHANGED" == "true" ]] && BULLETS+="* support android channel-io ${ANDROID_LATEST}"$'\n'
+          [[ "$IOS_CHANGED" == "true" ]] && BULLETS+="* support iOS channel-io ${IOS_LATEST}"$'\n'
+          {
+            printf '# %s\n\n## Update\n%s\n' "$NEW_RN" "$BULLETS"
+            cat CHANGELOG.md
+          } > CHANGELOG.md.new
+          mv CHANGELOG.md.new CHANGELOG.md
+
+      - name: Commit on new branch
+        env:
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+        run: |
+          BRANCH="auto-bump/$NEW_RN"
+          git checkout -b "$BRANCH"
+          git add package.json android/build.gradle RNChannelIO.podspec CHANGELOG.md
+          git commit -m "chore: bump to ${NEW_RN} (android ${ANDROID_LATEST}, iOS ${IOS_LATEST})"
+          git push origin "$BRANCH"
+
+      - name: Build PR body
+        id: body
+        env:
+          CURRENT_RN: ${{ steps.current.outputs.rn }}
+          CURRENT_ANDROID: ${{ steps.current.outputs.android }}
+          CURRENT_IOS: ${{ steps.current.outputs.ios }}
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+          ANDROID_CHANGED: ${{ steps.changed.outputs.android }}
+          IOS_CHANGED: ${{ steps.changed.outputs.ios }}
+        run: |
+          if [[ "$ANDROID_CHANGED" == "true" ]]; then
+            ANDROID_ROW="| Android SDK | ${CURRENT_ANDROID} | **${ANDROID_LATEST}** ([release notes](https://github.com/channel-io/cht-plugin-android/releases/tag/${ANDROID_LATEST})) |"
+          else
+            ANDROID_ROW="| Android SDK | ${CURRENT_ANDROID} | *unchanged* |"
+          fi
+          if [[ "$IOS_CHANGED" == "true" ]]; then
+            IOS_ROW="| iOS SDK | ${CURRENT_IOS} | **${IOS_LATEST}** ([release notes](https://github.com/channel-io/channel-plugin-ios/releases/tag/${IOS_LATEST})) |"
+          else
+            IOS_ROW="| iOS SDK | ${CURRENT_IOS} | *unchanged* |"
+          fi
+          {
+            echo 'body<<PR_BODY_EOF'
+            printf '## Bump Summary\n\n'
+            printf '| Component | From | To |\n|---|---|---|\n'
+            printf '| RN plugin | %s | **%s** |\n' "$CURRENT_RN" "$NEW_RN"
+            echo "$ANDROID_ROW"
+            echo "$IOS_ROW"
+            printf '\n## Review checklist\n\n'
+            printf -- '- [ ] iOS SDK CHANGELOG confirmed — no breaking/deprecation affecting bridge\n'
+            printf -- '- [ ] Android SDK CHANGELOG confirmed — no breaking/deprecation affecting bridge\n'
+            printf -- '- [ ] `index.ts` bridge signatures still valid\n'
+            printf -- '- [ ] Native bridge (`ios/*.m`, `android/src/`) changes unnecessary\n\n'
+            printf 'If bridging changes are needed, commit directly to this branch.\n'
+            printf 'Merging to master triggers `release-tag.yml` → tag + Release → `npm publish`.\n\n'
+            printf -- '---\n🤖 Auto-generated by `bump.yml`\n'
+            echo 'PR_BODY_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Open PR
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_BODY: ${{ steps.body.outputs.body }}
+          ANDROID_CHANGED: ${{ steps.changed.outputs.android }}
+          IOS_CHANGED: ${{ steps.changed.outputs.ios }}
+          ANDROID_LATEST: ${{ steps.latest.outputs.android }}
+          IOS_LATEST: ${{ steps.latest.outputs.ios }}
+        run: |
+          PARTS=""
+          [[ "$ANDROID_CHANGED" == "true" ]] && PARTS+="android ${ANDROID_LATEST}"
+          if [[ "$IOS_CHANGED" == "true" ]]; then
+            [[ -n "$PARTS" ]] && PARTS+=", "
+            PARTS+="iOS ${IOS_LATEST}"
+          fi
+          TITLE="Bump to ${NEW_RN}"
+          [[ -n "$PARTS" ]] && TITLE+=" (${PARTS})"
+          gh pr create \
+            --base master \
+            --head "auto-bump/${NEW_RN}" \
+            --title "$TITLE" \
+            --body "$PR_BODY"
