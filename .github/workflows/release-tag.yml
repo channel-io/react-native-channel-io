@@ -1,0 +1,98 @@
+name: Release tag + back-merge
+
+on:
+  push:
+    branches: [master]
+
+concurrency:
+  group: release-tag
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Configure git identity
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+      - name: Read package.json version
+        id: ver
+        run: echo "version=$(jq -r '.version' package.json)" >> "$GITHUB_OUTPUT"
+
+      - name: Check tag existence
+        id: tag
+        env:
+          V: ${{ steps.ver.outputs.version }}
+        run: |
+          if git rev-parse "refs/tags/$V" >/dev/null 2>&1; then
+            echo "::notice::tag $V already exists — skipping release"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Extract CHANGELOG section
+        if: steps.tag.outputs.exists == 'false'
+        id: changelog
+        env:
+          V: ${{ steps.ver.outputs.version }}
+        run: |
+          SECTION=$(awk -v ver="$V" '
+            /^# [0-9]+\.[0-9]+\.[0-9]+/ {
+              if (printing) exit
+              if ($2 == ver) { printing = 1; next }
+            }
+            printing
+          ' CHANGELOG.md)
+          if [[ -z "$SECTION" ]]; then
+            echo "::warning::CHANGELOG section for $V is empty — Release will have empty body"
+          fi
+          {
+            echo 'body<<CHANGELOG_EOF'
+            echo "$SECTION"
+            echo 'CHANGELOG_EOF'
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create tag + Release
+        if: steps.tag.outputs.exists == 'false'
+        env:
+          GH_TOKEN: ${{ secrets.RELEASE_CREATE_TOKEN }}
+          V: ${{ steps.ver.outputs.version }}
+          BODY: ${{ steps.changelog.outputs.body }}
+        run: |
+          gh release create "$V" \
+            --target "${{ github.sha }}" \
+            --title "$V" \
+            --notes "$BODY"
+
+      - name: Open back-merge PR
+        if: steps.tag.outputs.exists == 'false'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          V: ${{ steps.ver.outputs.version }}
+        run: |
+          BRANCH="backmerge/$V"
+          git checkout -b "$BRANCH"
+          if ! git push origin "$BRANCH"; then
+            echo "::warning::Back-merge branch push failed for $V; develop is now behind master"
+            exit 0
+          fi
+          if ! gh pr create \
+            --base develop \
+            --head "$BRANCH" \
+            --title "chore: back-merge $V to develop" \
+            --body "Auto-generated after releasing $V to master. Merging keeps develop in sync." \
+            --label "auto-merge"; then
+            echo "::warning::Back-merge PR creation failed for $V; develop is now behind master"
+          fi
