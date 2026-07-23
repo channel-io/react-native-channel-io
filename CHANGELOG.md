@@ -3,6 +3,12 @@
 ## Bug Fixes
 * Android - Fixed an issue where clicking a URL in the messenger did nothing.
 
+# 0.13.0
+
+## Update
+* support android channel-io 13.4.0
+* support iOS channel-io 13.2.0
+
 # 0.12.8
 
 ## Update
