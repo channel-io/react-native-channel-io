@@ -27,6 +27,7 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
   private ReactContext reactContext;
 
   private boolean hasPushNotificationClickSubscriber = false;
+  private boolean hasUrlClickSubscriber = false;
 
   public RNChannelIO(ReactApplicationContext reactContext) {
     super(reactContext);
@@ -249,8 +250,15 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
     );
   }
 
+  @ReactMethod
+  public void notifyUrlClickSubscriberExistence(boolean hasUrlClickSubscriber) {
+    this.hasUrlClickSubscriber = hasUrlClickSubscriber;
+  }
+
   @Override
   public boolean onUrlClicked(String url) {
+    if (!hasUrlClickSubscriber) { return false; }
+
     Utils.sendEvent(reactContext, Const.EVENT_ON_PRE_URL_CLICKED, ParseUtils.createSingleMap(Const.KEY_EVENT_URL, url));
     return true;
   }
@@ -287,10 +295,15 @@ public class RNChannelIO extends ReactContextBaseJavaModule implements ChannelPl
 
   @ReactMethod
   public void handleUrlClicked(@Nullable String url) {
-    Activity activity = getCurrentActivity();
+    if (url == null) { return; }
 
-    if (activity != null && url != null) {
+    Activity activity = getCurrentActivity();
+    if (activity != null) {
       IntentUtils.setUrl(activity, url).startActivity();
+    } else if (reactContext != null) {
+      IntentUtils.setUrl(reactContext.getApplicationContext(), url)
+          .setFlag(Intent.FLAG_ACTIVITY_NEW_TASK)
+          .startActivity();
     }
   }
 
