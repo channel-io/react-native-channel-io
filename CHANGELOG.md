@@ -1,3 +1,8 @@
+# 0.13.1
+
+## Bug Fixes
+* Android - Fixed an issue where clicking a URL in the messenger did nothing.
+
 # 0.12.8
 
 ## Update
