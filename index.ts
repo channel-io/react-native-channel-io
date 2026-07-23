@@ -160,6 +160,7 @@ interface ChannelModuleType {
   setAppearance: (appearance: Appearance) => void;
   hidePopup: () => void;
   handleUrlClicked: (url: string) => void;
+  notifyUrlClickSubscriberExistence: (exists: boolean) => void;
   notifyPushNotificationClickSubscriberExistence: (exists: boolean) => void;
   performDefaultPushNotificationClickAction: (userId: string, chatId: string) => void;
 }
@@ -469,10 +470,17 @@ export const ChannelIO: RNChannelIO = {
         }
         cb(data.url, next);
       });
+
+      if (Platform.OS === 'android') {
+        ChannelModule.notifyUrlClickSubscriberExistence(true);
+      }
     } else {
+      if (Platform.OS === 'android') {
+        ChannelModule.notifyUrlClickSubscriberExistence(false);
+      }
       replaceSubscriber(ChannelModule.Event.ON_URL_CLICKED, null);
     }
-  }, 
+  },
 
   /**
    * Event listener that triggers when guest profile is updated
