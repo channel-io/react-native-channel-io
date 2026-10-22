@@ -25,7 +25,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           # nvm rc 참고
-          node-version: 24.10.0
+          node-version: 24.22.1
           registry-url: 'https://registry.npmjs.org'
 
       - name: deploy
