@@ -2,7 +2,7 @@
 
 Thank you for your interest in react-native-channel-plugin.
 
-This SDK is distributed under the [Channel io SDK LICENSE](LICENSE) and is developed by the Channel Talk team. **We do not accept external pull requests**, and pull requests from outside the team will be closed without being merged.
+This SDK is distributed under the [Channel io SDK LICENSE](LICENSE) and is developed by the Channel Team. **We do not accept external pull requests**, and pull requests from outside the team will be closed without being merged.
 
 We still welcome your feedback.
 
