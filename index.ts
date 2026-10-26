@@ -202,8 +202,12 @@ interface RNChannelIO extends Pick<ChannelModuleType,
 
 type Subscriber = EmitterSubscription | null | ((data: { url: string }) => void)
 
+interface ChannelEventEmitterType {
+  addListener: (eventType: string, listener: (data: any) => void) => EmitterSubscription;
+}
+
 const ChannelModule = NativeModules.RNChannelIO as ChannelModuleType;
-const ChannelEventEmitter = Platform.select({
+const ChannelEventEmitter = Platform.select<ChannelEventEmitterType>({
   ios: new NativeEventEmitter(NativeModules.RNChannelIO),
   android: DeviceEventEmitter,
 });
