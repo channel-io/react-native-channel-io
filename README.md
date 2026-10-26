@@ -15,3 +15,7 @@ or
 ### Developer's Guide
 
 Please check our developer site -> [link](https://developers.channel.io). 
+
+### Contributing
+
+We do not accept external pull requests. Please see [CONTRIBUTING.md](CONTRIBUTING.md) for how to report bugs or request features.
