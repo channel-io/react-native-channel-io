@@ -1,3 +1,8 @@
+# 0.13.7
+
+## Bug Fixes
+* Fixed TypeScript type errors in index.ts with React Native 0.87+ strict TypeScript API.
+
 # 0.13.2
 
 ## Update
